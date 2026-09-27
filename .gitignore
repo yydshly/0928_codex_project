@@ -1,0 +1,22 @@
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+.idea/
+.vscode/
+*.log
+
+# Generated caches and build output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.next/
+dist/
+build/
+coverage/
+.DS_Store
+Thumbs.db
