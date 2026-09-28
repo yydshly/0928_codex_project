@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1320" viewBox="0 0 1600 1320" role="img" aria-labelledby="title desc">
+  <title id="title">Storm-Breaker 一图总览：基础能力、技术链路与按需扩展</title>
+  <desc id="desc">原库通过五套主题模板、前端脚本、浏览器 API、PHP 接收脚本和管理面板，演示环境信息、位置、摄像头和麦克风的获取与展示。安全教育可用于授权演示；现场记录、限时位置共享和远程协作是需要按实际需求开发的场景，不是原库现成产品。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1824"/>
+      <stop offset=".53" stop-color="#102731"/>
+      <stop offset="1" stop-color="#091923"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#82ecc8"/>
+      <stop offset="1" stop-color="#50b9bf"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#a0dacb" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+    <style>
+      text{font-family:Inter,"Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+      .white{fill:#ebf7f1}.muted{fill:#9bb7b8}.soft{fill:#789ba0}.mint{fill:#8deacc}.amber{fill:#f3ce91}
+      .eyebrow{font-size:17px;font-weight:800;letter-spacing:3px}.heading{font-size:31px;font-weight:800;letter-spacing:-.5px}
+      .cardTitle{font-size:27px;font-weight:800}.body{font-size:20px}.small{font-size:17px}.tiny{font-size:15px}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1320" fill="url(#bg)"/>
+  <rect width="1600" height="1320" fill="url(#grid)"/>
+  <circle cx="1435" cy="62" r="300" fill="#329e93" opacity=".09"/>
+  <circle cx="48" cy="1170" r="320" fill="#45b5a9" opacity=".07"/>
+
+  <rect x="48" y="42" width="10" height="82" rx="5" fill="url(#accent)"/>
+  <text x="82" y="73" class="eyebrow mint">OPENLAB / PROJECT 001 / 研究总览</text>
+  <text x="80" y="136" font-size="58" font-weight="850" class="white">Storm-Breaker：一张图看懂</text>
+  <rect x="1278" y="69" width="271" height="47" rx="23" fill="#193d3e" stroke="#477c72"/>
+  <text x="1413" y="100" text-anchor="middle" class="small mint">研究提交 4d72351</text>
+
+  <rect x="48" y="170" width="1504" height="77" rx="18" fill="#1b3c40" stroke="#4c8577"/>
+  <text x="78" y="200" class="small mint" font-weight="800">核心定位</text>
+  <text x="78" y="231" class="body white" font-weight="700">主题网页引导访问，浏览器提供基础能力，前端提交结果，PHP 接收，管理面板集中显示。</text>
+
+  <text x="48" y="296" class="eyebrow mint">01  /  内部模块与数据流</text>
+  <line x1="48" y1="309" x2="1552" y2="309" stroke="#4e746e" stroke-opacity=".7"/>
+
+  <g transform="translate(48 330)">
+    <rect width="280" height="223" rx="17" fill="#17313b" stroke="#547e79"/>
+    <rect width="280" height="7" rx="3" fill="url(#accent)"/>
+    <text x="22" y="42" class="eyebrow mint">MODULE 01</text>
+    <text x="22" y="83" class="cardTitle white">访客页面</text>
+    <text x="22" y="121" class="body muted">5 套主题模板</text>
+    <text x="22" y="154" class="small soft">附近的人 / 天气 / 相机</text>
+    <text x="22" y="181" class="small soft">音频 / 滚动页面</text>
+  </g>
+  <g transform="translate(354 330)">
+    <rect width="280" height="223" rx="17" fill="#17313b" stroke="#547e79"/>
+    <rect width="280" height="7" rx="3" fill="url(#accent)"/>
+    <text x="22" y="42" class="eyebrow mint">MODULE 02</text>
+    <text x="22" y="83" class="cardTitle white">前端脚本</text>
+    <text x="22" y="121" class="body muted">loc.js / location.js</text>
+    <text x="22" y="154" class="small soft">Canvas / Recorder.js</text>
+    <text x="22" y="181" class="small soft">读取、转换、提交</text>
+  </g>
+  <g transform="translate(660 330)">
+    <rect width="280" height="223" rx="17" fill="#1b343a" stroke="#d6ac73" stroke-dasharray="7 7"/>
+    <rect width="280" height="7" rx="3" fill="#e8be80"/>
+    <text x="22" y="42" class="eyebrow amber">浏览器边界</text>
+    <text x="22" y="83" class="cardTitle white">权限与设备</text>
+    <text x="22" y="121" class="body muted">定位 / 摄像头 / 麦克风</text>
+    <text x="22" y="154" class="small soft">由浏览器和系统提供</text>
+    <text x="22" y="181" class="small amber">敏感数据需授权</text>
+  </g>
+  <g transform="translate(966 330)">
+    <rect width="280" height="223" rx="17" fill="#17313b" stroke="#547e79"/>
+    <rect width="280" height="7" rx="3" fill="url(#accent)"/>
+    <text x="22" y="42" class="eyebrow mint">MODULE 03</text>
+    <text x="22" y="83" class="cardTitle white">PHP 接收</text>
+    <text x="22" y="121" class="body muted">handler / post / upload</text>
+    <text x="22" y="154" class="small soft">result.txt / images</text>
+    <text x="22" y="181" class="small soft">音频尝试写入 sounds</text>
+  </g>
+  <g transform="translate(1272 330)">
+    <rect width="280" height="223" rx="17" fill="#17313b" stroke="#547e79"/>
+    <rect width="280" height="7" rx="3" fill="url(#accent)"/>
+    <text x="22" y="42" class="eyebrow mint">MODULE 04</text>
+    <text x="22" y="83" class="cardTitle white">管理与启动</text>
+    <text x="22" y="121" class="body muted">panel / receiver / st.py</text>
+    <text x="22" y="154" class="small soft">轮询结果 / 通知 / 登录</text>
+    <text x="22" y="181" class="small soft">复制链接 / 下载日志</text>
+    <text x="22" y="208" class="small soft">本机启动 PHP 服务</text>
+  </g>
+  <g fill="#91d5bf">
+    <path d="M335 435h13m-6-6 6 6-6 6" fill="none" stroke="#91d5bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M641 435h13m-6-6 6 6-6 6" fill="none" stroke="#91d5bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M947 435h13m-6-6 6 6-6 6" fill="none" stroke="#91d5bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1253 435h13m-6-6 6 6-6 6" fill="none" stroke="#91d5bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="48" y="609" class="eyebrow mint">02  /  原库基础能力 → 实现原理 → 可见效果</text>
+  <line x1="48" y1="622" x2="1552" y2="622" stroke="#4e746e" stroke-opacity=".7"/>
+  <g transform="translate(48 641)">
+    <rect width="363" height="205" rx="17" fill="#152b35" stroke="#45646a"/>
+    <text x="22" y="39" class="small mint" font-weight="800">01 / 基础环境</text>
+    <text x="22" y="79" class="cardTitle white">浏览器与设备概况</text>
+    <text x="22" y="116" class="small muted">系统、浏览器、语言、分辨率等</text>
+    <text x="22" y="145" class="small muted">公网 IP 依赖外部查询服务</text>
+    <text x="22" y="183" class="small mint">效果：文字记录</text>
+  </g>
+  <g transform="translate(428 641)">
+    <rect width="363" height="205" rx="17" fill="#152b35" stroke="#45646a"/>
+    <text x="22" y="39" class="small mint" font-weight="800">02 / 位置</text>
+    <text x="22" y="79" class="cardTitle white">浏览器定位</text>
+    <text x="22" y="116" class="small muted">授权后取得经纬度</text>
+    <text x="22" y="145" class="small muted">单向提交给管理端</text>
+    <text x="22" y="183" class="small mint">效果：地图链接</text>
+  </g>
+  <g transform="translate(808 641)">
+    <rect width="363" height="205" rx="17" fill="#152b35" stroke="#45646a"/>
+    <text x="22" y="39" class="small mint" font-weight="800">03 / 摄像头</text>
+    <text x="22" y="79" class="cardTitle white">视频流截帧</text>
+    <text x="22" y="116" class="small muted">授权后用 Canvas 转成 PNG</text>
+    <text x="22" y="145" class="small muted">定时提交图片</text>
+    <text x="22" y="183" class="small mint">效果：图片保存通知</text>
+  </g>
+  <g transform="translate(1188 641)">
+    <rect width="364" height="205" rx="17" fill="#152b35" stroke="#45646a"/>
+    <text x="22" y="39" class="small mint" font-weight="800">04 / 麦克风</text>
+    <text x="22" y="79" class="cardTitle white">音频分段录制</text>
+    <text x="22" y="116" class="small muted">授权后导出并尝试上传 WAV</text>
+    <text x="22" y="145" class="small muted">本机未验证文件真正落盘</text>
+    <text x="22" y="183" class="small amber">效果：仅确认面板通知</text>
+  </g>
+
+  <rect x="48" y="869" width="1504" height="75" rx="15" fill="#3b322a" stroke="#a4845c"/>
+  <text x="73" y="899" class="small amber" font-weight="800">能力边界</text>
+  <text x="73" y="929" class="small white">位置、摄像头、麦克风需浏览器授权；原库没有附近人匹配、双向位置共享或实时视频协作。</text>
+
+  <text x="48" y="1003" class="eyebrow mint">03  /  场景探索 · 对你的价值 · 产品化判断</text>
+  <line x1="48" y1="1016" x2="1552" y2="1016" stroke="#4e746e" stroke-opacity=".7"/>
+  <g transform="translate(48 1035)">
+    <rect width="474" height="197" rx="17" fill="#17313b" stroke="#547e79"/>
+    <text x="22" y="41" class="eyebrow mint">可探索的使用场景</text>
+    <text x="22" y="85" class="cardTitle white">安全教育与功能验证</text>
+    <text x="22" y="126" class="small muted">现场记录 · 限时位置共享</text>
+    <text x="22" y="157" class="small muted">远程协作（后三者需另行开发）</text>
+  </g>
+  <g transform="translate(539 1035)">
+    <rect width="474" height="197" rx="17" fill="#17313b" stroke="#547e79"/>
+    <text x="22" y="41" class="eyebrow mint">对你的意义</text>
+    <text x="22" y="85" class="cardTitle white">获得可验证的能力地图</text>
+    <text x="22" y="126" class="small muted">看懂权限、前后端数据流与结果呈现</text>
+    <text x="22" y="157" class="small muted">区分“请求、通知、真实文件落盘”</text>
+  </g>
+  <g transform="translate(1030 1035)">
+    <rect width="522" height="197" rx="17" fill="#17313b" stroke="#547e79"/>
+    <text x="22" y="41" class="eyebrow mint">产品化判断</text>
+    <text x="22" y="85" class="cardTitle white">按具体任务选择基础能力</text>
+    <text x="22" y="126" class="small muted">补齐同意、时效、撤销、权限和保存验证</text>
+    <text x="22" y="157" class="small muted">成熟产品已覆盖通用功能；价值取决于痛点</text>
+  </g>
+
+  <line x1="48" y1="1267" x2="1552" y2="1267" stroke="#3b615e"/>
+  <text x="48" y="1299" class="tiny soft">本仓库独立绘制 · 根据 Storm-Breaker 提交 4d72351 的源码与本机虚拟设备测试整理</text>
+  <text x="1552" y="1299" text-anchor="end" class="tiny soft">原版代码未嵌入本图 · 音频落盘未证实</text>
+</svg>

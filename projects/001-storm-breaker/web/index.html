@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Storm-Breaker 能力全览：主题网页读取部分环境信息，请求位置、摄像头或麦克风权限，经 PHP 回传并在面板呈现。说明原理、实测效果、研究价值与按需扩展的使用场景。">
+  <title>Storm-Breaker · 原版效果与技术原理</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回页面顶部">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-name">OPEN<span>LAB</span><small>PROJECT 001</small></span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#original">原版效果</a>
+        <a href="#map">一图总览</a>
+        <a href="#lab">本机实验</a>
+        <a href="#mechanism">技术原理</a>
+      </nav>
+      <a class="header-link" href="https://github.com/ultrasecurity/Storm-Breaker" target="_blank" rel="noopener noreferrer">查看原仓库 <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> 原版复现 / 原理拆解 / 本机实验</div>
+          <h1 id="hero-title">访客看到页面，<br>管理端看到<em>什么？</em></h1>
+          <p class="hero-lead">Storm-Breaker 把主题网页、浏览器信息读取、位置与音视频权限请求、PHP 回传和结果面板接成一条链。先看原版实测效果，再看技术原理和可探索的应用方向；交互实验由本仓库独立制作。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#original">先看原版效果 <span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="#map">一图看懂全貌 <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-footnote"><span class="live-dot"></span> 原版实测截图与独立交互实验已分别标注</div>
+        </div>
+
+        <div class="hero-art" aria-label="模拟访问页面和结果面板的研究示意">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="browser-window">
+            <div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span class="address">research-demo.local / preview</span><span class="window-lock">◇</span></div>
+            <div class="window-content">
+              <div class="window-tag">VISITOR VIEW / 示意界面</div>
+              <div class="window-icon"><span class="icon-ring"></span><span class="icon-core"></span></div>
+              <div class="window-title">页面已打开</div>
+              <div class="window-subtitle">接下来会发生什么？</div>
+              <div class="signal-row"><span>浏览器信息</span><b>可读取</b></div>
+              <div class="signal-row"><span>精确位置</span><b class="needs-permission">需授权</b></div>
+              <div class="signal-row"><span>摄像头 / 麦克风</span><b class="needs-permission">需授权</b></div>
+            </div>
+          </div>
+          <div class="floating-card permission-card"><span class="floating-icon">⌑</span><div><small>BROWSER GATE</small><strong>权限由你决定</strong></div><span class="checkmark">✓</span></div>
+          <div class="floating-card data-card"><span class="data-pulse"></span><div><small>LOCAL LAB</small><strong>效果实时可见</strong></div></div>
+          <span class="hero-annotation">自制交互示意 · 非原项目截图</span>
+        </div>
+      </section>
+
+      <section class="original-section section-wrap" id="original" aria-labelledby="original-title">
+        <div class="section-heading"><div><span class="section-kicker">01 / ORIGINAL IN ACTION</span><h2 id="original-title">这才是原版效果<span class="heading-period">.</span></h2></div><p>一个是访问者打开的模板页面，一个是管理者查看结果的面板。它们会同时存在，并不是页面“运行完”才切换到面板。</p></div>
+        <div class="original-compare">
+          <figure class="original-shot"><div class="shot-top"><span class="shot-index">A / 访客页面</span><strong>Near You 模板</strong></div><img src="assets/original-nearyou-local.png" alt="本机运行原版 Near You 模板的截图，黑色背景上显示标题和 Continue 按钮" loading="lazy"><figcaption>原版页面截图。点击 Continue 后才请求定位；允许后页面提交坐标。</figcaption></figure>
+          <figure class="original-shot"><div class="shot-top"><span class="shot-index">B / 管理页面</span><strong>panel.php</strong></div><img src="assets/original-panel-virtual-test.png" alt="本机运行原版管理面板的截图，包含五条模板链接与虚拟测试结果" loading="lazy"><figcaption>原版面板截图。虚拟测试输入产生文本记录、地图链接及媒体通知；音频文件落盘未验证成功。</figcaption></figure>
+        </div>
+        <p class="provenance-note">图片来源：本仓库在本机运行原仓库提交 <code>4d72351</code> 后截图。右图使用示例 IP、模拟坐标和虚拟媒体设备；不是实际个人数据。原仓库未见明确 LICENSE 文件，截图只用于研究说明。</p>
+        <div class="original-launch"><div><strong>在本机打开原版</strong><span>原版 PHP 服务需按子项目 README 在本机启动；公网研究页只展示截图与原理。</span></div><a data-local-path="/templates/nearyou/index.html" target="_blank" rel="noopener noreferrer">访客页面 ↗</a><a data-local-path="/panel.php" target="_blank" rel="noopener noreferrer">管理面板 ↗</a></div>
+        <div class="template-head"><h3>原库提供的五个访客模板</h3><p>原版模板会查询外部 IP 服务；相机和音频模板载入后会尝试请求设备权限。请按自己的意愿决定浏览器授权。</p></div>
+        <div class="template-grid">
+          <a data-local-path="/templates/nearyou/index.html" target="_blank" rel="noopener noreferrer"><span>01 / nearyou</span><strong>附近的人</strong><small>点击 Continue 后请求位置</small><b>定位授权 ↗</b></a>
+          <a data-local-path="/templates/weather/index.html" target="_blank" rel="noopener noreferrer"><span>02 / weather</span><strong>天气页面</strong><small>点击 Change location 后请求位置</small><b>定位授权 ↗</b></a>
+          <a data-local-path="/templates/camera_temp/index.html" target="_blank" rel="noopener noreferrer"><span>03 / camera_temp</span><strong>相机页面</strong><small>载入后尝试打开摄像头</small><b>摄像头授权 ↗</b></a>
+          <a data-local-path="/templates/microphone/index.html" target="_blank" rel="noopener noreferrer"><span>04 / microphone</span><strong>音频页面</strong><small>载入后尝试打开麦克风</small><b>麦克风授权 ↗</b></a>
+          <a data-local-path="/templates/normal_data/index.html" target="_blank" rel="noopener noreferrer"><span>05 / normal_data</span><strong>滚动页面</strong><small>读取浏览器环境信息</small><b>无需媒体授权 ↗</b></a>
+        </div>
+      </section>
+
+      <section class="map-section section-wrap" id="map" aria-labelledby="map-title">
+        <div class="section-heading"><div><span class="section-kicker">02 / ONE PAGE SUMMARY</span><h2 id="map-title">我们的理解，一图看懂<span class="heading-period">.</span></h2></div><p>图中分清原库已实现的链路、浏览器提供的基础能力，以及需要按真实需求另行开发的产品场景。</p></div>
+        <p class="map-thesis"><strong>一句话概括：</strong>它是以主题网页引导访问、调用浏览器信息与授权能力，并把结果回传给管理端的研究工具。位置、摄像头、麦克风是可探索的技术基础，不能直接等同于位置共享、现场记录或远程协作产品。</p>
+        <figure class="understanding-figure">
+          <a href="assets/storm-breaker-understanding.svg" target="_blank" rel="noopener noreferrer" aria-label="在新窗口放大查看 Storm-Breaker 一图总览"><img src="assets/storm-breaker-understanding.svg" alt="Storm-Breaker 一图总览：主题模板、前端脚本、浏览器权限、PHP 接收与管理面板；环境信息、位置、摄像头和麦克风的原理与效果；安全教育和按需扩展的现场记录、限时位置共享、远程协作场景" loading="lazy"></a>
+          <figcaption><span>本仓库独立绘制 · 基于原仓库提交 4d72351 与本机虚拟设备测试</span><a href="assets/storm-breaker-understanding.svg" target="_blank" rel="noopener noreferrer">放大查看整张图 ↗</a></figcaption>
+        </figure>
+      </section>
+
+      <section class="overview" aria-label="研究的四类数据获取能力">
+        <div class="overview-heading"><span>03 / OBSERVE</span><strong>四类数据获取能力 · 下方另列管理与运行功能</strong></div>
+        <div class="overview-grid">
+          <a href="#lab" data-jump="device" class="overview-item"><span class="overview-icon">⌘</span><span><strong>设备概况</strong><small>浏览器与环境信息</small></span><b>无需弹窗</b></a>
+          <a href="#lab" data-jump="location" class="overview-item"><span class="overview-icon">◎</span><span><strong>精确位置</strong><small>经纬度与定位结果</small></span><b>需要授权</b></a>
+          <a href="#lab" data-jump="camera" class="overview-item"><span class="overview-icon">◉</span><span><strong>摄像头</strong><small>画面预览与图像</small></span><b>需要授权</b></a>
+          <a href="#lab" data-jump="microphone" class="overview-item"><span class="overview-icon">◌</span><span><strong>麦克风</strong><small>音频输入与录音</small></span><b>需要授权</b></a>
+        </div>
+      </section>
+
+      <section class="lab-section section-wrap" id="lab" aria-labelledby="lab-title">
+        <div class="section-heading"><div><span class="section-kicker">04 / INDEPENDENT LAB</span><h2 id="lab-title">亲手验证原理<span class="heading-period">.</span></h2></div><p>这是本仓库独立编写的交互实验。选一项能力，模拟允许或拒绝，也可主动用自己的浏览器验证。</p></div>
+        <div class="mode-note"><span class="mode-symbol">i</span><p><strong>研究演示</strong>：样例结果均已标注。真实验证只在当前页面显示，不保存、不上传，也不会调用原项目服务器。</p></div>
+        <div class="module-tabs" role="tablist" aria-label="选择要展示的能力">
+          <button class="module-tab is-active" id="tab-device" type="button" role="tab" aria-selected="true" aria-controls="module-panel" data-module="device"><span class="tab-number">01</span><span class="tab-icon">⌘</span><strong>设备概况</strong><small>无需额外授权</small></button>
+          <button class="module-tab" id="tab-location" type="button" role="tab" aria-selected="false" aria-controls="module-panel" data-module="location" tabindex="-1"><span class="tab-number">02</span><span class="tab-icon">◎</span><strong>精确位置</strong><small>浏览器权限</small></button>
+          <button class="module-tab" id="tab-camera" type="button" role="tab" aria-selected="false" aria-controls="module-panel" data-module="camera" tabindex="-1"><span class="tab-number">03</span><span class="tab-icon">◉</span><strong>摄像头</strong><small>浏览器权限</small></button>
+          <button class="module-tab" id="tab-microphone" type="button" role="tab" aria-selected="false" aria-controls="module-panel" data-module="microphone" tabindex="-1"><span class="tab-number">04</span><span class="tab-icon">◌</span><strong>麦克风</strong><small>浏览器权限</small></button>
+        </div>
+
+        <div class="lab-grid" id="module-panel" role="tabpanel" aria-labelledby="tab-device">
+          <div class="visitor-pane">
+            <div class="pane-topline"><span><i class="status-pip"></i> 访问者视角</span><span>PREVIEW / 001</span></div>
+            <div class="preview-surface">
+              <div class="preview-bg-grid"></div>
+              <div class="preview-content">
+                <span class="preview-label" id="preview-label">DEVICE PROFILE</span>
+                <div class="preview-visual" id="preview-visual" aria-hidden="true">⌘</div>
+                <video id="camera-preview" class="camera-preview" autoplay playsinline muted hidden aria-label="仅在本机显示的摄像头画面"></video>
+                <div id="mic-preview" class="mic-preview" hidden aria-label="仅在本机计算的麦克风音量"><span class="mic-ring"></span><span class="mic-level" id="mic-level"></span><small id="mic-caption">等待麦克风授权</small></div>
+                <h3 id="preview-title">页面已经载入</h3>
+                <p id="preview-description">网页可以读取部分浏览器与设备环境信息。它们不等于设备的完整身份。</p>
+                <span class="preview-badge" id="preview-badge">不触发权限弹窗</span>
+              </div>
+            </div>
+            <div class="visitor-caption"><span class="caption-icon">↳</span><p id="visitor-caption">原项目会将读取到的环境信息提交给接收端。本演示只在你的页面里显示。</p></div>
+          </div>
+
+          <div class="console-pane">
+            <div class="pane-topline"><span><i class="status-pip teal"></i> 研究控制台</span><span>LOCAL ONLY</span></div>
+            <div class="console-body">
+              <div class="console-heading"><div><span class="console-kicker">CURRENT MODULE</span><h3 id="console-title">设备概况</h3></div><span class="permission-pill" id="permission-pill">无需弹窗</span></div>
+              <div class="status-strip"><span>当前状态</span><strong id="status-text" aria-live="polite">等待操作</strong></div>
+              <div class="result-box"><div class="result-header"><span>可见结果</span><span id="result-mode">尚无结果</span></div><pre id="result-text" aria-live="polite">选择下方操作，查看这一步会出现什么。</pre></div>
+              <div class="action-row"><button type="button" class="button button-primary action-button" id="simulate-allow">模拟允许</button><button type="button" class="button button-outline action-button" id="simulate-deny">模拟拒绝</button></div>
+              <div class="local-action"><button type="button" class="local-button" id="local-check">在本机验证 <span aria-hidden="true">↗</span></button><button type="button" class="stop-button" id="stop-check" hidden>停止本机验证</button><small id="local-hint">只读取并显示本机浏览器信息。</small></div>
+              <div class="activity"><div class="activity-heading"><span>事件记录</span><span>SESSION LOG</span></div><ol id="activity-list" aria-live="polite"><li><span class="log-time">00</span><span>选择一个操作开始演示</span></li></ol></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mechanism section-wrap" id="mechanism" aria-labelledby="mechanism-title">
+        <div class="section-heading"><div><span class="section-kicker">05 / UNDER THE HOOD</span><h2 id="mechanism-title">技术原理<span class="heading-period">.</span></h2></div><p>它把网页模板、标准浏览器 API、PHP 文件接收与管理页轮询接在一起。下面的每一步对应所研究版本的实际代码。</p></div>
+        <div class="flow-grid"><article class="flow-card"><span class="flow-index">01 / 访客模板</span><div class="flow-glyph">▤</div><h3>页面载入</h3><p>五套 HTML 模板提供不同外观；共用的 <code>loc.js</code> 用 ClientJS 读取浏览器、系统、分辨率等信息，并向外部服务查询公网 IP。</p></article><div class="flow-arrow" aria-hidden="true">→</div><article class="flow-card"><span class="flow-index">02 / 浏览器权限</span><div class="flow-glyph">◈</div><h3>请求敏感数据</h3><p>定位由 <code>getCurrentPosition()</code> 获取坐标；摄像头与麦克风由 <code>getUserMedia()</code> 获取媒体流。浏览器安全环境和授权决定能否继续。</p></article><div class="flow-arrow" aria-hidden="true">→</div><article class="flow-card"><span class="flow-index">03 / PHP 与面板</span><div class="flow-glyph">▥</div><h3>写入并读取</h3><p>模板把文本提交给 <code>handler.php</code>，图片与音频走各自接收脚本；面板约每 2 秒调用 <code>receiver.php</code>，读取结果并清空暂存文本。</p></article></div>
+        <div class="mechanism-detail">
+          <div class="mechanism-detail-head"><span>CAPABILITY / IMPLEMENTATION</span><strong>效果与源码对应</strong></div>
+          <div class="mechanism-row"><span>环境信息</span><p><code>assets/js/loc.js</code> 读取 ClientJS 和 Navigator 提供的字段；<code>handler.php</code> 写入模板的 <code>result.txt</code>。公网 IP 依赖外部查询，无法保证总能获得。</p><b>不需媒体权限</b></div>
+          <div class="mechanism-row"><span>位置</span><p><code>assets/js/location.js</code> 请求浏览器定位；授权成功后，把坐标拼成地图链接提交。拒绝或定位失败则进入错误处理。</p><b>需位置授权</b></div>
+          <div class="mechanism-row"><span>摄像头</span><p>相机模板取得视频流后，将画面画到隐藏的 Canvas、转换为 PNG 数据，再由 <code>post.php</code> 保存到 <code>images/</code>。</p><b>需摄像头授权</b></div>
+          <div class="mechanism-row"><span>麦克风</span><p>音频模板取得音频流后用 Recorder.js 导出 WAV，并提交给 <code>upload.php</code>。本机测试收到“已保存”通知，但未找到实际音频文件。</p><b>需麦克风授权</b></div>
+        </div>
+        <div class="source-links"><span>对照资料</span><a href="https://github.com/ultrasecurity/Storm-Breaker/tree/4d7235104870ec0224f445fd905c98f22a105426/storm-web" target="_blank" rel="noopener noreferrer">原仓库所研究版本 ↗</a><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition" target="_blank" rel="noopener noreferrer">定位 API ↗</a><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia" target="_blank" rel="noopener noreferrer">媒体 API ↗</a></div>
+        <div class="all-capabilities" id="all-capabilities">
+          <div class="all-capabilities-head"><span class="section-kicker">FULL CAPABILITY MAP</span><h3>原库还提供什么？</h3><p>上面的四项是数据获取能力；这套工具还包含页面分发、结果管理和运行维护。以下是所研究提交的源码盘点。</p></div>
+          <div class="capability-grid">
+            <article><span>页面与链接</span><h4>五套模板 · 自动列出</h4><p>面板读取模板目录、生成访问链接并提供复制按钮。不同页面主题对应环境信息、位置、相机或音频请求。</p></article>
+            <article><span>接收与存储</span><h4>文本暂存 · 媒体文件</h4><p>PHP 接收文本和图片，并尝试保存音频；模板结果先写入各自的 <code>result.txt</code>，图片写入 <code>images/</code>。</p></article>
+            <article><span>管理与通知</span><h4>登录 · 结果面板</h4><p>面板约每两秒取回结果，展示文字、地图链接及图片或音频通知；可打开链接、下载当前文字日志。</p></article>
+            <article><span>面板控制</span><h4>暂停监听 · 清空显示</h4><p>暂停只停止面板轮询；清空只清除浏览器当前显示的日志。这两个操作不会停止访客页面提交数据。</p></article>
+            <article><span>本地运行</span><h4>启动服务 · 版本检查</h4><p>Python 启动或停止本机 PHP 服务并检查依赖、版本；作者说明也可自行部署到 PHP 主机。</p></article>
+            <article><span>已知限制</span><h4>不是附近人社交服务</h4><p>没有附近人匹配、双向位置共享、实时视频直播或任意文件读取；本机音频文件保存尚未验证成功。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="takeaways section-wrap" id="takeaways" aria-labelledby="takeaways-title">
+        <div class="section-heading"><div><span class="section-kicker">06 / PRACTICAL VALUE</span><h2 id="takeaways-title">研究它，有什么用<span class="heading-period">？</span></h2></div><p>位置、摄像头和麦克风是浏览器提供的基础能力。原库验证了请求与回传链路，业务价值仍需结合具体问题判断。</p></div>
+        <div class="takeaway-grid"><article><span>01 / 已有研究用途</span><h3>安全教育</h3><p>在自有设备或授权环境中展示主题网页、权限弹窗和结果面板，帮助识别诱导授权，并理解拒绝权限后的边界。</p></article><article><span>02 / 对你的价值</span><h3>获得可验证的能力地图</h3><p>看清网页、浏览器 API、PHP 和面板之间的数据流；区分“发起请求”“看到通知”“文件落盘”，用源码和实测判断能否支撑新需求。</p></article><article><span>03 / 探索方向</span><h3>从基础能力到具体任务</h3><p>现场记录可组合拍照、音频与位置；限时位置共享需增加双方同意、有效期与撤销；远程协作需增加实时传输、参与者身份和访问控制。这些均不是原库现成产品。</p></article></div>
+        <div class="product-principle"><strong>产品化判断</strong><p>成熟产品已广泛提供定位和音视频功能。扩展时先确定真实任务，再按需选择位置、摄像头或麦克风，补齐告知与同意、最小化采集、保存验证、权限控制及删除机制；没有明确场景时，基础能力本身不足以构成产品价值。</p></div>
+      </section>
+
+      <section class="boundary-section" id="boundaries" aria-labelledby="boundary-title"><div class="section-wrap boundary-inner"><div><span class="section-kicker">07 / THE REAL LIMIT</span><h2 id="boundary-title">权限弹窗，<br>才是关键分界线。</h2><p>「能读取设备概况」不等于「能无声打开摄像头」。摄像头、麦克风和精确定位要经过浏览器的安全检查与用户许可。</p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia" target="_blank" rel="noopener noreferrer">查看浏览器媒体权限文档 ↗</a></div><div class="boundary-table"><div><span>能力</span><span>打开页面后</span><span>额外条件</span></div><div><strong>浏览器与环境信息</strong><span class="yes">部分可见</span><span>受浏览器保护措施限制</span></div><div><strong>精确位置</strong><span class="no">不可直接读取</span><span>安全环境 + 用户授权</span></div><div><strong>摄像头 / 麦克风</strong><span class="no">不可直接打开</span><span>安全环境 + 用户授权</span></div></div></div></section>
+    </main>
+
+    <footer class="site-footer"><div><strong>OPENLAB <span>/ 001</span></strong><p>原版实测记录 + 独立制作的原理实验</p></div><div class="footer-links"><a href="#original">原版效果</a><a href="#map">一图总览</a><a href="#mechanism">工作原理</a><a href="#takeaways">研究价值</a><a href="https://github.com/ultrasecurity/Storm-Breaker" target="_blank" rel="noopener noreferrer">原仓库 ↗</a></div></footer>
+  </div>
+</body>
+</html>
