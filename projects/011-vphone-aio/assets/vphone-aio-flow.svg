@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="300" viewBox="0 0 980 300" role="img" aria-labelledby="title desc">
+  <title id="title">vphone-aio 启动流程</title>
+  <desc id="desc">Apple 芯片 Mac 运行启动脚本，脚本准备预制环境并启动 vphone-cli，最终得到可通过 VNC 和 SSH 访问的虚拟 iPhone。</desc>
+  <rect width="980" height="300" fill="#f6f8fb"/>
+  <text x="40" y="55" fill="#142b45" font-family="sans-serif" font-size="27" font-weight="700">vphone-aio：虚拟 iPhone 的启动包装</text>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="40" y="100" width="195" height="110" rx="14" fill="#deecff" stroke="#8cb5ee"/>
+    <text x="137" y="148" fill="#142b45" font-size="20" font-weight="700">Apple 芯片 Mac</text>
+    <text x="137" y="180" fill="#40566e" font-size="15">运行宿主机</text>
+    <rect x="285" y="100" width="195" height="110" rx="14" fill="#e7f4ed" stroke="#9ed2b4"/>
+    <text x="382" y="148" fill="#143d2a" font-size="20" font-weight="700">vphone-aio.sh</text>
+    <text x="382" y="180" fill="#446153" font-size="15">下载缺失分片、解压</text>
+    <rect x="530" y="100" width="195" height="110" rx="14" fill="#fff0d9" stroke="#e7bd7c"/>
+    <text x="627" y="148" fill="#563b17" font-size="20" font-weight="700">vphone-cli</text>
+    <text x="627" y="180" fill="#6f5735" font-size="15">虚拟化与系统启动</text>
+    <rect x="775" y="100" width="165" height="110" rx="14" fill="#eee8ff" stroke="#b9a9ed"/>
+    <text x="857" y="148" fill="#322450" font-size="20" font-weight="700">虚拟 iPhone</text>
+    <text x="857" y="180" fill="#5c5075" font-size="15">VNC / SSH 访问</text>
+  </g>
+  <g fill="none" stroke="#718399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M245 155h27m-9-9 9 9-9 9"/>
+    <path d="M490 155h27m-9-9 9 9-9 9"/>
+    <path d="M735 155h27m-9-9 9 9-9 9"/>
+  </g>
+  <text x="40" y="263" fill="#5d6f82" font-family="sans-serif" font-size="15">本仓库自绘示意图 · 表示组件关系，不代表已在本机运行</text>
+</svg>

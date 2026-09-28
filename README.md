@@ -17,6 +17,7 @@
 | 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
 | 008 | [AI Money Maker Handbook：AI 创业思路与案例](projects/008-ai-money-maker-handbook/README.md) | 面向 AI 创业的思路整理与案例收集库，涵盖 AI 图文、音频、直播、绘本、视频、工具和知识服务等创业方向，帮助探索需求、产品与商业模式；可持续整理为个人 AI 创业探索入口。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map) | 已发布并验证；产品化持续迭代，经营方向待实践 |
 | 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) | 已发布并验证；上游未本机运行；性能未独立复测 |
+| 011 | [vphone-aio：Mac 虚拟 iPhone 启动整合包](projects/011-vphone-aio/README.md) | 面向 Apple 芯片 Mac 的虚拟 iPhone 整合包；脚本下载缺失分片、解压预制环境、启动上游 vphone-cli，并提供 VNC/SSH 连接。作为脚本化交付案例简要收录。 | [34306/vphone-aio](https://github.com/34306/vphone-aio) | 暂无 | 已完成简要整理；原版未运行；暂不深入 |
 
 ### 001 · Storm-Breaker
 
@@ -202,6 +203,18 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 [原仓库](https://github.com/browser-use/jev-ultrafast) · [子项目概览](projects/009-jev-ultrafast/README.md) · [详细研究](projects/009-jev-ultrafast/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) · [运行与发布说明](projects/009-jev-ultrafast/web/README.md)
 
+### 011 · vphone-aio
+
+[![vphone-aio 启动流程：Mac 上的脚本准备运行环境，并由 vphone-cli 启动虚拟 iPhone](projects/011-vphone-aio/assets/vphone-aio-flow.svg)](projects/011-vphone-aio/assets/vphone-aio-flow.svg)
+
+图由本仓库依据 [vphone-aio 固定研究提交](https://github.com/34306/vphone-aio/tree/1db79dccd95391d6247c41f3cc4eac523567f295) 独立绘制，仅表示组件关系；不是原项目截图或本机运行结果。
+
+**能力与原理：**这是面向 Apple 芯片 Mac 的虚拟 iPhone 整合包。脚本检查依赖、下载缺失的归档分片、合并解压预制环境，调用其中的启动脚本，并将 VNC 与 SSH 转发到本机。真正的虚拟化和固件处理能力主要来自上游 `vphone-cli`；本整合包对应 iOS 26.1 的预装越狱环境。
+
+**场景与价值：**可用于 iOS 调试与研究环境的快速准备。对本仓库主要是“用脚本封装复杂上游能力”的案例，简要收录后按需参考，暂不深入。当前 Windows 环境未运行原版，兼容性和实际效果未验证；若将来需要使用或自动化，优先评估持续更新的上游项目。原仓库未见独立 LICENSE，不能把上游 MIT 许可直接套用于整合包与预制材料。
+
+[原仓库](https://github.com/34306/vphone-aio) · [子项目概览](projects/011-vphone-aio/README.md) · [简要研究记录](projects/011-vphone-aio/research.md) · [上游项目](https://github.com/Lakr233/vphone-cli)
+
 ## 仓库结构
 
 ```text
@@ -219,6 +232,7 @@ projects/
   007-osint-resource-map/ # 两份 OSINT 资源清单的对照、暗网分类说明与自绘地图
   008-ai-money-maker-handbook/ # 思路库研究、资料索引与个人首单探索网页
   009-jev-ultrafast/ # 快速网页智能体研究与场景教学模拟
+  011-vphone-aio/ # Mac 虚拟 iPhone 启动整合包的简要研究
 templates/project/     # 新子项目模板
 docs/                  # 索引与网页发布约定
 ```
