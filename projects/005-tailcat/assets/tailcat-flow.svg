@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="850" viewBox="0 0 1440 850" role="img" aria-labelledby="title desc">
+  <title id="title">Tailcat 加密连接与路径选择</title>
+  <desc id="desc">客户端经带外渠道获得服务端地址，双方先经 DERP 完成发现和 WireGuard 握手，再尝试 UDP 打洞。成功时直连，失败时经 DERP 中继。所有应用流量通过 WireGuard 加密。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081b27"/><stop offset="1" stop-color="#112e36"/></linearGradient>
+    <linearGradient id="node" x2="1" y2="1"><stop stop-color="#143744"/><stop offset="1" stop-color="#163e44"/></linearGradient>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M1 1L10 5.5L1 10" fill="none" stroke="#84e6c7" stroke-width="2"/></marker>
+    <marker id="amber" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M1 1L10 5.5L1 10" fill="none" stroke="#f6c879" stroke-width="2"/></marker>
+    <style>
+      text{font-family:system-ui,'Microsoft YaHei',sans-serif;fill:#ebfaf4}
+      .eyebrow{font-size:18px;letter-spacing:3px;fill:#85e4c9;font-weight:700}
+      .head{font-size:40px;font-weight:750}
+      .sub{font-size:19px;fill:#bedbd5}
+      .box{fill:url(#node);stroke:#4b837d;stroke-width:2}
+      .label{font-size:25px;font-weight:700}
+      .detail{font-size:18px;fill:#c5e3dd}
+      .small{font-size:17px;fill:#b7d2cd}
+      .line{fill:none;stroke:#84e6c7;stroke-width:3;marker-end:url(#arrow)}
+      .warm{fill:none;stroke:#f6c879;stroke-width:3;marker-end:url(#amber)}
+    </style>
+  </defs>
+  <rect width="1440" height="850" rx="28" fill="url(#bg)"/>
+  <text x="72" y="73" class="eyebrow">PROJECT 005 / CONNECTIVITY STUDY</text>
+  <text x="72" y="130" class="head">Tailcat：先连通，再选择更好的路径</text>
+  <text x="72" y="168" class="sub">加密贯穿始终；P2P 是优先尝试的传输路径，不是每次连接的保证。</text>
+
+  <rect x="72" y="229" width="380" height="175" rx="22" class="box"/>
+  <text x="103" y="280" class="label">服务端</text>
+  <text x="103" y="318" class="detail">生成密钥与 tc 地址</text>
+  <text x="103" y="350" class="small">地址经带外渠道分享</text>
+
+  <rect x="990" y="229" width="380" height="175" rx="22" class="box"/>
+  <text x="1021" y="280" class="label">客户端</text>
+  <text x="1021" y="318" class="detail">解析地址并连接</text>
+  <text x="1021" y="350" class="small">获知公钥、PSK 与 DERP 信息</text>
+
+  <path d="M452 275H985" class="line"/>
+  <text x="563" y="258" class="small">① 分享 tc 地址（带外）</text>
+
+  <rect x="552" y="420" width="336" height="124" rx="22" fill="#3b3329" stroke="#ad8655" stroke-width="2"/>
+  <text x="587" y="468" class="label">DERP 中继</text>
+  <text x="587" y="505" class="detail">会合与直连失败回退</text>
+  <path d="M280 404Q390 480 548 479" class="warm"/>
+  <path d="M1160 404Q1050 480 892 479" class="warm"/>
+  <text x="106" y="457" class="small">② 初始连接</text>
+  <text x="1102" y="457" class="small">② 初始连接</text>
+
+  <path d="M456 611H984" class="line"/>
+  <text x="496" y="596" class="label">③ 尝试 STUN / UDP 打洞</text>
+  <text x="385" y="657" class="detail">成功 → 双端直连</text>
+  <text x="808" y="657" class="detail">失败 → 继续经 DERP</text>
+
+  <rect x="72" y="707" width="1298" height="93" rx="20" fill="#163d38" stroke="#63cfae" stroke-width="2"/>
+  <text x="104" y="747" class="label">WireGuard 端到端加密</text>
+  <text x="104" y="780" class="detail">gVisor 用户态网络栈承载端口、SSH、文件与应用连接；直连和中继路径均加密。</text>
+</svg>

@@ -12,6 +12,7 @@
 | 002 | [AIRI 能力与角色交互研究](projects/002-airi/README.md) | 面向虚拟陪伴的 Agent 应用工程；按需组合对话、语音、角色、视觉及执行工具。沉淀接入、表现和执行反馈思路，后期按需参考。 | [moeru-ai/airi](https://github.com/moeru-ai/airi) | [在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) | 已发布；归档参考；暂不深入；原版未运行 |
 | 003 | [Grok Bot Field Notes 工程经验与使用参考](projects/003-grokbot-field-notes/README.md) | Agent 工程案例与模板资料库：以规则、职责与验证反馈组织工作，可转化为验证工具、任务约定和技能；适用开发、研究与业务流程。有经验者新增价值有限，归档后按需参考。 | [unicodef1wn/grokbot-field-notes](https://github.com/unicodef1wn/grokbot-field-notes) | [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/) | 已发布；归档参考；新增方法有限；原平台未运行 |
 | 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) | 已发布；原版未运行；效果未实测 |
+| 005 | [Tailcat 加密 P2P 连接能力研究](projects/005-tailcat/README.md) | 无需 Tailscale 控制平面的双端连接工具：DERP 会合与回退、UDP 打洞优先直连、WireGuard 始终加密；用于端口、SSH、文件等传输。 | [tailscale/tailcat](https://github.com/tailscale/tailcat) | [本地静态展示](projects/005-tailcat/web/index.html)；尚未发布 | 文档与源码研究；原版和性能未实测 |
 
 ### 001 · Storm-Breaker
 
@@ -99,6 +100,28 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 [UI 原仓库](https://github.com/fspecii/ace-step-ui) · [模型原仓库](https://github.com/ace-step/ACE-Step-1.5) · [详细研究](projects/004-ace-step-ui/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) · [运行说明](projects/004-ace-step-ui/web/README.md)
 
+### 005 · Tailcat
+
+[![Tailcat 完整理解总览：能力、DERP 与 WireGuard 原理、使用场景、个人价值和产品方向](projects/005-tailcat/web/assets/tailcat-understanding.svg)](projects/005-tailcat/web/assets/tailcat-understanding.svg)
+
+图：本仓库依据 [Tailcat 固定研究提交](https://github.com/tailscale/tailcat/tree/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8)、[WireGuard 官方说明](https://www.wireguard.com/)和 [Tailscale DERP 文档](https://tailscale.com/docs/reference/derp-servers)独立绘制；不是原项目截图或实测结果。点击可查看原图。
+
+**能力：**让两台设备在复杂网络下按需连通，优先 P2P 直连，失败时经 DERP 中继；Go 库和 CLI 将连接用于端口转发、SSH、文件服务、SOCKS5、出口节点与诊断。
+
+**底层本质：**把 Tailscale 的数据通道组件组合成无需其控制平面的双端应用连接工具。它的核心是连通能力；WireGuard 是端到端加密层，DERP 是公网会合与必要时的中转层，不保证每次都能直连，也不提供完整的设备管理平台。
+
+**实现原理：**服务端生成包含公钥、预共享密钥和 DERP 信息的 `tc...` 地址，客户端通过带外渠道取得。两端经 DERP 会合并建立 WireGuard 隧道；`magicsock` 借助 STUN 尝试 UDP 打洞，成功后转直连，失败则继续中继；gVisor netstack 在进程内承接 TCP/UDP 服务。
+
+**使用场景：**临时访问远端开发端口、维护自己的设备、跨网络收发文件，或在 Go 应用中嵌入双端传输。实际路径、速度和授权效果仍需在目标网络验证。
+
+**对我们的价值：**它是个人设备、开发工具和分布式 Agent 跨网络连接层的研究候选，也提供清楚的“发现—打洞—中继—加密—服务”分层案例。采用前先用两台设备验证连通率、直连率、延迟、吞吐与权限边界；当前仅完成资料和源码研究。
+
+**可扩展产品方向：**个人远程工作台、一次性文件投递、分布式 Agent 安全通道和连接诊断面板，均为本仓库的设想，需补身份、权限、撤销和运维能力。
+
+默认 `tc...` 地址包含预共享密钥，应按访问凭证保护；对公开地址或高权限服务必须另做客户端认证。上游 Tailcat 包装层仍被标为早期实验工具。原项目采用 BSD-3-Clause；本仓库图片与网页为独立制作。
+
+[原仓库](https://github.com/tailscale/tailcat) · [详细研究](projects/005-tailcat/research.md) · [本地静态展示](projects/005-tailcat/web/index.html) · [运行与发布说明](projects/005-tailcat/web/README.md)
+
 ## 仓库结构
 
 ```text
@@ -111,6 +134,7 @@ projects/
   002-airi/            # AIRI 能力地图、角色表现与交互研究
   003-grokbot-field-notes/ # Thursday Arena 产品与直播问题、Agent 工作方法研究
   004-ace-step-ui/     # ACE-Step UI 音乐创作能力展示与研究
+  005-tailcat/         # 加密 P2P 连接、NAT 穿透与中继回退研究
 templates/project/     # 新子项目模板
 docs/                  # 索引与网页发布约定
 ```

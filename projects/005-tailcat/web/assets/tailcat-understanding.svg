@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1440" viewBox="0 0 1600 1440" role="img" aria-labelledby="title desc">
+  <title id="title">Tailcat 完整理解总览：能力、原理、场景、个人价值与产品方向</title>
+  <desc id="desc">Tailcat 优先尝试点对点直连，失败时通过公网 DERP 中继；两种路径均由 WireGuard 端到端加密。它提供端口、SSH、文件与 Go 库能力，适合临时访问和跨设备研究；个人工作台、文件投递、Agent 连接层是后续产品设想。</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#071b25"/><stop offset="1" stop-color="#143b3b"/></linearGradient>
+    <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#153a42"/><stop offset="1" stop-color="#102e35"/></linearGradient>
+    <marker id="mintArrow" markerWidth="13" markerHeight="13" refX="11" refY="6.5" orient="auto"><path d="M1 1L12 6.5L1 12" fill="none" stroke="#90eac5" stroke-width="2.2"/></marker>
+    <marker id="goldArrow" markerWidth="13" markerHeight="13" refX="11" refY="6.5" orient="auto"><path d="M1 1L12 6.5L1 12" fill="none" stroke="#f0ca87" stroke-width="2.2"/></marker>
+    <style>
+      text{font-family:system-ui,'Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#edf9f3}
+      .eyebrow{font-size:20px;letter-spacing:4px;fill:#98e9cb;font-weight:800}
+      .title{font-size:61px;font-weight:800;letter-spacing:-2px}
+      .subtitle{font-size:24px;fill:#c3ded5}
+      .section{font-size:26px;font-weight:800;fill:#a7efd2}
+      .card{fill:url(#panel);stroke:#437b73;stroke-width:2}
+      .cardtitle{font-size:29px;font-weight:800}
+      .body{font-size:21px;fill:#d0e5dd}
+      .small{font-size:19px;fill:#bbd7ce}
+      .label{font-size:18px;letter-spacing:2px;fill:#8de5c0;font-weight:800}
+      .gold{fill:#f4d39a}
+      .goldstroke{stroke:#bd9c67}
+    </style>
+  </defs>
+  <rect width="1600" height="1440" rx="28" fill="url(#background)"/>
+  <text x="70" y="72" class="eyebrow">OPENLAB 005 / TAILCAT RESEARCH</text>
+  <text x="70" y="143" class="title">Tailcat：先让两端连上，再安全传输</text>
+  <text x="70" y="191" class="subtitle">本质是按需连接与 NAT 穿透；WireGuard 负责加密；DERP 负责会合与必要时的公网中转。</text>
+
+  <rect x="70" y="228" width="466" height="159" rx="22" class="card"/>
+  <text x="96" y="262" class="label">核心能力 01</text>
+  <text x="96" y="308" class="cardtitle">优先 P2P，失败回退</text>
+  <text x="96" y="345" class="body">UDP 打洞成功就直连；失败仍可</text>
+  <text x="96" y="374" class="body">经 DERP 传输。</text>
+
+  <rect x="567" y="228" width="466" height="159" rx="22" class="card"/>
+  <text x="593" y="262" class="label">核心能力 02</text>
+  <text x="593" y="308" class="cardtitle">两种路径都加密</text>
+  <text x="593" y="345" class="body">WireGuard 在两端加解密；中继</text>
+  <text x="593" y="374" class="body">只转发加密后的数据包。</text>
+
+  <rect x="1064" y="228" width="466" height="159" rx="22" class="card"/>
+  <text x="1090" y="262" class="label">核心能力 03</text>
+  <text x="1090" y="308" class="cardtitle">连接可以直接使用</text>
+  <text x="1090" y="345" class="body">端口转发、SSH、文件收发、</text>
+  <text x="1090" y="374" class="body">SOCKS5 与 Go 库接口。</text>
+
+  <rect x="70" y="419" width="1460" height="506" rx="25" fill="#0d2932" stroke="#447c72" stroke-width="2"/>
+  <text x="100" y="466" class="section">底层原理：公网中转帮助两端建立连接</text>
+  <text x="100" y="500" class="small">① 服务端生成 tc 地址，客户端通过其他渠道获取。地址包含公钥、预共享密钥与 DERP 信息。</text>
+
+  <rect x="100" y="541" width="330" height="119" rx="18" class="card"/>
+  <text x="128" y="591" class="cardtitle">设备 A</text>
+  <text x="128" y="626" class="body">服务端 · 无需开放入站端口</text>
+  <rect x="635" y="530" width="330" height="141" rx="18" fill="#45392b" stroke="#c4a371" stroke-width="2"/>
+  <text x="665" y="573" class="label gold">公网可达的中继节点</text>
+  <text x="665" y="617" class="cardtitle">DERP</text>
+  <text x="665" y="649" class="small">会合；直连失败时转发</text>
+  <rect x="1170" y="541" width="330" height="119" rx="18" class="card"/>
+  <text x="1198" y="591" class="cardtitle">设备 B</text>
+  <text x="1198" y="626" class="body">客户端 · 主动发起连接</text>
+  <path d="M433 594H627" fill="none" stroke="#f0ca87" stroke-width="3" marker-end="url(#goldArrow)"/>
+  <path d="M1168 594H975" fill="none" stroke="#f0ca87" stroke-width="3" marker-end="url(#goldArrow)"/>
+  <text x="455" y="575" class="small gold">主动连接</text>
+  <text x="1056" y="575" class="small gold">主动连接</text>
+
+  <path d="M260 676V752H1340V676" fill="none" stroke="#90eac5" stroke-width="3.5" marker-end="url(#mintArrow)"/>
+  <rect x="493" y="708" width="614" height="65" rx="16" fill="#13453f" stroke="#75d9b1" stroke-width="2"/>
+  <text x="520" y="750" class="body">② STUN + magicsock 尝试 UDP 打洞 → 成功后直连</text>
+  <text x="100" y="820" class="body">③ 打洞失败：数据继续经过 DERP；公共中继可能更慢且有限速。</text>
+  <rect x="100" y="849" width="1400" height="53" rx="14" fill="#17483f" stroke="#67cda9" stroke-width="1.5"/>
+  <text x="129" y="884" class="body">全程安全层：WireGuard 加密 IP 数据包；gVisor netstack 在进程内承接 TCP/UDP 服务。</text>
+
+  <rect x="70" y="960" width="466" height="365" rx="22" class="card"/>
+  <text x="96" y="995" class="label">03 / 已有使用场景</text>
+  <text x="96" y="1041" class="cardtitle">实际能用在哪里？</text>
+  <text x="96" y="1086" class="body">• 临时访问开发机端口与 SSH</text>
+  <text x="96" y="1128" class="body">• 两台设备之间收发文件</text>
+  <text x="96" y="1170" class="body">• 嵌入 Go 程序的 TCP/UDP</text>
+  <text x="96" y="1212" class="body">• 诊断直连或中继路径</text>
+  <text x="96" y="1274" class="small">仍需按实际网络与授权配置验证。</text>
+
+  <rect x="567" y="960" width="466" height="365" rx="22" class="card"/>
+  <text x="593" y="995" class="label">04 / 对我的意义</text>
+  <text x="593" y="1041" class="cardtitle">值得沉淀什么？</text>
+  <text x="593" y="1086" class="body">• 学会拆分发现、打洞、</text>
+  <text x="620" y="1117" class="body">中继、加密与应用服务</text>
+  <text x="593" y="1163" class="body">• 作为个人设备、开发工具、</text>
+  <text x="620" y="1194" class="body">Agent 跨网络连接的候选</text>
+  <text x="593" y="1240" class="body">• 先实测直连率与性能，</text>
+  <text x="620" y="1271" class="body">再决定是否采用</text>
+
+  <rect x="1064" y="960" width="466" height="365" rx="22" fill="#2a3132" stroke="#ae966e" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="1090" y="995" class="label gold">05 / 我们的产品方向 · 未实现</text>
+  <text x="1090" y="1041" class="cardtitle">可以扩展成什么？</text>
+  <text x="1090" y="1086" class="body">• 个人远程工作台</text>
+  <text x="1090" y="1128" class="body">• 一次性加密文件投递</text>
+  <text x="1090" y="1170" class="body">• 分布式 Agent 安全通道</text>
+  <text x="1090" y="1212" class="body">• 连接质量与中继诊断面板</text>
+  <text x="1090" y="1274" class="small">需补身份、权限、撤销与运维。</text>
+
+  <path d="M70 1361H1530" stroke="#3d6d68" stroke-width="2"/>
+  <text x="70" y="1395" class="small">本仓库依据 Tailcat 固定提交 a59f801 独立绘制 · 技术示意，非官方截图或本仓库实测结果</text>
+</svg>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tailcat 能力、连接原理与研究价值：理解加密 P2P 直连和 DERP 中继的关系。">
+  <title>Tailcat · 连接、加密与路径选择</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:#eaf9f3;background:#071b25;scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 70% 3%,#165047 0,transparent 27rem),#071b25}
+    a{color:#9af0d0}
+    a:hover{text-decoration-thickness:2px}
+    button{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    .top{border-bottom:1px solid #24504f}
+    .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:68px}
+    .brand{font-size:.83rem;letter-spacing:.18em;font-weight:800;color:#a3efcf;text-decoration:none}
+    nav{display:flex;flex-wrap:wrap;gap:20px;font-size:.9rem}
+    nav a{color:#bddbd3;text-decoration:none}
+    nav a:hover{color:white}
+    .hero{padding:80px 0 72px;display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+    .kicker,.overline{font-size:.77rem;letter-spacing:.19em;color:#8fe4c7;font-weight:800}
+    h1{font-size:clamp(2.8rem,6vw,5.2rem);line-height:1.08;letter-spacing:-.055em;margin:18px 0 24px}
+    .lead{font-size:1.2rem;line-height:1.85;color:#c5e2d9;max-width:640px}
+    .hero strong,.accent{color:#9af0d0}
+    .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .pill{border:1px solid #4d8178;border-radius:100px;padding:8px 13px;color:#cde9de;font-size:.84rem}
+    .hero-card{border:1px solid #44877b;background:linear-gradient(150deg,#173d42,#102f36);padding:30px;border-radius:25px;box-shadow:0 28px 70px #0005}
+    .hero-card .quote{font-size:1.65rem;line-height:1.45;font-weight:750;margin:18px 0 24px}
+    .hero-card p{line-height:1.75;color:#b6d5cb;margin:0}
+    .answer{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+    .answer div{border:1px solid #44756e;border-radius:15px;padding:16px;background:#0e3035}
+    .answer b{display:block;color:#a2efcc;margin-bottom:7px}
+    .answer span{font-size:.9rem;line-height:1.6;color:#c8dfd7}
+    .overview-figure{margin:0;border:1px solid #3b726b;border-radius:22px;overflow-x:auto;background:#0e2a31}
+    .overview-figure img{display:block;width:100%;height:auto}
+    .overview-figure figcaption{padding:15px 20px;color:#b8d7ce;font-size:.9rem;line-height:1.7;border-top:1px solid #345c58}
+    section{padding:64px 0;border-top:1px solid #214446}
+    h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.04em;margin:14px 0 16px}
+    .intro{color:#bdd9d1;line-height:1.8;max-width:780px;margin:0 0 30px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{border:1px solid #315a59;border-radius:18px;padding:23px;background:#102d35}
+    .card .num{color:#87dfbd;font-size:.8rem;letter-spacing:.14em;font-weight:800}
+    .card h3{font-size:1.22rem;margin:13px 0 10px}
+    .card p{color:#b8d4cc;line-height:1.7;margin:0}
+    .diagram{border:1px solid #386e67;background:#0c2831;border-radius:23px;padding:28px}
+    .steps{display:flex;align-items:stretch;gap:10px}
+    .step{flex:1;border:1px solid #41726a;background:#163940;border-radius:16px;padding:19px;min-height:133px}
+    .step b{display:block;color:#a4efd0;margin-bottom:10px}
+    .step span{color:#c5dfd6;line-height:1.6}
+    .chev{align-self:center;color:#8fe4c7;font-size:1.6rem}
+    .chooser{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0 18px}
+    .chooser strong{margin-right:8px}
+    .chooser button{cursor:pointer;border-radius:100px;padding:10px 16px;border:1px solid #578579;background:#143a3d;color:#dbf2e7}
+    .chooser button[aria-pressed=true]{background:#92e7c2;color:#0b2c31;border-color:#92e7c2;font-weight:750}
+    .route{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:13px;align-items:center}
+    .peer{border:1px solid #477c74;background:#183d40;border-radius:15px;padding:19px;text-align:center;font-weight:750}
+    .path{border:2px dashed #8de4c1;border-radius:15px;min-height:78px;display:grid;place-items:center;text-align:center;padding:12px;color:#a5efcc;font-weight:800;transition:.2s}
+    .path.relay{border-color:#ecc57e;color:#f3d39d}
+    .path small{display:block;color:#c5ded3;font-weight:400;line-height:1.5;margin-top:5px}
+    .explain{margin:20px 0 0;color:#c7e2d7;line-height:1.75}
+    .guard{margin-top:17px;border-left:3px solid #8be3c0;background:#153b38;padding:15px 19px;color:#def2e7;line-height:1.65}
+    .matrix{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .matrix .card{min-height:185px}
+    .layer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .layer{border:1px solid #3a6760;border-radius:14px;background:#14353b;padding:16px;min-height:124px}
+    .layer b{display:block;color:#a4efd0;margin-bottom:7px}
+    .layer span{color:#bfdad1;line-height:1.6;font-size:.91rem}
+    .glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
+    .glossary article{border:1px solid #427067;border-radius:16px;padding:22px;background:#11343b}
+    .glossary h3{margin:0 0 10px;color:#a7efd2}
+    .glossary p{margin:0;color:#c8e0d7;line-height:1.75}
+    .scenario-head{color:#e4f8ea;margin:0 0 14px;font-size:1.16rem}
+    .scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:24px}
+    .scenario{border:1px solid #375f5b;background:#102d35;border-radius:16px;padding:21px}
+    .scenario b{display:block;color:#a6edcb;margin-bottom:9px}
+    .scenario p{margin:0;color:#c0dbd1;line-height:1.7}
+    .scenario.future{border-style:dashed;border-color:#807a5b;background:#272d2e}
+    .scenario.future b{color:#f0d7a3}
+    .product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    .list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .list article{border:1px solid #315a59;border-radius:18px;padding:22px;background:#102d35}
+    .list h3{margin:0 0 10px;color:#a6edcb}
+    .list p{margin:0;color:#bfd8d0;line-height:1.7}
+    .callout{border:1px solid #a4804b;background:#342d27;border-radius:18px;padding:22px 25px;color:#f4dfbd;line-height:1.75}
+    .callout strong{color:#ffdaa1}
+    .sources{font-size:.9rem;line-height:1.9;color:#b8d4cb}
+    footer{padding:35px 0 55px;border-top:1px solid #214446;color:#94bcb2;font-size:.85rem;line-height:1.7}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding:60px 0}.cards{grid-template-columns:1fr 1fr}.steps{flex-direction:column}.chev{transform:rotate(90deg)}.route{grid-template-columns:1fr}.matrix,.list,.glossary,.product-grid{grid-template-columns:1fr}.layer-grid{grid-template-columns:1fr 1fr}.scenario-grid{grid-template-columns:1fr}}
+    @media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}.top .wrap{align-items:flex-start;flex-direction:column;padding:17px 0}nav{gap:12px}.cards,.answer,.layer-grid{grid-template-columns:1fr}.diagram{padding:18px}.hero-card{padding:24px}section{padding:48px 0}.overview-figure img{width:1120px;max-width:none}}
+    @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.path{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="#top">OPENLAB / 005</a><nav aria-label="页面导航"><a href="#overview">总览</a><a href="#capabilities">能力</a><a href="#mechanism">原理</a><a href="#scenarios">场景</a><a href="#products">产品</a><a href="#value">意义</a><a href="#boundaries">边界</a></nav></div></header>
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="kicker">TAILCAT / 研究展示</div>
+        <h1>让两台设备<br><span class="accent">安全地连上。</span></h1>
+        <p class="lead">Tailcat 的核心是<span class="accent">跨网络连通</span>：优先建立 P2P 直连，失败时使用 DERP 中继。<strong>WireGuard 加密贯穿两条路径</strong>，支撑文件、端口和 SSH 等实际传输。</p>
+        <div class="pillrow"><span class="pill">无需 Tailscale 账号</span><span class="pill">无需改系统路由</span><span class="pill">优先直连 · 中继回退</span></div>
+      </div>
+      <aside class="hero-card" aria-label="核心判断"><div class="overline">核心判断</div><div class="quote">它解决“怎么连上”，再保证“连上之后安全传”。</div><p>如果要给它一个技术标签：加密的点对点连接与端口传输工具。它并不保证每次都能直连，也不是完整的设备管理平台。</p><div class="answer"><div><b>隧道是能力</b><span>让两个网络端点之间可以传送应用流量。</span></div><div><b>加密是保障</b><span>WireGuard 保护直连和中继路径上的数据。</span></div></div></aside>
+    </div>
+
+    <section id="overview"><div class="wrap"><div class="overline">THE WHOLE PICTURE</div><h2>一张图看懂 Tailcat</h2><p class="intro">从“能不能连上”到“直连还是中继”，再到“适合做什么”：下面的图将已实现能力与我们的产品设想放在同一个视图里。</p><figure class="overview-figure"><a href="./assets/tailcat-understanding.svg" target="_blank" rel="noopener noreferrer" aria-label="在新页面查看 Tailcat 理解总览原图"><img src="./assets/tailcat-understanding.svg" width="1600" height="1440" alt="Tailcat 完整理解总览：核心能力、DERP 公网会合与中继、WireGuard 加密、实际场景、个人价值和产品方向"></a><figcaption>本仓库依据上游固定提交独立绘制，非官方图片或实际网络测试。手机上可左右滑动图片；点击可查看原图。</figcaption></figure></div></section>
+
+    <section id="capabilities"><div class="wrap"><div class="overline">01 / CAPABILITIES</div><h2>从连接到底层服务</h2><p class="intro">这些是上游已有的能力，分别通过 CLI 模式或 Go 库使用；开放哪些服务由运行者决定。</p><div class="cards">
+      <article class="card"><div class="num">CONNECT</div><h3>穿透与回退</h3><p>经 DERP 会合，用 STUN 与 UDP 打洞尝试直连。直连不可用时仍可经中继通信。</p></article>
+      <article class="card"><div class="num">PROTECT</div><h3>WireGuard 加密</h3><p>两端建立加密隧道。服务端地址默认带预共享密钥，分享地址需要像分享凭证一样谨慎。</p></article>
+      <article class="card"><div class="num">USE</div><h3>多种传输方式</h3><p>标准输入输出、端口转发、SOCKS5、SSH、SFTP 文件服务和出口节点。</p></article>
+      <article class="card"><div class="num">INTEGRATE</div><h3>Go 库接口</h3><p>可在应用中建立或接收 TCP/UDP 连接，按需编排自己的服务。</p></article>
+      <article class="card"><div class="num">OBSERVE</div><h3>连接诊断</h3><p>提供 ping 与性能测试，区分直连和 DERP 路径；本研究尚未做实际测量。</p></article>
+      <article class="card"><div class="num">BROWSER</div><h3>实验性网页</h3><p>上游 WASM 演示可收发文本和文件；浏览器流量目前仅经 DERP。</p></article>
+    </div></div></section>
+
+    <section id="mechanism"><div class="wrap"><div class="overline">02 / HOW IT WORKS</div><h2>一条连接，两个可能路径</h2><p class="intro">Tailcat 不使用 Tailscale 控制平面；服务端地址需要通过聊天等带外渠道交给客户端。两端主动连向公网可达的 DERP 会合，再尝试直接 UDP 连接。</p>
+      <div class="diagram">
+        <div class="steps" aria-label="连接步骤"><div class="step"><b>① 交换地址</b><span>服务端生成含公钥、预共享密钥和 DERP 信息的 tc 地址；客户端通过带外渠道获得。</span></div><div class="chev" aria-hidden="true">›</div><div class="step"><b>② 建立隧道</b><span>双方先经 DERP 发现彼此，配置对等节点并完成 WireGuard 握手。</span></div><div class="chev" aria-hidden="true">›</div><div class="step"><b>③ 优化路径</b><span>magicsock 尝试 UDP 打洞；成功直连，失败继续使用 DERP。</span></div></div>
+        <div class="chooser"><strong>查看路径：</strong><button type="button" id="direct" aria-pressed="true">打洞成功</button><button type="button" id="relay" aria-pressed="false">打洞失败</button></div>
+        <div class="route" aria-live="polite"><div class="peer">设备 A · 服务端</div><div class="path" id="path">直连 UDP<small>数据在两端之间传输</small></div><div class="peer">设备 B · 客户端</div></div>
+        <p class="explain" id="path-explain">两端通过 STUN 与路径发现获得候选端点，UDP 打洞成功后，数据从 DERP 路径升级为直接传输。</p>
+        <div class="guard">🔒 两种路径都使用 WireGuard 端到端加密。DERP 路径可用不等于已建立 P2P 直连。</div>
+      </div>
+      <div class="layer-grid" aria-label="关键技术分工">
+        <div class="layer"><b>地址与密钥</b><span>tc 地址携带服务端公钥、预共享密钥和 DERP 信息；需要由双方另行交换。</span></div>
+        <div class="layer"><b>DERP</b><span>公网可达的会合与中转服务；直连失败时转发加密后的流量。</span></div>
+        <div class="layer"><b>magicsock</b><span>结合 STUN 和路径发现寻找可用的 UDP 直连路径。</span></div>
+        <div class="layer"><b>netstack</b><span>在进程内处理 TCP/IP，将隧道接入端口、SSH 和文件服务。</span></div>
+      </div>
+      <div class="glossary">
+        <article><h3>DERP 到底是什么？</h3><p>它是一台双方都能从内网主动连到的公网服务器。最初帮助两端取得联系；打洞失败时继续替双方转发数据。它不需要解密 WireGuard 的应用流量。Tailcat 可使用公共 DERP，也允许自建。</p></article>
+        <article><h3>WireGuard 到底是什么？</h3><p>它是基于密钥的加密隧道协议：两端认证彼此，把 IP 数据包加密后经 UDP 传输。它负责“传得安全”；寻找直连路径与中继回退由 Tailcat 的其他网络组件处理。</p></article>
+      </div>
+    </div></section>
+
+    <section id="scenarios"><div class="wrap"><div class="overline">03 / USE &amp; EXTEND</div><h2>哪些已经能用，哪些值得扩展</h2><p class="intro">下面分开列出上游已有的使用方式和我们的后续设想。实际使用仍需按服务配置权限，并在目标网络里验证路径。</p>
+      <h3 class="scenario-head">上游已有的使用方式</h3>
+      <div class="scenario-grid">
+        <article class="scenario"><b>临时访问开发服务</b><p>将远端网页、数据库等指定端口转发到本机访问，不必为服务打开公网入站端口。</p></article>
+        <article class="scenario"><b>设备维护与 SSH</b><p>在明确授权的前提下连接自己的远端设备。高权限服务应叠加客户端密钥验证。</p></article>
+        <article class="scenario"><b>文件与目录传输</b><p>按只读、可写或接收箱模式收发文件；共享范围由服务端设定。</p></article>
+      </div>
+      <h3 id="products" class="scenario-head">可扩展产品方向 · 以下均未实现</h3>
+      <div class="product-grid">
+        <article class="scenario future"><b>个人远程工作台</b><p>把个人电脑、开发服务和调试端口汇成按需访问入口；还需设备清单、细粒度权限、密钥轮换与撤销。</p></article>
+        <article class="scenario future"><b>一次性加密文件投递</b><p>基于文件收发能力提供限时接收箱；还需配额、过期清理、文件安全检查和收件人授权。</p></article>
+        <article class="scenario future"><b>分布式 Agent 安全通道</b><p>用 Go 库连接不同网络里的 Agent 或设备；还需任务协议、节点身份、权限、审计与故障恢复。</p></article>
+        <article class="scenario future"><b>连接质量与中继诊断面板</b><p>可视化直连率、DERP 回退、时延和带宽，帮助判断网络瓶颈；需要采集、历史记录与自建中继运维。</p></article>
+      </div>
+    </div></section>
+
+    <section id="value"><div class="wrap"><div class="overline">04 / WHY IT MATTERS</div><h2>对我的意义是什么</h2><p class="intro">最值得沉淀的是它把连接问题拆成可观察、可替换的层次；未来是否采用，仍要靠真实网络实验判断。</p><div class="list">
+      <article><h3>值得沉淀的技术</h3><p>地址交换、身份授权、会合中继、路径优化、加密和应用服务彼此分层。这套结构可供未来的跨设备工具参考。</p></article>
+      <article><h3>近期判断</h3><p>先把它当作个人设备间按需连接的候选方案；暂不把它等同于多人设备管理或完整权限平台。</p></article>
+      <article><h3>采用前要补的部分</h3><p>若接入分布式 Agent，还需设计设备身份、密钥轮换、授权撤销、任务协议、审计与故障恢复。</p></article>
+      <article><h3>下一步验证</h3><p>从两台设备、一个授权端口和临时密钥开始，分别记录连接成功率、直连率、路径、时延与吞吐。当前没有这些实测数据。</p></article>
+    </div></div></section>
+
+    <section id="boundaries"><div class="wrap"><div class="overline">05 / BOUNDARIES</div><h2>适用边界</h2><div class="callout"><strong>地址是凭证。</strong> 默认地址包含预共享密钥；一旦发布到公开 DNS 或网页，应使用客户端允许列表或服务层公钥认证。上游明确将包装层描述为早期实验工具，提醒谨慎对不互信方开放 Shell、可写目录和出口节点。</div><p class="sources">本页依据 2026-09-28 查阅的固定提交 <a href="https://github.com/tailscale/tailcat/tree/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8">a59f801</a>：<a href="https://github.com/tailscale/tailcat/blob/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8/README.md#how-it-works">连接原理</a>、<a href="https://github.com/tailscale/tailcat/blob/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8/README.md#usage">功能说明</a>、<a href="https://github.com/tailscale/tailcat/blob/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8/SECURITY.md">安全边界</a>。更详细的证据与未验证项见仓库子项目 research.md。上游许可证：<a href="https://github.com/tailscale/tailcat/blob/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8/LICENSE">BSD-3-Clause</a>。</p></div></section>
+  </main>
+  <footer><div class="wrap">OPENLAB 005 · 本仓库独立制作的概念展示，非 Tailcat 官方页面、运行截图或联网测试。</div></footer>
+  <script>
+    const direct = document.getElementById('direct');
+    const relay = document.getElementById('relay');
+    const path = document.getElementById('path');
+    const explanation = document.getElementById('path-explain');
+    function showRoute(mode) {
+      const isDirect = mode === 'direct';
+      direct.setAttribute('aria-pressed', String(isDirect));
+      relay.setAttribute('aria-pressed', String(!isDirect));
+      path.classList.toggle('relay', !isDirect);
+      path.innerHTML = isDirect
+        ? '直连 UDP<small>数据在两端之间传输</small>'
+        : 'DERP 中继<small>数据经中继转发</small>';
+      explanation.textContent = isDirect
+        ? '两端通过 STUN 与路径发现获得候选端点，UDP 打洞成功后，数据从 DERP 路径升级为直接传输。'
+        : '网络限制使 UDP 打洞失败时，连接继续经 DERP 中继工作；公共 DERP 存在速率限制。';
+    }
+    direct.addEventListener('click', () => showRoute('direct'));
+    relay.addEventListener('click', () => showRoute('relay'));
+  </script>
+</body>
+</html>
