@@ -59,8 +59,14 @@
 - 用本地 HTTP 服务模拟最终子路径，在 390 与 1440 px 下检查无横向溢出、无缺失资源、无脚本错误，页内锚点有效。
 - 模块展开与研究场景切换正常；新增摘要、根索引与项目 README 使用一致结论。
 
-## 线上核验待补充
+## 线上部署核验
 
-- 本次未向公网发布 003 网页，因此没有真实 GitHub Pages URL、线上部署记录或线上 HTTP 检查。
+- 在线地址：[https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/)。
+- 首次发布提交：`95b4c321a7c3eac12bc03484026aa40229c3d3b9`；[部署任务](https://github.com/yydshly/0928_codex_project/actions/runs/36387455024) 成功。
+- 2026-09-28 核验：HTML、引导图 SVG/PNG、app.js、understanding.css 均返回 HTTP 200；内容散列与发布提交一致。
+- 实际从公网索引进入 003，六项摘要存在，引导图加载，模块展开与场景切换正常，无页面脚本错误或资源 4xx；390 px 下无横向溢出。
+
+## 仍存在的验证边界
+
 - 页面中的外部资料链接根据固定原仓库提交构建；当前测试没有逐个模拟外网点击。
 - 未运行 Grok Bot 平台；交互只切换固定研究说明。

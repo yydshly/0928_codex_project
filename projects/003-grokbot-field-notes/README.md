@@ -11,9 +11,9 @@
 | 查阅日期 | 2026-09-28 |
 | 原仓库许可 | [MIT](https://github.com/unicodef1wn/grokbot-field-notes/blob/02780c04ef5f412b28573bce6f82afd15d195d1f/LICENSE)，版权声明为 Copyright (c) 2026 unicodef1wn |
 | 研究状态 | 已核对原仓库文件与固定提交；未安装或运行 Grok Bot 产品 |
-| 独立展示网页 | [web/index.html](web/index.html)；本地运行见 [web/README.md](web/README.md) |
+| 独立展示网页 | [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/)；[本地源码](web/index.html)；运行说明见 [web/README.md](web/README.md) |
 | 详细研究 | [research.md](research.md) |
-| 预定部署子路径 | `/0928_codex_project/003-grokbot-field-notes/`；当前文档不声明已发布公网地址 |
+| 部署与核验 | `/0928_codex_project/003-grokbot-field-notes/`；2026-09-28 已核验公网页面、引导图、交互与手机布局；[部署记录](https://github.com/yydshly/0928_codex_project/actions/runs/36387455024) |
 
 ## 全量理解引导图
 
@@ -91,7 +91,7 @@ Thursday Arena 的基本玩法是选最多三张 bot 卡牌，用每局代币组
 
 页面按“理解定位 → 八个内容模块 → 五类沉淀成果 → 参考价值 → 后期使用路线”展开，再展示 Thursday Arena 的玩法、三天产品路径、八个问题、工作机制、场景推演与来源。八个模块可展开阅读，场景可切换。交互只展示固定说明内容，不调用模型或运行原项目。
 
-网页为独立的 HTML、CSS、JavaScript 和自制 SVG，所有源码与资源位于本项目 `web/` 目录，无第三方运行依赖或构建步骤。站点打包约定将 `web/` 放到 `/0928_codex_project/003-grokbot-field-notes/`。公网链接待真实部署并核验后补充。
+网页为独立的 HTML、CSS、JavaScript 和自制 SVG，所有源码与资源位于本项目 `web/` 目录，无第三方运行依赖或构建步骤。站点打包约定将 `web/` 放到 `/0928_codex_project/003-grokbot-field-notes/`。已部署至 [GitHub Pages](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/)，2026-09-28 核验通过。
 
 ## 图片与许可
 

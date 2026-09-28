@@ -30,9 +30,13 @@ python -m http.server 2527 --bind 127.0.0.1
 
 ## 打包与部署路径
 
-仓库 `.github/workflows/deploy-pages.yml` 将本目录内容复制到 `_site/003-grokbot-field-notes/`。预定部署子路径为 `/0928_codex_project/003-grokbot-field-notes/`。页面使用相对资源路径和页内锚点，不依赖客户端路由。
+仓库 `.github/workflows/deploy-pages.yml` 将本目录内容复制到 `_site/003-grokbot-field-notes/`。部署子路径为 `/0928_codex_project/003-grokbot-field-notes/`。页面使用相对资源路径和页内锚点，不依赖客户端路由。
 
-此 README 仅记录构建约定。公网地址必须在部署并实际检查后再写入根索引和本项目 README。
+已发布：[在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/)。
+
+2026-09-28 首次发布核验：提交 [`95b4c32`](https://github.com/yydshly/0928_codex_project/commit/95b4c321a7c3eac12bc03484026aa40229c3d3b9) 的 [GitHub Actions 部署](https://github.com/yydshly/0928_codex_project/actions/runs/36387455024) 成功。公网页面、SVG、PNG、交互脚本与样式均返回 HTTP 200，核验内容与该提交逐字节一致。从在线索引进入后，六项摘要、模块折叠、场景切换及手机布局正常。
+
+本页是独立静态研究展示；原 Grok Bot 平台未复现。
 
 ## 文件
 
