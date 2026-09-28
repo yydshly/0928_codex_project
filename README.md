@@ -10,7 +10,7 @@
 
 | 序号 | 子项目 | 研究重点 | 原仓库 | 演示 | 进度 |
 | :---: | --- | --- | --- | --- | --- |
-| 001 | [Storm-Breaker 能力与原理研究](projects/001-storm-breaker/README.md) | 位置、摄像头、麦克风与环境信息的浏览器采集链路；按需扩展场景 | [ultrasecurity/Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker) | [研究网页](projects/001-storm-breaker/web/index.html) | 原版已本机复现；音频落盘未证实 |
+| 001 | [Storm-Breaker 能力与原理研究](projects/001-storm-breaker/README.md) | 位置、摄像头、麦克风与环境信息的浏览器采集链路；按需扩展场景 | [ultrasecurity/Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker) | [在线研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/) | 已发布；原版已本机复现；音频落盘未证实 |
 
 ### 001 · Storm-Breaker
 
@@ -20,7 +20,7 @@
 
 **研究价值与扩展：**这一案例帮助看懂浏览器权限及前后端数据流，辨别网页诱导授权，并用实测核对功能宣称。安全教育可在授权环境中演示；现场记录、限时位置共享、远程协作是基于位置和音视频能力的探索方向，需要按真实需求补齐同意、时效、撤销、访问控制与可靠保存。基础能力并不自动构成有价值的产品。下图是原版面板的虚拟测试截图，使用示例 IP、模拟位置和虚拟媒体设备。
 
-[原仓库](https://github.com/ultrasecurity/Storm-Breaker) · [一图总览](projects/001-storm-breaker/assets/storm-breaker-understanding.svg) · [研究记录](projects/001-storm-breaker/research.md) · [原版运行说明](projects/001-storm-breaker/README.md#原版效果) · [原版效果与原理展示](projects/001-storm-breaker/web/index.html)
+[原仓库](https://github.com/ultrasecurity/Storm-Breaker) · [一图总览](projects/001-storm-breaker/assets/storm-breaker-understanding.svg) · [研究记录](projects/001-storm-breaker/research.md) · [原版运行说明](projects/001-storm-breaker/README.md#原版效果) · [在线原版效果与原理展示](https://yydshly.github.io/0928_codex_project/001-storm-breaker/)
 
 ## 仓库结构
 

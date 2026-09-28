@@ -14,7 +14,7 @@ python -m http.server 8000
 
 ## 发布约定
 
-GitHub Pages 发布子路径为 `/0928_codex_project/001-storm-breaker/`。公开页面仅包含本目录的静态研究内容，不部署原版 PHP 服务；原版入口只在本机打开页面时启用。完整公开地址需在部署成功并验证访问后写入根目录和子项目 README。非 `localhost` 环境中的真实位置、摄像头和麦克风验证需要 HTTPS。
+GitHub Pages 发布子路径为 `/0928_codex_project/001-storm-breaker/`，已验证的公开地址是 [在线研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/)。公开页面仅包含本目录的静态研究内容，不部署原版 PHP 服务；原版入口只在本机打开页面时启用。非 `localhost` 环境中的真实位置、摄像头和麦克风验证需要 HTTPS。
 
 ## 来源
 

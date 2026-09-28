@@ -8,7 +8,7 @@ Storm-Breaker 是一个将主题网页、浏览器信息读取、位置及摄像
 | 原作者 / 组织 | ultrasecurity 及原仓库贡献者 |
 | 研究版本 | [`4d7235104870ec0224f445fd905c98f22a105426`](https://github.com/ultrasecurity/Storm-Breaker/tree/4d7235104870ec0224f445fd905c98f22a105426)（`main`，2024-10-12 的提交；2026-09-27 查阅） |
 | 研究状态 | 原版面板与模板已在本机运行；音频落盘未成功验证 |
-| 在线演示 | 暂无；尚未发布公网地址 |
+| 在线演示 | [Storm-Breaker 原版效果与原理展示](https://yydshly.github.io/0928_codex_project/001-storm-breaker/)（独立静态研究网页，已验证可访问） |
 | 原版本机运行 | [准备脚本](prepare-original.ps1) · [启动脚本](run-original.ps1)；见下方步骤 |
 | 补充原理演示 | [独立制作的交互说明页](web/index.html) |
 | 研究记录 | [research.md](research.md) |
@@ -62,7 +62,7 @@ Storm-Breaker 是一个将主题网页、浏览器信息读取、位置及摄像
 
 ## 演示与运行
 
-原版运行方式见「原版效果」。若要查看独立的原理说明页，在 `web/` 目录启动静态文件服务器；详见 [运行说明](web/README.md)。该静态页计划的部署子路径是 `/0928_codex_project/001-storm-breaker/`，**目前尚未发布**；原版 PHP 页面不能由纯静态的 GitHub Pages 直接运行。
+原版运行方式见「原版效果」。独立的[在线原理说明页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/)已通过 GitHub Pages 发布，部署子路径为 `/0928_codex_project/001-storm-breaker/`；也可在 `web/` 目录本地启动静态文件服务器，见[运行说明](web/README.md)。原版 PHP 页面不能由纯静态的 GitHub Pages 直接运行，公开站点只展示原版实测截图、研究说明和独立交互实验。
 
 ## 图片、参考与许可
 
