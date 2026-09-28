@@ -15,6 +15,7 @@
 | 005 | [Tailcat 加密 P2P 连接能力研究](projects/005-tailcat/README.md) | 无需 Tailscale 控制平面的双端连接工具：DERP 会合与回退、UDP 打洞优先直连、WireGuard 始终加密；用于端口、SSH、文件等传输。 | [tailscale/tailcat](https://github.com/tailscale/tailcat) | [在线研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/) | 已发布；原版和性能未实测 |
 | 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/) | 已发布并验证；原方案未实测 |
 | 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
+| 008 | [AI Money Maker Handbook 思路收集与个人探索](projects/008-ai-money-maker-handbook/README.md) | 案例收集与思考分析库，涵盖图片、文案、音频、直播、绘本、视频、工具与知识服务。围绕六个商业要素整理，值得产品化为个人入口，持续沉淀 AI 产品思路。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [本地交互网页](projects/008-ai-money-maker-handbook/web/index.html) | 本地网页与交互已验证；个人方向待实践 |
 
 ### 001 · Storm-Breaker
 
@@ -160,6 +161,24 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) · [子项目概览](projects/007-osint-resource-map/README.md) · [分类对照与详细研究](projects/007-osint-resource-map/research.md) · [上游 A](https://github.com/jivoi/awesome-osint) · [上游 B](https://github.com/rawfilejson/awesome-osint-arsenal)
 
+### 008 · AI Money Maker Handbook
+
+[![案例与商业思考总览：六要素、八类内容、扩展方法和持续产品化](projects/008-ai-money-maker-handbook/web/assets/idea-map.png)](projects/008-ai-money-maker-handbook/web/assets/idea-map.svg)
+
+图由本仓库依据[上游固定研究提交](https://github.com/XiaomingX/ai-money-maker-handbook/tree/74100dd291cbcec4438e1ca3eb5219c47a92a7d3)与本次讨论独立绘制；汇总库的本质、六个商业要素、八类内容与我们的产品化设想，不是原项目截图或经营成果。
+
+**库的本质与价值：**案例收集与思考分析库，汇集方向清单、444 篇副业章节和 70 篇创业问答，围绕痛点、人群、最小产品、获客、收费与留存组织生意思考。收集内容涉及图片、文案、音频、直播、绘本、视频、工具自动化和知识数据咨询，帮助扩展可能性。
+
+**网页整理：**提供七类能力归纳、完整 514 篇标题与固定原文索引、搜索筛选收藏、思路组合、个人需求与验收记录、成本估算、进度记录及 Markdown 导出。网页没有接入在线 AI，个人草稿只保存在当前浏览器，可导出后继续对话。
+
+**对我的价值：**值得持续整理并产品化，作为自己的 AI 产品化探索入口：借案例打开方向，把个人想法、需求观察、小样与反馈积累下来，逐步形成自己的判断。后端开发与 AI 使用经验可支持工具自动化，也可支撑图文、音频、直播、绘本等创作流程；三个初始服务切口只是起点，需求与成交仍待实践。
+
+**进一步产品化：**可把自己的观察、想法与反馈持续入库，按六要素结构化、关联相似方向、做小样并保留迭代版本，逐步形成个人思路工作台。这是后续开发方向，尚未实现全部能力。见[一图完整理解](projects/008-ai-money-maker-handbook/understanding.md)。
+
+**来源与边界：**固定版本含模拟案例和收益推演；抽读原文与全量标题索引不等于逐篇实证。定时工作流只更新时间戳。上游采用 Apache-2.0；图示、页面与个人探索方法为本仓库独立制作。当前完成本地验证，尚未发布 008 的公开页面。
+
+[交互网页](projects/008-ai-money-maker-handbook/web/index.html) · [详细研究](projects/008-ai-money-maker-handbook/research.md) · [个人价值记录](projects/008-ai-money-maker-handbook/personal-value.md) · [原仓库](https://github.com/XiaomingX/ai-money-maker-handbook)
+
 ## 仓库结构
 
 ```text
@@ -175,6 +194,7 @@ projects/
   005-tailcat/         # 加密 P2P 连接、NAT 穿透与中继回退研究
   006-personal-edge-proxy/ # 个人代理入口与出口分层研究
   007-osint-resource-map/ # 两份 OSINT 资源清单的对照、暗网分类说明与自绘地图
+  008-ai-money-maker-handbook/ # 思路库研究、资料索引与个人首单探索网页
 templates/project/     # 新子项目模板
 docs/                  # 索引与网页发布约定
 ```

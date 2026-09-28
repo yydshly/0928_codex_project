@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/XiaomingX/ai-money-maker-handbook",
+  "commit": "74100dd291cbcec4438e1ca3eb5219c47a92a7d3",
+  "snapshotDate": "2026-09-28",
+  "method": "Enumerated all ch*.md files, extracted titles and simulation markers; categories are our title-based heuristic; read representative chapters separately.",
+  "counts": {
+    "businessChapters": 444,
+    "startupQuestions": 70,
+    "indexedDocuments": 514
+  },
+  "license": "Apache-2.0 (root and programmer series LICENSE)",
+  "readmeExternalStartupLinks": 31,
+  "limitations": [
+    "Counts are files, not unique or proven business ideas.",
+    "No external article links, income figures, or customer acquisition results have been independently validated."
+  ]
+}

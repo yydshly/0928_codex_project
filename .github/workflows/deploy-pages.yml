@@ -37,6 +37,9 @@ jobs:
           cp projects/007-osint-resource-map/assets/resource-map.svg _site/007-osint-resource-map/assets/
           cp projects/007-osint-resource-map/web/assets/resource-overview.svg _site/007-osint-resource-map/assets/
           cp projects/007-osint-resource-map/web/assets/resource-overview.png _site/007-osint-resource-map/assets/
+          mkdir -p _site/008-ai-money-maker-handbook/assets
+          cp projects/008-ai-money-maker-handbook/web/index.html projects/008-ai-money-maker-handbook/web/styles.css projects/008-ai-money-maker-handbook/web/data.js projects/008-ai-money-maker-handbook/web/catalog.js projects/008-ai-money-maker-handbook/web/views.js projects/008-ai-money-maker-handbook/web/app.js projects/008-ai-money-maker-handbook/web/NOTICES.md projects/008-ai-money-maker-handbook/web/UPSTREAM-LICENSE.txt _site/008-ai-money-maker-handbook/
+          cp -R projects/008-ai-money-maker-handbook/web/assets/. _site/008-ai-money-maker-handbook/assets/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:
