@@ -76,7 +76,7 @@ WARP 采用 Cloudflare Linux Client 的 Local Proxy 模式：Xray 将选中的�
 
 本次补充核对 [HY2 官方协议](https://v2.hysteria.network/docs/developers/Protocol/)、[Xray 路由文档](https://xtls.github.io/config/routing.html)和 [Xray 入站文档](https://xtls.github.io/config/inbound.html)。特别说明：应用 TCP 可由 HY2 的 QUIC 流承载；Xray 规则按序首个命中，未命中使用第一个 outbound；公开示例中的 WARP 规则仅针对 TCP，不能推定所有 UDP/HTTP3 请求都走 WARP。域名嗅探与 DNS 路径依配置而定，不等于解密 HTTPS 或自动避免 DNS 泄漏。
 
-网页用 2 种入口、3 种出口和 5 个阶段演示请求链路，30 个组合已检查，桌面与手机布局、图片、本地链接和脚本也已检查。此验证对象仅为研究展示，**原代理方案仍未部署或测速**。现有 GitHub Pages 工作流已接入第 006 个子路径，但本次尚未推送或发布，未新增未验证的公网演示链接。
+网页用 2 种入口、3 种出口和 5 个阶段演示请求链路，30 个组合已检查，桌面与手机布局、图片、本地链接和脚本也已检查。此验证对象仅为研究展示，**原代理方案仍未部署或测速**。现有 GitHub Pages 工作流已接入第 006 个子路径，[在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/)于 2026-09-28 发布验证完成：页面与 SVG/PNG 图片返回 200，摘要五个维度、六组协议说明和线上路径切换均通过检查；线上资源与提交内容一致。发布源码提交 `6cd8aed4114d1d43d4c61f36baf254be9dd5e2ae`，[发布任务记录](https://github.com/yydshly/0928_codex_project/actions/runs/36400656334)。
 
 ## 许可与来源
 

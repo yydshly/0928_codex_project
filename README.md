@@ -13,7 +13,7 @@
 | 003 | [Grok Bot Field Notes 工程经验与使用参考](projects/003-grokbot-field-notes/README.md) | Agent 工程案例与模板资料库：以规则、职责与验证反馈组织工作，可转化为验证工具、任务约定和技能；适用开发、研究与业务流程。有经验者新增价值有限，归档后按需参考。 | [unicodef1wn/grokbot-field-notes](https://github.com/unicodef1wn/grokbot-field-notes) | [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/) | 已发布；归档参考；新增方法有限；原平台未运行 |
 | 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) | 已发布；原版未运行；效果未实测 |
 | 005 | [Tailcat 加密 P2P 连接能力研究](projects/005-tailcat/README.md) | 无需 Tailscale 控制平面的双端连接工具：DERP 会合与回退、UDP 打洞优先直连、WireGuard 始终加密；用于端口、SSH、文件等传输。 | [tailscale/tailcat](https://github.com/tailscale/tailcat) | [在线研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/) | 已发布；原版和性能未实测 |
-| 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [研究网页源码](projects/006-personal-edge-proxy/web/index.html) | 网页已验证，待发布；原方案未实测 |
+| 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/) | 已发布并验证；原方案未实测 |
 
 ### 001 · Storm-Breaker
 
@@ -141,9 +141,9 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 **研究边界：**Cloudflare Tunnel 仅为文档中的可选应急思路，现有示例未包含其配置；WARP 不等于住宅或固定 IP，远程 SOCKS5 自身不提供传输加密。原方案未部署或测速，网页交互仅解释原理。上游采用 MIT，其他组件的许可和服务条件分别核查。
 
-**完整理解展示：**[研究网页](projects/006-personal-edge-proxy/web/index.html)支持切换 HY2 / REALITY 入口、三类出口和五个请求阶段，解释本机接管、认证分流、目标连接及响应返回；同时整理 DNS、HTTPS、应用协议与隧道协议的区别，以及对个人访问、开发、排障和后续工具的价值。网页仅演示概念，已验证桌面和手机显示，尚未发布。总览图为独立 SVG 与 PNG，可放大阅读或保存。
+**完整理解展示：**[在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/)支持切换 HY2 / REALITY 入口、三类出口和五个请求阶段，解释本机接管、认证分流、目标连接及响应返回；同时整理 DNS、HTTPS、应用协议与隧道协议的区别，以及对个人访问、开发、排障和后续工具的价值。网页仅演示概念，已验证桌面和手机显示，并于 2026-09-28 确认线上页面、交互及图片可用。引导图采用我们生成的完整总览图，提供 SVG 与 PNG，可放大阅读或保存。
 
-[原仓库](https://github.com/yding-git/personal-edge-proxy) · [详细研究](projects/006-personal-edge-proxy/research.md) · [本地研究网页](projects/006-personal-edge-proxy/web/index.html) · [完整总览图](projects/006-personal-edge-proxy/web/assets/personal-edge-proxy-overview.svg) · [运行与发布说明](projects/006-personal-edge-proxy/web/README.md)
+[原仓库](https://github.com/yding-git/personal-edge-proxy) · [详细研究](projects/006-personal-edge-proxy/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/) · [完整总览图](projects/006-personal-edge-proxy/web/assets/personal-edge-proxy-overview.svg) · [运行与发布说明](projects/006-personal-edge-proxy/web/README.md)
 
 ## 仓库结构
 

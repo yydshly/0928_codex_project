@@ -21,9 +21,9 @@
 
 ## 站点集成与发布路径
 
-沿用仓库现有 GitHub Pages 发布方式，预定子路径为 **`/0928_codex_project/006-personal-edge-proxy/`**。工作流将 `index.html`、`styles.css`、`app.js` 和 `assets/` 复制到该目录，不发布图像生成与检查脚本。站点首页已加入第 006 个项目入口。
+沿用仓库现有 GitHub Pages 发布方式，已部署子路径为 **`/0928_codex_project/006-personal-edge-proxy/`**。工作流将 `index.html`、`styles.css`、`app.js` 和 `assets/` 复制到该目录，不发布图像生成与检查脚本。站点首页已加入第 006 个项目入口。
 
-**本次尚未向远端推送或发布，不能将预定子路径视为已上线地址。**页面可在本地独立打开或通过本机 HTTP 服务预览。公开发布成功并确认页面、图片与交互正常后，再补已验证的公网链接。
+**已于 2026-09-28 发布并验证。**[在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/)的摘要、六组协议说明、路径切换和请求阶段均已检查；[SVG 总览图](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/assets/personal-edge-proxy-overview.svg)与 [PNG 总览图](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/assets/personal-edge-proxy-overview.png)均返回 200，线上资源内容与提交版本一致。[首次发布任务](https://github.com/yydshly/0928_codex_project/actions/runs/36400656334)成功，研究网页源码提交为 `6cd8aed4114d1d43d4c61f36baf254be9dd5e2ae`。
 
 ## 本次验证
 

@@ -8,8 +8,8 @@
 | 原作者 / 组织 | yding-git；许可证版权声明为 StarryRain |
 | 研究依据 | [固定提交 `ff55bdf0429e927c97e304e03ee4b322f12d32e2`](https://github.com/yding-git/personal-edge-proxy/tree/ff55bdf0429e927c97e304e03ee4b322f12d32e2)，2026-09-28 查阅 |
 | 研究状态 | 已核对 README、服务端配置示例、客户端示例与出口说明；未部署到 VPS，未实测网络表现 |
-| 在线演示 | 暂无；本项目没有已验证的公开演示地址 |
-| 本地研究网页 | [完整理解与交互展示](web/index.html)；网页已验证，尚未发布 |
+| 在线研究网页 | [完整理解与交互展示](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/)；2026-09-28 已验证页面、图片和交互 |
+| 本地研究网页 | [离线阅读与网页源码](web/index.html) |
 | 一图总览 | [高清 SVG](web/assets/personal-edge-proxy-overview.svg) · [PNG 图片](web/assets/personal-edge-proxy-overview.png) |
 | 详细记录 | [research.md](research.md) |
 
@@ -33,7 +33,7 @@
 
 [研究网页](web/index.html)将本次理解按请求旅程、能力地图、内部机制、加密边界、个人价值和扩展方向展开。可切换 HY2 / REALITY 与 Direct / WARP / 固定 SOCKS5，逐步观察客户端如何接管请求、VPS 如何认证分流、最终出口如何连接目标，以及响应怎样返回；所有交互都是概念说明，不发起真实代理连接。完整总览图可单独放大或保存。
 
-网页已经过桌面、手机显示和交互验证。预定发布子路径、运行方法与验证范围见[网页说明](web/README.md)；尚未公开发布。
+网页已公开发布，并完成桌面、手机显示和线上交互验证。已部署子路径、运行方法与验证范围见[网页说明](web/README.md)。这些验证仅针对研究网页，原代理方案未部署实测。
 
 ## 它是不是搭建个人 VPN 的能力库？
 
