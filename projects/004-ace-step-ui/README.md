@@ -12,7 +12,7 @@ ACE-Step UI 为 ACE-Step 1.5 提供音乐生成、修改、管理与播放的浏
 | 查阅日期 | 2026-09-28 |
 | 研究状态 | 已核对原项目文档与关键源码；原版未在本机运行 |
 | 独立展示 | [web/index.html](web/index.html) · [运行说明](web/README.md) |
-| 公网演示 | 暂无；本项目尚未发布 |
+| 在线研究网页 | [完整总览](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) · [试听与技术研究](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/web/index.html) · [创作指南](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/web/creation.html) |
 | 完整总览 | [一张图看懂](web/overview.html) · [完整理解说明](understanding.md) |
 | 详细研究 | [research.md](research.md) · [创作入口指南](web/creation.html) |
 
@@ -61,3 +61,7 @@ ACE-Step UI 为 ACE-Step 1.5 提供音乐生成、修改、管理与播放的浏
 - 本仓库制作说明性 SVG 与展示网页，并在线引用官方公开音频和原作者 demo.gif；未将远程媒体下载到仓库，也未加载模型权重。音频和动图不属于本仓库原创素材。
 - `assets/research-page-preview.png`、`assets/research-page-desktop.png` 与 `assets/research-page-mobile.png` 于 2026-09-28 使用本机 Edge 浏览器渲染 `web/index.html` 截取；只证明本仓库网页外观，不证明原版软件运行效果。
 - 原项目名称、代码和模型归各自作者与贡献者；本项目的解读和网页设计属于本仓库的独立研究。
+
+## 发布记录
+
+2026-09-28，研究网页经 GitHub Pages 发布。首个发布提交 `758c0ff`，部署 [36392806828](https://github.com/yydshly/0928_codex_project/actions/runs/36392806828) 成功。公开页面、引导图及研究文档均验证 HTTP 200，浏览器确认跳转、模型说明与图片加载正常。网页发布不代表原版音乐模型已经部署。

@@ -11,7 +11,7 @@
 | 001 | [Storm-Breaker 能力与原理研究](projects/001-storm-breaker/README.md) | 主题网页读取部分环境信息，在授权后请求位置与音视频；PHP 回传并由面板展示。扩展场景需另行开发。 | [ultrasecurity/Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker) | [在线研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/) | 已发布；原版已复现；音频落盘未证实 |
 | 002 | [AIRI 能力与角色交互研究](projects/002-airi/README.md) | 面向虚拟陪伴的 Agent 应用工程；按需组合对话、语音、角色、视觉及执行工具。沉淀接入、表现和执行反馈思路，后期按需参考。 | [moeru-ai/airi](https://github.com/moeru-ai/airi) | [在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) | 已发布；归档参考；暂不深入；原版未运行 |
 | 003 | [Grok Bot Field Notes 工程经验与使用参考](projects/003-grokbot-field-notes/README.md) | Agent 工程案例与模板资料库：以规则、职责与验证反馈组织工作，可转化为验证工具、任务约定和技能；适用开发、研究与业务流程。有经验者新增价值有限，归档后按需参考。 | [unicodef1wn/grokbot-field-notes](https://github.com/unicodef1wn/grokbot-field-notes) | [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/) | 已发布；归档参考；新增方法有限；原平台未运行 |
-| 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [本地研究网页](projects/004-ace-step-ui/web/index.html)；未发布 | 已建展示；原版未运行；效果未实测 |
+| 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) | 已发布；原版未运行；效果未实测 |
 
 ### 001 · Storm-Breaker
 
@@ -95,9 +95,9 @@ Storm-Breaker 以五套主题网页引导访问，读取部分浏览器环境信
 
 **对我们的价值：**重点借鉴入口分流、条件控制、任务与作品管理，以及“探索 → 试听 → 诊断 → 修改 → 交付”的创作逻辑；可进一步补参数快照、版本关系和对照试听。换用 MiniMax 等模型时逐项映射接口能力。研究网页独立制作，原版音质、速度及兼容性尚未在本机验证。
 
-UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前需核实。模型仓库有独立的 MIT LICENSE，音频与第三方素材另行核对。展示页在线引用官方真实音频与原作者界面动图，标注出处；未发布公网演示地址。
+UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前需核实。模型仓库有独立的 MIT LICENSE，音频与第三方素材另行核对。展示页在线引用官方真实音频与原作者界面动图，标注出处；研究网页已发布并验证，模型效果仍未在本机实测。
 
-[UI 原仓库](https://github.com/fspecii/ace-step-ui) · [模型原仓库](https://github.com/ace-step/ACE-Step-1.5) · [详细研究](projects/004-ace-step-ui/research.md) · [本地展示页](projects/004-ace-step-ui/web/index.html) · [运行说明](projects/004-ace-step-ui/web/README.md)
+[UI 原仓库](https://github.com/fspecii/ace-step-ui) · [模型原仓库](https://github.com/ace-step/ACE-Step-1.5) · [详细研究](projects/004-ace-step-ui/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) · [运行说明](projects/004-ace-step-ui/web/README.md)
 
 ## 仓库结构
 

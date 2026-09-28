@@ -75,3 +75,11 @@ PNG 来自原创 SVG 的浏览器渲染；直接打开 SVG 的首次截图超时
 - 本地 HTTP 模拟实际目录：项目根跳转 web/overview.html；1440 × 1000、390 × 844 无横向溢出，六项摘要存在，内部说明可折叠展开，本地链接与总览图加载正常，无页面脚本错误。
 - 总览图保留同一张 SVG / PNG；更新总览首屏截图，新增 model-blackbox-1440.png 与 model-blackbox-390.png 为本机 Edge 的真实研究页截图。
 - 本次检查不包含原版模型推理、控制效果或主观音质测试。
+
+## 公开部署验证（2026-09-28）
+
+- 部署提交：`758c0ff7fff442318638062a815aa341e80b741c`；[GitHub Actions 36392806828](https://github.com/yydshly/0928_codex_project/actions/runs/36392806828) 成功。
+- 已验证公开地址：[https://yydshly.github.io/0928_codex_project/004-ace-step-ui/](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/)。
+- 根入口、web/overview.html、web/index.html、web/creation.html、assets/understanding-overview.png、assets/understanding-overview.svg、understanding.md 均返回 HTTP 200。
+- 真实 Edge 浏览器打开根入口后到达 web/overview.html；模型黑盒说明存在，总览 PNG 解码成功（原宽 2400）。
+- 本次验证不重复音频主观评价；原版模型推理仍未执行。

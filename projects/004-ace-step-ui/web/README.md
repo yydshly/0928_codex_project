@@ -29,7 +29,7 @@ python -m http.server 2530 --bind 127.0.0.1
 
 ## 发布约定
 
-发布子路径为 `/0928_codex_project/004-ace-step-ui/`。工作流将整个子项目复制到该目录，保留 `web/`、`assets/` 与研究文档的相对结构。项目根入口 `index.html` 跳转 `web/overview.html`；试听页为 `web/index.html`，创作指南为 `web/creation.html`。发布后核验真实 URL，再记录公开地址。
+发布子路径为 `/0928_codex_project/004-ace-step-ui/`。工作流将整个子项目复制到该目录，保留 `web/`、`assets/` 与研究文档的相对结构。项目根入口 `index.html` 跳转 `web/overview.html`；试听页为 `web/index.html`，创作指南为 `web/creation.html`。已发布并核验：[在线总览](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/)。
 
 新增总览正文说明模型黑盒、DiT / 潜变量 / VAE 的区别，以及生成和编辑两条简化路径。总览图继续使用本仓库已绘制的 SVG / PNG。
 
