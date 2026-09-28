@@ -14,7 +14,7 @@
 | 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) | 已发布；原版未运行；效果未实测 |
 | 005 | [Tailcat 加密 P2P 连接能力研究](projects/005-tailcat/README.md) | 无需 Tailscale 控制平面的双端连接工具：DERP 会合与回退、UDP 打洞优先直连、WireGuard 始终加密；用于端口、SSH、文件等传输。 | [tailscale/tailcat](https://github.com/tailscale/tailcat) | [在线研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/) | 已发布；原版和性能未实测 |
 | 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/) | 已发布并验证；原方案未实测 |
-| 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [本地分类网页](projects/007-osint-resource-map/web/index.html) | 网页已制作；外部工具与安装脚本未实测 |
+| 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
 
 ### 001 · Storm-Breaker
 
@@ -156,9 +156,9 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 **当前网页：**[分类网页](projects/007-osint-resource-map/web/index.html)用总览图展示四条主线和 12 个任务主题，另有结合本仓库工作推断的 6 类易忽略能力、48 条重点资源中文说明，以及按名称、来源、分类搜索的固定版本索引。暗网第 12 节被拆为搜索入口、链接目录等类型。自动查询、任务操作卡和个人记录尚未实现。
 
-**研究边界：**只核对两份 README、仓库结构及许可，没有逐一测试外部链接、运行安装脚本或访问隐藏服务。第一个仓库采用 CC BY-SA 4.0，第二个采用 MIT；第三方工具与站点各有自己的条款。当前没有已验证的公开演示。
+**研究边界：**只核对两份 README、仓库结构及许可，没有逐一测试外部链接、运行安装脚本或访问隐藏服务。第一个仓库采用 CC BY-SA 4.0，第二个采用 MIT；第三方工具与站点各有自己的条款。研究网页及总览图已于 2026-09-28 验证可访问。
 
-[分类网页](projects/007-osint-resource-map/web/index.html) · [子项目概览](projects/007-osint-resource-map/README.md) · [分类对照与详细研究](projects/007-osint-resource-map/research.md) · [上游 A](https://github.com/jivoi/awesome-osint) · [上游 B](https://github.com/rawfilejson/awesome-osint-arsenal)
+[在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) · [子项目概览](projects/007-osint-resource-map/README.md) · [分类对照与详细研究](projects/007-osint-resource-map/research.md) · [上游 A](https://github.com/jivoi/awesome-osint) · [上游 B](https://github.com/rawfilejson/awesome-osint-arsenal)
 
 ## 仓库结构
 

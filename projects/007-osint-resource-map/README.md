@@ -8,9 +8,9 @@
 | 上游仓库 B | [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) |
 | 研究版本 | A：[提交 `3ab9cde`](https://github.com/jivoi/awesome-osint/tree/3ab9cde5d0f638de91bc86147db6996472d927c6)；B：[提交 `2c6475a`](https://github.com/rawfilejson/awesome-osint-arsenal/tree/2c6475a1d5b941cc598b3612419ef22e6d903ce8)；2026-09-28 查阅 |
 | 研究状态 | 已核对两份 README 的结构、B 的第 12 节、仓库文件列表和许可证；未逐一测试外部链接或运行安装脚本 |
-| 在线演示 | 暂无；本项目是文档研究，没有已验证的公开演示地址 |
+| 在线演示 | [OSINT 资源地图网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/)；2026-09-28 验证页面及总览图均可访问 |
 | 详细记录 | [research.md](research.md) |
-| 分类网页 | [打开本地网页源码](web/index.html)；尚无已验证的公开地址 |
+| 分类网页 | [打开本地网页源码](web/index.html)；部署子路径为 `/0928_codex_project/007-osint-resource-map/` |
 
 ![两份 OSINT 清单的十二类资源全景图](web/assets/resource-overview.svg)
 

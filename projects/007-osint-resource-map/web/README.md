@@ -24,4 +24,4 @@ python tools/build_inventory.py <A-README.md> <B-README.md>
 
 ## 发布子路径
 
-此网页若通过仓库现有 GitHub Pages 工作流发布，目标子路径为 `/0928_codex_project/007-osint-resource-map/`。页面使用同目录相对资源路径，可从该子路径加载；尚未发布或验证公开地址，因此根索引目前只链接本地源码，不填写线上演示 URL。
+网页已通过仓库现有 GitHub Pages 工作流发布到 `/0928_codex_project/007-osint-resource-map/`：[打开已验证的研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/)。2026-09-28 已核对页面、首页卡片以及 SVG/PNG 总览图均返回成功并包含预期内容。页面使用同目录相对资源路径；这项验证不包括清单中第三方站点或工具的可用性。
