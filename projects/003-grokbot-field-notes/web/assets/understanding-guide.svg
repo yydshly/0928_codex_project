@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="2160" viewBox="0 0 1600 2160" role="img" aria-labelledby="title desc">
+<title id="title">Grok Bot Field Notes 全量理解引导图</title>
+<desc id="desc">第三方整理的 Agent 工程案例与模板资料库。图解工具、游戏产品和资料库的关系，八个内容模块，五类沉淀成果，能力边界，具体案例，对有工程经验使用者的有限增量价值，以及按需查阅的使用路径。</desc>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif} .bold{font-weight:700}</style>
+<rect x="0" y="0" width="1600" height="2160" rx="0" fill="#f4f2e9"/>
+<rect x="0" y="0" width="1600" height="180" rx="0" fill="#173541"/>
+<text x="64" y="48" font-size="20" fill="#a1d6c9" class="bold">PROJECT 003  /  一张图读懂这个库</text>
+<text x="64" y="105" font-size="48" fill="#fff9eb" class="bold">Grok Bot Field Notes</text>
+<text x="64" y="149" font-size="28" fill="#f8b184" class="bold">第三方直播笔记 → 工程经验 → 工作方法与模板资料库</text>
+<rect x="1210" y="47" width="326" height="79" rx="14" fill="#31545b"/>
+<text x="1233" y="79" font-size="24" fill="#fff5df" class="bold">当前定位：归档参考</text>
+<text x="1233" y="109" font-size="21" fill="#bce0d4">有经验者：新增价值有限</text>
+<rect x="64" y="202" width="43" height="38" rx="9" fill="#173541"/>
+<text x="72" y="231" font-size="21" fill="#fff6e9" class="bold">01</text>
+<text x="123" y="231" font-size="29" fill="#173541" class="bold">先分清：工具、开发产品、资料库</text>
+<rect x="64" y="253" width="468" height="174" rx="18" fill="#fffdf6" stroke="#cbd8ce"/>
+<rect x="566" y="253" width="468" height="174" rx="18" fill="#fffdf6" stroke="#cbd8ce"/>
+<rect x="1068" y="253" width="468" height="174" rx="18" fill="#fffdf6" stroke="#cbd8ce"/>
+<text x="86" y="288" font-size="20" fill="#b85735" class="bold">使用的工具</text>
+<text x="86" y="327" font-size="31" fill="#173541" class="bold">Grok Bot</text>
+<text x="86" y="365" font-size="23" fill="#516b70">三名人类工程师使用 Agent 平台，</text>
+<text x="86" y="398" font-size="23" fill="#516b70">公开直播约 72 小时开发过程。</text>
+<text x="588" y="288" font-size="20" fill="#b85735" class="bold">团队做出的产品</text>
+<text x="588" y="327" font-size="31" fill="#173541" class="bold">Thursday Arena</text>
+<text x="588" y="365" font-size="23" fill="#516b70">浏览器自动对战游戏；从快闪构想</text>
+<text x="588" y="398" font-size="23" fill="#516b70">转向游戏，第三天公开上线。</text>
+<text x="1090" y="288" font-size="20" fill="#b85735" class="bold">第三方整理的资料产物</text>
+<text x="1090" y="327" font-size="29" fill="#173541" class="bold">grokbot-field-notes</text>
+<text x="1090" y="365" font-size="23" fill="#516b70">作者 unicodef1wn 记录经过，</text>
+<text x="1090" y="398" font-size="23" fill="#516b70">整理成笔记、指南、规则与模板。</text>
+<text x="539" y="350" font-size="28" fill="#2e766f" class="bold">→</text>
+<text x="1041" y="350" font-size="28" fill="#2e766f" class="bold">→</text>
+<text x="64" y="468" font-size="23" fill="#516b70">另收录九类岗位演示：这些内容不全属于游戏的真实运营，部分公司、账户与数字是演示素材。</text>
+<rect x="64" y="501" width="43" height="38" rx="9" fill="#173541"/>
+<text x="72" y="530" font-size="21" fill="#fff6e9" class="bold">02</text>
+<text x="123" y="530" font-size="29" fill="#173541" class="bold">能力与范围：八类内容，帮助理解和设计工作</text>
+<rect x="64" y="553" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="82" y="584" font-size="25" fill="#173541" class="bold">01  逐日过程</text>
+<text x="82" y="610" font-size="17" fill="#2e766f">notes/</text>
+<text x="82" y="638" font-size="21" fill="#516b70">选题、开发、上线；流程、提示</text>
+<text x="82" y="667" font-size="21" fill="#516b70">词、故障与现场数字。</text>
+<rect x="436" y="553" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="454" y="584" font-size="25" fill="#173541" class="bold">02  失败案例</text>
+<text x="454" y="610" font-size="17" fill="#2e766f">ANTIPATTERNS.md</text>
+<text x="454" y="638" font-size="21" fill="#516b70">40 个案例：发生什么、可能原</text>
+<text x="454" y="667" font-size="21" fill="#516b70">因、对应工作规则。</text>
+<rect x="808" y="553" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="826" y="584" font-size="25" fill="#173541" class="bold">03  工作规则</text>
+<text x="826" y="610" font-size="17" fill="#2e766f">AGENTS.md</text>
+<text x="826" y="638" font-size="21" fill="#516b70">复现、修改范围、实际验证、交付</text>
+<text x="826" y="667" font-size="21" fill="#516b70">证据与人工门槛。</text>
+<rect x="1180" y="553" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="1198" y="584" font-size="25" fill="#173541" class="bold">04  执行方法</text>
+<text x="1198" y="610" font-size="17" fill="#2e766f">agents/</text>
+<text x="1198" y="638" font-size="21" fill="#516b70">验证、协作编排、技能与例行任</text>
+<text x="1198" y="667" font-size="21" fill="#516b70">务、提示词参考。</text>
+<rect x="64" y="700" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="82" y="731" font-size="25" fill="#173541" class="bold">05  岗位模板</text>
+<text x="82" y="757" font-size="17" fill="#2e766f">roster/</text>
+<text x="82" y="785" font-size="21" fill="#516b70">69 种职责说明：负责事项、事实</text>
+<text x="82" y="814" font-size="21" fill="#516b70">来源、输出与权限。</text>
+<rect x="436" y="700" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="454" y="731" font-size="25" fill="#173541" class="bold">06  岗位流程</text>
+<text x="454" y="757" font-size="17" fill="#2e766f">playbooks/</text>
+<text x="454" y="785" font-size="21" fill="#516b70">九类工作坊：团队、步骤、提示</text>
+<text x="454" y="814" font-size="21" fill="#516b70">词、频率与经验。</text>
+<rect x="808" y="700" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="826" y="731" font-size="25" fill="#173541" class="bold">07  成本与机制</text>
+<text x="826" y="757" font-size="17" fill="#2e766f">reference/</text>
+<text x="826" y="785" font-size="21" fill="#516b70">费用观察；Grok Bot 的记忆、分</text>
+<text x="826" y="814" font-size="21" fill="#516b70">享、隔离与权限。</text>
+<rect x="1180" y="700" width="356" height="133" rx="13" fill="#e6ece3"/>
+<text x="1198" y="731" font-size="25" fill="#173541" class="bold">08  指南与材料</text>
+<text x="1198" y="757" font-size="17" fill="#2e766f">guide/ · ports/ · .github/</text>
+<text x="1198" y="785" font-size="21" fill="#516b70">两份 PDF、Cursor 角色规则、PR </text>
+<text x="1198" y="814" font-size="21" fill="#516b70">验收模板。</text>
+<text x="64" y="869" font-size="22" fill="#516b70">岗位覆盖：工程、产品、创始人、售前、销售、SDR、客服、售后、营销。八类是我们的阅读归类。</text>
+<rect x="64" y="903" width="43" height="38" rx="9" fill="#173541"/>
+<text x="72" y="932" font-size="21" fill="#fff6e9" class="bold">03</text>
+<text x="123" y="932" font-size="29" fill="#173541" class="bold">最终沉淀：操作手册与模板，五类可复用成果</text>
+<rect x="64" y="956" width="280" height="143" rx="14" fill="#173541"/>
+<text x="84" y="995" font-size="28" fill="#fff9eb" class="bold">工作规则</text>
+<text x="84" y="1034" font-size="22" fill="#d1e7dc">告诉 Agent 怎样做</text>
+<text x="84" y="1070" font-size="20" fill="#f2b58b">适配为项目规范</text>
+<rect x="362" y="956" width="280" height="143" rx="14" fill="#173541"/>
+<text x="382" y="995" font-size="28" fill="#fff9eb" class="bold">流程方案</text>
+<text x="382" y="1034" font-size="22" fill="#d1e7dc">说明步骤怎样衔接</text>
+<text x="382" y="1070" font-size="20" fill="#f2b58b">补输入、输出与交接</text>
+<rect x="660" y="956" width="280" height="143" rx="14" fill="#173541"/>
+<text x="680" y="995" font-size="28" fill="#fff9eb" class="bold">岗位模板</text>
+<text x="680" y="1034" font-size="22" fill="#d1e7dc">明确谁负责什么</text>
+<text x="680" y="1070" font-size="20" fill="#f2b58b">配置真实职责与工具</text>
+<rect x="958" y="956" width="280" height="143" rx="14" fill="#173541"/>
+<text x="978" y="995" font-size="28" fill="#fff9eb" class="bold">验收模板</text>
+<text x="978" y="1034" font-size="22" fill="#d1e7dc">规定怎样算完成</text>
+<text x="978" y="1070" font-size="20" fill="#f2b58b">实现检查和证据采集</text>
+<rect x="1256" y="956" width="280" height="143" rx="14" fill="#173541"/>
+<text x="1276" y="995" font-size="28" fill="#fff9eb" class="bold">案例经验</text>
+<text x="1276" y="1034" font-size="22" fill="#d1e7dc">辅助判断与取舍</text>
+<text x="1276" y="1070" font-size="20" fill="#f2b58b">比较条件，再验证</text>
+<rect x="64" y="1116" width="1472" height="94" rx="13" fill="#e8e4d6"/>
+<text x="86" y="1151" font-size="23" fill="#b85735" class="bold">能力边界</text>
+<text x="222" y="1151" font-size="23" fill="#173541">可参考的方案与技能设计材料；落地需自己的工具、环境、数据、测试和权限。</text>
+<text x="222" y="1187" font-size="22" fill="#516b70">该库不提供现成 Agent 平台、完整游戏源码、通用执行器或安装即用的整套技能。</text>
+<rect x="64" y="1243" width="43" height="38" rx="9" fill="#173541"/>
+<text x="72" y="1272" font-size="21" fill="#fff6e9" class="bold">04</text>
+<text x="123" y="1272" font-size="29" fill="#173541" class="bold">具体经验长什么样：问题 → 工程启示</text>
+<rect x="64" y="1296" width="468" height="101" rx="13" fill="#fffdf6" stroke="#cbd8ce"/>
+<text x="84" y="1332" font-size="24" fill="#173541" class="bold">卡牌属性不符合规则</text>
+<text x="84" y="1370" font-size="22" fill="#2e766f">→ 把要求变成可检查的不变量</text>
+<rect x="566" y="1296" width="468" height="101" rx="13" fill="#fffdf6" stroke="#cbd8ce"/>
+<text x="586" y="1332" font-size="24" fill="#173541" class="bold">浏览器端可修改战斗数据</text>
+<text x="586" y="1370" font-size="22" fill="#2e766f">→ 关键状态由可信服务端决定</text>
+<rect x="1068" y="1296" width="468" height="101" rx="13" fill="#fffdf6" stroke="#cbd8ce"/>
+<text x="1088" y="1332" font-size="24" fill="#173541" class="bold">自动修复 SQL 引发生产故障</text>
+<text x="1088" y="1370" font-size="22" fill="#2e766f">→ 高影响修改要验证并能恢复</text>
+<text x="64" y="1429" font-size="22" fill="#516b70">事件来自第三方直播整理；“已发现 / 已修改”不自动等于“已证实解决”，处理结果需逐项核对。</text>
+<rect x="64" y="1465" width="43" height="38" rx="9" fill="#173541"/>
+<text x="72" y="1494" font-size="21" fill="#fff6e9" class="bold">05</text>
+<text x="123" y="1494" font-size="29" fill="#173541" class="bold">对我的价值：有参考价值，但新增知识有限</text>
+<rect x="64" y="1517" width="874" height="294" rx="17" fill="#e0eade"/>
+<text x="88" y="1556" font-size="20" fill="#2e766f" class="bold">我们的投入判断</text>
+<text x="88" y="1600" font-size="31" fill="#173541" class="bold">有工程经验 → 主要看案例、模板与遗漏</text>
+<text x="88" y="1643" font-size="25" fill="#516b70">职责清晰、先复现、验证后交付、权限控制与成本意识，大多是已有工程原</text>
+<text x="88" y="1680" font-size="25" fill="#516b70">则在 Agent 场景中的应用。</text>
+<text x="88" y="1730" font-size="23" fill="#516b70">初学者：获得入门结构。</text>
+<text x="88" y="1764" font-size="23" fill="#516b70">成熟 Agent 使用者：按需查案例，节省整理时间。</text>
+<rect x="956" y="1517" width="580" height="294" rx="17" fill="#fff1df"/>
+<text x="980" y="1556" font-size="22" fill="#b85735" class="bold">为什么不宜高估</text>
+<text x="980" y="1599" font-size="25" fill="#516b70">第三方二次整理；部分案例缺少完整代码、独立</text>
+<text x="980" y="1637" font-size="25" fill="#516b70">事故报告和长期结果。</text>
+<text x="980" y="1700" font-size="25" fill="#516b70">资料数量与 PR 数量无法证明方案有效，也不能</text>
+<text x="980" y="1738" font-size="25" fill="#516b70">证明商业成功。</text>
+<rect x="64" y="1844" width="43" height="38" rx="9" fill="#173541"/>
+<text x="72" y="1873" font-size="21" fill="#fff6e9" class="bold">06</text>
+<text x="123" y="1873" font-size="29" fill="#173541" class="bold">后期怎么用：低优先级深入，遇到具体问题再查</text>
+<rect x="64" y="1897" width="280" height="61" rx="12" fill="#fffdf6" stroke="#c5d4c9"/>
+<text x="81" y="1937" font-size="23" fill="#173541" class="bold">1. 带着实际问题</text>
+<text x="346" y="1937" font-size="23" fill="#2e766f" class="bold">→</text>
+<rect x="362" y="1897" width="280" height="61" rx="12" fill="#fffdf6" stroke="#c5d4c9"/>
+<text x="379" y="1937" font-size="23" fill="#173541" class="bold">2. 查对应案例</text>
+<text x="644" y="1937" font-size="23" fill="#2e766f" class="bold">→</text>
+<rect x="660" y="1897" width="280" height="61" rx="12" fill="#fffdf6" stroke="#c5d4c9"/>
+<text x="677" y="1937" font-size="23" fill="#173541" class="bold">3. 适配项目规则</text>
+<text x="942" y="1937" font-size="23" fill="#2e766f" class="bold">→</text>
+<rect x="958" y="1897" width="280" height="61" rx="12" fill="#fffdf6" stroke="#c5d4c9"/>
+<text x="975" y="1937" font-size="23" fill="#173541" class="bold">4. 跑通并验证</text>
+<text x="1240" y="1937" font-size="23" fill="#2e766f" class="bold">→</text>
+<rect x="1256" y="1897" width="280" height="61" rx="12" fill="#fffdf6" stroke="#c5d4c9"/>
+<text x="1273" y="1937" font-size="23" fill="#173541" class="bold">5. 稳定后封装技能</text>
+<text x="64" y="2000" font-size="25" fill="#173541">可参考：Agent 职责与协作、编码验收、产品交付、业务流程、运行成本。</text>
+<text x="64" y="2041" font-size="23" fill="#516b70">你的当前用法：研究开源项目 → 整理有来源的判断 → 制作网页 → 验证交付；暂不必照搬整套体系。</text>
+<path d="M64 2075H1536" stroke="#bccdc3"/>
+<text x="64" y="2109" font-size="19" fill="#516b70">资料：unicodef1wn/grokbot-field-notes · 固定提交 02780c0 · 查阅 2026-09-28 · 原库 MIT</text>
+<text x="64" y="2140" font-size="18" fill="#516b70">本仓库独立绘制，非官方图或产品截图。八类模块、五类成果与价值判断为本次研究归纳；直播效果未独立复现。</text>
+</svg>

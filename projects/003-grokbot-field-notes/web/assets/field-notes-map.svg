@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Grok Bot Field Notes 研究总览</title>
+  <desc id="desc">从规则、角色与流程，到工具执行、验证证据和人工把关的闭环示意图。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#152b3b"/><stop offset="1" stop-color="#10202d"/></linearGradient>
+    <linearGradient id="orange" x2="1"><stop stop-color="#ffb376"/><stop offset="1" stop-color="#f1855d"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+  <circle cx="1115" cy="70" r="170" fill="#244b57" opacity=".5"/>
+  <circle cx="1045" cy="630" r="220" fill="#264453" opacity=".28"/>
+  <text x="70" y="95" fill="#ffb376" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="6">PROJECT 003 / FIELD NOTES</text>
+  <text x="70" y="165" fill="#f6f3e9" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="47" font-weight="700">让 Agent 的工作可执行、可验证</text>
+  <text x="70" y="213" fill="#b6c9ca" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="24">第三方实战资料库 · 工作规范与案例 · 固定研究快照</text>
+  <g font-family="Arial,'Microsoft YaHei',sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <rect x="70" y="300" width="235" height="126" rx="18" fill="#274653" stroke="#4f7a81"/>
+    <text x="187" y="352" fill="#f7f2e8">明确任务</text><text x="187" y="390" fill="#a9c6c9" font-size="18">规则 · 角色 · 来源</text>
+    <rect x="345" y="300" width="235" height="126" rx="18" fill="#274653" stroke="#4f7a81"/>
+    <text x="462" y="352" fill="#f7f2e8">调用工具</text><text x="462" y="390" fill="#a9c6c9" font-size="18">现有 Agent 环境</text>
+    <rect x="620" y="300" width="235" height="126" rx="18" fill="#274653" stroke="#4f7a81"/>
+    <text x="737" y="352" fill="#f7f2e8">验证结果</text><text x="737" y="390" fill="#a9c6c9" font-size="18">复现 · 测试 · 证据</text>
+    <rect x="895" y="300" width="235" height="126" rx="18" fill="#274653" stroke="#4f7a81"/>
+    <text x="1012" y="352" fill="#f7f2e8">人工把关</text><text x="1012" y="390" fill="#a9c6c9" font-size="18">上线 · 数据 · 权限</text>
+  </g>
+  <g fill="url(#orange)"><path d="m315 353 17 10-17 10z"/><path d="m590 353 17 10-17 10z"/><path d="m865 353 17 10-17 10z"/></g>
+  <path d="M1012 445v79H187v-77" fill="none" stroke="#6d9a9d" stroke-width="3" stroke-dasharray="9 10"/>
+  <path d="m179 456 8-14 8 14" fill="none" stroke="#6d9a9d" stroke-width="3"/>
+  <text x="600" y="552" text-anchor="middle" fill="#b6c9ca" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="20">失败与纠正沉淀为可复用原则</text>
+  <rect x="70" y="570" width="330" height="4" rx="2" fill="url(#orange)"/>
+</svg>
