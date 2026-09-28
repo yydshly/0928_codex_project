@@ -2,13 +2,13 @@
 
 这里记录对开源项目的源码研究、原版复现与独立演示。每个子项目都注明研究版本、图片来源、实际验证结果和仍存在的限制。
 
-## 项目索引
+## 子项目索引
 
 编号按加入顺序分配，从 `001` 开始。编号一经使用便保持不变，后续研究更新原条目即可。
 
-| 编号 | 研究项目 | 核心问题 | 在线展示 |
-| :---: | --- | --- | --- |
-| 001 | [Storm-Breaker 能力与原理](projects/001-storm-breaker/README.md) | 网页如何请求位置与音视频权限，并将结果呈现在管理端？ | [查看研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/) |
+| 编号 | 当前研究 | 摘要描述 | 源库 | 关联网页 | 进度 |
+| :---: | --- | --- | --- | --- | --- |
+| 001 | [Storm-Breaker 能力与原理研究](projects/001-storm-breaker/README.md) | 主题网页读取部分环境信息，在授权后请求位置与音视频；PHP 回传并由面板展示。扩展场景需另行开发。 | [ultrasecurity/Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker) | [在线研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/) | 已发布；原版已复现；音频落盘未证实 |
 
 ### 001 · Storm-Breaker
 
