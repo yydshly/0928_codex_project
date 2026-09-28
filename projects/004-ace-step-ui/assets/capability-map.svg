@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">ACE-Step UI 能力与技术分工</title>
+  <desc id="desc">创作输入进入浏览器工作台，经过任务与作品服务交给 ACE-Step 1.5 模型，输出音频再进入作品库、播放与编辑流程。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081319"/><stop offset="1" stop-color="#0f2730"/></linearGradient>
+    <linearGradient id="accent" x2="1"><stop stop-color="#6de6bb"/><stop offset="1" stop-color="#b1e47d"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000" flood-opacity=".2"/></filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#74ccba" stroke-width="1.6"/></marker>
+  </defs>
+  <rect width="1200" height="520" rx="28" fill="url(#bg)"/>
+  <g opacity=".13" stroke="#a7ebd0"><path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200M0 300H1200M0 360H1200M0 420H1200M0 480H1200"/><path d="M80 0V520M200 0V520M320 0V520M440 0V520M560 0V520M680 0V520M800 0V520M920 0V520M1040 0V520M1160 0V520"/></g>
+  <text x="48" y="61" fill="#eafaf4" font-size="30" font-family="sans-serif" font-weight="700">一首歌从想法到作品库</text>
+  <text x="50" y="90" fill="#94b8b6" font-size="15" font-family="sans-serif">ACE-Step UI 组织创作流程；ACE-Step 1.5 执行音乐生成</text>
+  <g filter="url(#shadow)" font-family="sans-serif">
+    <rect x="48" y="142" width="236" height="236" rx="20" fill="#18303a" stroke="#31535b"/>
+    <rect x="63" y="158" width="64" height="28" rx="14" fill="#285449"/><text x="78" y="178" font-size="13" fill="#c4f5d6">输入</text>
+    <text x="68" y="222" fill="#f4fbf7" font-size="23" font-weight="700">创作意图</text>
+    <text x="68" y="262" fill="#c1d6d4" font-size="16">描述 · 歌词 · 风格</text>
+    <text x="68" y="293" fill="#c1d6d4" font-size="16">时长 · BPM · 调性</text>
+    <text x="68" y="324" fill="#c1d6d4" font-size="16">参考音频 · 修改范围</text>
+    <rect x="343" y="142" width="236" height="236" rx="20" fill="#18303a" stroke="#31535b"/>
+    <rect x="358" y="158" width="92" height="28" rx="14" fill="#285449"/><text x="373" y="178" font-size="13" fill="#c4f5d6">工作台</text>
+    <text x="363" y="222" fill="#f4fbf7" font-size="23" font-weight="700">ACE-Step UI</text>
+    <text x="363" y="262" fill="#c1d6d4" font-size="16">参数表单与状态展示</text>
+    <text x="363" y="293" fill="#c1d6d4" font-size="16">任务队列与本地存储</text>
+    <text x="363" y="324" fill="#c1d6d4" font-size="16">歌曲库 · 播放 · 工具</text>
+    <rect x="638" y="142" width="236" height="236" rx="20" fill="#1d3638" stroke="#467669"/>
+    <rect x="653" y="158" width="90" height="28" rx="14" fill="#315c4b"/><text x="668" y="178" font-size="13" fill="#d7f1c4">模型层</text>
+    <text x="658" y="222" fill="#f4fbf7" font-size="23" font-weight="700">ACE-Step 1.5</text>
+    <text x="658" y="262" fill="#c1d6d4" font-size="16">LM：可选的音乐规划</text>
+    <text x="658" y="293" fill="#c1d6d4" font-size="16">DiT：音频生成</text>
+    <text x="658" y="324" fill="#c1d6d4" font-size="16">模型与权重独立安装</text>
+    <rect x="933" y="142" width="219" height="236" rx="20" fill="#18303a" stroke="#31535b"/>
+    <rect x="948" y="158" width="90" height="28" rx="14" fill="#285449"/><text x="963" y="178" font-size="13" fill="#c4f5d6">结果</text>
+    <text x="953" y="222" fill="#f4fbf7" font-size="23" font-weight="700">音频作品</text>
+    <text x="953" y="262" fill="#c1d6d4" font-size="16">试听 · 收藏 · 歌单</text>
+    <text x="953" y="293" fill="#c1d6d4" font-size="16">Cover · Repaint</text>
+    <text x="953" y="324" fill="#c1d6d4" font-size="16">剪辑 · 分轨 · 配视频</text>
+  </g>
+  <g stroke="#74ccba" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M294 260H328"/><path d="M589 260H623"/><path d="M884 260H918"/></g>
+  <rect x="48" y="421" width="1104" height="59" rx="14" fill="#122b32" stroke="#305660"/>
+  <text x="68" y="457" fill="#bde2d7" font-family="sans-serif" font-size="16">本图是研究示意，不是原项目截图或模型输出；功能效果仍需在对应版本与硬件上实际验证。</text>
+</svg>

@@ -11,6 +11,7 @@
 | 001 | [Storm-Breaker 能力与原理研究](projects/001-storm-breaker/README.md) | 主题网页读取部分环境信息，在授权后请求位置与音视频；PHP 回传并由面板展示。扩展场景需另行开发。 | [ultrasecurity/Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker) | [在线研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/) | 已发布；原版已复现；音频落盘未证实 |
 | 002 | [AIRI 能力与角色交互研究](projects/002-airi/README.md) | 面向虚拟陪伴的 Agent 应用工程；按需组合对话、语音、角色、视觉及执行工具。沉淀接入、表现和执行反馈思路，后期按需参考。 | [moeru-ai/airi](https://github.com/moeru-ai/airi) | [在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) | 已发布；归档参考；暂不深入；原版未运行 |
 | 003 | [Grok Bot Field Notes 工程经验与使用参考](projects/003-grokbot-field-notes/README.md) | Agent 工程案例与模板资料库：以规则、职责与验证反馈组织工作，可转化为验证工具、任务约定和技能；适用开发、研究与业务流程。有经验者新增价值有限，归档后按需参考。 | [unicodef1wn/grokbot-field-notes](https://github.com/unicodef1wn/grokbot-field-notes) | [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/) | 已发布；归档参考；新增方法有限；原平台未运行 |
+| 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [本地研究网页](projects/004-ace-step-ui/web/index.html)；未发布 | 已建展示；原版未运行；效果未实测 |
 
 ### 001 · Storm-Breaker
 
@@ -74,6 +75,30 @@ Storm-Breaker 以五套主题网页引导访问，读取部分浏览器环境信
 
 [原仓库](https://github.com/unicodef1wn/grokbot-field-notes) · [详细研究](projects/003-grokbot-field-notes/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/) · [运行与部署约定](projects/003-grokbot-field-notes/web/README.md)
 
+### 004 · ACE-Step UI
+
+[![ACE-Step UI 完整理解总览：能力、入口、模型、原理、产出与创作闭环](projects/004-ace-step-ui/assets/understanding-overview.png)](projects/004-ace-step-ui/assets/understanding-overview.svg)
+
+图为本仓库依据 [ACE-Step UI 固定研究提交](https://github.com/fspecii/ace-step-ui/tree/a1fdf91829ec6f7b98844f80e323529cd155dbf2) 与 [ACE-Step 1.5 模型文档](https://github.com/ace-step/ACE-Step-1.5/tree/ca1e85fe9430179831e6bc6be790c332190a3866) 独立绘制，不是原项目截图或模型生成结果。
+
+**库的能力：**把文字或歌词生成音乐、风格和音乐参数控制、参考音频、Cover、Repaint、作品播放与歌单，以及音频剪辑等辅助工具组织进同一创作工作台。
+
+**完整理解：**[一张图总览](projects/004-ace-step-ui/web/overview.html)与[汇总说明](projects/004-ace-step-ui/understanding.md)串起六类入口、应用和模型原理、底层模型及产出。UI 内置六个 DiT 选项与三个可选 LM；XL 的 UI 兼容、LM 选择实际生效以及 LRC / 评分完整输出仍需验证。主结果是 MP3 / FLAC 音频和作品记录。
+
+**底层本质：**基于 ACE-Step 1.5 的音乐创作应用，默认连接本地模型服务。做产品可先把模型看成输入输出黑盒；内部 DiT 是生成模型，潜变量是它处理的数字表示，VAE 负责声音与表示之间的转换。React / Express / SQLite 组织任务、文件与作品管理。
+
+**支持模型：**UI 固定列出 ACE-Step v1.5 的 base、sft、turbo、turbo-shift1、turbo-shift3、turbo-continuous；可选专用音乐 LM 为 0.6B / 1.7B / 4B，基于对应规模 Qwen3，配套 Qwen3-Embedding-0.6B 与 VAE。XL 及额外变体的 UI 兼容性未验证；MiniMax 等需另做适配。
+
+**输出效果：**带人声歌曲、纯音乐、多候选、改编或局部重绘结果，UI 主要导出 MP3 / FLAC，并保存歌曲记录。剪辑、分轨、视频依赖辅助工具；LRC / 评分完整输出未验证。公开样例是模型团队成果，不是本机生成。
+
+**入口与场景：**Simple 描述、Custom 歌词/风格、Reference 参考音频、Cover 源音频改编、Repaint 起止区间、Batch / Reuse 候选与复用；适合歌曲草稿、配乐探索与反复试听修改，组成“定目标 → 探方向 → 找问题 → 针对性修改 → 对照交付”的创作流程。见[创作控制指南](projects/004-ace-step-ui/web/creation.html)与[产品分析](projects/004-ace-step-ui/creation-guide.md)。
+
+**对我们的价值：**重点借鉴入口分流、条件控制、任务与作品管理，以及“探索 → 试听 → 诊断 → 修改 → 交付”的创作逻辑；可进一步补参数快照、版本关系和对照试听。换用 MiniMax 等模型时逐项映射接口能力。研究网页独立制作，原版音质、速度及兼容性尚未在本机验证。
+
+UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前需核实。模型仓库有独立的 MIT LICENSE，音频与第三方素材另行核对。展示页在线引用官方真实音频与原作者界面动图，标注出处；未发布公网演示地址。
+
+[UI 原仓库](https://github.com/fspecii/ace-step-ui) · [模型原仓库](https://github.com/ace-step/ACE-Step-1.5) · [详细研究](projects/004-ace-step-ui/research.md) · [本地展示页](projects/004-ace-step-ui/web/index.html) · [运行说明](projects/004-ace-step-ui/web/README.md)
+
 ## 仓库结构
 
 ```text
@@ -85,6 +110,7 @@ projects/
     web/               # 可选：独立网页的源码
   002-airi/            # AIRI 能力地图、角色表现与交互研究
   003-grokbot-field-notes/ # Thursday Arena 产品与直播问题、Agent 工作方法研究
+  004-ace-step-ui/     # ACE-Step UI 音乐创作能力展示与研究
 templates/project/     # 新子项目模板
 docs/                  # 索引与网页发布约定
 ```

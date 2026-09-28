@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="3220" viewBox="0 0 2400 3220" role="img" aria-labelledby="title desc"><title id="title">ACE-Step UI：能力、入口、模型、原理与产出总览</title><desc id="desc">六类创作入口经过应用任务服务和 ACE-Step 1.5 模型生成音频，再通过试听和修改形成创作闭环。区分 UI 内置六种 DiT、三种可选语言模型，以及未验证兼容的 XL 模型。</desc><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#80938d"/></marker></defs><rect width="2400" height="3220" fill="#f3f5ee"/>
+<rect x="0" y="0" width="2400" height="270" rx="0" fill="#153d30" stroke="#153d30"/>
+<text x="80" y="64" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="26" fill="#bce196" font-weight="700">RESEARCH / 004     ·     能力与产品化理解总览</text>
+<text x="80" y="139" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="62" fill="#fff" font-weight="700">ACE-Step UI：把音乐模型变成创作工作台</text>
+<text x="80" y="198" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="34" fill="#d9ecd9" font-weight="400">输入想法或声音 → 生成候选 → 试听诊断 → 定向修改 → 管理与交付</text>
+<text x="80" y="242" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#b5cdbd" font-weight="400">应用：React + Express + SQLite    ｜    引擎：独立部署的 ACE-Step 1.5    ｜    默认连接本地模型服务</text>
+<text x="80" y="332" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#367860" font-weight="700">01</text>
+<text x="143" y="332" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="38" fill="#14392d" font-weight="700">可操作入口</text>
+<text x="143" y="375" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#5c7167" font-weight="400">先判断：我手里有什么？我想保留什么、改变什么？</text>
+<rect x="80" y="409" width="720" height="255" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="108" y="452" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">SIMPLE / 从零探索</text>
+<text x="108" y="499" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">一句话生成音乐</text>
+<text x="108" y="546" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">输入：主题、情绪、风格与用途</text>
+<text x="108" y="587" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">操作：Simple；人声 / 纯音乐、语言</text>
+<text x="108" y="628" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">产出：模型补全细节的音乐候选</text>
+<rect x="840" y="409" width="720" height="255" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="868" y="452" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">CUSTOM / 明确约束</text>
+<text x="868" y="499" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">歌词与风格定向创作</text>
+<text x="868" y="546" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">输入：歌词、段落、风格描述</text>
+<text x="868" y="587" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">操作：BPM、调性、拍号、时长等</text>
+<text x="868" y="628" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">边界：这些是生成条件，并非精准编曲</text>
+<rect x="1600" y="409" width="720" height="255" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="1628" y="452" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">REFERENCE / 参考声音方向</text>
+<text x="1628" y="499" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">借助参考音频生成</text>
+<text x="1628" y="546" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">输入：上传音频或选择库内作品</text>
+<text x="1628" y="587" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">操作：Custom → Audio → Reference</text>
+<text x="1628" y="628" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">边界：不承诺复制旋律或克隆歌手</text>
+<rect x="80" y="687" width="720" height="255" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="108" y="730" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">COVER / 沿源音频改编</text>
+<text x="108" y="777" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">保留线索，改变风格</text>
+<text x="108" y="824" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">输入：源音频 + 目标描述</text>
+<text x="108" y="865" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">操作：Cover / Cover song + 强度</text>
+<text x="108" y="906" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">边界：audio2audio 在桥接中映射为 cover</text>
+<rect x="840" y="687" width="720" height="255" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="868" y="730" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">REPAINT / 局部重做</text>
+<text x="868" y="777" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">只重做不满意的片段</text>
+<text x="868" y="824" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">输入：源音频 + 修改目标</text>
+<text x="868" y="865" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">操作：Repaint + 开始 / 结束秒数</text>
+<text x="868" y="906" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">检查：局部改善、接缝与上下文连续</text>
+<rect x="1600" y="687" width="720" height="255" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="1628" y="730" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">BATCH / REUSE / 候选筛选</text>
+<text x="1628" y="777" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">多版本探索，再收敛</text>
+<text x="1628" y="824" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">操作：Batch、Bulk、seed、Reuse prompt</text>
+<text x="1628" y="865" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">管理：试听、收藏、歌单、下载</text>
+<text x="1628" y="906" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">边界：Reuse 仅回填部分字段，非完整复现</text>
+<text x="80" y="994" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#3b6251" font-weight="400">补充入口：AI 格式整理 / Enhance / Thinking  ·  LoRA 加载与强度  ·  audio codes / 参数导入  ·  剪辑 / 分轨 / 视频</text>
+<text x="80" y="1071" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#367860" font-weight="700">02</text>
+<text x="143" y="1071" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="38" fill="#14392d" font-weight="700">怎么实现：应用组织流程，模型合成声音</text>
+<rect x="80" y="1101" width="530" height="205" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="103" y="1144" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">① 浏览器工作台</text>
+<text x="103" y="1186" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#48745e" font-weight="400">React · TypeScript · Vite</text>
+<text x="103" y="1230" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">收集描述、歌词、音频与参数</text>
+<text x="103" y="1267" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">提交任务；轮询状态；播放结果</text>
+<path d="M615 1202 H640" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="650" y="1101" width="530" height="205" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="673" y="1144" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">② 应用服务</text>
+<text x="673" y="1186" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#48745e" font-weight="400">Express · 队列 · 模型适配</text>
+<text x="673" y="1230" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">创建任务 ID；顺序执行任务</text>
+<text x="673" y="1267" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">连接 Gradio / REST / Python 路径</text>
+<path d="M1185 1202 H1210" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1220" y="1101" width="530" height="205" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="1243" y="1144" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">③ 生成服务</text>
+<text x="1243" y="1186" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#48745e" font-weight="400">独立运行的 ACE-Step 1.5</text>
+<text x="1243" y="1230" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">加载选定权重；编码输入条件</text>
+<text x="1243" y="1267" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">采样音频潜变量；解码声音</text>
+<path d="M1755 1202 H1780" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1790" y="1101" width="530" height="205" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="1813" y="1144" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">④ 作品与文件</text>
+<text x="1813" y="1186" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#48745e" font-weight="400">SQLite + 音频文件 + 播放器</text>
+<text x="1813" y="1230" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">保存歌曲记录、参数与结果文件</text>
+<text x="1813" y="1267" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">供复用、编辑、下载与歌单管理</text>
+<text x="80" y="1348" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#3b6251" font-weight="700">模型内部：多路条件汇合到 DiT；不是所有输入都必须先经过 LM。</text>
+<rect x="80" y="1373" width="530" height="222" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="103" y="1418" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">可选 LM · 音乐规划</text>
+<text x="103" y="1465" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">Qwen3 派生的专用 ACE-Step LM</text>
+<text x="103" y="1506" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">整理元数据、生成 5 Hz 音乐 codes</text>
+<text x="103" y="1547" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">Thinking 等流程可用；允许关闭</text>
+<path d="M615 1480 H640" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="650" y="1373" width="530" height="222" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="673" y="1418" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">条件编码 · 汇合信息</text>
+<text x="673" y="1465" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">描述 / 歌词 / 参考音色 → 编码</text>
+<text x="673" y="1506" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">codes 或源音频 → 音乐条件</text>
+<text x="673" y="1547" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">Repaint 的时间范围 → mask</text>
+<path d="M1185 1480 H1210" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1220" y="1373" width="530" height="222" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="1243" y="1418" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">DiT · 生成潜变量</text>
+<text x="1243" y="1465" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">Flow Matching 迭代更新潜变量</text>
+<text x="1243" y="1506" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">以文本、音乐条件与 mask 引导</text>
+<text x="1243" y="1547" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">Cover 强度控制源条件参与阶段</text>
+<path d="M1755 1480 H1780" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1790" y="1373" width="530" height="222" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="1813" y="1418" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#153d30" font-weight="700">VAE · 还原声音</text>
+<text x="1813" y="1465" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">潜变量 → 48 kHz 立体声音频</text>
+<text x="1813" y="1506" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">支持分块解码以减轻显存压力</text>
+<text x="1813" y="1547" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#41574f" font-weight="400">再编码为 UI 指定的文件格式</text>
+<text x="80" y="1631" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#5c7167">基础组件：Qwen3-Embedding-0.6B 文本编码器 + 官方 VAE；底层另注册社区 VAE 与其他 DiT 变体，UI 兼容未验证，详见汇总。</text>
+<text x="80" y="1667" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#367860" font-weight="700">03</text>
+<text x="143" y="1667" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="38" fill="#14392d" font-weight="700">底层模型：区分“界面有选项”与“已验证可用”</text>
+<rect x="80" y="1700" width="720" height="394" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="108" y="1743" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">A / 固定 UI 内置的 6 个 DiT 选项</text>
+<text x="108" y="1790" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">ACE-Step v1.5 模型家族</text>
+<text x="108" y="1837" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-v15-turbo</text>
+<text x="108" y="1878" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-v15-base  ·  acestep-v15-sft</text>
+<text x="108" y="1919" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-v15-turbo-shift1</text>
+<text x="108" y="1960" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-v15-turbo-shift3</text>
+<text x="108" y="2001" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-v15-turbo-continuous</text>
+<text x="108" y="2042" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">需相应权重、服务版本与硬件支持</text>
+<rect x="840" y="1700" width="720" height="394" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="868" y="1743" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">B / 界面提供的 3 个可选 LM</text>
+<text x="868" y="1790" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">音乐规划模型，非声音解码器</text>
+<text x="868" y="1837" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-5Hz-lm-0.6B</text>
+<text x="868" y="1878" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-5Hz-lm-1.7B</text>
+<text x="868" y="1919" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-5Hz-lm-4B</text>
+<text x="868" y="1960" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">基于相应规模 Qwen3 的专用模型</text>
+<text x="868" y="2001" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">主生成路径未显式传递 LM 选择字段</text>
+<text x="868" y="2042" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">实际启用项需由模型服务状态确认</text>
+<rect x="1600" y="1700" width="720" height="394" rx="22" fill="#fff2de" stroke="#d8e0d6"/>
+<text x="1628" y="1743" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">C / 模型仓库能力，UI 兼容未验证</text>
+<text x="1628" y="1790" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">XL 系列与额外任务</text>
+<text x="1628" y="1837" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">acestep-v15-xl-base / xl-sft / xl-turbo</text>
+<text x="1628" y="1878" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">（后两项同样带 acestep-v15- 前缀）</text>
+<text x="1628" y="1919" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">UI 会扫描额外的本地模型目录</text>
+<text x="1628" y="1960" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">但发现目录不等于验证 XL 兼容</text>
+<text x="1628" y="2001" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">Base 另有 extract / lego / complete</text>
+<text x="1628" y="2042" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">不能据此认定当前 UI 已完整开放</text>
+<text x="80" y="2144" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="26" fill="#755a30" font-weight="400">默认本地推理，可连接兼容服务；MiniMax、Suno 等不是原生可切换后端。Qwen3 是 LM 基座，不等于任意聊天模型可替换。</text>
+<text x="80" y="2216" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#367860" font-weight="700">04</text>
+<text x="143" y="2216" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="38" fill="#14392d" font-weight="700">最终产出：音频是主结果，其余按链路区分</text>
+<rect x="80" y="2250" width="530" height="262" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="108" y="2293" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">核心产出</text>
+<text x="108" y="2340" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">音乐音频</text>
+<text x="108" y="2387" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">人声歌曲 / 纯音乐 / 多候选</text>
+<text x="108" y="2428" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">参考生成 / Cover / 局部修改</text>
+<text x="108" y="2469" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">该 UI 格式选项：MP3、FLAC</text>
+<rect x="650" y="2250" width="530" height="262" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="678" y="2293" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">应用保存</text>
+<text x="678" y="2340" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">歌曲与创作记录</text>
+<text x="678" y="2387" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">任务状态、歌曲信息、关联参数</text>
+<text x="678" y="2428" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">本地文件、播放、收藏、歌单</text>
+<text x="678" y="2469" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">Reuse ≠ 完整参数与版本恢复</text>
+<rect x="1220" y="2250" width="530" height="262" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="1248" y="2293" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">工具衍生</text>
+<text x="1248" y="2340" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">剪辑、分轨、视频</text>
+<text x="1248" y="2387" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">编辑后音频、分离音轨等</text>
+<text x="1248" y="2428" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">视频等输出依赖相应工具链</text>
+<text x="1248" y="2469" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">有入口不等于已配好全部依赖</text>
+<rect x="1790" y="2250" width="530" height="262" rx="22" fill="#fff2de" stroke="#d8e0d6"/>
+<text x="1818" y="2293" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">需要确认</text>
+<text x="1818" y="2340" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">条件性结果与边界</text>
+<text x="1818" y="2387" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">LRC / 评分有开关，完整回传待验</text>
+<text x="1818" y="2428" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">不是默认输出 MIDI、乐谱</text>
+<text x="1818" y="2469" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">也不是完整 DAW 工程文件</text>
+<text x="80" y="2590" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="30" fill="#367860" font-weight="700">05</text>
+<text x="143" y="2590" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="38" fill="#14392d" font-weight="700">怎样做出更好的音乐：把生成按钮变成创作闭环</text>
+<rect x="80" y="2627" width="420" height="148" rx="22" fill="#153d30" stroke="#d8e0d6"/>
+<text x="103" y="2671" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="31" fill="#fff" font-weight="700">1  定用途</text>
+<text x="103" y="2710" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">受众、情绪、时长</text>
+<text x="103" y="2744" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">明确必留与可改</text>
+<path d="M506 2701 H526" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="535" y="2627" width="420" height="148" rx="22" fill="#153d30" stroke="#d8e0d6"/>
+<text x="558" y="2671" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="31" fill="#fff" font-weight="700">2  探索候选</text>
+<text x="558" y="2710" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">少量不同方向</text>
+<text x="558" y="2744" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">先听整体与记忆点</text>
+<path d="M961 2701 H981" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="990" y="2627" width="420" height="148" rx="22" fill="#153d30" stroke="#d8e0d6"/>
+<text x="1013" y="2671" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="31" fill="#fff" font-weight="700">3  诊断问题</text>
+<text x="1013" y="2710" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">风格？歌词？局部？</text>
+<text x="1013" y="2744" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">留下具体修改理由</text>
+<path d="M1416 2701 H1436" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1445" y="2627" width="420" height="148" rx="22" fill="#153d30" stroke="#d8e0d6"/>
+<text x="1468" y="2671" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="31" fill="#fff" font-weight="700">4  选择操作</text>
+<text x="1468" y="2710" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">改条件 / Cover</text>
+<text x="1468" y="2744" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">Repaint / 音频编辑</text>
+<path d="M1871 2701 H1891" fill="none" stroke="#80938d" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1900" y="2627" width="420" height="148" rx="22" fill="#153d30" stroke="#d8e0d6"/>
+<text x="1923" y="2671" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="31" fill="#fff" font-weight="700">5  对照与交付</text>
+<text x="1923" y="2710" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">保留基准、检查新问题</text>
+<text x="1923" y="2744" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#d9ecd9" font-weight="400">达标后导出并记录</text>
+<rect x="80" y="2805" width="1100" height="216" rx="22" fill="#fff" stroke="#d8e0d6"/>
+<text x="108" y="2848" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">做产品可以直接参考</text>
+<text x="108" y="2895" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">入口分流 + 控制项组织 + 任务与作品管理</text>
+<text x="108" y="2942" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">让用户从“我想做什么”进入；把模型条件翻译成创作选择。</text>
+<text x="108" y="2983" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">按问题推荐下一步操作；用试听、筛选和修改组织持续创作。</text>
+<rect x="1220" y="2805" width="1100" height="216" rx="22" fill="#e4eee1" stroke="#d8e0d6"/>
+<text x="1248" y="2848" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="23" fill="#54856e" font-weight="700">接 MiniMax 等模型时需要重新设计与验证</text>
+<text x="1248" y="2895" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="33" fill="#183c2e" font-weight="700">能力适配 + 版本关系 + 可靠性 + 质量评价</text>
+<text x="1248" y="2942" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">按新 API 能力映射 Reference / Cover / Repaint，不强行等同。</text>
+<text x="1248" y="2983" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="27" fill="#41574f" font-weight="400">补完整参数快照、A/B 对照、恢复与取消、成本及质量记录。</text>
+<text x="80" y="3073" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#5c7167" font-weight="400">证据范围：UI a1fdf91829ec · 模型 ca1e85fe9430  ｜  两个提交独立研究，未验证成套兼容；本机未运行模型。</text>
+<text x="80" y="3121" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="25" fill="#5c7167" font-weight="400">来源：github.com/fspecii/ace-step-ui · github.com/ace-step/ACE-Step-1.5  ｜  完整链接与限制见 understanding.md</text>
+<text x="80" y="3170" font-family="'Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="24" fill="#5c7167" font-weight="400">本仓库独立绘制 · 非官方架构图或原版运行截图 · 2026-09-28</text>
+</svg>

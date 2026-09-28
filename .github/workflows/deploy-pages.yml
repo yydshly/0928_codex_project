@@ -25,6 +25,8 @@ jobs:
           cp -R projects/001-storm-breaker/web/. _site/001-storm-breaker/
           cp -R projects/002-airi/web/. _site/002-airi/
           cp -R projects/003-grokbot-field-notes/web/. _site/003-grokbot-field-notes/
+          mkdir -p _site/004-ace-step-ui
+          cp -R projects/004-ace-step-ui/. _site/004-ace-step-ui/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

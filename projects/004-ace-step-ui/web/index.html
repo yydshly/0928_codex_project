@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ACE-Step UI 能力与技术边界的独立研究展示。了解文本音乐生成、参考音频、局部重绘、作品管理与模型分工。">
+  <title>ACE-Step UI · 先听效果，再看原理</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回页面顶部"><span class="brand-mark" aria-hidden="true">↗</span><span>OPEN SOURCE / 004</span></a>
+      <nav aria-label="页面导航">
+        <a href="overview.html">完整总览</a><a href="creation.html">创作路径</a><a href="#architecture">架构</a><a href="#model">原理</a>
+      </nav>
+      <a class="header-link" href="https://github.com/fspecii/ace-step-ui/tree/a1fdf91829ec6f7b98844f80e323529cd155dbf2" target="_blank" rel="noopener noreferrer">原项目 ↗</a>
+    </header>
+
+    <main id="main">
+
+      <section class="section section-pad listen-hero" id="top" aria-labelledby="hero-title">
+        <div class="section-heading"><div><p class="kicker">SEE IT. HEAR IT.</p><h1 id="hero-title">写一段描述，<br><em>得到能播放的音乐。</em></h1></div><p>ACE-Step UI 是操作工作台：你填写风格、歌词和时长，模型生成歌曲，再在作品库里试听、挑选和修改。先听下面三个真实结果。</p></div>
+        <p class="sample-provenance"><span class="live-dot" aria-hidden="true"></span> ACE-Step 模型团队公开样例 · 非本机生成 · 点击后联网播放</p>
+        <a class="creation-entry-link" href="overview.html"><div><span>完整理解总览</span><strong>一张图看懂能力、原理、模型、入口与产出</strong><p>六类创作入口 · 应用与模型两层原理 · 模型支持范围 · 创作闭环与产品参考</p></div><b aria-hidden="true">↗</b></a>
+        <div class="sample-grid">
+          <article class="sample-card"><span class="node-label">01 / 先听这一段</span><h2>中文歌曲：人声 + 伴奏</h2><div class="sample-input"><span>给模型的要求 · 官方提示词摘要</span><p>爵士与 lo-fi 节奏、钢琴、萨克斯，男女对唱。</p></div><p class="listen-for">听中文演唱如何与鼓点、和声、乐器编排结合。</p><button type="button" class="sample-play" data-audio="sample-zh_jazz">▶ 播放中文歌曲</button><audio id="sample-zh_jazz" controls preload="none" src="https://ace-step.github.io/ace-step-v1.5.github.io/mp3/samples/GeneralSongs/zh_jazz.mp3" aria-label="中文歌曲：人声 + 伴奏官方音频样例"></audio><p class="playback-status" id="status-zh_jazz" aria-live="polite">点击播放，试听真实音频</p><a class="source-mini" href="https://ace-step.github.io/ace-step-v1.5.github.io/raw/samples/GeneralSongs/zh_jazz_prompt.txt" target="_blank" rel="noopener noreferrer">查看官方完整提示词 ↗</a></article>
+<article class="sample-card"><span class="node-label">02 / 不需要人声</span><h2>纯音乐：游戏 / 影视氛围</h2><div class="sample-input"><span>给模型的要求 · 官方提示词摘要</span><p>工业低鸣、金属撞击、持续增强的节奏，营造黑暗追逐感。</p></div><p class="listen-for">听氛围铺垫、张力累积和段落变化。</p><button type="button" class="sample-play" data-audio="sample-inst">▶ 播放纯音乐</button><audio id="sample-inst" controls preload="none" src="https://ace-step.github.io/ace-step-v1.5.github.io/mp3/samples/GeneralSongs/inst.mp3" aria-label="纯音乐：游戏 / 影视氛围官方音频样例"></audio><p class="playback-status" id="status-inst" aria-live="polite">点击播放，试听真实音频</p><a class="source-mini" href="https://ace-step.github.io/ace-step-v1.5.github.io/raw/samples/GeneralSongs/inst_prompt.txt" target="_blank" rel="noopener noreferrer">查看官方完整提示词 ↗</a></article>
+<article class="sample-card"><span class="node-label">03 / 换一种声音</span><h2>重金属：切换整首曲风</h2><div class="sample-input"><span>给模型的要求 · 官方提示词摘要</span><p>失真双吉他、强劲鼓点、沙哑男声与吉他独奏。</p></div><p class="listen-for">对比第一首，感受人声、乐器和节奏的整体变化。</p><button type="button" class="sample-play" data-audio="sample-en_metal">▶ 播放重金属</button><audio id="sample-en_metal" controls preload="none" src="https://ace-step.github.io/ace-step-v1.5.github.io/mp3/samples/GeneralSongs/en_metal.mp3" aria-label="重金属：切换整首曲风官方音频样例"></audio><p class="playback-status" id="status-en_metal" aria-live="polite">点击播放，试听真实音频</p><a class="source-mini" href="https://ace-step.github.io/ace-step-v1.5.github.io/raw/samples/GeneralSongs/en_metal_prompt.txt" target="_blank" rel="noopener noreferrer">查看官方完整提示词 ↗</a></article>
+        </div>
+        <p class="diagram-caption">这些音频来自模型团队的 <a href="https://ace-step.github.io/ace-step-v1.5.github.io/#baseline-quality" target="_blank" rel="noopener noreferrer">GeneralSongs 官方试听区</a>，用于展示底层模型的输出。下面的动图展示 ACE-Step UI 自身的操作界面。样例不代表任意输入都会达到相同效果。</p>
+      </section>
+      <section class="section section-pad real-ui-section" id="real-ui" aria-labelledby="real-ui-title">
+        <div class="section-heading"><div><p class="kicker">THE ACTUAL WORKSPACE</p><h2 id="real-ui-title">这就是原库的实际界面。</h2></div><p>这是原作者仓库提供的演示动图。你可以看到输入区、生成作品列表和播放器，而下面的研究图解由本仓库另行制作。</p></div>
+        <figure class="upstream-demo"><img src="https://cdn.jsdelivr.net/gh/fspecii/ace-step-ui@a1fdf91829ec6f7b98844f80e323529cd155dbf2/docs/demo.gif" alt="ACE-Step UI 原作者演示动图，展示音乐创作输入、歌曲工作区及播放器" loading="lazy"><figcaption>原作者演示 · UI 提交 a1fdf91 · 在线引用，未修改或下载到本仓库</figcaption></figure>
+        <div class="demo-summary"><p><b>你能用它做什么：</b>把歌词做成歌曲、生成无歌词配乐、尝试不同曲风，把生成结果保存下来反复试听。Cover 和局部重绘用于继续修改已有声音；本页尚无这两项的真实前后对照。</p><a class="button button-ghost" href="https://www.youtube.com/watch?v=8zg0Xi36qGc" target="_blank" rel="noopener noreferrer">原作者完整演示视频 ↗</a></div>
+        <div class="hero-actions"><a class="button button-primary" href="#capabilities">再看具体能力 ↓</a><a class="button button-ghost" href="#architecture">理解内部实现 ↓</a></div>
+      </section>
+      <section class="intro-strip section-pad" aria-label="项目定位">
+        <div><span class="strip-index">01</span><strong>创作入口</strong><small>描述 / 歌词 / 参考音频</small></div>
+        <div><span class="strip-index">02</span><strong>模型生成</strong><small>可选 LM 规划 + DiT 音频生成</small></div>
+        <div><span class="strip-index">03</span><strong>持续迭代</strong><small>Cover / Repaint / 编辑</small></div>
+        <div><span class="strip-index">04</span><strong>作品管理</strong><small>播放 / 收藏 / 歌单</small></div>
+      </section>
+
+      <section class="section section-pad" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-heading"><div><p class="kicker">CAPABILITY MAP / 01</p><h2 id="capabilities-title">从灵感到作品的六组能力</h2></div><p>选择一项，查看它由哪一层实现、需要哪些条件。这里展示的是源码与文档证据，不代表本次已完成运行测试。</p></div>
+        <div class="capability-layout">
+          <div class="tab-list" role="tablist" aria-label="能力类别">
+            <button id="tab-create" type="button" role="tab" aria-selected="true" aria-controls="panel-create" tabindex="0" data-tab="create"><span class="tab-num">01</span><span>文字生成</span><span aria-hidden="true">↗</span></button>
+            <button id="tab-control" type="button" role="tab" aria-selected="false" aria-controls="panel-control" tabindex="-1" data-tab="control"><span class="tab-num">02</span><span>精细控制</span><span aria-hidden="true">↗</span></button>
+            <button id="tab-reference" type="button" role="tab" aria-selected="false" aria-controls="panel-reference" tabindex="-1" data-tab="reference"><span class="tab-num">03</span><span>参考与重绘</span><span aria-hidden="true">↗</span></button>
+            <button id="tab-tools" type="button" role="tab" aria-selected="false" aria-controls="panel-tools" tabindex="-1" data-tab="tools"><span class="tab-num">04</span><span>音频工具</span><span aria-hidden="true">↗</span></button>
+            <button id="tab-library" type="button" role="tab" aria-selected="false" aria-controls="panel-library" tabindex="-1" data-tab="library"><span class="tab-num">05</span><span>作品管理</span><span aria-hidden="true">↗</span></button>
+            <button id="tab-local" type="button" role="tab" aria-selected="false" aria-controls="panel-local" tabindex="-1" data-tab="local"><span class="tab-num">06</span><span>本地运行</span><span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="tab-panels">
+            <article class="capability-panel" id="panel-create" role="tabpanel" aria-labelledby="tab-create" tabindex="0">
+              <div class="panel-top"><span class="panel-tag">CREATE / 文字 → 音乐</span><span class="panel-count">01 / 06</span></div><h3>先描述想听到什么。</h3><p class="panel-lead">简单模式接受自然语言描述；自定义模式可以提供歌词、风格并选择纯音乐。工作台负责收集输入，ACE-Step 模型负责把条件变成音频。</p><div class="panel-grid"><div><span>输入</span><p>歌曲描述，或歌词与风格标签</p></div><div><span>实现分工</span><p>UI 表单与任务服务 → ACE-Step 模型</p></div><div><span>本次边界</span><p>已查阅入口；未试听或评估生成质量</p></div></div><a class="evidence-link" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts" target="_blank" rel="noopener noreferrer">查看生成路由源码 ↗</a>
+            </article>
+            <article class="capability-panel" id="panel-control" role="tabpanel" aria-labelledby="tab-control" tabindex="0" hidden>
+              <div class="panel-top"><span class="panel-tag">CONTROL / 控制变量</span><span class="panel-count">02 / 06</span></div><h3>让每次尝试有依据。</h3><p class="panel-lead">可设置时长、BPM、调性、拍号、随机种子、推理步数及批量变体。参数提供控制意图，但最终听感仍需用真实生成验证。</p><div class="panel-grid"><div><span>输入</span><p>节奏、调性、时长与生成参数</p></div><div><span>实现分工</span><p>UI 组织参数 → 模型解释并生成</p></div><div><span>本次边界</span><p>参数入口可见；控制准确度未实测</p></div></div><a class="evidence-link" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts" target="_blank" rel="noopener noreferrer">查看参数定义 ↗</a>
+            </article>
+            <article class="capability-panel" id="panel-reference" role="tabpanel" aria-labelledby="tab-reference" tabindex="0" hidden>
+              <div class="panel-top"><span class="panel-tag">ITERATE / 基于已有声音</span><span class="panel-count">03 / 06</span></div><h3>保留方向，修改细节。</h3><p class="panel-lead">参考音频可引导风格；Cover 使用现有音频做改编；Repaint 针对选定片段重新生成。这些任务由 ACE-Step 模型提供，UI 负责输入和流程。</p><div class="panel-grid"><div><span>输入</span><p>参考或源音频、任务类型、修改范围</p></div><div><span>实现分工</span><p>UI 上传与参数 → 模型编辑能力</p></div><div><span>本次边界</span><p>没有上传音频或验证结构保留效果</p></div></div><a class="evidence-link" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts" target="_blank" rel="noopener noreferrer">查看任务参数 ↗</a>
+            </article>
+            <article class="capability-panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools" tabindex="0" hidden>
+              <div class="panel-top"><span class="panel-tag">FINISH / 后期工具</span><span class="panel-count">04 / 06</span></div><h3>创作不会停在生成按钮。</h3><p class="panel-lead">项目集成音频剪辑、分轨提取和使用素材视频制作音乐视频的入口。这些工具与生成模型是不同环节，依赖及素材来源也应分别检查。</p><div class="panel-grid"><div><span>处理</span><p>裁剪、淡入淡出、分轨、配视频</p></div><div><span>实现分工</span><p>AudioMass、分轨工具及可选 Pexels 等</p></div><div><span>本次边界</span><p>工具输出与素材许可未实测</p></div></div><a class="evidence-link" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/README.md#-built-in-tools" target="_blank" rel="noopener noreferrer">查看原项目工具说明 ↗</a>
+            </article>
+            <article class="capability-panel" id="panel-library" role="tabpanel" aria-labelledby="tab-library" tabindex="0" hidden>
+              <div class="panel-top"><span class="panel-tag">LIBRARY / 作品系统</span><span class="panel-count">05 / 06</span></div><h3>让每次尝试都找得回来。</h3><p class="panel-lead">歌曲库、播放器、收藏和歌单把一次性输出变成可以回听、筛选和再次使用的作品。服务端保存任务及歌曲记录，音频写入存储。</p><div class="panel-grid"><div><span>内容</span><p>歌曲、生成参数、任务状态与歌单</p></div><div><span>实现分工</span><p>React 界面 + Express + SQLite/本地音频</p></div><div><span>本次边界</span><p>已核对源码；未测试长期存储可靠性</p></div></div><a class="evidence-link" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts" target="_blank" rel="noopener noreferrer">查看任务与歌曲入库逻辑 ↗</a>
+            </article>
+            <article class="capability-panel" id="panel-local" role="tabpanel" aria-labelledby="tab-local" tabindex="0" hidden>
+              <div class="panel-top"><span class="panel-tag">SETUP / 本地优先</span><span class="panel-count">06 / 06</span></div><h3>在自己的设备上组织流程。</h3><p class="panel-lead">UI 连接另行安装的 ACE-Step 服务，默认指向本机地址，并允许局域网访问。音乐生成需要匹配的模型与硬件；可选 Pexels 素材功能可能访问外部服务。</p><div class="panel-grid"><div><span>需要</span><p>UI 服务、ACE-Step 模型、相应运行环境</p></div><div><span>实现分工</span><p>本机工作台与独立的模型进程</p></div><div><span>本次边界</span><p>未安装；不能推定离线与所有硬件兼容</p></div></div><a class="evidence-link" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/README.md#-requirements" target="_blank" rel="noopener noreferrer">查看安装要求 ↗</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-pad workflow-section" id="workflow" aria-labelledby="workflow-title">
+        <div class="section-heading"><div><p class="kicker">CREATIVE PATH / 02</p><h2 id="workflow-title">三种常见的创作路径</h2></div><p>以下是根据已列功能整理的使用方式，属于流程示意，不是本仓库已执行的实验结果。</p></div>
+        <div class="path-grid">
+          <article class="path-card"><span class="path-numeral">A</span><p class="path-label">从零开始</p><h3>写下概念，试听方向</h3><ol><li>描述主题、风格或写入歌词</li><li>设置时长与节奏等参数</li><li>生成变体，选出值得继续的版本</li></ol><span class="path-footer">适合：歌曲草稿与灵感探索</span></article>
+          <article class="path-card"><span class="path-numeral">B</span><p class="path-label">已有声音</p><h3>借助参考，改编片段</h3><ol><li>提供有使用权限的参考音频</li><li>选择风格引导、Cover 或 Repaint</li><li>试听差异，继续调整指定范围</li></ol><span class="path-footer">适合：结构与音色迭代</span></article>
+          <article class="path-card"><span class="path-numeral">C</span><p class="path-label">整理交付</p><h3>从结果到作品集</h3><ol><li>回看任务与生成参数</li><li>使用剪辑或分轨等辅助工具</li><li>收藏、分类、导出可用版本</li></ol><span class="path-footer">适合：内容配乐与素材管理</span></article>
+        </div>
+      </section>
+
+
+      <section class="section section-pad architecture-section" id="architecture" aria-labelledby="architecture-title">
+        <div class="section-heading"><div><p class="kicker">SYSTEM ARCHITECTURE / 03</p><h2 id="architecture-title">三个运行边界，<br>两条数据通路。</h2></div><p>一次生成跨过浏览器、Node 应用服务和 Python 模型服务。向前传的是参数与音频文件；返回的是状态、文件地址和作品记录。</p></div>
+        <div class="version-note">源码快照：UI <code>a1fdf91</code> / 模型 <code>ca1e85f</code>。两者是独立研究版本，尚未验证能作为同一安装组合运行。</div>
+        <div class="system-map" aria-label="浏览器通过 HTTP 连接应用服务，应用服务通过 Gradio 连接模型；SQLite 和音频文件由应用服务管理">
+          <article class="system-node"><span class="node-label">浏览器 / ACE-Step UI</span><h3>创作与呈现</h3><p class="tech-label">React · TypeScript · Vite</p><ul><li>表单组织 <code>GenerationParams</code></li><li>用临时歌曲卡展示等待状态</li><li>每 2 秒查询任务，完成后刷新作品库</li></ul><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/App.tsx#L699" target="_blank" rel="noopener noreferrer">App.tsx · beginPollingJob ↗</a></article>
+          <div class="system-wire"><b aria-hidden="true">⇄</b><span>HTTP / JSON<br>上传文件</span></div>
+          <article class="system-node"><span class="node-label">Node 进程 / ACE-Step UI</span><h3>任务与作品</h3><p class="tech-label">Express · SQLite · 本地文件</p><ul><li>校验用户与输入，创建任务记录</li><li><code>jobQueue</code> 排队，适配模型参数</li><li>获取音频，写入歌曲与生成参数</li></ul><div class="storage-pills"><span>SQLite：元数据</span><span>文件：音频内容</span></div></article>
+          <div class="system-wire"><b aria-hidden="true">⇄</b><span>Gradio<br>predict()</span></div>
+          <article class="system-node model-node"><span class="node-label">Python 进程 / ACE-Step 1.5</span><h3>条件与声音</h3><p class="tech-label">模型权重 · 推理运行时</p><ul><li>可选 LM 生成规划与语义 codes</li><li>编码条件，DiT 生成音频潜变量</li><li>VAE 解码，输出可下载音频文件</li></ul><span class="node-foot">独立安装与加载模型</span></article>
+        </div>
+        <p class="diagram-caption">主路径为 Gradio <code>/generation_wrapper</code>；不可用或报错时，UI 服务尝试启动 Python 后备路径。音乐推理在模型侧执行，浏览器负责操作与展示。</p>
+        <div class="subsection-heading"><p class="kicker">REQUEST TRACE</p><h3>沿着一次点击，追到作品入库</h3><p>点击步骤查看输入、处理与输出。这是源码执行过程的说明，未发起实际生成。</p></div>
+        <div class="trace-layout">
+          <div class="trace-tabs" role="tablist" aria-label="生成请求步骤" aria-orientation="vertical">
+            <button role="tab" id="trace-tab-1" aria-controls="trace-panel-1" aria-selected="true" tabindex="0" type="button"><span>01</span>提交参数</button>
+<button role="tab" id="trace-tab-2" aria-controls="trace-panel-2" aria-selected="false" tabindex="-1" type="button"><span>02</span>建档与排队</button>
+<button role="tab" id="trace-tab-3" aria-controls="trace-panel-3" aria-selected="false" tabindex="-1" type="button"><span>03</span>适配模型接口</button>
+<button role="tab" id="trace-tab-4" aria-controls="trace-panel-4" aria-selected="false" tabindex="-1" type="button"><span>04</span>推理与取回文件</button>
+<button role="tab" id="trace-tab-5" aria-controls="trace-panel-5" aria-selected="false" tabindex="-1" type="button"><span>05</span>查询触发落库</button>
+<button role="tab" id="trace-tab-6" aria-controls="trace-panel-6" aria-selected="false" tabindex="-1" type="button"><span>06</span>刷新与播放</button>
+          </div>
+          <div class="trace-panels">
+            <article class="trace-panel" id="trace-panel-1" role="tabpanel" aria-labelledby="trace-tab-1" tabindex="0"><span class="panel-tag">BROWSER → EXPRESS</span><h4>把创作意图变成一份请求</h4><p>简单模式以歌曲描述作为提示词；自定义模式以风格描述为主，并可附歌词。纯音乐模式会把歌词置空。参考音频先上传到应用服务，生成请求再携带其地址。</p><dl class="io-grid"><div><dt>接口</dt><dd><code>POST /api/generate/</code></dd></div><div><dt>数据</dt><dd>描述、歌词、时长、seed、taskType、音频地址等</dd></div></dl><pre class="code-sample"><code>// 结构示例，非真实生成记录
+{ customMode: true, style: "warm piano",
+  lyrics: "…", duration: 30,
+  taskType: "text2music", seed: 42 }</code></pre><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts#L212" target="_blank" rel="noopener noreferrer">生成入口与参数 ↗</a></article>
+            <article class="trace-panel" id="trace-panel-2" role="tabpanel" aria-labelledby="trace-tab-2" tabindex="0" hidden><span class="panel-tag">DATABASE → MEMORY QUEUE</span><h4>先记住任务，再逐个调用模型</h4><p>路由向 <code>generation_jobs</code> 写入用户、参数与本地任务 ID。<code>generateMusicViaAPI()</code> 创建另一执行 ID，放入 <code>activeJobs</code> Map 和 <code>jobQueue</code> 数组；数据库通过 <code>acestep_task_id</code> 关联它。</p><dl class="io-grid"><div><dt>调度方式</dt><dd><code>processQueue()</code> 用标志锁防重入，await 当前任务后再取下一项。</dd></div><div><dt>立即返回</dt><dd>前端拿到本地 jobId，不必让提交请求一直等待音频生成。</dd></div></dl><p class="detail-note">入队后数据库先写 running，响应仍返回 queued；后续查询以执行 Map 的结果同步。数据库有记录，不代表队列能在重启后恢复。</p><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/services/acestep.ts#L422" target="_blank" rel="noopener noreferrer">processQueue / generateMusicViaAPI ↗</a></article>
+            <article class="trace-panel" id="trace-panel-3" role="tabpanel" aria-labelledby="trace-tab-3" tabindex="0" hidden><span class="panel-tag">NAMED FIELDS → POSITIONAL ARGUMENTS</span><h4>接口桥梁的核心，是参数转换</h4><p><code>buildGradioArgs()</code> 把具名参数转换为 51 个位置参数（索引 0–50），并用 Gradio 文件包装处理音频。随后调用 <code>client.predict('/generation_wrapper', args)</code>。</p><dl class="io-grid"><div><dt>几个固定位置</dt><dd>0：描述；1：歌词；10：参考音频；13：源音频；15/16：重绘起止；20：任务类型。</dd></div><div><dt>开关行为</dt><dd>thinking 控制 Think；enhance 或 thinking 任一开启，才允许元数据、描述及语言的 CoT 增强。</dd></div></dl><p class="detail-note">源码注释写“50 个”，实际数组含 51 项。这里按实现计数。上游若增删或调整参数顺序，这层需要重新核对。</p><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/services/acestep.ts#L133" target="_blank" rel="noopener noreferrer">buildGradioArgs ↗</a></article>
+            <article class="trace-panel" id="trace-panel-4" role="tabpanel" aria-labelledby="trace-tab-4" tabindex="0" hidden><span class="panel-tag">MODEL → AUDIO FILES</span><h4>等待完整输出，再把文件取回来</h4><p>Gradio 的 <code>predict()</code> 等待生成完成。UI 桥接代码优先读取返回数组索引 8（全部文件列表）；无文件时再检查索引 0–7。索引 9、10 分别按生成详情和状态解释。</p><dl class="io-grid"><div><dt>音频获取</dt><dd>同机路径存在时直接复制；否则通过返回的 URL 下载，再把临时文件改名。</dd></div><div><dt>执行结果</dt><dd>探测时长、保存音频地址，更新内存任务为 succeeded 或 failed。</dd></div></dl><p class="detail-note">这里不会把每一步模型音频流回浏览器。界面的任务查询与模型内部去噪是两套节奏；剩余时间含估算逻辑。</p><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/services/acestep.ts#L509" target="_blank" rel="noopener noreferrer">processGenerationViaGradio ↗</a></article>
+            <article class="trace-panel" id="trace-panel-5" role="tabpanel" aria-labelledby="trace-tab-5" tabindex="0" hidden><span class="panel-tag">STATUS READ → DATABASE WRITE</span><h4>查询状态时，才完成作品建档</h4><p><code>GET /api/generate/status/:jobId</code> 校验任务归属，再读取执行 Map。状态变化时，用 <code>WHERE id = ? AND status = ?</code> 更新任务。只有首先成功更新为 succeeded 的请求，才继续保存歌曲。</p><dl class="io-grid"><div><dt>音频内容</dt><dd>经 storage provider 保存文件并获得可访问地址。</dd></div><div><dt>歌曲记录</dt><dd><code>songs</code> 保存用户、标题、音频地址、音乐元数据和 <code>generation_params</code>。</dd></div></dl><p class="detail-note">这是为并发轮询设置的重复写入保护。状态更新、文件保存和歌曲插入并非一个原子事务；可靠恢复需要独立的完成处理流程。</p><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts#L367" target="_blank" rel="noopener noreferrer">状态同步与歌曲入库 ↗</a></article>
+            <article class="trace-panel" id="trace-panel-6" role="tabpanel" aria-labelledby="trace-tab-6" tabindex="0" hidden><span class="panel-tag">POLLING → LIBRARY</span><h4>占位卡被作品列表替换</h4><p><code>beginPollingJob()</code> 每 2 秒更新状态、队列位置和可用进度。成功后清理临时任务并刷新歌曲列表；失败或查询异常时清理等待状态。前端还设置了 10 分钟超时。</p><dl class="io-grid"><div><dt>用户看到</dt><dd>新的歌曲记录与音频地址，随后由播放器读取音频。</dd></div><div><dt>超时含义</dt><dd>前端停止等待不等于模型已经取消；此处没有把超时转换成模型取消请求。</dd></div></dl><p class="detail-note">“任务、模型推理、歌曲、文件”是四种不同对象。排障要先确认卡在哪个阶段。</p><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/App.tsx#L699" target="_blank" rel="noopener noreferrer">轮询与超时处理 ↗</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-pad model-section" id="model" aria-labelledby="model-title">
+        <p class="source-mini">先理解角色：DiT 是生成模型，潜变量是模型处理的数据，VAE 负责声音与内部表示的转换。做产品可把它们整体看作音乐模型黑盒。<a href="overview.html#model-blackbox">查看通俗解释与输入输出流程 →</a></p>
+        <div class="section-heading"><div><p class="kicker">INSIDE ACE-STEP 1.5 / 04</p><h2 id="model-title">文字怎样变成波形？</h2></div><p>下面进入独立的模型仓库。codes 是离散的音乐表示；latents 是连续的音频潜变量。两者都要经过后续计算才能播放。</p></div>
+        <div class="model-pipeline">
+          <article><span class="node-label">01 / 可选规划</span><h3>LM → 语义 codes</h3><p>基于 Qwen 的音乐语言模型可补充元数据，并预测约每秒 5 个音乐 codes。它为旋律和编排提供结构线索；关闭规划后，文本条件仍可直接引导 DiT。</p><p class="representation">离散序列 · 5 Hz</p></article>
+          <article><span class="node-label">02 / 条件编码</span><h3>文字、歌词、音色</h3><p>描述经文本编码器，歌词经词嵌入与歌词编码器；参考音频先编码为潜变量，再提取音色特征。三路信息打包，供 DiT 的交叉注意力读取。</p><p class="representation">条件向量 · cross-attention</p></article>
+          <article><span class="node-label">03 / 迭代生成</span><h3>DiT → 音频潜变量</h3><p>以噪声为初始状态，结合条件、源潜变量和掩码，预测每步更新方向。推理循环逐步生成连续的音频表示。</p><p class="representation">连续张量 · 25 Hz / 64 维</p></article>
+          <article><span class="node-label">04 / 解码导出</span><h3>VAE → 可听波形</h3><p>1D VAE 解码器把压缩表示还原为 48 kHz 双声道音频。运行时支持重叠分块解码，降低一次解码的显存峰值，再按输出设置保存文件。</p><p class="representation">波形 · WAV / MP3 等</p></article>
+        </div>
+        <div class="condition-routes"><p><span>语义条件通路</span> 描述 / 歌词 / 参考音色 → 编码向量 → DiT 交叉注意力</p><p><span>结构约束通路</span> LM codes 或源音频 → 结构潜变量 + 时间 mask → DiT 上下文</p><small>两路在 DiT 汇合，生成的音频潜变量再交给 VAE 解码。不同任务可省略或替换部分输入。</small></div>
+        <div class="model-explain-grid">
+          <details class="technical-detail" open><summary>为什么既有语言模型，又有文本编码器？</summary><div><p>可选 LM 是生成式规划器，会输出新的元数据和音乐 codes。文本编码器把已有描述转换成向量，供 DiT 理解输入；关闭 thinking 并不意味着完全不处理文本。</p><p><code>prepare_condition()</code> 将 codes 经反量化与 detokenizer 还原为 25 Hz 提示；Cover 也能从源音频的潜变量得到这类结构线索。</p><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/models/turbo/modeling_acestep_v15_turbo.py#L1654" target="_blank" rel="noopener noreferrer">prepare_condition ↗</a></div></details>
+          <details class="technical-detail" open><summary>DiT 每一步到底在算什么？</summary><div><p>训练用 Flow Matching 学习噪声与干净音频潜变量之间的速度场。以源码的 Euler / ODE 分支为例，每步预测速度 <code>v</code>，再用时间差更新当前状态：</p><div class="formula">x<sub>next</sub> = x<sub>current</sub> − v × Δt</div><p>步数对应潜变量的更新次数，和歌曲秒数不是同一个量。seed 影响初始噪声；模型、参数或运行环境变化时，仅相同 seed 不足以保证完全复现。</p><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/models/turbo/modeling_acestep_v15_turbo.py#L2189" target="_blank" rel="noopener noreferrer">generate_audio 更新循环 ↗</a></div></details>
+          <details class="technical-detail"><summary>条件怎样影响每一段声音？</summary><div><p><code>AceStepConditionEncoder</code> 将描述、歌词和音色向量拼成序列。DiT 通过交叉注意力读取这些条件；自身注意力则处理声音序列内部的联系。源潜变量和 mask 作为另一组上下文输入。</p><p>这使同一模型能在不同输入约束下完成生成与编辑。提示词是模型的条件，不是逐条执行的硬规则。</p><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/models/turbo/modeling_acestep_v15_turbo.py#L1513" target="_blank" rel="noopener noreferrer">条件编码器 ↗</a></div></details>
+          <details class="technical-detail"><summary>为什么 Turbo 可以少步数生成？</summary><div><p>模型团队通过蒸馏，将多步生成过程训练成少步模型；技术报告描述了从约 50 步到 8 步的路线。加速依赖专门训练的权重与采样安排，不能把普通模型的步数直接调低并期待同等效果。</p><p>Base、SFT、Turbo 的训练目标和 CFG 支持不同。UI 暴露某个参数，不代表所有模型都以相同方式使用它。</p><a class="source-mini" href="https://arxiv.org/html/2602.00744v1#S4.SS1" target="_blank" rel="noopener noreferrer">技术报告 §4.1 · 蒸馏 ↗</a></div></details>
+        </div>
+        <p class="diagram-caption">表示尺度与训练路线依据 <a href="https://arxiv.org/html/2602.00744v1#S3" target="_blank" rel="noopener noreferrer">ACE-Step 1.5 技术报告（2026-01-31）</a>；条件与更新机制另核对固定模型源码。这里省略批处理、设备调度与采样器分支，未测量性能。</p>
+        <div class="subsection-heading"><p class="kicker">AUDIO CONDITIONING</p><h3>参考、Cover、Repaint，约束的是不同位置</h3><p>参考音频和源音频在接口中是两个字段；把音频传进去，并不代表所有任务都采用同一种处理。</p></div>
+        <div class="edit-methods">
+          <article><span class="node-label">REFERENCE / 音色条件</span><h4>提取“听起来像什么”</h4><p><code>referenceAudioUrl</code> 对应 Gradio 第 10 项。参考波形经 VAE 编码，再进入 timbre encoder，作为条件向量影响音色与风格。</p><p class="detail-note">并非在时间轴上原样复制参考段落。</p><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/core/generation/handler/conditioning_embed.py#L18" target="_blank" rel="noopener noreferrer">参考音频编码 ↗</a></article>
+          <article><span class="node-label">COVER / 结构条件</span><h4>量化源音频，再重新合成</h4><p>源音频潜变量经 tokenizer 得到 5 Hz 量化表示，再还原成 25 Hz 结构提示。保留旋律、节奏等线索的同时，允许新的文本条件改变声音。</p><p class="detail-note">该版本 <code>audio_cover_strength</code> 决定使用 Cover 条件的步骤比例，之后可切换到无 Cover 条件；不是直接混合两段波形的音量。</p><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/models/turbo/modeling_acestep_v15_turbo.py#L2091" target="_blank" rel="noopener noreferrer">Cover 条件切换 ↗</a></article>
+          <article><span class="node-label">REPAINT / 时间掩码</span><h4>让指定片段重新生成</h4><p>起止秒数换算为潜变量帧，构建布尔 mask。选中区间允许生成；保留区间在指定比例的推理步骤中重新注入加噪源潜变量，结束后可做边界混合。</p><p class="detail-note">当前模型有 injection ratio 与 crossfade 分支；该 UI 参数桥未暴露这两项控制。</p><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/models/turbo/modeling_acestep_v15_turbo.py#L2207" target="_blank" rel="noopener noreferrer">重绘注入与边界混合 ↗</a></article>
+        </div>
+        <div class="mask-demo" aria-labelledby="mask-title">
+          <div><p class="kicker">MASK EXPLORER / 示意</p><h4 id="mask-title">移动范围，看时间如何变成掩码</h4><p>以 12 秒、25 Hz 的潜变量序列为例。条带每格代表 1 秒，底层每秒有 25 帧；不含真实音频，也不执行推理。</p></div>
+          <div class="mask-controls"><label for="mask-start">开始 <output id="mask-start-value" for="mask-start">4 秒</output></label><input type="range" id="mask-start" min="0" max="11" value="4"><label for="mask-end">结束 <output id="mask-end-value" for="mask-end">8 秒</output></label><input type="range" id="mask-end" min="1" max="12" value="8"></div>
+          <div class="mask-visual"><div class="mask-track" id="mask-track" aria-hidden="true"></div><div class="mask-axis"><span>0 s</span><span>12 s</span></div><p class="mask-result" id="mask-result" aria-live="polite"></p><div class="mask-legend"><span>浅绿：重新生成</span><span>深色：源音频约束</span></div></div>
+          <a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/core/generation/handler/conditioning_masks.py#L48" target="_blank" rel="noopener noreferrer">帧索引算法：秒数 × sample_rate ÷ 1920 ↗</a>
+        </div>
+      </section>
+
+      <section class="section section-pad implementation-section" id="implementation" aria-labelledby="implementation-title">
+        <div class="section-heading"><div><p class="kicker">ENGINEERING & EXTENSION / 05</p><h2 id="implementation-title">真正可借鉴的，<br>是这些实现取舍。</h2></div><p>下面区分固定源码中的做法与本仓库提出的扩展建议。扩展尚未实施，也不是原库已解决的问题。</p></div>
+        <div class="engineering-grid">
+          <article><span>01 / 任务生命周期</span><h3>持久化记录 ≠ 持久化执行</h3><p><b>实现：</b>任务表落盘，执行队列和结果 Map 留在 Node 内存中；逐个处理可限制同时提交给模型的负载。</p><p><b>扩展：</b>由持久化 worker 接管领取、心跳、重试与完成落库；启动时对账未完成任务，让网页关闭或服务重启后仍可追踪。</p></article>
+          <article><span>02 / 模型适配</span><h3>集中转换，集中承担变化</h3><p><b>实现：</b>一个函数将 UI 字段转换为位置数组，返回结果也依赖固定索引；异常会尝试 Python 后备路径。</p><p><b>扩展：</b>固定兼容版本，建立接口契约与能力探测。按“模型不可用”和“生成失败”分类，避免把所有异常都当作需要重新推理。</p></article>
+          <article><span>03 / 作品溯源</span><h3>歌曲和音频分开保存</h3><p><b>实现：</b>SQLite 记录标题、参数与 audio_url；文件存储保存音频内容。一次批量生成可以对应多个 songs 记录。</p><p><b>扩展：</b>增加父作品 ID、模型版本、实际 seed、编辑区间和文件哈希，把 Cover / Repaint 串成可回溯的版本树。</p></article>
+          <article><span>04 / 学习与复用</span><h3>按目标选择从哪层开始</h3><p><b>做创作产品：</b>先读表单、任务与作品管理，再接入经过验证的模型接口。</p><p><b>研究音频算法：</b>从条件编码、潜变量、采样循环和 VAE 开始，单独测生成效果。当前 UI 的串联方式不能替代模型实验。</p></article>
+        </div>
+        <div class="source-roadmap"><h3>顺着这些入口读源码</h3><div class="table-scroll"><table><thead><tr><th>想理解什么</th><th>固定版本入口</th><th>重点寻找</th></tr></thead><tbody>
+        <tr><td>界面如何等待结果</td><td><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/App.tsx#L699" target="_blank" rel="noopener noreferrer">UI / App.tsx ↗</a></td><td>beginPollingJob / refreshSongsList</td></tr>
+<tr><td>任务如何变成歌曲</td><td><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/routes/generate.ts#L367" target="_blank" rel="noopener noreferrer">UI / routes/generate.ts ↗</a></td><td>generation_jobs → storage → songs</td></tr>
+<tr><td>模型怎样被调用</td><td><a class="source-mini" href="https://github.com/fspecii/ace-step-ui/blob/a1fdf91829ec6f7b98844f80e323529cd155dbf2/server/src/services/acestep.ts#L133" target="_blank" rel="noopener noreferrer">UI / services/acestep.ts ↗</a></td><td>buildGradioArgs / processQueue</td></tr>
+<tr><td>条件怎样进入 DiT</td><td><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/models/turbo/modeling_acestep_v15_turbo.py#L1513" target="_blank" rel="noopener noreferrer">模型 / modeling_acestep_v15_turbo.py ↗</a></td><td>ConditionEncoder / prepare_condition / generate_audio</td></tr>
+<tr><td>范围怎样变成 mask</td><td><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/core/generation/handler/conditioning_masks.py#L14" target="_blank" rel="noopener noreferrer">模型 / conditioning_masks.py ↗</a></td><td>_build_chunk_masks_and_src_latents</td></tr>
+<tr><td>潜变量怎样变成声音</td><td><a class="source-mini" href="https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/acestep/core/generation/handler/vae_decode.py#L16" target="_blank" rel="noopener noreferrer">模型 / vae_decode.py ↗</a></td><td>tiled_decode / 分块与设备回退</td></tr>
+        </tbody></table></div></div>
+      </section>
+      <section class="section section-pad boundaries-section" id="boundaries" aria-labelledby="boundaries-title">
+        <div class="section-heading"><div><p class="kicker">EVIDENCE & LIMITS / 06</p><h2 id="boundaries-title">展示的边界同样重要</h2></div><p>这个项目是研究页面。音频是模型团队的公开样例，动图来自 UI 原作者。请求追踪与掩码是说明性交互；本机未运行音乐生成。</p></div>
+        <div class="boundary-grid"><div><span>已核对</span><h3>功能入口与技术链路</h3><p>原项目 README、前后端依赖、生成路由、模型调用与作品入库代码。</p></div><div><span>尚未验证</span><h3>生成效果与兼容性</h3><p>音质、速度、显存、参考音频和局部重绘效果仍需在真实设备上测试。</p></div><div><span>复用前核实</span><h3>许可与外部素材</h3><p>UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；模型、音频、素材和第三方工具分别核对。</p></div></div>
+        <div class="source-note"><p>研究快照：<a href="https://github.com/fspecii/ace-step-ui/tree/a1fdf91829ec6f7b98844f80e323529cd155dbf2" target="_blank" rel="noopener noreferrer">ACE-Step UI · a1fdf91 ↗</a> 与 <a href="https://github.com/ace-step/ACE-Step-1.5/tree/ca1e85fe9430179831e6bc6be790c332190a3866" target="_blank" rel="noopener noreferrer">ACE-Step 1.5 · ca1e85f ↗</a>。<a href="../research.md">阅读完整研究记录 ↗</a></p></div>
+      </section>
+    </main>
+    <footer class="site-footer section-pad"><div><span class="footer-brand">ACE-STEP UI <i>/</i> RESEARCH 004</span><p>本仓库独立制作的能力说明页。非 ACE-Step UI 官方网站。</p></div><a href="#top">返回顶部 ↑</a></footer>
+  </div>
+</body>
+</html>
