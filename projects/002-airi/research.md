@@ -103,7 +103,7 @@ Minecraft 的 `llm-actions.ts` 存在 `goToPlayer`、`goToCoordinate`、`followP
 - 若希望角色陪玩 Minecraft：动作目录、反射层和任务反馈具有具体参考价值；Mineflayer 到 Fabric 的迁移会影响实现选型。
 - 若希望角色建立长期关系：记忆仍需独立核查，不宜把 AIRI 的研究计划当成已完成产品。
 
-建议的后续最小实验是“打开指定网页 → 读取标题摘要 → 角色语音反馈”，先核验动作是否执行、失败是否回传、角色报告是否与结果相符。此实验尚未实现。
+未来如有明确的桌面执行需求，可用“打开指定网页 → 读取标题摘要 → 角色语音反馈”作为最小验证，检查动作是否执行、失败是否回传、角色报告是否与结果相符。此实验尚未实现，也不属于当前阶段的工作计划。
 
 本节为研究判断：
 
@@ -125,3 +125,5 @@ Minecraft 的 `llm-actions.ts` 存在 `goToPlayer`、`goToCoordinate`、`followP
 原项目根 [LICENSE](https://github.com/moeru-ai/airi/blob/49c15a6df2a1595dfd0ef2771abfc1229504d075/LICENSE) 为 MIT，版权署名为 Neko Ayaka。该许可不能自动覆盖第三方角色、音色等素材。
 
 研究网页代码、中文归纳与 `airi-map.svg` 为本仓库原创；图像为架构示意，不是原项目截图。没有重新分发原仓库代码、模型或人物图片。源码链接固定到所研究提交；在线文档链接可能在研究日期之后更新。
+
+用户选定的引导图 `airi-capability-overview.png` 由内置 imagegen 根据本研究生成，制作提示词保存在 `assets/infographic-prompt.txt`。网页使用本项目内的同图副本；它是独立研究信息图，非官方宣传或原版运行截图。图中的“优先研究”表示未来按需参考的方向，当前投入决定为暂不深入。

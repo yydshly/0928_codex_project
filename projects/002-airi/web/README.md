@@ -30,9 +30,9 @@ python -m http.server 2526 --bind 127.0.0.1
 
 仓库 `.github/workflows/deploy-pages.yml` 把本目录复制到 `_site/002-airi/`。
 
-计划部署子路径：`/0928_codex_project/002-airi/`。页面的 CSS、JavaScript、图片均使用相对路径，支持子目录托管。本站没有客户端路由，页面内部使用锚点导航。
+已部署子路径：`/0928_codex_project/002-airi/`。页面的 CSS、JavaScript、图片均使用相对路径，支持子目录托管。本站没有客户端路由，页面内部使用锚点导航。
 
-在公网部署成功并验证前，不将预期 URL 作为已发布链接写入索引。已验证的原项目入口为 [AIRI 官方体验](https://airi.moeru.ai/)，它与本仓库展示页面不同。
+[在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) 已于 2026-09-28 发布并核验；摘要、图片和交互正常。原项目入口为 [AIRI 官方体验](https://airi.moeru.ai/)，它与本仓库展示页面不同。
 
 ## 文件
 

@@ -9,7 +9,7 @@
 | 编号 | 当前研究 | 摘要描述 | 源库 | 关联网页 | 进度 |
 | :---: | --- | --- | --- | --- | --- |
 | 001 | [Storm-Breaker 能力与原理研究](projects/001-storm-breaker/README.md) | 主题网页读取部分环境信息，在授权后请求位置与音视频；PHP 回传并由面板展示。扩展场景需另行开发。 | [ultrasecurity/Storm-Breaker](https://github.com/ultrasecurity/Storm-Breaker) | [在线研究网页](https://yydshly.github.io/0928_codex_project/001-storm-breaker/) | 已发布；原版已复现；音频落盘未证实 |
-| 002 | [AIRI 能力与角色交互研究](projects/002-airi/README.md) | 面向虚拟陪伴的 Agent 应用工程；按需组合对话、语音、角色、视觉及执行工具。沉淀接入、表现和执行反馈思路，后期按需参考。 | [moeru-ai/airi](https://github.com/moeru-ai/airi) | [研究网页源码](projects/002-airi/web/index.html) | 阶段性整理完成；暂不深入；原版未运行；待发布 |
+| 002 | [AIRI 能力与角色交互研究](projects/002-airi/README.md) | 面向虚拟陪伴的 Agent 应用工程；按需组合对话、语音、角色、视觉及执行工具。沉淀接入、表现和执行反馈思路，后期按需参考。 | [moeru-ai/airi](https://github.com/moeru-ai/airi) | [在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) | 已发布；归档参考；暂不深入；原版未运行 |
 
 ### 001 · Storm-Breaker
 
@@ -49,7 +49,7 @@ Storm-Breaker 以五套主题网页引导访问，读取部分浏览器环境信
 
 当前电脑操作服务主要面向 macOS，不能从 Windows 客户端支持推定 Windows 执行器已就绪；游戏需逐款接入，长期记忆与陪伴质量未实测。原项目代码采用 MIT 许可，角色模型、声音与其他素材需单独核查。
 
-[原仓库](https://github.com/moeru-ai/airi) · [详细研究](projects/002-airi/research.md) · [研究网页源码](projects/002-airi/web/index.html) · [运行与发布说明](projects/002-airi/web/README.md)
+[原仓库](https://github.com/moeru-ai/airi) · [详细研究](projects/002-airi/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) · [运行与发布说明](projects/002-airi/web/README.md)
 
 ## 仓库结构
 

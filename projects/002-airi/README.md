@@ -12,8 +12,8 @@ AIRI 是面向虚拟陪伴的 Agent 应用工程，按需组合模型、语音�
 | 在线手册范围 | 使用手册标注对应 0.11.3；在线文档可能与 main 和安装包存在差异 |
 | 研究状态 | 已核对官方文档与关键源码；未安装或运行 AIRI 原版 |
 | 独立展示网页 | [web/index.html](web/index.html) · [本地运行说明](web/README.md) |
-| 公网发布 | 待发布并核验，暂不提供公开演示链接 |
-| 计划部署子路径 | `/0928_codex_project/002-airi/` |
+| 公网发布 | [在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/)（2026-09-28 已核验） |
+| 已部署子路径 | `/0928_codex_project/002-airi/` |
 | 原项目代码许可 | [MIT](https://github.com/moeru-ai/airi/blob/49c15a6df2a1595dfd0ef2771abfc1229504d075/LICENSE)；具体模型、声音和其他素材需分别核对 |
 | 详细研究 | [research.md](research.md) |
 
@@ -71,7 +71,9 @@ AIRI 是面向虚拟陪伴的 Agent 应用工程，按需组合模型、语音�
 
 网页为独立静态 HTML / CSS / JavaScript，所有源文件与资源保存在本子项目 `web/` 下，无第三方运行依赖，无构建步骤。支持能力切换、键盘操作、交互链路探索和窄屏布局。
 
-仓库 GitHub Pages 流程已配置将 `web/` 内容汇集到站点 `002-airi/`，计划公开子路径为 `/0928_codex_project/002-airi/`。只有部署成功并核验后，才添加公网链接。本次创建页面不等于运行原版 AIRI 或发布原版服务。
+仓库 GitHub Pages 流程将 `web/` 内容汇集到站点 `002-airi/`，已部署子路径为 `/0928_codex_project/002-airi/`。[在线研究网页](https://yydshly.github.io/0928_codex_project/002-airi/) 于 2026-09-28 实际核验：首页和引导图 HTTP 200，六点摘要、电脑能力切换与链路、手机布局正常；原 001 项目仍返回 HTTP 200。本次发布的是独立研究网页，未运行或部署原版 AIRI 服务。
+
+首次发布提交：`df614bf`；[成功的部署记录](https://github.com/yydshly/0928_codex_project/actions/runs/36375008319)。
 
 ## 图片与许可
 
