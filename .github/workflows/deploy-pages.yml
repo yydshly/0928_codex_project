@@ -18,6 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: projects/010-antv-infographic/web/package-lock.json
+      - name: Build AntV Infographic demo
+        working-directory: projects/010-antv-infographic/web
+        run: |
+          npm ci
+          npm run build
       - name: Assemble static site
         run: |
           mkdir -p _site/001-storm-breaker _site/002-airi _site/003-grokbot-field-notes _site/005-tailcat
@@ -44,6 +54,9 @@ jobs:
           cp projects/009-jev-ultrafast/web/index.html projects/009-jev-ultrafast/web/styles.css projects/009-jev-ultrafast/web/app.js _site/009-jev-ultrafast/
           cp projects/009-jev-ultrafast/web/assets/overview.svg _site/009-jev-ultrafast/assets/
           cp projects/009-jev-ultrafast/web/assets/overview.png _site/009-jev-ultrafast/assets/
+          mkdir -p _site/010-antv-infographic
+          cp -R projects/010-antv-infographic/web/dist/. _site/010-antv-infographic/
+          cp projects/010-antv-infographic/assets/native-render.png _site/010-antv-infographic/assets/native-render.png
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

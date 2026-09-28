@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AntV Infographic 将结构化内容按模板、组件与布局规则转换为可编辑信息图。用于研究配图、流程、对比与报告，减少重复排版；作为个人按需绘图工具和可扩展架构学习案例。" />
+    <title>AntV Infographic · 能力总览与原库实验室</title>
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <a class="back-link" href="../">← 研究索引</a>
+        <div class="brand-mark" aria-hidden="true">✳</div>
+        <p class="eyebrow">PROJECT 010 / LIVE LAB</p>
+        <h1>让信息<br /><em>自己成形。</em></h1>
+        <p class="sidebar-intro">这里的图形由 <strong>@antv/infographic</strong> 实时绘制。选一个信息结构，直接观察原库的输出。</p>
+        <nav id="sample-nav" class="sample-nav" aria-label="信息图类型"></nav>
+        <a class="summary-nav" href="#overview"><span>一张图看懂全部</span><b aria-hidden="true">↓</b></a>
+        <a class="summary-nav" href="#summary"><span>完整研究总结</span><b aria-hidden="true">↓</b></a>
+        <a class="summary-nav catalog-nav" href="#templates"><span>模板分类与选图</span><b aria-hidden="true">↓</b></a>
+        <a class="summary-nav catalog-nav" href="#architecture"><span>架构原理与后续探索</span><b aria-hidden="true">↓</b></a>
+        <div class="sidebar-foot">
+          <span class="live-dot"></span> 原库实时渲染 · v0.2.20
+          <a href="https://github.com/antvis/Infographic" target="_blank" rel="noreferrer">查看上游仓库 ↗</a>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div><span class="overline">ANTV INFOGRAPHIC / 能力展示</span><p>语法 → 模板 → SVG</p></div>
+          <div class="topbar-links"><a class="docs-link" href="#summary">查看完整总结 ↓</a><a class="docs-link" href="https://infographic.antv.vision/learn" target="_blank" rel="noreferrer">官方文档 ↗</a></div>
+        </header>
+
+        <section id="overview" class="overview-section" aria-labelledby="overview-title">
+          <p class="kicker">一图总览 / v0.2.20</p>
+          <h2 id="overview-title">内容、原理、模板和使用价值。</h2>
+          <div class="overview-summary"><p><strong>能力：</strong>把结构化文字、数值与关系转换为可编辑信息图，支持主题和 SVG／PNG 导出。</p><p><strong>价值：</strong>复用排版与视觉组件，让重点、顺序、归属、差异和数量更容易理解。</p><p><strong>使用场景：</strong>研究配图、教程流程、知识摘要、产品说明、方案对比与报告。</p><p><strong>原理：</strong>按名称查找模板和已注册组件，将数据交给结构组件计算布局，再由 JSX 渲染器生成 SVG；编辑器插件另有初始化与销毁流程。</p><p><strong>对我的意义：</strong>作为按需取用的绘图工具，先用熟列表、流程、关系与对比；同时留作可扩展架构案例，后续通过四个实验深入理解并亲手实现。</p></div>
+          <p>一张长图汇总 7 大类、41 个模板家族与全部 276 个模板名称，并附上七类原库实际渲染的示例。点击图片可打开原图，放大阅读完整索引。</p>
+          <div class="overview-links"><a href="./assets/infographic-overview.svg" target="_blank" rel="noreferrer">打开可缩放 SVG ↗</a><a href="./assets/infographic-overview.svg" download>下载 SVG</a><a href="./assets/infographic-overview.png" download>下载高清 PNG</a><a href="#architecture">继续理解架构与后续探索 ↓</a></div>
+          <a class="overview-preview" href="./assets/infographic-overview.png" target="_blank" rel="noreferrer" aria-label="打开完整能力总览长图"><img src="./assets/infographic-overview.png" width="2400" height="8329" alt="AntV Infographic 能力总览：内容、工作原理、七类图形、41 个模板家族、使用场景、个人价值与完整 276 模板索引" loading="lazy" /><span>2400 × 8329 · 点击打开原图，放大阅读</span></a>
+          <p class="overview-note">本仓库独立编排；模板清单来自固定版本原库。七张示例为真实运行截图，未逐一验证全部模板。你可以将它作为按需取用的绘图工具，优先用熟能力列表、步骤流程、模块关系和方案对比。</p>
+        </section>
+
+        <section class="intro">
+          <div>
+            <p class="kicker">01 / 真实效果</p>
+            <h2 id="sample-title">步骤与流程</h2>
+            <p id="sample-description" class="intro-copy"></p>
+          </div>
+          <div class="intro-facts"><span>7 类代表效果</span><span>SVG 矢量输出</span><span>可编辑</span></div>
+        </section>
+
+        <section class="stage-panel" aria-label="原库渲染结果">
+          <div class="stage-toolbar">
+            <div class="stage-label"><span class="live-dot"></span><strong>LIVE CANVAS</strong><span id="render-status">正在加载…</span></div>
+            <div class="controls">
+              <label for="theme-select">主题</label>
+              <select id="theme-select" aria-label="选择原库内置主题">
+                <option value="default">默认</option>
+                <option value="dark">深色</option>
+                <option value="hand-drawn">手绘</option>
+              </select>
+              <label class="edit-toggle"><input id="edit-toggle" type="checkbox" /><span>画布编辑</span></label>
+            </div>
+          </div>
+          <div id="canvas-wrap" class="canvas-wrap"><div id="infographic"></div></div>
+          <div class="stage-footer"><span id="sample-kind">SEQUENCE</span><span class="mobile-hint">← 横向滑动查看画布 →</span><span>由 @antv/infographic 生成 · 非静态示意图</span></div>
+        </section>
+
+        <section class="workbench">
+          <div class="code-panel">
+            <div class="panel-heading"><div><p class="kicker">02 / 修改输入</p><h3>信息图语法</h3></div><span class="file-pill">infographic syntax</span></div>
+            <p class="panel-copy">修改标题、标签或数值后点击“重新渲染”。模板名称决定图形结构；主题由上方选择。</p>
+            <label class="sr-only" for="syntax-input">信息图语法</label>
+            <textarea id="syntax-input" spellcheck="false"></textarea>
+            <div class="actions">
+              <button id="render-button" class="primary-button" type="button">重新渲染 <span>↗</span></button>
+              <button id="stream-button" type="button">重播流式生成</button>
+              <button id="reset-button" type="button">恢复示例</button>
+            </div>
+          </div>
+          <div class="detail-panel">
+            <p class="kicker">03 / 原库能力</p><h3>把结果带走</h3>
+            <p>开启“画布编辑”后，可选择、拖动元素，双击文字修改。编辑器操作与语法输入是两种独立的修改方式。</p>
+            <div class="export-actions">
+              <button id="svg-button" type="button">下载 SVG <span>↗</span></button>
+              <button id="png-button" type="button">下载 PNG <span>↗</span></button>
+              <button id="copy-button" type="button">复制完整语法 <span>↗</span></button>
+            </div>
+            <div class="principle">
+              <span>工作原理</span>
+              <p>结构化数据 <b>→</b> 模板与主题 <b>→</b> JSX 组件及布局 <b>→</b> SVG</p>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section id="architecture" class="architecture-section" aria-labelledby="architecture-title">
+          <p class="kicker">讨论补充 / 从模板追到实际绘图</p>
+          <h2 id="architecture-title">模板如何变成图，为什么能扩展？</h2>
+          <p class="architecture-lead">先跟踪一个具体例子：输入“收集资料、分析内容、输出报告”，选择网格卡片模板，程序怎样得到三张卡片？</p>
+          <div class="architecture-status"><strong>当前进度：已核对关键源码，仍需通过实验建立理解。</strong><p>这里记录本次讨论形成的解释和源码线索。下一阶段需要逐步运行、观察中间结果，再亲手实现组件和插件；相关实验尚未完成。</p></div>
+
+          <h3>先区分三个东西</h3>
+          <div class="architecture-definitions">
+            <article><span>内容数据</span><h4>要写什么</h4><p>三项工作的名称和说明，以及它们之间的关系。</p></article>
+            <article><span>模板配置</span><h4>选哪套方案</h4><p>指定使用网格结构、紧凑卡片和默认标题。它保存组件名称与参数。</p></article>
+            <article><span>组件程序</span><h4>具体怎样画</h4><p>网格计算位置；卡片生成背景、文字等元素；渲染器输出 SVG。</p></article>
+          </div>
+
+          <h3>跟着一个真实模板走六步</h3>
+          <p class="architecture-caption">模板 <code>list-grid-compact-card</code> 来自 v0.2.20。下方内容和坐标示例用于解释过程；它们是静态教学说明。</p>
+          <ol class="architecture-trace">
+            <li><span class="trace-number">01</span><div><h4>接收内容和模板名称</h4><p>输入指定模板名，并填写三条列表内容。语法解析后得到配置与数据。</p><pre><code>infographic list-grid-compact-card
+data
+  title 我的工作流程
+  lists
+    - label 收集资料
+    - label 分析内容
+    - label 输出报告</code></pre></div></li>
+            <li><span class="trace-number">02</span><div><h4>按名称找到模板配置</h4><p>模板注册表像一张“名称 → 配置”的对照表。下面是原库该模板的设计配置：</p><pre><code>design: {
+  title: 'default',
+  structure: { type: 'list-grid' },
+  items: [{ type: 'compact-card' }]
+}</code></pre><p>这一步确定：谁负责排列、谁负责画每一项。</p></div></li>
+            <li><span class="trace-number">03</span><div><h4>按组件名找到真正的程序</h4><p><code>getStructure('list-grid')</code> 找到网格组件；<code>getItem('compact-card')</code> 找到卡片组件。解析器再合入用户参数与主题信息。</p><div class="registry-map"><span>list-grid → 网格排列程序</span><span>compact-card → 卡片绘制程序</span></div></div></li>
+            <li><span class="trace-number">04</span><div><h4>把卡片程序交给网格程序</h4><p>运行时向结构组件传入 <code>data、Title、Item、Items、options</code>。网格通过 <code>Item</code> 调用卡片组件，因此可以复用同一套排列逻辑，换成另一种兼容的卡片。</p><p>调用每个数据项时传入当前内容 <code>datum</code>、数据位置 <code>indexes</code> 和绘制坐标 <code>x、y</code>。统一的输入约定让组件能够组合。</p></div></li>
+            <li><span class="trace-number">05</span><div><h4>测量尺寸，计算每张卡片的位置</h4><p>网格组件先测量首个数据项的边界，再根据列数和间距计算各项位置。原库默认三列，间距为 24。</p><pre><code>行号 = floor(序号 / 列数)
+列号 = 序号 % 列数
+x = 列号 × (卡片宽度 + 间距)
+y = 行号 × (卡片高度 + 间距)</code></pre><div class="coordinate-example"><strong>假设卡片宽 200、三列、间距 24：</strong><div class="coordinate-cards"><span>收集资料<small>x = 0，y = 0</small></span><span>分析内容<small>x = 224，y = 0</small></span><span>输出报告<small>x = 448，y = 0</small></span></div><p>第四项进入下一行。这里的宽度 200 是教学假设，实际尺寸由组件测量获得。</p></div></div></li>
+            <li><span class="trace-number">06</span><div><h4>生成 SVG，再显示和编辑</h4><p>组件返回 JSX 元素，由库的 JSX 渲染器生成 SVG。后续渲染处理文字、样式与资源并放入网页容器；开启编辑模式时，再创建编辑器。导出功能读取最终图形。</p></div></li>
+          </ol>
+
+          <h3>“可插拔”具体发生在哪里？</h3>
+          <div class="architecture-mechanisms">
+            <article><p class="card-index">绘图扩展 / 注册与组合</p><h4>登记名称 → 查找实现 → 按接口调用</h4><p>结构、数据项、模板等有各自的注册表。新增能力时先加载代码，再注册；配置通过名称选择对应实现。</p><pre><code>// 原库结构注册机制的核心
+const STRUCTURE_REGISTRY = new Map();
+registerStructure(name, implementation);
+getStructure(name);</code></pre><p>模板负责选择与组合。自定义组件负责实现新的绘图能力。</p></article>
+            <article><p class="card-index">编辑器插件 / 生命周期</p><h4>注册实例 → 初始化 → 使用 → 销毁</h4><p>插件提供 <code>name、init、destroy</code>。管理器初始化插件时传入事件、编辑器、命令和状态等能力；注销时调用销毁方法再移除实例。</p><div class="registry-map"><span>init：接入功能和事件</span><span>destroy：清理资源和监听</span></div><p>工具栏或交互行为涉及这一层；卡片外观和排列方式主要涉及绘图组件层。</p></article>
+          </div>
+          <div class="architecture-boundaries"><strong>当前理解的边界</strong><ul><li>写一个新名称不会自动加载新代码，扩展实现需要先导入并注册。</li><li>替换组件需要满足接口和数据关系要求；不同结构与数据项的组合仍需验证。</li><li>v0.2.20 的标题解析仍调用默认 Title 组件，未提供与结构、数据项相同的标题注册路径。</li><li>绘图注册表没有编辑器插件那样统一的卸载生命周期；注册同名项会覆盖 Map 中的映射，不等于已显示的图会自动更新。</li></ul></div>
+
+          <details class="architecture-sources"><summary>查看本次核对的源码线索 · 固定版本 v0.2.20</summary><p>以下均为本项目安装包 <code>@antv/infographic/lib/</code> 下的相对路径。说明依据实际代码阅读，后续实验需要进一步跟踪运行结果。</p><ul><li><code>templates/built-in.js</code>：真实模板如何引用结构和数据项。</li><li><code>templates/registry.js</code>、<code>designs/structures/registry.js</code>、<code>designs/items/registry.js</code>：Map 注册与查找。</li><li><code>options/parser.js</code>：解析数据、查找实现、包装组件与配置。</li><li><code>runtime/infographic.js</code>：compose 与 performRender 如何串联流程。</li><li><code>designs/structures/list-grid.js</code>：测量、位置计算和 Item 调用。</li><li><code>renderer/renderer.js</code>：SVG 后续渲染处理。</li><li><code>editor/managers/plugin.js</code>：插件注册、初始化、注销和销毁。</li></ul></details>
+
+          <div id="architecture-roadmap" class="architecture-roadmap"><p class="card-index">后续探索与实现 / 全部待开展</p><h3>用四个小实验，把解释变成可观察的过程。</h3><p>下一次从第一个实验开始，每一步都展示输入、执行过程和输出，再进入下一步。</p><ol><li><strong>追踪一个模板</strong><p>显示原始输入、查到的模板配置、组件名称和最终 SVG。验收：能指出每一项内容在哪一步进入图中。</p></li><li><strong>替换数据项组件</strong><p>保持数据和网格不变，制作并注册一张“开源项目能力卡”。验收：相同数据能切换两种卡片，并观察尺寸变化如何影响布局。</p></li><li><strong>实现自己的排列规则</strong><p>复用同一张卡片，编写一个简单结构，再注册为新模板。验收：能展示每张卡片的坐标及计算依据，并检查长文字、空数据和多项内容。</p></li><li><strong>实现一个编辑器插件</strong><p>开发一个简单的编辑器状态提示插件，观察初始化、事件处理与销毁。验收：启用后显示状态，移除后清理界面和监听，重复启停不出现重复响应。</p></li></ol><p class="roadmap-goal">最终要能亲手解释并实现：配置怎样找到程序、组件怎样组合、位置怎样计算，以及插件怎样接入和退出。</p></div>
+        </section>
+
+        <section id="summary" class="summary-section" aria-labelledby="summary-title">
+          <div class="summary-intro">
+            <div>
+              <p class="kicker">04 / 完整理解</p>
+              <h2 id="summary-title">从一段内容，<br />到一张信息图。</h2>
+            </div>
+            <p>AntV Infographic 是按模板与布局规则绘图的引擎。整理内容、选择或定制模板、填入数据，就能生成可编辑的图形。上方七个示例由原库实时渲染。</p>
+          </div>
+
+          <div class="understanding-panel">
+            <p class="card-index">先理解它的本质</p>
+            <h3>规划内容，选好模板，按规则成图。</h3>
+            <p>通常直接复用内置模板；有特殊版式需求时再定制。模板与布局程序排列文字、形状和连线，输出 SVG，也可导出 PNG。</p>
+            <div class="role-grid"><div><strong>人或外部 AI 负责规划</strong><p>提取重点、判断关系、选模板、填数据，并核对内容。</p></div><div><strong>Infographic 负责绘制</strong><p>解析输入、计算布局、应用主题、提供编辑与导出。</p></div></div>
+            <p class="understanding-note">同一组产品阶段可以用时间线或阶梯表达；换成层级图时，还需要先把内容整理成父子关系。</p>
+          </div>
+
+          <section id="templates" class="catalog-section" aria-labelledby="catalog-title">
+            <div class="catalog-intro"><div><p class="card-index">模板全貌 / v0.2.20</p><h3 id="catalog-title"><span id="template-total">—</span> 个模板，7 类表达方式。</h3></div><a href="https://infographic.antv.vision/gallery" target="_blank" rel="noreferrer">浏览官方效果图库 ↗</a></div>
+            <p class="catalog-explainer">数量直接读取本页安装的原库清单。每类包含方向、卡片、连线等样式变体；276 个模板不等于 276 种都要学会的用途。主题与自定义设计还能产生更多组合。</p>
+            <label class="catalog-search" for="template-search">查找模板<input id="template-search" type="search" placeholder="例如：时间线、层级、timeline、donut" /></label>
+            <p id="catalog-result" class="catalog-result" aria-live="polite">按模板名称或中文类别搜索</p>
+            <div id="catalog-grid" class="catalog-grid"></div>
+          </section>
+
+          <section class="daily-guide" aria-labelledby="daily-title">
+            <p class="card-index">日常怎么选</p><h3 id="daily-title">先确定要说清什么，再选图。</h3>
+            <p>图的意义是让读者更快看清重点、顺序、归属、差异或数量。日常反复使用几种熟悉的表达就够了。</p>
+            <div class="daily-grid">
+              <article><h4>开源研究常用的四种</h4><p>能力清单用列表，执行过程用步骤，模块依赖用关系图，选型用对比。先把这四种用熟，再按内容增加其他形式。</p></article>
+              <article><h4>什么时候文字或表格更好</h4><p>一句通知直接写文字；逐项查参数用表格更方便。内容尚未提炼时，先整理重点再画图。</p></article>
+              <article><h4>一张图的验收问题</h4><p>读者是否更快理解或作出决定？分类和连接是否准确？文字是否可读？装饰是否帮助表达？</p></article>
+            </div>
+          </section>
+
+          <section class="entry-guide" aria-labelledby="entry-title">
+            <p class="card-index">使用入口</p><h3 id="entry-title">从选模板到接入自己的应用。</h3>
+            <div class="entry-grid">
+              <a href="https://infographic.antv.vision/gallery" target="_blank" rel="noreferrer"><strong>官方模板库 ↗</strong><span>浏览全部效果，寻找合适版式。</span></a>
+              <a href="https://infographic.antv.vision/ai" target="_blank" rel="noreferrer"><strong>官方 AI 生成页 ↗</strong><span>配置模型服务后，用文字生成方案。</span></a>
+              <a href="https://infographic.antv.vision/reference/infographic-api" target="_blank" rel="noreferrer"><strong>网页中调用 ↗</strong><span>传入语法或配置对象；本页就是实际接入示例。</span></a>
+              <a href="https://infographic.antv.vision/learn" target="_blank" rel="noreferrer"><strong>服务端生成 ↗</strong><span>输出 SVG 字符串，用于批量生成或报告。</span></a>
+            </div>
+            <p class="catalog-explainer">文章、表格或数据库内容需要先映射为语法或结构化配置。自然语言理解可交给外部 AI；本页没有接入模型服务。</p>
+          </section>
+
+          <div class="summary-cards">
+            <article class="summary-card">
+              <span class="card-index">01 / CAPABILITY</span><h3>它能做什么</h3>
+              <p>接受简短的信息图语法或配置对象，使用内置模板、组件和主题生成 SVG；浏览器内可选择、移动、修改文字，并导出 SVG 或 PNG。还提供服务端输出 SVG 字符串的入口。</p>
+              <div class="tag-list"><span>语法与配置</span><span>模板与主题</span><span>画布编辑</span><span>SVG / PNG</span></div>
+            </article>
+            <article class="summary-card">
+              <span class="card-index">02 / OUTPUT</span><h3>会得到什么效果</h3>
+              <p>同一套“标题 + 数据项”，可依据模板呈现为步骤、卡片、图表、对比、层级树或节点关系图。默认结果是可缩放的 SVG；本页的数值和文字均为演示数据。</p>
+              <div class="tag-list"><span>流程</span><span>列表</span><span>统计</span><span>对比</span><span>层级</span><span>关系</span></div>
+            </article>
+          </div>
+
+          <div class="how-panel">
+            <div class="how-heading"><span class="card-index">03 / MECHANISM</span><h3>实现原理</h3><p>内容结构与视觉设计分开描述，最后由渲染引擎组合。</p></div>
+            <ol class="flow-list">
+              <li><span>01</span><strong>描述内容</strong><p>语法或配置写入标题、数据项及其关系。</p></li>
+              <li><span>02</span><strong>选择设计</strong><p>模板指定布局结构、标题与数据项组件；主题控制配色和风格。</p></li>
+              <li><span>03</span><strong>布局渲染</strong><p>框架解析配置，组合 JSX 设计组件并输出 SVG。</p></li>
+              <li><span>04</span><strong>编辑与导出</strong><p>编辑器交互作用于画布，导出 API 生成 SVG 或 PNG。</p></li>
+            </ol>
+            <p class="how-note">“流式生成”是不断追加语法片段并重复渲染；本库不负责调用大模型。本页按钮只重播预设文本。</p>
+          </div>
+
+          <div class="application-grid">
+            <article class="application-card">
+              <span class="card-index">04 / USE CASES</span><h3>适合放在哪里</h3>
+              <ul>
+                <li><strong>产品与业务说明</strong><span>把功能、流程或方案差异变成可读的视觉摘要。</span></li>
+                <li><strong>报告与知识内容</strong><span>呈现阶段、层级、指标或概念关系。</span></li>
+                <li><strong>AI 应用的呈现层</strong><span>由外部模型生成语法，再交给原库渲染和人工编辑。</span></li>
+              </ul>
+            </article>
+            <article class="application-card">
+              <span class="card-index">05 / EXTENSION</span><h3>还能怎样扩展</h3>
+              <p class="extension-label">上游已经提供</p>
+              <p>自定义结构、数据项、模板、主题、字体、资源加载器，以及编辑器插件与交互。</p>
+              <p class="extension-label proposal">本仓库建议探索</p>
+              <p>品牌模板库、业务数据到语法的映射、AI 内容核验与人工审核、批量报告生成。这些方向尚未在本演示实现。</p>
+            </article>
+          </div>
+
+          <div class="summary-source">
+            <div><strong>研究边界</strong><p>本页展示原库的完整模板名称清单，并验证七个代表模板与基础交互；全量模板效果、大量数据和复杂资源仍需按场景测试。上游采用 MIT 许可，页面界面与示例数据由本仓库独立编写。</p></div>
+            <div class="source-links"><a href="https://github.com/antvis/Infographic" target="_blank" rel="noreferrer">上游仓库 ↗</a><a href="https://infographic.antv.vision/learn/infographic-syntax" target="_blank" rel="noreferrer">语法说明 ↗</a><a href="https://infographic.antv.vision/learn/custom-design" target="_blank" rel="noreferrer">自定义设计 ↗</a></div>
+          </div>
+        </section>
+
+        <footer class="page-footer">本页界面、引导图与示例数据由本仓库编写；图形、编辑与导出由 AntV Infographic v0.2.20 执行。<a href="./UPSTREAM-LICENSE.txt">原库 MIT 许可</a><a href="../">返回研究索引 ↗</a></footer>
+      </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
