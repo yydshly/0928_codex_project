@@ -8,7 +8,7 @@
 | 原作者 / 组织 | Tailscale Inc. 与贡献者 |
 | 研究依据 | [固定提交 `a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8`](https://github.com/tailscale/tailcat/tree/a59f8011dd8aa5ab9f2445d66c4d4dd94eeaf7f8)，2026-09-28 查阅；当时最近发布版为 v0.7.0 |
 | 研究状态 | 文档与源码结构研究；未在两台设备上运行原版，未测量性能 |
-| 在线演示 | 暂无已验证的本仓库公开链接 |
+| 在线演示 | [Tailcat 研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/)；2026-09-28 已验证页面、图片和路径切换 |
 | 本地展示 | [静态研究页](web/index.html)；只演示概念，不建立实际连接 |
 | 详细记录 | [research.md](research.md) |
 
