@@ -31,7 +31,7 @@ npm run preview
 
 ## 部署子路径
 
-为避免与本仓库其他演示相互覆盖，计划在同一个 GitHub Pages 站点下使用 `/0928_codex_project/010-antv-infographic/`，汇集目录为 `_site/010-antv-infographic/`。`npm run build` 使用相对资源基路径 `./`，部署工作流只复制本目录的 `dist/`，不复制 `node_modules/` 或源代码。**此处是部署配置，不是已验证的公开演示地址。**
+已部署并核验：[公开研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/)。部署子路径为 `/0928_codex_project/010-antv-infographic/`，汇集目录为 `_site/010-antv-infographic/`。`npm run build` 使用相对资源基路径 `./`；工作流在 Node 22 中执行 `npm ci` 与构建，复制 `dist/` 并补充一张运行截图，不发布 `node_modules/` 或源代码。总览图与上游 MIT 许可由 `public/` 随构建发布。
 
 ## 能力与来源
 

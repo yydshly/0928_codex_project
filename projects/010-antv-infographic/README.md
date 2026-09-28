@@ -1,5 +1,7 @@
 # 010 · AntV Infographic 原库能力展示
 
+[在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) · [架构原理与后续探索](https://yydshly.github.io/0928_codex_project/010-antv-infographic/#architecture)
+
 [AntV Infographic](https://github.com/antvis/Infographic) 将结构化文字、数值与关系转换为可编辑信息图，支持主题与 SVG／PNG 导出。它按名称查找模板及已注册组件，组合结构与数据项、计算布局，再生成 SVG；价值是复用排版和视觉方案，让内容更容易理解。适用于研究配图、教程流程、知识摘要、产品说明、方案对比和报告。
 
 对我而言，它是按需取用的绘图工具，也是一份组件注册、组合与插件生命周期的架构学习案例。优先用熟列表、流程、关系与对比；架构仍需后续通过四个实验详细探索并亲手实现。这个子项目直接调用原库演示七类模板，并保留完整模板索引、架构解释和待办路线。页面外壳、引导图与示例数据由本仓库编写。
@@ -62,4 +64,4 @@ npm run dev
 
 生产构建：`npm run build`。详细的发布子路径与依赖约定见 [web/README.md](web/README.md)。研究结论见 [research.md](research.md)。
 
-2026-09-28 本机以锁定版本完成生产构建，并用浏览器检查了七种模板的 SVG 输出、三种主题、画布编辑开关、语法重渲染、流式重播和两种下载。测试脚本为 [qa/check-demo.cjs](qa/check-demo.cjs)。这验证的是本演示页，不代表所有上游模板、字体和资源场景都已验证。当前没有填写公开演示地址，待实际发布并确认可访问后再添加。
+2026-09-28 本机以锁定版本完成生产构建，并用浏览器检查了七种模板的 SVG 输出、三种主题、画布编辑开关、语法重渲染、流式重播和两种下载。测试脚本为 [qa/check-demo.cjs](qa/check-demo.cjs)。同日完成 GitHub Pages 部署，核验公开网页中的五项摘要、七类渲染、276 个模板数量、引导图显示及架构六步说明。这验证的是本演示页，不代表所有上游模板、字体和资源场景都已验证。

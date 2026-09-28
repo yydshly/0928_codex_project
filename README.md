@@ -17,7 +17,7 @@
 | 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
 | 008 | [AI Money Maker Handbook：AI 创业思路与案例](projects/008-ai-money-maker-handbook/README.md) | 面向 AI 创业的思路整理与案例收集库，涵盖 AI 图文、音频、直播、绘本、视频、工具和知识服务等创业方向，帮助探索需求、产品与商业模式；可持续整理为个人 AI 创业探索入口。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map) | 已发布并验证；产品化持续迭代，经营方向待实践 |
 | 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) | 已发布并验证；上游未本机运行；性能未独立复测 |
-| 010 | [AntV Infographic 能力与可扩展架构研究](projects/010-antv-infographic/README.md) | 将结构化内容转换为可编辑信息图：按名称查找模板与组件，组合布局后输出 SVG／PNG；用于研究配图、流程说明、方案对比和报告，减少重复排版。作为个人按需绘图工具与组件扩展架构案例，后续通过实验深入理解。 | [antvis/Infographic](https://github.com/antvis/Infographic) | [网页源码与运行说明](projects/010-antv-infographic/web/README.md) | 本机七类模板与导出已验证；公开地址待发布核验 |
+| 010 | [AntV Infographic 能力与可扩展架构研究](projects/010-antv-infographic/README.md) | 将结构化内容转换为可编辑信息图：按名称查找模板与组件，组合布局后输出 SVG／PNG；用于研究配图、流程说明、方案对比和报告，减少重复排版。作为个人按需绘图工具与组件扩展架构案例，后续通过实验深入理解。 | [antvis/Infographic](https://github.com/antvis/Infographic) | [在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) | 已发布；线上七类渲染已核验；本机交互与导出已验证；架构实验待开展 |
 | 011 | [vphone-aio：Mac 虚拟 iPhone 启动整合包](projects/011-vphone-aio/README.md) | 面向 Apple 芯片 Mac 的虚拟 iPhone 整合包；脚本下载缺失分片、解压预制环境、启动上游 vphone-cli，并提供 VNC/SSH 连接。作为脚本化交付案例简要收录。 | [34306/vphone-aio](https://github.com/34306/vphone-aio) | 暂无 | 已完成简要整理；原版未运行；暂不深入 |
 
 ### 001 · Storm-Breaker
@@ -222,9 +222,9 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 **网页汇总：**同一页面在实时演示下方设置五部分研究总结，依次说明能力、效果、原理、适用场景和扩展方向；另提供 276 个模板的七类索引与搜索、日常选图建议和使用入口，并标明已验证范围与上游资料来源。
 
-本机已验证七类内置模板、主题切换、编辑开关、流式重播与两种导出。示例数据和页面界面由本仓库编写，原库采用 MIT 许可。当前没有填写未经核验的公开演示地址。
+本机已验证七类内置模板、主题切换、编辑开关、流式重播与两种导出。2026-09-28 已完成 GitHub Pages 部署，公开网页中的七类渲染、五项摘要、完整模板数量和架构章节已核验。示例数据和页面界面由本仓库编写，原库采用 MIT 许可。
 
-[原仓库](https://github.com/antvis/Infographic) · [子项目概览](projects/010-antv-infographic/README.md) · [详细研究](projects/010-antv-infographic/research.md) · [演示运行说明](projects/010-antv-infographic/web/README.md)
+[原仓库](https://github.com/antvis/Infographic) · [子项目概览](projects/010-antv-infographic/README.md) · [详细研究](projects/010-antv-infographic/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) · [演示运行说明](projects/010-antv-infographic/web/README.md)
 
 ### 011 · vphone-aio
 
