@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="AntV Infographic 将结构化内容按模板、组件与布局规则转换为可编辑信息图。用于研究配图、流程、对比与报告，减少重复排版；作为个人按需绘图工具和可扩展架构学习案例。" />
+    <meta name="description" content="AntV Infographic 把结构化内容转换为图表或信息图，按表达类型选择模板，由组件和布局程序绘制。用于研究配图、流程、对比与报告；当前按需使用，后期研究架构，探索可插拔产品设计及相关产品方案。" />
     <title>AntV Infographic · 能力总览与原库实验室</title>
   </head>
   <body>
@@ -34,7 +34,7 @@
         <section id="overview" class="overview-section" aria-labelledby="overview-title">
           <p class="kicker">一图总览 / v0.2.20</p>
           <h2 id="overview-title">内容、原理、模板和使用价值。</h2>
-          <div class="overview-summary"><p><strong>能力：</strong>把结构化文字、数值与关系转换为可编辑信息图，支持主题和 SVG／PNG 导出。</p><p><strong>价值：</strong>复用排版与视觉组件，让重点、顺序、归属、差异和数量更容易理解。</p><p><strong>使用场景：</strong>研究配图、教程流程、知识摘要、产品说明、方案对比与报告。</p><p><strong>原理：</strong>按名称查找模板和已注册组件，将数据交给结构组件计算布局，再由 JSX 渲染器生成 SVG；编辑器插件另有初始化与销毁流程。</p><p><strong>对我的意义：</strong>作为按需取用的绘图工具，先用熟列表、流程、关系与对比；同时留作可扩展架构案例，后续通过四个实验深入理解并亲手实现。</p></div>
+          <div class="overview-summary"><p><strong>能力：</strong>把结构化文字、数值与关系转换为图表或信息图，包括流程、列表、层级、关系、对比、数值图表和象限，支持编辑、主题与 SVG／PNG 导出。</p><p><strong>价值：</strong>减少重复排版，让重点、顺序、归属、差异和数量更容易理解。</p><p><strong>使用场景：</strong>研究配图、教程流程、知识摘要、产品说明、方案对比与报告；业务数据映射后还可用于批量出图。</p><p><strong>原理：</strong>按表达类型选择模板，再填入符合要求的数据；模板指定结构、数据项组件与参数，程序查找已注册实现、组合组件并计算布局，生成 SVG。类型帮助选择方案，模板组合绘图能力。</p><p><strong>对我的意义：</strong>当前作为按需取用的绘图工具，先用熟列表、流程、关系与对比；后期研究其架构，用于可插拔产品设计及相关产品方案。先完成四个架构实验，再结合真实需求设计产品。</p></div>
           <p>一张长图汇总 7 大类、41 个模板家族与全部 276 个模板名称，并附上七类原库实际渲染的示例。点击图片可打开原图，放大阅读完整索引。</p>
           <div class="overview-links"><a href="./assets/infographic-overview.svg" target="_blank" rel="noreferrer">打开可缩放 SVG ↗</a><a href="./assets/infographic-overview.svg" download>下载 SVG</a><a href="./assets/infographic-overview.png" download>下载高清 PNG</a><a href="#architecture">继续理解架构与后续探索 ↓</a></div>
           <a class="overview-preview" href="./assets/infographic-overview.png" target="_blank" rel="noreferrer" aria-label="打开完整能力总览长图"><img src="./assets/infographic-overview.png" width="2400" height="8329" alt="AntV Infographic 能力总览：内容、工作原理、七类图形、41 个模板家族、使用场景、个人价值与完整 276 模板索引" loading="lazy" /><span>2400 × 8329 · 点击打开原图，放大阅读</span></a>
@@ -146,6 +146,13 @@ getStructure(name);</code></pre><p>模板负责选择与组合。自定义组件
           <details class="architecture-sources"><summary>查看本次核对的源码线索 · 固定版本 v0.2.20</summary><p>以下均为本项目安装包 <code>@antv/infographic/lib/</code> 下的相对路径。说明依据实际代码阅读，后续实验需要进一步跟踪运行结果。</p><ul><li><code>templates/built-in.js</code>：真实模板如何引用结构和数据项。</li><li><code>templates/registry.js</code>、<code>designs/structures/registry.js</code>、<code>designs/items/registry.js</code>：Map 注册与查找。</li><li><code>options/parser.js</code>：解析数据、查找实现、包装组件与配置。</li><li><code>runtime/infographic.js</code>：compose 与 performRender 如何串联流程。</li><li><code>designs/structures/list-grid.js</code>：测量、位置计算和 Item 调用。</li><li><code>renderer/renderer.js</code>：SVG 后续渲染处理。</li><li><code>editor/managers/plugin.js</code>：插件注册、初始化、注销和销毁。</li></ul></details>
 
           <div id="architecture-roadmap" class="architecture-roadmap"><p class="card-index">后续探索与实现 / 全部待开展</p><h3>用四个小实验，把解释变成可观察的过程。</h3><p>下一次从第一个实验开始，每一步都展示输入、执行过程和输出，再进入下一步。</p><ol><li><strong>追踪一个模板</strong><p>显示原始输入、查到的模板配置、组件名称和最终 SVG。验收：能指出每一项内容在哪一步进入图中。</p></li><li><strong>替换数据项组件</strong><p>保持数据和网格不变，制作并注册一张“开源项目能力卡”。验收：相同数据能切换两种卡片，并观察尺寸变化如何影响布局。</p></li><li><strong>实现自己的排列规则</strong><p>复用同一张卡片，编写一个简单结构，再注册为新模板。验收：能展示每张卡片的坐标及计算依据，并检查长文字、空数据和多项内容。</p></li><li><strong>实现一个编辑器插件</strong><p>开发一个简单的编辑器状态提示插件，观察初始化、事件处理与销毁。验收：启用后显示状态，移除后清理界面和监听，重复启停不出现重复响应。</p></li></ol><p class="roadmap-goal">最终要能亲手解释并实现：配置怎样找到程序、组件怎样组合、位置怎样计算，以及插件怎样接入和退出。</p></div>
+        </section>
+
+        <section id="product-directions" class="daily-guide" aria-labelledby="product-directions-title">
+          <p class="card-index">后期研究方向 / 尚待探索</p><h3 id="product-directions-title">从理解架构，到可插拔产品设计。</h3>
+          <p>先通过上面的四个实验理解注册、组合、布局和插件生命周期，再研究怎样将这些方法用于自己的产品。以下为候选产品方案，需求和实现均待验证。</p>
+          <div class="daily-grid"><article><h4>模板化报告工具</h4><p>替换数据映射规则、品牌模板和输出方案，让不同业务复用出图流程。</p></article><article><h4>业务组件工作台</h4><p>通过统一接口和注册机制组合模块，按需求替换某项能力的具体实现。</p></article><article><h4>可扩展编辑器</h4><p>通过插件接入工具与交互，明确初始化、状态协作、事件处理和销毁边界。</p></article></div>
+          <p>后续产物：真实使用场景、模块与接口划分、最小原型和验证结果。当前仍需深入理解原库架构，再确定适合自己的产品方案。</p>
         </section>
 
         <section id="summary" class="summary-section" aria-labelledby="summary-title">

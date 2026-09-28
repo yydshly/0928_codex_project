@@ -17,7 +17,7 @@
 | 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
 | 008 | [AI Money Maker Handbook：AI 创业思路与案例](projects/008-ai-money-maker-handbook/README.md) | 面向 AI 创业的思路整理与案例收集库，涵盖 AI 图文、音频、直播、绘本、视频、工具和知识服务等创业方向，帮助探索需求、产品与商业模式；可持续整理为个人 AI 创业探索入口。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map) | 已发布并验证；产品化持续迭代，经营方向待实践 |
 | 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) | 已发布并验证；上游未本机运行；性能未独立复测 |
-| 010 | [AntV Infographic 能力与可扩展架构研究](projects/010-antv-infographic/README.md) | 将结构化内容转换为可编辑信息图：按名称查找模板与组件，组合布局后输出 SVG／PNG；用于研究配图、流程说明、方案对比和报告，减少重复排版。作为个人按需绘图工具与组件扩展架构案例，后续通过实验深入理解。 | [antvis/Infographic](https://github.com/antvis/Infographic) | [在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) | 已发布；线上七类渲染已核验；本机交互与导出已验证；架构实验待开展 |
+| 010 | [AntV Infographic 能力与可扩展架构研究](projects/010-antv-infographic/README.md) | 把结构化内容转换为图表或信息图：按表达类型选择模板，填入数据后由组件与布局程序绘制。用于研究配图、流程说明、方案对比和报告，减少重复排版；作为个人按需绘图工具，后期研究其架构，用于可插拔产品设计及相关产品方案。 | [antvis/Infographic](https://github.com/antvis/Infographic) | [在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) | 已发布；线上七类渲染已核验；本机交互与导出已验证；架构实验与产品方案待探索 |
 | 011 | [vphone-aio：Mac 虚拟 iPhone 启动整合包](projects/011-vphone-aio/README.md) | 面向 Apple 芯片 Mac 的虚拟 iPhone 整合包；脚本下载缺失分片、解压预制环境、启动上游 vphone-cli，并提供 VNC/SSH 连接。作为脚本化交付案例简要收录。 | [34306/vphone-aio](https://github.com/34306/vphone-aio) | 暂无 | 已完成简要整理；原版未运行；暂不深入 |
 
 ### 001 · Storm-Breaker
@@ -210,15 +210,15 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 图：2026-09-28 本仓库独立编排的完整能力总览。固定版本 `@antv/infographic@0.2.20` 的 276 个模板名称和 41 个家族均由安装包读取，七类缩略图来自原库实际运行。包含内容、原理、类型、场景与个人价值；完整清单不表示全部模板都经过效果验证。[下载高清 PNG](projects/010-antv-infographic/web/public/assets/infographic-overview.png)。
 
-**能力：**将结构化的文字、数值和关系转换为可编辑信息图，支持主题、画布编辑和 SVG／PNG 导出。固定版本含七类、276 个模板；演示页直接运行七个代表模板。
+**能力：**把结构化的文字、数值和关系转换为图表或信息图，包括流程、列表、层级、关系、对比、数值图表和象限；支持主题、画布编辑与 SVG／PNG 导出。固定版本含七类、276 个模板；演示页直接运行七个代表模板。
 
 **价值：**复用布局与视觉组件，减少重复排版，让重点、先后、归属、差异和数量更容易理解。
 
 **使用场景：**开源研究配图、教程流程、知识摘要、产品说明、方案对比和报告；业务数据映射后还可用于批量出图。
 
-**原理：**语法或配置指定模板；解析器按注册名称查找结构和数据项组件，把数据与组件交给布局程序，计算位置后由 JSX 渲染器生成 SVG。编辑器插件通过初始化与销毁接入交互，属于另一层扩展机制。
+**原理：**按内容要表达的类型选模板，再填入符合要求的数据；模板指定使用哪些结构、数据项组件及参数，程序按注册名称查找实现、组合组件并计算布局，最终生成 SVG。类型帮助选方案，模板组合绘图能力；编辑器插件通过初始化与销毁接入交互，属于另一层扩展机制。
 
-**对我的意义：**保留为按需取用的绘图工具，优先用熟能力列表、步骤流程、模块关系与方案对比；同时作为注册机制、组件组合与插件生命周期的学习案例。当前仍需通过运行追踪、自定义卡片、自定义布局和编辑器插件四个实验建立深入理解，实验均待开展。
+**对我的意义：**当前保留为按需取用的绘图工具，优先用熟能力列表、步骤流程、模块关系与方案对比。后期深入研究其注册机制、组件组合与插件生命周期，借鉴到可插拔的产品设计及相关产品方案，例如模板化报告工具、业务组件工作台和可扩展编辑器。先完成运行追踪、自定义卡片、自定义布局与编辑器插件四个实验，再结合真实需求设计产品；实验和产品方案均待探索。
 
 **网页汇总：**同一页面在实时演示下方设置五部分研究总结，依次说明能力、效果、原理、适用场景和扩展方向；另提供 276 个模板的七类索引与搜索、日常选图建议和使用入口，并标明已验证范围与上游资料来源。
 
