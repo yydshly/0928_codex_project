@@ -14,7 +14,12 @@ python -m http.server 8089 --bind 127.0.0.1 --directory projects/009-jev-ultrafa
 
 ## 部署约定
 
-沿用本仓库现有 GitHub Pages 汇集流程，**预定**子路径为 `/0928_codex_project/009-jev-ultrafast/`，汇集产物为 `_site/009-jev-ultrafast/`。资源使用相对路径；站点构建只复制本目录的 `index.html`、`styles.css`、`app.js` 与 `assets/overview.svg`、`assets/overview.png`。尚未将该预定路径写成已发布链接；公开部署需以实际访问核验为准。
+沿用本仓库现有 GitHub Pages 汇集流程，已发布子路径为 `/0928_codex_project/009-jev-ultrafast/`，汇集产物为 `_site/009-jev-ultrafast/`。资源使用相对路径；站点构建只复制本目录的 `index.html`、`styles.css`、`app.js` 与 `assets/overview.svg`、`assets/overview.png`。
+
+- [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/)
+- [站点首页](https://yydshly.github.io/0928_codex_project/)
+- 首次发布源提交：`8f46d22b3d9e5a171227bb6c4e5a1b28d1e3025b`；[成功的发布记录](https://github.com/yydshly/0928_codex_project/actions/runs/36416534370)。
+- 2026-09-28 已对公开地址执行 1440px、768px、390px 的同套浏览器检查，场景切换、请求返回示例、文本模型路由、图片、锚点、布局和脚本均通过，未遇到 HTTP 错误。首页入口与两种图片返回 HTTP 200；PNG 的 SHA-256 与原图完全一致，SVG 除 Git 规范化换行外内容一致。
 
 ## 图片和模拟说明
 
@@ -28,4 +33,4 @@ python -m http.server 8089 --bind 127.0.0.1 --directory projects/009-jev-ultrafa
 
 2026-09-28 更新后使用 Chrome 的 1440px、768px、390px 视口检查：三个场景切换、前进至完成及重置，TYPE_TEXT / CLICK / DONE 请求返回示例与文本模型参与状态，图片与本地资源、锚点及重复 ID、横向溢出和浏览器脚本错误均通过。总览图已检查文字画布边界并查看实际 PNG；网页首屏和请求返回区也已查看实际截图。本地预览页面和 PNG 返回 HTTP 200。
 
-验证脚本位于 `../qa/check-page.cjs`，需要本机可用的 Playwright；它不参与网页构建或发布。这些检查只验证本研究网页，不代表上游 Agent 的运行效果。
+验证脚本位于 `../qa/check-page.cjs`，需要本机可用的 Playwright；默认检查本地文件，设置环境变量 `QA_BASE_URL` 可复核公开地址。它不参与网页构建或发布。这些检查只验证本研究网页，不代表上游 Agent 的运行效果。

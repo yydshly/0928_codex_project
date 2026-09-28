@@ -18,10 +18,10 @@
 
 ## 阅读入口
 
-- [交互研究网页](web/index.html)：能力、原理、效果、适用边界和三个可切换的场景说明。
+- [在线交互研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/)（[本地入口](web/index.html)）：能力、原理、效果、适用边界和三个可切换的场景说明。
 - [详细研究与证据](research.md)：源码路径、计时口径、成本边界与复核建议。
 - [完整理解与讨论汇总](understanding.md)：三种编号的关系、发给 Jev 的数据、返回选择后的执行分支、模型分工与迁移范围。
-- [网页运行与预定发布子路径](web/README.md)。
+- [网页运行与发布记录](web/README.md)。
 - [上游仓库](https://github.com/browser-use/jev-ultrafast)。
 
 ## 固定研究版本与来源

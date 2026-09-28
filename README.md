@@ -16,7 +16,7 @@
 | 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/) | 已发布并验证；原方案未实测 |
 | 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
 | 008 | [AI Money Maker Handbook：AI 创业思路与案例](projects/008-ai-money-maker-handbook/README.md) | 面向 AI 创业的思路整理与案例收集库，涵盖 AI 图文、音频、直播、绘本、视频、工具和知识服务等创业方向，帮助探索需求、产品与商业模式；可持续整理为个人 AI 创业探索入口。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map) | 已发布并验证；产品化持续迭代，经营方向待实践 |
-| 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [本地研究网页](projects/009-jev-ultrafast/web/index.html) | 网页与场景模拟已制作；上游未本机运行；性能未独立复测 |
+| 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) | 已发布并验证；上游未本机运行；性能未独立复测 |
 
 ### 001 · Storm-Breaker
 
@@ -196,11 +196,11 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 **作者报告的效果：**一次 Google Flights 搜索录制为 7.073 秒；同任务三对交替运行，新版中位 7.092 秒，旧版 9.450 秒，两组各 3/3 通过。计时不含浏览器启动、初次导航和最后独立验收，样本不足以证明跨网站通用成功率或最低总费用。
 
-**场景演示与价值：**[研究网页](projects/009-jev-ultrafast/web/index.html)提供完整原理图、角色分工与编号映射、可切换的请求返回说明，以及航班、百科和酒店三个场景的步骤模拟。另列内部后台、网页流程检查和个人助手的扩展方向及运行前提。这些是本仓库独立编写的教学说明；具体理解见[讨论汇总](projects/009-jev-ultrafast/understanding.md)。采用前仍需在自己的网页上测试完整速度、成功率与成本。
+**场景演示与价值：**[在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/)提供完整原理图、角色分工与编号映射、可切换的请求返回说明，以及航班、百科和酒店三个场景的步骤模拟。另列内部后台、网页流程检查和个人助手的扩展方向及运行前提。这些是本仓库独立编写的教学说明；具体理解见[讨论汇总](projects/009-jev-ultrafast/understanding.md)。采用前仍需在自己的网页上测试完整速度、成功率与成本。
 
-上游采用 MIT 许可；网页与图均由本仓库独立制作。上游 Agent 尚未在本机运行，Shadow DOM、iframe、Canvas、上传和新标签页等目前不在其 MVP 覆盖范围。预定发布子路径为 `/0928_codex_project/009-jev-ultrafast/`，当前未标注为已发布。
+上游采用 MIT 许可；网页与图均由本仓库独立制作。上游 Agent 尚未在本机运行，Shadow DOM、iframe、Canvas、上传和新标签页等目前不在其 MVP 覆盖范围。已发布至 `/0928_codex_project/009-jev-ultrafast/`；2026-09-28 已验证线上页面、首页入口、三种尺寸下的交互以及原引导图。
 
-[原仓库](https://github.com/browser-use/jev-ultrafast) · [子项目概览](projects/009-jev-ultrafast/README.md) · [详细研究](projects/009-jev-ultrafast/research.md) · [本地研究网页](projects/009-jev-ultrafast/web/index.html) · [运行与发布说明](projects/009-jev-ultrafast/web/README.md)
+[原仓库](https://github.com/browser-use/jev-ultrafast) · [子项目概览](projects/009-jev-ultrafast/README.md) · [详细研究](projects/009-jev-ultrafast/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) · [运行与发布说明](projects/009-jev-ultrafast/web/README.md)
 
 ## 仓库结构
 
