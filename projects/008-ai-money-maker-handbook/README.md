@@ -14,6 +14,7 @@
 
 ## 阅读与使用
 
+- [在线研究网页与完整引导图](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map)
 - [交互网页源码入口](web/index.html)
 - [一图完整理解与产品化思路](understanding.md)
 - [详细研究](research.md)
@@ -22,7 +23,7 @@
 - [完整章节标题索引](sources/chapter-index.json)
 - [运行、发布与验证说明](web/README.md)
 
-当前完成本地网页与验证，尚未为 008 发布或验证公开网址。现有 GitHub Pages 汇集配置已加入 008；不将预期地址当成已上线链接。
+已通过现有 GitHub Pages 流程发布。2026-09-28 验证公开页面、总览图 PNG/SVG、来源与许可、514 篇索引搜索、收藏保存、手机五个视图及 hash 刷新均正常。
 
 [查看本研究网页的真实桌面预览](assets/desktop-preview.png) · [手机预览](assets/mobile-preview.png)。截图来自本地研究网页。
 

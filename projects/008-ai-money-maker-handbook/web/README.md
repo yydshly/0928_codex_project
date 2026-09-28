@@ -34,13 +34,15 @@ python -m http.server 8088 --bind 127.0.0.1 --directory projects/008-ai-money-ma
 ## 已有仓库的发布子路径
 
 沿用现有仓库 GitHub Pages 发布流程：
-- 计划子路径：/0928_codex_project/008-ai-money-maker-handbook/
+- 已部署子路径：/0928_codex_project/008-ai-money-maker-handbook/
 - 汇集产物目录：_site/008-ai-money-maker-handbook/
 - 只复制 index.html、styles.css、data.js、catalog.js、views.js、app.js、NOTICES.md、UPSTREAM-LICENSE.txt 及 assets/。
 - research.md、personal-value.md、sources/ 和验证工具不进入网页发布目录。
 - 使用相对资源路径和 hash 导航，子路径访问与刷新无需服务器路由回退。
 
-部署配置已经准备；本次未推送或发布。上线并验证后再把公开链接添加到根索引。
+已发布：[在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map)。首次部署提交 `1a696c1`，对应 [GitHub Actions 成功记录](https://github.com/yydshly/0928_codex_project/actions/runs/36407996142)。
+
+2026-09-28 公开环境验证通过：页面及引导图 PNG/SVG、许可与归属文件返回 HTTP 200；514 篇索引可搜索、收藏刷新后保留；五个视图在 390px 无横向溢出；hash 刷新和根站点入口正常，没有浏览器运行错误。
 
 ## 验证记录
 
