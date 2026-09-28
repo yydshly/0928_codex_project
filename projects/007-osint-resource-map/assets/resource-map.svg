@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">两个 OSINT 资源清单的定位与使用路径</title>
+  <desc id="desc">awesome-osint 偏公开来源导航，awesome-osint-arsenal 包含安全工具和安装脚本。使用时由问题定位分类，核验原站和权限，再交叉核对结果。</desc>
+  <rect width="1200" height="620" fill="#f3f7fb"/>
+  <rect x="36" y="34" width="1128" height="552" rx="24" fill="#fff" stroke="#d8e4ef" stroke-width="2"/>
+  <text x="72" y="91" font-family="Arial, Microsoft YaHei, sans-serif" font-size="33" font-weight="700" fill="#18314c">OSINT 资源地图</text>
+  <text x="72" y="127" font-family="Arial, Microsoft YaHei, sans-serif" font-size="18" fill="#52687b">两个仓库是寻找候选来源的目录；具体工具与结果仍需逐项核验</text>
+  <rect x="72" y="161" width="506" height="183" rx="18" fill="#e9f4ff" stroke="#9dcaef" stroke-width="2"/>
+  <text x="97" y="204" font-family="Arial, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#14548c">awesome-osint</text>
+  <text x="97" y="239" font-family="Arial, Microsoft YaHei, sans-serif" font-size="18" fill="#244b6c">公开来源调查的分类导航</text>
+  <text x="97" y="273" font-family="Arial, Microsoft YaHei, sans-serif" font-size="17" fill="#365c7c">搜索 · 社交 · 域名 · 媒体 · 地图 · 公开记录</text>
+  <text x="97" y="310" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" fill="#4d6f89">主体：README 中的分类和外部链接</text>
+  <rect x="622" y="161" width="506" height="183" rx="18" fill="#fff2e9" stroke="#ecc29d" stroke-width="2"/>
+  <text x="647" y="204" font-family="Arial, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#915018">awesome-osint-arsenal</text>
+  <text x="647" y="239" font-family="Arial, Microsoft YaHei, sans-serif" font-size="18" fill="#744a2e">资源清单 + 工具说明 + 安装脚本</text>
+  <text x="647" y="273" font-family="Arial, Microsoft YaHei, sans-serif" font-size="17" fill="#855d40">账号 · 泄露 · 暗网 · 安全测试 · 取证 · 练习</text>
+  <text x="647" y="310" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" fill="#9b7355">部分条目涉及主动操作，需确认授权</text>
+  <path d="M325 348 V386 M875 348 V386" stroke="#8198aa" stroke-width="3"/>
+  <path d="M325 386 H875" stroke="#8198aa" stroke-width="3"/>
+  <path d="M600 386 V420" stroke="#8198aa" stroke-width="3"/>
+  <path d="M592 411 L600 423 L608 411" fill="none" stroke="#8198aa" stroke-width="3"/>
+  <rect x="72" y="423" width="1056" height="115" rx="18" fill="#eaf5ef" stroke="#aad4bb" stroke-width="2"/>
+  <text x="97" y="458" font-family="Arial, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#215b3e">实际使用路径</text>
+  <text x="97" y="496" font-family="Arial, Microsoft YaHei, sans-serif" font-size="18" fill="#315e48">明确问题  →  找分类与候选工具  →  核对原站、许可和权限  →  交叉验证、记录来源</text>
+  <text x="72" y="570" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14" fill="#6a7885">本仓库独立绘制 · 根据两份上游 README 归纳 · 非上游截图或实测报告</text>
+</svg>

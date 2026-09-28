@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="把 awesome-osint 与 awesome-osint-arsenal 整理为个人研究入口：一图看全局，按任务查资源、理解预期效果与使用边界，并检索固定版本名称索引。">
+  <title>OSINT 资源地图 · 007</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="catalog-data.js"></script>
+  <script defer src="inventory.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="回到页面顶部"><span class="brand-mark">07</span><span>OSINT<span class="brand-light"> / RESOURCE MAP</span></span></a>
+    <nav aria-label="页面导航">
+      <a href="#overview">一图总览</a>
+      <a href="#topics">分类地图</a>
+      <a href="#opportunities">隐含能力</a>
+      <a href="#featured">重点资源</a>
+      <a href="#categories">原始分类</a>
+      <a href="#inventory">名称索引</a>
+    </nav>
+    <a class="top-source" href="#method">使用方法 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> PROJECT 007 · 公开来源调查</p>
+        <h1 id="hero-title">把资源清单<br>变成<span>自己的入口</span><i>.</i></h1>
+        <p class="hero-lede">两个仓库提供公开来源和安全研究的候选资源。这里把它们整理成任务地图：遇到问题时，先看该查哪类、可能获得什么、结果怎样核验，再追溯到原始条目。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#topics">从分类开始 <span>↘</span></a>
+          <a class="button ghost" href="#inventory">搜索资源名称 <span>⌕</span></a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="两份上游资料概览">
+        <div class="panel-top"><span>THE SOURCE STACK</span><span class="panel-dot">● ● ●</span></div>
+        <div class="source-row"><span class="source-letter a">A</span><div><strong>awesome-osint</strong><small>公开来源的分类导航</small></div><span class="source-arrow">↗</span></div>
+        <div class="source-row"><span class="source-letter b">B</span><div><strong>awesome-osint-arsenal</strong><small>资源清单 + 安装脚本 + 安全专题</small></div><span class="source-arrow">↗</span></div>
+        <div class="panel-rule"></div>
+        <div class="panel-stats"><div><b id="record-count">—</b><span>收录记录*</span></div><div><b id="category-count">—</b><span>原始分类</span></div><div><b>12</b><span>任务主题</span></div></div>
+        <p class="panel-foot">* 记录为上游清单中的条目出现次数，含重复名称；不等于独立工具数量或可用工具数量。</p>
+      </div>
+    </section>
+
+    <section class="notice-strip" aria-label="使用原则"><div class="wrap notice-inner"><span class="notice-icon">!</span><p><strong>先理解，再使用。</strong> 页面收录的是上游所列资源，未逐个测试外部网址、功能或安装脚本。安全扫描和涉及敏感信息的查询需要确认权限。</p><a href="#method">查看核验方法 ↗</a></div></section>
+
+    <section class="section wrap overview" id="overview">
+      <div class="section-head"><div><p class="eyebrow">AT A GLANCE / ONE PAGE</p><h2>一张图看懂两个库的核心内容</h2><p>四条主线、十二个主题：每一格列出主要资源类型、可能得到的线索和代表性名称。可以打开原图放大阅读。</p></div><a class="overview-open" href="assets/resource-overview.svg" target="_blank" rel="noopener noreferrer">打开完整图片 ↗</a></div>
+      <div class="overview-scroll"><a href="assets/resource-overview.svg" target="_blank" rel="noopener noreferrer" aria-label="打开两份 OSINT 资源库的完整分类总览图"><img src="assets/resource-overview.svg" alt="两个 OSINT 仓库的资源分类全景图：公开线索、内容与资产核对、风险与特殊来源、研究与执行环境，共十二个主题，并说明每类的资源和效果。" width="2560" height="2190"></a></div>
+      <p class="overview-note">图由本项目依据两份固定版本 README 独立归纳与绘制；示例名称来自清单，外部资源尚未逐一实测。手机上可左右滑动，或打开完整图片放大。<a href="assets/resource-overview.png" download>下载 PNG 图片</a></p>
+    </section>
+
+    <section class="section wrap product-path" aria-labelledby="product-path-title">
+      <div class="section-head"><div><p class="eyebrow">WHY THIS MATTERS / PERSONAL ENTRY</p><h2 id="product-path-title">从链接目录，走向长期使用的研究入口</h2><p>核心价值是把“有哪些工具”变成“碰到具体问题时怎么开始、怎么核验”。</p></div></div>
+      <div class="product-grid">
+        <article><span>01 / 上游能力</span><h3>发现候选资源</h3><p>两份清单覆盖搜索、账号、域名、媒体、公开记录、泄露、Tor、威胁情报和安全研究等领域。</p></article>
+        <article><span>02 / 本页已做到</span><h3>按任务引导选择</h3><p>用总览图、中文分类、重点说明及可搜索索引，快速定位资源并了解可能效果与使用边界。</p></article>
+        <article><span>03 / 后续产品方向</span><h3>持续核验与记录</h3><p>逐步加入任务操作卡、原站状态、核验日期和个人结果记录，形成自己可反复使用的工作流。</p></article>
+      </div>
+      <p class="product-example"><strong>例如：</strong>检查自己的域名时，入口可指向证书、DNS 和公开扫描记录；实际结论仍需到各来源查询、比较并留下时间与证据。本页目前提供分类引导，尚不自动执行查询。</p>
+    </section>
+
+    <section class="section wrap" id="topics">
+      <div class="section-head"><div><p class="eyebrow">01 / TASK MAP</p><h2>从要解决的问题出发</h2><p>每个主题说明能获得什么线索，以及最容易被误读的地方。点击主题查看对应资源。</p></div><span class="section-number">12 个主题</span></div>
+      <div id="topic-grid" class="topic-grid"></div>
+    </section>
+
+    <section class="section opportunity-band" id="opportunities">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">FOR YOUR WORK / LESS OBVIOUS</p><h2>对你更有用、但容易漏看的 6 类能力</h2><p>以下优先级依据本仓库目前的工作方式推断：持续研究外部项目、维护公开网页、记录图片来源与配置范例。这里是可采用的能力方向，不代表已经为你运行或持续监测。</p></div><span class="section-number">建议先看 01—04</span></div>
+        <div class="opportunity-grid" id="opportunity-grid"></div>
+      </div>
+    </section>
+
+    <section class="section feature-band" id="featured">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">02 / EXPLAINED RESOURCES</p><h2>重点资源，逐项说明</h2><p>每条中文说明写的是可用于什么任务及核验提醒；能力依据固定上游清单归纳，未单独运行。</p></div><span class="section-number">48 条重点说明</span></div>
+        <div class="tab-list" id="feature-tabs" aria-label="按主题筛选重点资源"></div>
+        <div id="feature-grid" class="feature-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section wrap dark-section" id="dark-web">
+      <div class="dark-intro"><p class="eyebrow">FOCUS / CATEGORY 12</p><h2>暗网一类里，其实是四种资源</h2><p>第二个仓库第 12 节混合了搜索入口、Tor 版本的通用搜索、链接目录和分析工具。名称在清单中出现，不代表地址现在有效，也不代表搜索能覆盖整个 Tor 网络。</p></div>
+      <div class="dark-types">
+        <article><span>01</span><h3>搜索入口</h3><p>Torch、Haystak、Ahmia、Phobos、DarkSearch：试图检索已索引的隐藏服务内容。</p></article>
+        <article><span>02</span><h3>Tor 访问入口</h3><p>DuckDuckGo Onion：通过 Tor 使用的搜索入口，不能简单等同于隐藏服务专用搜索引擎。</p></article>
+        <article><span>03</span><h3>链接目录</h3><p>Dark.fail：提供入口线索。目录中的地址与镜像仍需要从服务官方渠道复核。</p></article>
+        <article><span>04</span><h3>分析工具</h3><p>OnionScan、OSINT-SPY：用于技术分析或带 Tor 支持的调查，操作前确认授权。</p></article>
+      </div>
+      <p class="dark-source">来源：<a href="https://github.com/rawfilejson/awesome-osint-arsenal/blob/2c6475a1d5b941cc598b3612419ef22e6d903ce8/README.md#L815" target="_blank" rel="noopener noreferrer">B 仓库第 12 节 ↗</a>。本页不转录 `.onion` 地址。</p>
+    </section>
+
+    <section class="section wrap" id="categories">
+      <div class="section-head"><div><p class="eyebrow">03 / ORIGINAL SECTIONS</p><h2>回到上游的原始分类</h2><p>中文用途说明由本仓库编写。条目数表示该分类在固定 README 中提取到的记录数；类别之间可能重复。</p></div><span class="section-number" id="section-count">—</span></div>
+      <div class="filter-row"><label>选择主题 <select id="category-family"><option value="all">全部主题</option></select></label><label>来源 <select id="category-source"><option value="all">两个仓库</option><option value="A">A · awesome-osint</option><option value="B">B · arsenal</option></select></label></div>
+      <div id="category-grid" class="category-grid"></div>
+      <button id="category-more" class="load-more" type="button">展开更多分类 <span>↓</span></button>
+    </section>
+
+    <section class="section inventory-band" id="inventory">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">04 / PINNED INDEX</p><h2>搜索两份清单中的资源</h2><p>索引提取 Markdown 列表与表格中的名称、上游所列网址、所在分类与原始行号；不包含散落在正文或命令块中的每一项，也不复制上游说明文字。条目能否访问、是否仍提供所述能力，需到原站核实。</p></div><span class="section-number">固定版本</span></div>
+        <div class="search-panel">
+          <label class="search-label" for="query">名称 / 分类检索</label>
+          <div class="search-box"><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="例如：Shodan、Wayback、地图、域名…" autocomplete="off"><button id="clear-query" type="button" aria-label="清空搜索">×</button></div>
+          <div class="filter-row"><label>任务主题 <select id="inventory-family"><option value="all">全部主题</option></select></label><label>来源 <select id="inventory-source"><option value="all">两个仓库</option><option value="A">A · awesome-osint</option><option value="B">B · arsenal</option></select></label><label>原始分类 <select id="inventory-section"><option value="all">全部分类</option></select></label></div>
+          <div class="result-line"><p id="result-count" role="status">正在准备索引…</p><button id="reset-filters" type="button">重置筛选</button></div>
+        </div>
+        <div id="result-grid" class="result-grid"></div>
+        <div class="pager"><button id="prev-page" type="button">← 上一页</button><span id="page-info"></span><button id="next-page" type="button">下一页 →</button></div>
+      </div>
+    </section>
+
+    <section class="section wrap method" id="method">
+      <div class="section-head"><div><p class="eyebrow">05 / HOW TO USE</p><h2>从线索到可信结论</h2></div></div>
+      <ol class="steps"><li><span>01</span><h3>定义问题</h3><p>写清楚要核对什么，以及你可以查询和测试的范围。</p></li><li><span>02</span><h3>找到类别</h3><p>用本页的主题与原始分类找候选工具，记录它来自 A 还是 B。</p></li><li><span>03</span><h3>核对原站</h3><p>查看真实入口、维护日期、数据来源、费用、许可与权限要求。</p></li><li><span>04</span><h3>交叉验证</h3><p>用独立来源复核，保存原始链接与查询时间，再写结论。</p></li></ol>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-grid"><div><p class="eyebrow">ABOUT THIS PROJECT</p><h2>一张地图，两个来源。</h2><p>页面的分类、中文说明、版式和交互由本仓库独立制作。索引由固定上游 README 提取名称、分类和链接；未运行原工具。</p></div><div><h3>研究来源</h3><a href="https://github.com/jivoi/awesome-osint/tree/3ab9cde5d0f638de91bc86147db6996472d927c6" target="_blank" rel="noopener noreferrer">A · awesome-osint ↗</a><a href="https://github.com/rawfilejson/awesome-osint-arsenal/tree/2c6475a1d5b941cc598b3612419ef22e6d903ce8" target="_blank" rel="noopener noreferrer">B · awesome-osint-arsenal ↗</a><a href="#categories">查看分类对照 ↗</a></div><div><h3>许可与边界</h3><p>A 的清单为 CC BY-SA 4.0；B 为 MIT。本页的资源索引按 CC BY-SA 4.0 分享，并保留 <a href="NOTICES.md">来源与许可声明</a>。第三方网站和工具适用各自条款。</p><p class="footer-date">研究版本：2026-09-28 · 尚未逐一验证外部站点</p></div></div></footer>
+</body>
+</html>

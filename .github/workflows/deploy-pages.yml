@@ -32,6 +32,11 @@ jobs:
           mkdir -p _site/006-personal-edge-proxy/assets
           cp projects/006-personal-edge-proxy/web/index.html projects/006-personal-edge-proxy/web/styles.css projects/006-personal-edge-proxy/web/app.js _site/006-personal-edge-proxy/
           cp -R projects/006-personal-edge-proxy/web/assets/. _site/006-personal-edge-proxy/assets/
+          mkdir -p _site/007-osint-resource-map/assets
+          cp projects/007-osint-resource-map/web/index.html projects/007-osint-resource-map/web/styles.css projects/007-osint-resource-map/web/app.js projects/007-osint-resource-map/web/catalog-data.js projects/007-osint-resource-map/web/inventory.js projects/007-osint-resource-map/web/NOTICES.md _site/007-osint-resource-map/
+          cp projects/007-osint-resource-map/assets/resource-map.svg _site/007-osint-resource-map/assets/
+          cp projects/007-osint-resource-map/web/assets/resource-overview.svg _site/007-osint-resource-map/assets/
+          cp projects/007-osint-resource-map/web/assets/resource-overview.png _site/007-osint-resource-map/assets/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

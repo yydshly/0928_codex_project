@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="2190" viewBox="0 0 2560 2190" role="img" aria-labelledby="title desc">
+<title id="title">两份 OSINT 资源库分类全景图</title>
+<desc id="desc">把 awesome-osint 与 awesome-osint-arsenal 的资源归入四条主线、十二个任务主题；每类列出主要资源类型、可能得到的效果和代表性名称。</desc>
+<rect x="0" y="0" width="2560" height="2190" rx="0" fill="#f5f8f4" stroke="none" stroke-width="1"/>
+<rect x="0" y="0" width="2560" height="22" rx="0" fill="#17363a" stroke="none" stroke-width="1"/>
+<rect x="80" y="74" width="12" height="102" rx="6" fill="#bbdf80" stroke="none" stroke-width="1"/>
+<text x="114" y="111" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="23" font-weight="800" fill="#458268" text-anchor="start" letter-spacing="3">OSINT / RESOURCE LANDSCAPE</text>
+<text x="114" y="180" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="66" font-weight="850" fill="#17363a" text-anchor="start">两份资源库，一张分类全景图</text>
+<text x="115" y="228" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="27" font-weight="400" fill="#57716e" text-anchor="start">按“要解决什么问题”重组两份 README：四条主线 · 十二个主题 · 每类能获得的线索</text>
+<rect x="80" y="275" width="1185" height="155" rx="22" fill="#17363a" stroke="none" stroke-width="1"/>
+<rect x="108" y="300" width="62" height="62" rx="13" fill="#cbec9b" stroke="none" stroke-width="1"/>
+<text x="139" y="342" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="31" font-weight="900" fill="#17363a" text-anchor="middle">A</text>
+<text x="190" y="333" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="36" font-weight="800" fill="#ffffff" text-anchor="start">awesome-osint</text>
+<text x="190" y="379" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#c9dfd6" text-anchor="start">公开来源调查导航：搜索、账号、公司、媒体、地图、历史资料</text>
+<text x="190" y="409" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="400" fill="#9fbdb1" text-anchor="start">以分类链接为主，适合从调查问题找到候选来源</text>
+<rect x="1295" y="275" width="1185" height="155" rx="22" fill="#26464b" stroke="none" stroke-width="1"/>
+<rect x="1323" y="300" width="62" height="62" rx="13" fill="#efac82" stroke="none" stroke-width="1"/>
+<text x="1354" y="342" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="31" font-weight="900" fill="#17363a" text-anchor="middle">B</text>
+<text x="1405" y="333" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="36" font-weight="800" fill="#ffffff" text-anchor="start">awesome-osint-arsenal</text>
+<text x="1405" y="379" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#c9dfd6" text-anchor="start">OSINT + 安全工具箱：泄露、Tor、扫描、取证、练习</text>
+<text x="1405" y="409" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="400" fill="#9fbdb1" text-anchor="start">还包含安装脚本；其中部分工具是主动测试</text>
+<rect x="80" y="465" width="570" height="112" rx="20" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<rect x="80" y="465" width="10" height="112" rx="5" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="114" y="513" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="32" font-weight="800" fill="#3c7957" text-anchor="start">01 发现公开线索</text>
+<text x="114" y="548" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="400" fill="#5d716e" text-anchor="start">从网页、账号、记录找到调查起点</text>
+<rect x="80" y="608" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="80" y="600" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="106" y="625" width="58" height="44" rx="11" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="135" y="656" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#3c7957" text-anchor="middle">01</text>
+<text x="180" y="659" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">搜索与网页资料</text>
+<rect x="541" y="629" width="83" height="35" rx="16" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="582" y="653" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#3c7957" text-anchor="middle">A + B</text>
+<path d="M108 687 L622 687" stroke="#d7e3dc" stroke-width="2"/>
+<text x="108" y="722" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#3c7957" text-anchor="start">主要资源</text>
+<rect x="110" y="743" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="752" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">通用／本地／专业搜索引擎</text>
+<rect x="110" y="781" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="790" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">公开文档、代码、博客与问答</text>
+<rect x="110" y="819" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="828" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">网页存档、历史页面与变化监测</text>
+<path d="M108 862 L622 862" stroke="#d7e3dc" stroke-width="2"/>
+<text x="108" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#3c7957" text-anchor="start">可得到</text>
+<text x="195" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">找到原始页面、旧版本及</text>
+<text x="195" y="930" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">可继续追溯的公开线索</text>
+<rect x="104" y="948" width="522" height="29" rx="7" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="114" y="970" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#3c7957" text-anchor="start">例  Wayback Machine · GitHub Code Search</text>
+<rect x="80" y="1028" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="80" y="1020" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="106" y="1045" width="58" height="44" rx="11" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="135" y="1076" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#3c7957" text-anchor="middle">02</text>
+<text x="180" y="1079" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">账号与社交线索</text>
+<rect x="541" y="1049" width="83" height="35" rx="16" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="582" y="1073" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#3c7957" text-anchor="middle">A + B</text>
+<path d="M108 1107 L622 1107" stroke="#d7e3dc" stroke-width="2"/>
+<text x="108" y="1142" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#3c7957" text-anchor="start">主要资源</text>
+<rect x="110" y="1163" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="1172" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">用户名、邮箱、电话号码</text>
+<rect x="110" y="1201" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="1210" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">社交平台、论坛、频道与互动</text>
+<rect x="110" y="1239" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="1248" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">人物、游戏及音乐平台公开资料</text>
+<path d="M108 1282 L622 1282" stroke="#d7e3dc" stroke-width="2"/>
+<text x="108" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#3c7957" text-anchor="start">可得到</text>
+<text x="195" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">形成候选账号与公开关系，</text>
+<text x="195" y="1350" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">再核对是否确属同一主体</text>
+<rect x="104" y="1368" width="522" height="29" rx="7" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="114" y="1390" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#3c7957" text-anchor="start">例  Sherlock · WhatsMyName</text>
+<rect x="80" y="1448" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="80" y="1440" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="106" y="1465" width="58" height="44" rx="11" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="135" y="1496" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#3c7957" text-anchor="middle">06</text>
+<text x="180" y="1499" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">公司与公共记录</text>
+<rect x="541" y="1469" width="83" height="35" rx="16" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="582" y="1493" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#3c7957" text-anchor="middle">A + B</text>
+<path d="M108 1527 L622 1527" stroke="#d7e3dc" stroke-width="2"/>
+<text x="108" y="1562" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#3c7957" text-anchor="start">主要资源</text>
+<rect x="110" y="1583" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="1592" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">企业、财务、招聘与公开登记</text>
+<rect x="110" y="1621" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="1630" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">新闻、学术、统计与事实核查</text>
+<rect x="110" y="1659" width="7" height="7" rx="3" fill="#3c7957" stroke="none" stroke-width="1"/>
+<text x="128" y="1668" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">地区专题资料与公共档案</text>
+<path d="M108 1702 L622 1702" stroke="#d7e3dc" stroke-width="2"/>
+<text x="108" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#3c7957" text-anchor="start">可得到</text>
+<text x="195" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">查到组织或事件的原始记录，</text>
+<text x="195" y="1770" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">补足背景与时间线</text>
+<rect x="104" y="1788" width="522" height="29" rx="7" fill="#e8f2e6" stroke="none" stroke-width="1"/>
+<text x="114" y="1810" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#3c7957" text-anchor="start">例  OpenCorporates · Wikidata</text>
+<rect x="690" y="465" width="570" height="112" rx="20" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<rect x="690" y="465" width="10" height="112" rx="5" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="724" y="513" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="32" font-weight="800" fill="#347a91" text-anchor="start">02 核对内容与资产</text>
+<text x="724" y="548" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="400" fill="#5d716e" text-anchor="start">把线索与地点、媒体、网络事实对齐</text>
+<rect x="690" y="608" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="690" y="600" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="716" y="625" width="58" height="44" rx="11" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="745" y="656" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#347a91" text-anchor="middle">03</text>
+<text x="790" y="659" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">域名与网络资产</text>
+<rect x="1151" y="629" width="83" height="35" rx="16" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="1192" y="653" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#347a91" text-anchor="middle">A + B</text>
+<path d="M718 687 L1232 687" stroke="#d7e3dc" stroke-width="2"/>
+<text x="718" y="722" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#347a91" text-anchor="start">主要资源</text>
+<rect x="720" y="743" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="752" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">DNS、证书、域名与 IP 历史</text>
+<rect x="720" y="781" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="790" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">公开服务、网站技术与设备索引</text>
+<rect x="720" y="819" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="828" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">网络归属、资产关联与变化</text>
+<path d="M718 862 L1232 862" stroke="#d7e3dc" stroke-width="2"/>
+<text x="718" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#347a91" text-anchor="start">可得到</text>
+<text x="805" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">梳理自有或获授权资产的</text>
+<text x="805" y="930" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">公开足迹与异常入口</text>
+<rect x="714" y="948" width="522" height="29" rx="7" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="724" y="970" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#347a91" text-anchor="start">例  crt.sh · Censys · urlscan.io</text>
+<rect x="690" y="1028" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="690" y="1020" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="716" y="1045" width="58" height="44" rx="11" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="745" y="1076" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#347a91" text-anchor="middle">04</text>
+<text x="790" y="1079" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">图片、视频与文件</text>
+<rect x="1151" y="1049" width="83" height="35" rx="16" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="1192" y="1073" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#347a91" text-anchor="middle">A + B</text>
+<path d="M718 1107 L1232 1107" stroke="#d7e3dc" stroke-width="2"/>
+<text x="718" y="1142" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#347a91" text-anchor="start">主要资源</text>
+<rect x="720" y="1163" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="1172" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">反向图片搜索与相似画面</text>
+<rect x="720" y="1201" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="1210" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">视频关键帧、文件及元数据</text>
+<rect x="720" y="1239" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="1248" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">素材来源、旧版本与取证线索</text>
+<path d="M718 1282 L1232 1282" stroke="#d7e3dc" stroke-width="2"/>
+<text x="718" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#347a91" text-anchor="start">可得到</text>
+<text x="805" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">找到可能的出处和时间线，</text>
+<text x="805" y="1350" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">并核对素材许可</text>
+<rect x="714" y="1368" width="522" height="29" rx="7" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="724" y="1390" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#347a91" text-anchor="start">例  TinEye · ExifTool · InVID</text>
+<rect x="690" y="1448" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="690" y="1440" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="716" y="1465" width="58" height="44" rx="11" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="745" y="1496" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#347a91" text-anchor="middle">05</text>
+<text x="790" y="1499" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">地图与地理核查</text>
+<rect x="1151" y="1469" width="83" height="35" rx="16" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="1192" y="1493" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#347a91" text-anchor="middle">A + B</text>
+<path d="M718 1527 L1232 1527" stroke="#d7e3dc" stroke-width="2"/>
+<text x="718" y="1562" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#347a91" text-anchor="start">主要资源</text>
+<rect x="720" y="1583" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="1592" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">地图、街景、卫星与地形</text>
+<rect x="720" y="1621" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="1630" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">地名、坐标、IP 粗定位</text>
+<rect x="720" y="1659" width="7" height="7" rx="3" fill="#347a91" stroke="none" stroke-width="1"/>
+<text x="738" y="1668" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">海事、车辆及地区位置资料</text>
+<path d="M718 1702 L1232 1702" stroke="#d7e3dc" stroke-width="2"/>
+<text x="718" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#347a91" text-anchor="start">可得到</text>
+<text x="805" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">交叉核对地点与画面特征；</text>
+<text x="805" y="1770" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">留意影像时间和覆盖差异</text>
+<rect x="714" y="1788" width="522" height="29" rx="7" fill="#e4f1f4" stroke="none" stroke-width="1"/>
+<text x="724" y="1810" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#347a91" text-anchor="start">例  Google Maps · OpenStreetMap</text>
+<rect x="1300" y="465" width="570" height="112" rx="20" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<rect x="1300" y="465" width="10" height="112" rx="5" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1334" y="513" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="32" font-weight="800" fill="#aa6548" text-anchor="start">03 识别风险与特殊来源</text>
+<text x="1334" y="548" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="400" fill="#5d716e" text-anchor="start">处理暴露、威胁与 Tor 隐藏服务线索</text>
+<rect x="1300" y="608" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="1300" y="600" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="1326" y="625" width="58" height="44" rx="11" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1355" y="656" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#aa6548" text-anchor="middle">07</text>
+<text x="1400" y="659" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">泄露与暴露检查</text>
+<rect x="1761" y="629" width="83" height="35" rx="16" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1802" y="653" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#aa6548" text-anchor="middle">A + B</text>
+<path d="M1328 687 L1842 687" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1328" y="722" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#aa6548" text-anchor="start">主要资源</text>
+<rect x="1330" y="743" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="752" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">自有邮箱、账号与域名暴露</text>
+<rect x="1330" y="781" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="790" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">公开泄露记录及代码中密钥</text>
+<rect x="1330" y="819" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="828" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">凭据风险与后续处置线索</text>
+<path d="M1328 862 L1842 862" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1328" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#aa6548" text-anchor="start">可得到</text>
+<text x="1415" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">识别需要核查或轮换的</text>
+<text x="1415" y="930" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">账号与秘密信息</text>
+<rect x="1324" y="948" width="522" height="29" rx="7" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1334" y="970" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#aa6548" text-anchor="start">例  Have I Been Pwned · gitleaks</text>
+<rect x="1300" y="1028" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="1300" y="1020" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="1326" y="1045" width="58" height="44" rx="11" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1355" y="1076" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#aa6548" text-anchor="middle">08</text>
+<text x="1400" y="1079" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">Tor 与隐藏服务</text>
+<rect x="1761" y="1049" width="83" height="35" rx="16" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1802" y="1073" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#aa6548" text-anchor="middle">A + B</text>
+<path d="M1328 1107 L1842 1107" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1328" y="1142" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#aa6548" text-anchor="start">主要资源</text>
+<rect x="1330" y="1163" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="1172" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">隐藏服务索引：Ahmia 等</text>
+<rect x="1330" y="1201" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="1210" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">Tor 搜索入口与站点目录</text>
+<rect x="1330" y="1239" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="1248" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">已知站点的技术分析工具</text>
+<path d="M1328 1282 L1842 1282" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1328" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#aa6548" text-anchor="start">可得到</text>
+<text x="1415" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">在有限索引中寻找线索；</text>
+<text x="1415" y="1350" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">目录与镜像仍须验证真伪</text>
+<rect x="1324" y="1368" width="522" height="29" rx="7" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1334" y="1390" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#aa6548" text-anchor="start">例  Ahmia · Dark.fail · OnionScan</text>
+<rect x="1300" y="1448" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="1300" y="1440" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="1326" y="1465" width="58" height="44" rx="11" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1355" y="1496" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#aa6548" text-anchor="middle">09</text>
+<text x="1400" y="1499" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">威胁情报与监测</text>
+<rect x="1761" y="1469" width="83" height="35" rx="16" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1802" y="1493" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#aa6548" text-anchor="middle">A + B</text>
+<path d="M1328 1527 L1842 1527" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1328" y="1562" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#aa6548" text-anchor="start">主要资源</text>
+<rect x="1330" y="1583" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="1592" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">恶意样本、IP 信誉与指标</text>
+<rect x="1330" y="1621" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="1630" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">威胁行为者、活动及研究报告</text>
+<rect x="1330" y="1659" width="7" height="7" rx="3" fill="#aa6548" stroke="none" stroke-width="1"/>
+<text x="1348" y="1668" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">网页、品牌与安全事件监测</text>
+<path d="M1328 1702 L1842 1702" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1328" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#aa6548" text-anchor="start">可得到</text>
+<text x="1415" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">给安全事件补充上下文，</text>
+<text x="1415" y="1770" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">形成待复核的关联与趋势</text>
+<rect x="1324" y="1788" width="522" height="29" rx="7" fill="#f7ede6" stroke="none" stroke-width="1"/>
+<text x="1334" y="1810" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#aa6548" text-anchor="start">例  VirusTotal · ThreatFox</text>
+<rect x="1910" y="465" width="570" height="112" rx="20" fill="#efedf7" stroke="none" stroke-width="1"/>
+<rect x="1910" y="465" width="10" height="112" rx="5" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1944" y="513" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="32" font-weight="800" fill="#695b91" text-anchor="start">04 组织研究与执行</text>
+<text x="1944" y="548" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="400" fill="#5d716e" text-anchor="start">选择环境、工具、方法与练习材料</text>
+<rect x="1910" y="608" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="1910" y="600" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="1936" y="625" width="58" height="44" rx="11" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="1965" y="656" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#695b91" text-anchor="middle">10</text>
+<text x="2010" y="659" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">隐私与研究环境</text>
+<rect x="2371" y="629" width="83" height="35" rx="16" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="2412" y="653" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#695b91" text-anchor="middle">A + B</text>
+<path d="M1938 687 L2452 687" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1938" y="722" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#695b91" text-anchor="start">主要资源</text>
+<rect x="1940" y="743" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="752" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">研究浏览器、Tor、VPN</text>
+<rect x="1940" y="781" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="790" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">本地隔离、离线保存与加密</text>
+<rect x="1940" y="819" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="828" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">通信、凭据与工作环境管理</text>
+<path d="M1938 862 L2452 862" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1938" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#695b91" text-anchor="start">可得到</text>
+<text x="2025" y="897" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">减少研究过程中的暴露，</text>
+<text x="2025" y="930" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">保留可复核的工作材料</text>
+<rect x="1934" y="948" width="522" height="29" rx="7" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="1944" y="970" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#695b91" text-anchor="start">例  Tor Browser · Tails</text>
+<rect x="1910" y="1028" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="1910" y="1020" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="1936" y="1045" width="58" height="44" rx="11" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="1965" y="1076" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#695b91" text-anchor="middle">11</text>
+<text x="2010" y="1079" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">安全测试与取证</text>
+<rect x="2371" y="1049" width="83" height="35" rx="16" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="2412" y="1073" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#695b91" text-anchor="middle">B 为主</text>
+<path d="M1938 1107 L2452 1107" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1938" y="1142" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#695b91" text-anchor="start">主要资源</text>
+<rect x="1940" y="1163" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="1172" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">Web／网络／移动／硬件测试</text>
+<rect x="1940" y="1201" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="1210" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">漏洞、口令、日志与逆向分析</text>
+<rect x="1940" y="1239" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="1248" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">红蓝队工具、取证与练习环境</text>
+<path d="M1938 1282 L2452 1282" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1938" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#695b91" text-anchor="start">可得到</text>
+<text x="2025" y="1317" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">在授权范围验证安全问题，</text>
+<text x="2025" y="1350" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">分析事件与系统痕迹</text>
+<rect x="1934" y="1368" width="522" height="29" rx="7" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="1944" y="1390" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#695b91" text-anchor="start">例  Nmap · Wireshark · Autopsy</text>
+<rect x="1910" y="1448" width="570" height="393" rx="20" fill="#dfe9e2" stroke="none" stroke-width="1"/>
+<rect x="1910" y="1440" width="570" height="393" rx="20" fill="#ffffff" stroke="#dce7df" stroke-width="2"/>
+<rect x="1936" y="1465" width="58" height="44" rx="11" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="1965" y="1496" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="850" fill="#695b91" text-anchor="middle">12</text>
+<text x="2010" y="1499" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="34" font-weight="800" fill="#19373b" text-anchor="start">方法、开发与学习</text>
+<rect x="2371" y="1469" width="83" height="35" rx="16" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="2412" y="1493" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="19" font-weight="800" fill="#695b91" text-anchor="middle">A + B</text>
+<path d="M1938 1527 L2452 1527" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1938" y="1562" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#695b91" text-anchor="start">主要资源</text>
+<rect x="1940" y="1583" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="1592" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">API、框架、浏览器扩展与脚本</text>
+<rect x="1940" y="1621" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="1630" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">课程、视频、博客、RSS 与案例</text>
+<rect x="1940" y="1659" width="7" height="7" rx="3" fill="#695b91" stroke="none" stroke-width="1"/>
+<text x="1958" y="1668" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="400" fill="#3e5858" text-anchor="start">CTF、赏金规则及相关资源库</text>
+<path d="M1938 1702 L2452 1702" stroke="#d7e3dc" stroke-width="2"/>
+<text x="1938" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="800" fill="#695b91" text-anchor="start">可得到</text>
+<text x="2025" y="1737" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">把零散查询变成可重复的</text>
+<text x="2025" y="1770" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="25" font-weight="700" fill="#234349" text-anchor="start">检索、记录与核验流程</text>
+<rect x="1934" y="1788" width="522" height="29" rx="7" fill="#efedf7" stroke="none" stroke-width="1"/>
+<text x="1944" y="1810" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="650" fill="#695b91" text-anchor="start">例  OSINT Framework · Trace Labs</text>
+<rect x="80" y="1880" width="2400" height="225" rx="24" fill="#17363a" stroke="none" stroke-width="1"/>
+<text x="115" y="1933" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="28" font-weight="800" fill="#d0efa1" text-anchor="start">怎么读这张图</text>
+<text x="115" y="1982" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="31" font-weight="700" fill="#ffffff" text-anchor="start">先定问题 → 选主题 → 去原站核对数据来源与权限 → 用独立证据复核结果</text>
+<path d="M115 2010 L2445 2010" stroke="#456468" stroke-width="2"/>
+<text x="115" y="2052" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="22" font-weight="800" fill="#d0efa1" text-anchor="start">边界</text>
+<text x="185" y="2052" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="23" font-weight="400" fill="#c1d7d0" text-anchor="start">清单是入口，不是工具质量认证；Tor 索引覆盖有限；主动扫描、口令测试与取证须有授权。</text>
+<text x="80" y="2151" font-family="'Microsoft YaHei','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="20" font-weight="400" fill="#667b75" text-anchor="start">本仓库独立归纳与绘制 · 基于 A: 3ab9cde / B: 2c6475a（2026-09-28）· 示例名称和分类来自固定 README；未逐一实测外部资源</text>
+</svg>
