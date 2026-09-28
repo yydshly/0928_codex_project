@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="全面理解 Personal Edge Proxy：客户端与 VPS 如何交互、入口与出口怎样分工、HTTPS 加密边界，以及个人使用价值与扩展方向。">
+  <title>Personal Edge Proxy · 个人代理是怎样工作的</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d2438'/%3E%3Cpath d='M6 16h20M10 10l-6 6 6 6m12-12 6 6-6 6' stroke='%234edacb' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar"><a class="brand" href="#top"><span>006</span> OPEN SOURCE / FIELD NOTES</a><nav aria-label="章节"><a href="#journey">请求怎么走</a><a href="#capability">库的能力</a><a href="#protocols">协议原理</a><a href="#internals">内部细节</a><a href="#value">对我的意义</a><a href="#overview">一图总览</a></nav></header>
+<main id="main">
+  <section class="hero wrap" id="top">
+    <div class="eyebrow">PERSONAL EDGE PROXY · 个人代理架构研究</div>
+    <h1>你的设备，经过 VPS，<br><em>连接目标服务。</em></h1>
+    <div class="hero-bottom"><p>客户端接住请求，VPS 接力转发；入口决定如何到达 VPS，出口决定目标网站看到哪个公网地址。这个库把这些组件组织成一套可参考的个人代理方案。</p><div class="status"><span>公开配置已核对</span><span>原方案尚未部署实测</span><a href="#overview">查看 / 保存完整总览图 ↗</a></div></div>
+  </section>
+
+  <div class="wrap"><details class="research-abstract"><summary>研究摘要：能力、本质、原理、场景与价值</summary><dl><dt>库的能力</dt><dd>提供多入口、按目标选择出口的个人代理部署文档与配置范例；HY2 主用，VLESS / REALITY / Vision 备用，出口可选 Direct、WARP 或固定 SOCKS5。</dd><dt>底层本质</dt><dd>以 VPS 为中转和路由节点，组合现有核心、协议与上游服务，构成个人网络网关。仓库本身是架构与配置参考。</dd><dt>实现原理</dt><dd>客户端接管并筛选请求，经代理通道送达 VPS；Xray 认证分流，由最终出口连接目标，再沿代理链返回响应。</dd><dt>使用场景</dt><dd>个人出网、开发工具和 AI 服务访问、不同目标的出口管理，以及 UDP 受限时使用 TCP 备用接入。</dd><dt>对我们的价值</dt><dd>掌握入口与出口独立管理、协议分层和按层排障的方法；为将来的自建网关、配置校验和出口观测工具保留依据。实际收益需部署验证。</dd></dl><a href="#overview">用完整总览图引导阅读 →</a></details></div>
+  <section class="journey wrap" id="journey" aria-labelledby="journey-title">
+    <div class="section-title"><div><span class="number">01 / REQUEST JOURNEY</span><h2 id="journey-title">跟着一次请求，走完整条链路</h2></div><p>交互仅用于解释原理，不发起代理连接。</p></div>
+    <div class="explorer">
+      <div class="controls">
+        <fieldset><legend>进入 VPS 的方式</legend><div class="choice"><button type="button" data-ingress="hy2" aria-pressed="true">HY2 · 日常入口</button><button type="button" data-ingress="reality" aria-pressed="false">REALITY · TCP 备用</button></div></fieldset>
+        <fieldset><legend>目标对应的服务端策略</legend><div class="choice"><button type="button" data-route="direct" aria-pressed="true">普通目标 / Direct</button><button type="button" data-route="warp" aria-pressed="false">指定 AI / WARP</button><button type="button" data-route="fixed" aria-pressed="false">固定出口 / SOCKS5</button></div></fieldset>
+      </div>
+      <div class="path" aria-label="请求转发路径">
+        <article class="station active" data-station="client"><span class="station-index">A</span><h3>你的设备</h3><p>应用 → 本机代理核心</p><small>TUN / 代理设置 · 初步分流</small></article>
+        <div class="connector"><span id="ingress-label">HY2 / QUIC</span><b aria-hidden="true">⇄</b><small>加密接入</small></div>
+        <article class="station" data-station="vps"><span class="station-index">B</span><h3>VPS · Xray</h3><p>认证 → 读取目标 → 匹配规则</p><small>入口在这里终止，选择出站</small></article>
+        <div class="connector"><span>出站选择</span><b aria-hidden="true">⇄</b><small id="outbound-label">原生网络</small></div>
+        <article class="station exit-station" data-station="exit"><span class="station-index">C</span><h3 id="exit-title">VPS 直接出网</h3><p id="exit-detail">VPS 建立到目标的连接</p><small id="exit-note">此时中转站也是最终出口</small></article>
+        <div class="connector"><span>访问目标</span><b aria-hidden="true">⇄</b><small>请求与响应</small></div>
+        <article class="station" data-station="destination"><span class="station-index">D</span><h3>目标网站</h3><p>处理请求，返回内容</p><small>看到的源 IP：<strong id="ip-label">VPS 公网 IP</strong></small></article>
+      </div>
+      <p class="route-insight" id="route-insight" aria-live="polite">Direct：Xray 使用 VPS 原生网络连接目标，不需要额外上游。C 是 B 的出站动作，不代表另一台服务器。</p>
+      <div class="stepper"><div class="steps" aria-label="选择请求阶段"><button type="button" data-step="0" aria-pressed="true">1 接住请求</button><button type="button" data-step="1" aria-pressed="false">2 传给 VPS</button><button type="button" data-step="2" aria-pressed="false">3 认证与分流</button><button type="button" data-step="3" aria-pressed="false">4 连接目标</button><button type="button" data-step="4" aria-pressed="false">5 返回响应</button></div><div class="step-copy" aria-live="polite"><span id="step-number">01</span><div><h3 id="step-title">本机代理先接住应用请求</h3><p id="step-description">应用主动使用本地代理端口，或由 TUN 虚拟网卡接收流量。客户端规则决定哪些直连、哪些交给 VPS。本图展示的是被选中进入代理的请求。</p></div></div><div class="step-footer"><span>切换入口时，观察最终出口 IP 是否改变。</span><button class="next" id="next-step" type="button">下一步 →</button></div></div>
+    </div>
+    <noscript><p class="callout">当前未启用 JavaScript，图中展示默认 HY2 → VPS Direct 路径。完整机制和其他出口见下方正文与总览图。</p></noscript>
+  </section>
+
+  <section class="wrap section" id="capability">
+    <div class="section-title"><div><span class="number">02 / CAPABILITY</span><h2>它交付的，是一套组合方法与配置范例</h2></div></div>
+    <p class="lead">如果把“个人 VPN”理解为让自己的设备经远端服务器出网，它能提供搭建参考。更准确的定位是<strong>个人代理架构资料库</strong>：TUN 能带来类似 VPN 的使用体验，底层转发依靠现有代理核心和协议。</p>
+    <div class="three-col facts"><article><span class="mini-label">已有的资料</span><h3>文档 + 可复制示例</h3><p>VPS 选型、SSH 引导、Xray 服务端、v2rayN 客户端、WARP 与固定 SOCKS5 配置说明，以及 Agent 部署维护约定。</p></article><article><span class="mini-label">真正执行工作的组件</span><h3>Xray / sing-box / WARP</h3><p>v2rayN 管理节点与配置；客户端核心接管和封装流量；VPS 上的 Xray 认证、分流、转发；WARP 服务提供可选出口。</p></article><article><span class="mini-label">你还需要准备</span><h3>服务器 + 配置 + 验证</h3><p>可达的 VPS、客户端、凭据、HY2 证书及端口设置。启用其他出口时，还需安装 WARP 或准备可信的上游代理。</p></article></div>
+    <div class="table-wrap"><table><caption>公开示例中的能力与完成边界</caption><thead><tr><th>能力</th><th>如何实现</th><th>边界</th></tr></thead><tbody>
+      <tr><td>客户端分流</td><td>代理设置或 TUN + Rule</td><td>哪些应用和流量被接管取决于实际配置</td></tr>
+      <tr><td>日常接入</td><td>HY2，示例 UDP 24443</td><td>依赖线路支持 UDP；端口可以调整</td></tr>
+      <tr><td>备用接入</td><td>VLESS + REALITY + Vision，示例 TCP 443</td><td>有备用入口不等于已经实现自动切换</td></tr>
+      <tr><td>按目标选择出口</td><td>Direct / 本地 WARP SOCKS5 / 固定 SOCKS5</td><td>上游服务要先配置好；域名清单需要维护</td></tr>
+      <tr><td>访问限制与固定出口策略</td><td>私网地址阻断；指定出站失败时不自动回落</td><td>要验证规则完整性和实际故障行为</td></tr>
+      <tr><td>Cloudflare Tunnel</td><td>README 中提出的可选应急入口</td><td>当前服务端示例未提供对应配置</td></tr>
+    </tbody></table></div>
+    <p class="source-note">依据：<a href="#sources">上游 README、服务端 JSONC 与客户端示例 [1–4]</a>。仓库未交付独立 VPN 内核、成品 VPN 服务、完整管理面板或一键部署程序。</p>
+  </section>
+
+  <section class="wrap section" id="protocols">
+    <div class="section-title"><div><span class="number">03 / PROTOCOL STACK</span><h2>协议有哪些，它们各自负责什么？</h2></div><p>同一条通道会组合代理协议、传输方式和安全层。</p></div>
+    <p class="lead">这套方案用到的代理协议主要是 <strong>Hysteria2、VLESS 和 SOCKS5</strong>。REALITY 提供接入安全与握手外观，Vision 优化流量处理；WARP 是出口服务，本例使用 MASQUE 隧道。它们处在不同层次。</p>
+    <div class="protocol-grid">
+      <article class="protocol-card"><span class="mini-label">代理协议 · 主入口</span><h3>Hysteria2 / HY2</h3><p>先建立基于 UDP 的 QUIC 加密连接，使用 HTTP/3 请求完成认证；然后发送“连接哪个地址和端口”的指令。TCP 数据走可靠的 QUIC 流，UDP 数据走 QUIC 数据报。</p><div class="protocol-flow">QUIC / TLS 握手 → 认证 → 目标指令 → 转发</div><small>QUIC 使用 TLS 1.3；UDP 数据报不会因为装进 QUIC 就自动变为可靠传输。<a href="#sources">[7]</a></small></article>
+      <article class="protocol-card"><span class="mini-label">代理协议 · 备用入口的一部分</span><h3>VLESS</h3><p>用轻量请求格式携带用户标识、目标地址、端口和转发指令。服务端验证用户后，再连接目标。这里的 VLESS 与 REALITY、Vision、TCP 配合使用。</p><div class="protocol-flow">用户标识 + 目标指令 + 待转发数据</div><small>研究版本配置为 <code>decryption: none</code>，未启用 VLESS 自身的额外加密；不能把这一配置推广到所有新版本。<a href="#sources">[2,12]</a></small></article>
+      <article class="protocol-card"><span class="mini-label">传输安全层 · 配合 VLESS</span><h3>REALITY</h3><p>修改 TLS 握手与验证方式，结合配置的密钥信息识别合法连接，并借用目标站点的 TLS 外观。认证通过后承载代理请求，未通过的连接可回落到配置的 target。</p><div class="protocol-flow">类似 TLS 的握手 → 验证 → 承载代理</div><small>这里的 target 是握手外观与回落目标，不是浏览器每次真正要访问的网站，也不是普通代理流量的固定中转站。<a href="#sources">[10]</a></small></article>
+      <article class="protocol-card"><span class="mini-label">流控与转发优化 · 配合 VLESS</span><h3>XTLS Vision</h3><p>在连接早期对内层握手做随机填充；对满足条件的 TLS 1.3 流量，可转为更直接地搬运已有密文，减少重复封装与处理开销。</p><div class="protocol-flow">识别流量阶段 → 填充 → 条件满足时优化</div><small>配置项为 <code>flow: xtls-rprx-vision</code>。它不是另一条独立入口，也不解密网站 HTTPS；效果需要实测。<a href="#sources">[12]</a></small></article>
+      <article class="protocol-card"><span class="mini-label">代理协议 · 连接上游出口</span><h3>SOCKS5</h3><p>双方先协商认证方式，再发送“请连接这个地址和端口”的请求，成功后转发数据。TCP 常用 CONNECT；UDP 有单独的 UDP ASSOCIATE 机制，需两端实际支持。</p><div class="protocol-flow">协商 / 认证 → 目标地址 → 代理转发</div><small>本例用它接本机 WARP 和远程固定出口。SOCKS5 自身不提供 TLS 式的传输加密；“固定”是上游 IP 属性。<a href="#sources">[5–6,14]</a></small></article>
+      <article class="protocol-card"><span class="mini-label">出口服务 + 隧道协议体系</span><h3>WARP / MASQUE</h3><p>Xray 将请求交给本机 WARP 的 SOCKS5 端口，warp-svc 再建立通往 Cloudflare 的隧道。本例记录使用 MASQUE：通过 HTTP 机制承载代理隧道，相关传输可基于 HTTP/3 / QUIC。</p><div class="protocol-flow">本地 SOCKS5 → warp-svc → Cloudflare</div><small>WARP 是服务，MASQUE 是隧道协议体系，二者不是同义词。本例没有部署 WireGuard 入口。<a href="#sources">[5,13,15]</a></small></article>
+    </div>
+    <div class="protocol-stacks"><h3>把协议名放回实际链路</h3><p><strong>主入口：</strong>应用数据 → HY2 代理请求 → QUIC（含 TLS 1.3，基于 UDP）→ VPS</p><p><strong>备用入口：</strong>应用数据 → VLESS + Vision → REALITY / TCP → VPS</p><p><strong>WARP 出口：</strong>VPS 的 Xray → SOCKS5（本机回环）→ warp-svc / MASQUE → Cloudflare → 目标</p><p><strong>可选应急入口：</strong>VLESS 数据可由 WebSocket 帧承载，经 Cloudflare 边缘与 Tunnel 到达 VPS；cloudflared 主动向 Cloudflare 建立连接。上游只提出这条思路，未提供对应示例。<a href="#sources">[1,16]</a></p></div>
+    <p class="callout"><strong>辅助概念：</strong>TCP / UDP 是基础传输；QUIC 在 UDP 上提供加密连接与多路流；TLS 保护传输内容；WebSocket 提供持续双向消息通道。TUN 是虚拟网卡接口，Xray / sing-box 是执行程序，Direct 是直接出网策略，它们都不应被当成独立的远程代理协议。</p>
+  </section>
+
+  <section class="dark-section" id="internals"><div class="wrap section">
+    <div class="section-title"><div><span class="number">04 / UNDER THE HOOD</span><h2>内部细节：三条边界，六个机制</h2></div><p>把“谁接管”“怎么运输”“从哪出去”分开理解。</p></div>
+    <div class="boundary-strip"><div><span>客户端边界</span><strong>应用请求如何进入代理</strong></div><div><span>接入边界</span><strong>设备如何连接 VPS</strong></div><div><span>出口边界</span><strong>VPS 如何连接目标</strong></div></div>
+    <div class="mechanisms">
+      <article><span>01</span><h3>代理端口与 TUN</h3><p>代理端口需要应用主动使用；TUN 是虚拟网卡，配合系统路由把流量交给客户端核心。客户端仍可按规则让部分目标直接访问，不经过 VPS。</p></article>
+      <article><span>02</span><h3>应用协议与隧道协议</h3><p>浏览器的 TCP 数据可以放进 HY2 的 QUIC 通道。QUIC 基于 UDP，并为流提供可靠传输。因此“HY2 用 UDP”不代表网页数据就没有可靠性保障。</p></article>
+      <article><span>03</span><h3>认证与连接封装</h3><p>客户端携带目标域名或 IP、端口和数据。HY2 用密码认证并验证 TLS 证书；REALITY 示例结合 VLESS 用户标识、公私钥及 shortId 等配置校验接入。</p></article>
+      <article><span>04</span><h3>域名、DNS 与嗅探</h3><p>域名可能由客户端直接提供，也可能从可见的 HTTP/TLS/QUIC 信息中识别。嗅探不等于解密 HTTPS；DNS 在哪解析取决于配置，不能仅凭 TUN 就保证无泄漏。</p></article>
+      <article><span>05</span><h3>按顺序匹配路由</h3><p>Xray 从上到下使用首个命中规则。此示例先阻断私网，再匹配固定 SOCKS5 与 WARP；未命中则走首个 Direct 出站。WARP 示例规则仅匹配 TCP。</p></article>
+      <article><span>06</span><h3>建立连接与双向转发</h3><p>常见 TCP 场景中，代理建立到目标的连接，持续转发两边的字节流。响应沿同一逻辑代理链返回，浏览器最终收到网页或 API 结果；VPS 无需运行浏览器。</p></article>
+    </div>
+    <p class="source-note">依据：<a href="#sources">服务端示例 [2]、HY2 协议 [7]、Xray 路由与入站文档 [8–9]</a>。这些是协议和配置层解释，未声称在本机部署验证。</p>
+  </div></section>
+
+  <section class="wrap section" id="encryption">
+    <div class="section-title"><div><span class="number">05 / ENCRYPTION & VISIBILITY</span><h2>代理保护接入，HTTPS 保护应用内容</h2></div></div>
+    <div class="security-layout"><div class="layers"><div class="layer https"><span>HTTPS · 内层</span><strong>浏览器 ⇄ 目标网站</strong><p>正常证书验证且没有中间人解密时，网站内容、密码和 API 数据由应用层 TLS 保护。</p></div><div class="layer tunnel"><span>HY2 / REALITY · 外层</span><strong>本机代理 ⇄ VPS</strong><p>保护这一段接入传输；VPS 终止外层代理通道后，继续转发内层数据。</p></div></div><div><h3>每一方能知道什么？</h3><dl class="visibility"><dt>你的设备</dt><dd>应用原始请求、代理设置及客户端接入凭据。</dd><dt>VPS / 上游出口</dt><dd>连接地址、可见的目标信息、流量大小和时间；正常 HTTPS 内容不会因此自动解密。明文应用流量没有这层保护。</dd><dt>目标网站</dt><dd>应用请求、账号/Cookie 等，以及最终出口的公网 IP。换出口 IP 并不消除账号身份。</dd></dl></div></div>
+    <p class="source-note">“内外两层”用于区分保护范围，不表示所有字节始终重复做两次 TLS 加密；Vision 可对符合条件的内层 TLS 1.3 数据优化转发。<a href="#sources">[12]</a></p>
+    <div class="callout"><strong>SOCKS5 自身没有传输加密。</strong> 公网上的 VPS → SOCKS5 上游这一段，协议凭据和元数据需要另行考虑保护；目标使用 HTTPS 时，应用内容仍有自己的 TLS 保护。WARP 的本地 SOCKS5 段则在 VPS 回环地址上，之后由 WARP 建立上游通道。<a href="#sources">[5–6]</a></div>
+  </section>
+
+  <section class="wrap section" id="value">
+    <div class="section-title"><div><span class="number">06 / PERSONAL VALUE</span><h2>对我有什么意义，什么时候值得用？</h2></div></div>
+    <p class="lead">对正在积累开源项目能力的你，这个库最有价值的是提供一份<strong>个人网络出口架构参考</strong>。以后需要管理自己的远程访问、开发流量或 AI 服务连接时，可以按问题选择组件，并按层排错。</p>
+    <div class="value-grid"><article><span class="value-index">A</span><h3>需要自己的访问通道</h3><p>从 HY2 → VPS Direct 验证最小路径。你能控制配置和运行状态，同时也承担服务器、证书和维护成本。</p><strong>沉淀：最小部署与验证方法</strong></article><article><span class="value-index">B</span><h3>不同目标，需要不同出口</h3><p>把某些开发或 AI 服务交给单独出口。入口更换和出口策略可以独立管理；实际地区支持和服务可用性仍需确认。</p><strong>沉淀：按目标选择出口</strong></article><article><span class="value-index">C</span><h3>网络出了问题，能定位原因</h3><p>分开检查本机接管、VPS 可达性、认证、DNS、路由和上游出口，不再把所有故障都归为“节点不行”。</p><strong>沉淀：可复用的分层排障思路</strong></article><article><span class="value-index">D</span><h3>将来做自己的工具</h3><p>可以围绕配置生成、连通测试和出口观测做小工具。现阶段更适合作为研究与实施参考，产品能力还需要开发。</p><strong>沉淀：网关工具的设计基础</strong></article></div>
+    <div class="compare"><h3>和我们研究过的 Tailcat 有什么区别？</h3><p><strong>Tailcat：</strong>重点是让两台设备在复杂网络中建立按需连接。<br><strong>Personal Edge Proxy：</strong>重点是让客户端经 VPS 访问互联网目标，并控制最终出口。两者可解决不同问题，不能仅因都使用加密通道就视为同一种工具。</p></div>
+    <div class="table-wrap"><table><caption>按真实问题增加组件</caption><thead><tr><th>当前需求</th><th>考虑的结构</th><th>要先验证什么</th></tr></thead><tbody><tr><td>只需经自己的 VPS 出网</td><td>HY2 → Direct</td><td>本地到 VPS 的 UDP、证书和目标可达性</td></tr><tr><td>UDP 不稳定或受限</td><td>增加 REALITY TCP 入口</td><td>TCP 路径可达，且切换方式明确</td></tr><tr><td>指定流量需要独立出口</td><td>增加 WARP 出站规则</td><td>真实出口、目标服务响应和域名覆盖</td></tr><tr><td>指定目标需要固定公网 IP</td><td>增加受控固定 SOCKS5</td><td>固定性、链路保护，以及故障时不回落</td></tr></tbody></table></div>
+  </section>
+
+  <section class="wrap section" id="boundaries">
+    <div class="section-title"><div><span class="number">07 / LIMITS & NEXT STEPS</span><h2>理解边界，才能判断是否值得继续</h2></div></div>
+    <div class="two-col"><article class="lined"><h3>它解决不了的事情</h3><ul><li>VPS 的线路质量、拥塞和丢包不会因为多加一层就自动改善。</li><li>WARP 不保证住宅 IP、固定 IP、账号安全或某个服务一定可用。</li><li>多入口仍可共用同一台 VPS；VPS 故障时，不会自然变成多机容灾。</li><li>示例没有给出完整自动切换、监控平台、用户管理或稳定性承诺。</li><li>域名规则可能漏掉新域名或不同传输。示例 WARP 规则只含 TCP，不能推定所有 UDP/HTTP3 都走 WARP。</li></ul></article><article class="lined"><h3>可以继续开发的方向</h3><ol><li><strong>配置工具：</strong>生成客户端与服务端配置，并检查版本、密钥和规则。</li><li><strong>出口仪表盘：</strong>持续检查每条出口的 IP、连通性和失败原因。</li><li><strong>路由验证：</strong>维护域名和 DNS 策略，验证关键请求是否命中。</li><li><strong>多 VPS 容灾：</strong>实测接入切换，并保持需要固定的出口策略。</li><li><strong>运行维护：</strong>凭据轮换、证书到期提醒、日志保护和故障恢复。</li></ol><p class="source-note">本栏是我们的设想，尚未实现。</p></article></div>
+    <p class="callout"><strong>本次研究的证据边界：</strong>阅读并核对公开文档与配置；没有购买或部署 VPS，没有测得速度、稳定性或账号可用性数据。网页和图表是本仓库独立制作的理解材料。</p>
+  </section>
+
+  <section class="overview-section" id="overview"><div class="wrap section"><div class="section-title"><div><span class="number">08 / THE COMPLETE MAP</span><h2>一张图，保留这次理解</h2></div><div class="image-actions"><a class="button" href="assets/personal-edge-proxy-overview.svg" target="_blank" rel="noopener">打开高清图 ↗</a><a class="button secondary" href="assets/personal-edge-proxy-overview.png" download>保存 PNG ↓</a></div></div><p>覆盖能力定位、四方交互、请求与响应、两层加密、场景、个人价值、扩展方向和验证边界。手机可打开原图放大阅读。</p><a class="poster-link" href="assets/personal-edge-proxy-overview.svg" target="_blank" rel="noopener"><img src="assets/personal-edge-proxy-overview.svg" width="1800" height="3600" alt="Personal Edge Proxy 完整理解图：个人代理能力、客户端与 VPS 和目标端交互、入口与出口、HTTPS 加密边界、使用场景、个人价值及扩展方向" loading="lazy"></a><p class="source-note">图片来源：本仓库依据固定研究提交及协议文档独立绘制；非官方宣传图、运行截图或网络测试结果。</p></div></section>
+
+  <section class="wrap section sources" id="sources"><span class="number">09 / EVIDENCE</span><h2>研究依据与许可</h2><p>固定研究提交 <code>ff55bdf0429e927c97e304e03ee4b322f12d32e2</code> · 查阅日期 2026-09-28。上游采用 MIT 许可；各组件的许可及服务条款分别适用。使用需符合所在地区法规和相应服务条款。</p><ol>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/README.md">上游 README：架构、用途与部署顺序</a></li>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/examples/xray-server.example.jsonc">服务端示例：入站、出站与路由规则</a></li>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/examples/v2rayn-hysteria2.example.md">HY2 客户端：TUN、规则与 sing-box</a></li>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/examples/v2rayn-reality-vision.example.md">REALITY 客户端：配置与审计边界</a></li>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/docs/warp-outbound.md">WARP 作为独立出口</a></li>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/docs/static-socks.md">固定 SOCKS5 与故障时保持出口策略</a></li>
+    <li><a href="https://v2.hysteria.network/docs/developers/Protocol/">Hysteria 2 官方协议：QUIC、认证与 TCP/UDP 转发</a></li>
+    <li><a href="https://xtls.github.io/config/routing.html">Xray 路由：顺序匹配与默认出站</a></li>
+    <li><a href="https://xtls.github.io/config/inbound.html">Xray 入站：目标嗅探与信息处理</a></li>
+    <li><a href="https://xtls.github.io/config/transports/reality.html">Xray REALITY：传输安全与认证参数</a></li>
+    <li><a href="https://github.com/yding-git/personal-edge-proxy/blob/ff55bdf0429e927c97e304e03ee4b322f12d32e2/LICENSE">上游 MIT LICENSE · Copyright 2026 StarryRain</a></li>
+    <li><a href="https://xtls.github.io/config/inbounds/vless.html">VLESS / XTLS Vision：用户认证、加密配置和条件转发优化</a></li>
+    <li><a href="https://developers.cloudflare.com/warp-client/warp-modes/">Cloudflare WARP：本地代理模式</a></li>
+    <li><a href="https://www.rfc-editor.org/rfc/rfc1928.html">RFC 1928：SOCKS5 的协商、请求和 UDP 转发</a></li>
+    <li><a href="https://www.rfc-editor.org/rfc/rfc9298.html">RFC 9298：MASQUE 体系中通过 HTTP 代理 UDP 的机制</a></li>
+    <li><a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/">Cloudflare Tunnel：连接器主动建立通往边缘网络的连接</a></li>
+  </ol></section>
+</main>
+<footer class="wrap">006 / Personal Edge Proxy <span>独立研究与概念演示 · 无真实代理连接</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

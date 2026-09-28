@@ -29,6 +29,9 @@ jobs:
           cp -R projects/004-ace-step-ui/. _site/004-ace-step-ui/
           cp -R projects/005-tailcat/web/. _site/005-tailcat/
           cp -R projects/005-tailcat/assets/. _site/005-tailcat/assets/
+          mkdir -p _site/006-personal-edge-proxy/assets
+          cp projects/006-personal-edge-proxy/web/index.html projects/006-personal-edge-proxy/web/styles.css projects/006-personal-edge-proxy/web/app.js _site/006-personal-edge-proxy/
+          cp -R projects/006-personal-edge-proxy/web/assets/. _site/006-personal-edge-proxy/assets/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

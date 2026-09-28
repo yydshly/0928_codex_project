@@ -13,6 +13,7 @@
 | 003 | [Grok Bot Field Notes 工程经验与使用参考](projects/003-grokbot-field-notes/README.md) | Agent 工程案例与模板资料库：以规则、职责与验证反馈组织工作，可转化为验证工具、任务约定和技能；适用开发、研究与业务流程。有经验者新增价值有限，归档后按需参考。 | [unicodef1wn/grokbot-field-notes](https://github.com/unicodef1wn/grokbot-field-notes) | [在线研究网页](https://yydshly.github.io/0928_codex_project/003-grokbot-field-notes/) | 已发布；归档参考；新增方法有限；原平台未运行 |
 | 004 | [ACE-Step UI 音乐创作能力研究](projects/004-ace-step-ui/README.md) | ACE-Step 1.5 音乐工作台：描述/歌词、Reference、Cover、Repaint 与候选管理；6 个 DiT 和 3 个可选 LM 选项，输出歌曲/纯音乐音频。参考价值是模型能力的产品化与创作迭代。 | [fspecii/ace-step-ui](https://github.com/fspecii/ace-step-ui) | [在线研究网页](https://yydshly.github.io/0928_codex_project/004-ace-step-ui/) | 已发布；原版未运行；效果未实测 |
 | 005 | [Tailcat 加密 P2P 连接能力研究](projects/005-tailcat/README.md) | 无需 Tailscale 控制平面的双端连接工具：DERP 会合与回退、UDP 打洞优先直连、WireGuard 始终加密；用于端口、SSH、文件等传输。 | [tailscale/tailcat](https://github.com/tailscale/tailcat) | [在线研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/) | 已发布；原版和性能未实测 |
+| 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [研究网页源码](projects/006-personal-edge-proxy/web/index.html) | 网页已验证，待发布；原方案未实测 |
 
 ### 001 · Storm-Breaker
 
@@ -122,6 +123,28 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 [原仓库](https://github.com/tailscale/tailcat) · [详细研究](projects/005-tailcat/research.md) · [在线研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/) · [运行与发布说明](projects/005-tailcat/web/README.md)
 
+### 006 · Personal Edge Proxy
+
+[![Personal Edge Proxy 完整理解：能力、使用端与 VPS 和目的端交互、出站策略、HTTPS 边界、个人价值及扩展方向](projects/006-personal-edge-proxy/web/assets/personal-edge-proxy-overview.png)](projects/006-personal-edge-proxy/web/assets/personal-edge-proxy-overview.svg)
+
+图由本仓库依据[上游固定研究提交](https://github.com/yding-git/personal-edge-proxy/tree/ff55bdf0429e927c97e304e03ee4b322f12d32e2)的 README 与配置示例独立绘制，不是原项目截图或实测结果。
+
+**库的能力：**提供个人代理的部署文档和脱敏配置示例，支持 HY2 日常入口、VLESS + REALITY + Vision 的 TCP 备用入口，以及按目标域名选择 VPS Direct、Cloudflare WARP 或固定 SOCKS5 出口。客户端可通过代理设置或 TUN 接管应用流量，服务端集中维护出口策略。
+
+**底层本质：**以 VPS 为中转与路由节点，将 Xray、sing-box、现有代理协议和可选上游出口组合成个人网络网关。仓库交付架构经验、文档与配置范例，可用于搭建类似个人 VPN 的出网体验；没有自行实现新的 VPN 内核或提供一键安装成品。
+
+**实现原理：**客户端接住并筛选请求，经 HY2 的 QUIC/UDP 通道或 VLESS/REALITY/Vision 的 TCP 路径送到 VPS；Xray 验证接入并匹配路由，由选定出口连接目标，再把响应沿代理链送回应用。入口决定怎样到达 VPS，最终出口决定目标看到的公网 IP。HTTPS 正常验证时，网站内容仍由应用与网站之间的 TLS 保护；REALITY、Vision、SOCKS5 和 WARP 各有不同职责。
+
+**使用场景：**自建个人出网通道、开发工具和 AI 服务的网络访问、不同目标的出口管理，以及 UDP 不稳定时准备 TCP 备用接入。需要稳定最终 IP 时可按需增加受控固定上游；真实线路质量、域名覆盖和目标可用性仍须验证。
+
+**对我们的价值：**保留为个人网络出口的实施与选型参考，理解客户端接管、协议传输、服务端路由和目标连接的分工；将本机、入口、认证、DNS、路由、出口分层排查。后续可据此开发配置校验、出口观测、规则测试和多 VPS 容灾工具。当前价值在于架构理解与按需复用，尚未证明本机部署收益。
+
+**研究边界：**Cloudflare Tunnel 仅为文档中的可选应急思路，现有示例未包含其配置；WARP 不等于住宅或固定 IP，远程 SOCKS5 自身不提供传输加密。原方案未部署或测速，网页交互仅解释原理。上游采用 MIT，其他组件的许可和服务条件分别核查。
+
+**完整理解展示：**[研究网页](projects/006-personal-edge-proxy/web/index.html)支持切换 HY2 / REALITY 入口、三类出口和五个请求阶段，解释本机接管、认证分流、目标连接及响应返回；同时整理 DNS、HTTPS、应用协议与隧道协议的区别，以及对个人访问、开发、排障和后续工具的价值。网页仅演示概念，已验证桌面和手机显示，尚未发布。总览图为独立 SVG 与 PNG，可放大阅读或保存。
+
+[原仓库](https://github.com/yding-git/personal-edge-proxy) · [详细研究](projects/006-personal-edge-proxy/research.md) · [本地研究网页](projects/006-personal-edge-proxy/web/index.html) · [完整总览图](projects/006-personal-edge-proxy/web/assets/personal-edge-proxy-overview.svg) · [运行与发布说明](projects/006-personal-edge-proxy/web/README.md)
+
 ## 仓库结构
 
 ```text
@@ -135,6 +158,7 @@ projects/
   003-grokbot-field-notes/ # Thursday Arena 产品与直播问题、Agent 工作方法研究
   004-ace-step-ui/     # ACE-Step UI 音乐创作能力展示与研究
   005-tailcat/         # 加密 P2P 连接、NAT 穿透与中继回退研究
+  006-personal-edge-proxy/ # 个人代理入口与出口分层研究
 templates/project/     # 新子项目模板
 docs/                  # 索引与网页发布约定
 ```

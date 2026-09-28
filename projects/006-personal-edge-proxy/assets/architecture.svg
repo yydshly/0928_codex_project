@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Personal Edge Proxy：入口与出口分离</title>
+  <desc id="desc">客户端将需要代理的流量通过 Hysteria2 或可选 REALITY 送达 VPS；Xray 根据路由规则选择 VPS 直连、WARP 或可选固定 SOCKS5 出口。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#55728d"/>
+    </marker>
+    <style>
+      .bg { fill: #f5f8fc; }
+      .panel { fill: #fff; stroke: #d4dfeb; stroke-width: 2; }
+      .main { fill: #e5f1ff; stroke: #7caee1; stroke-width: 2; }
+      .optional { fill: #f1ecff; stroke: #ac91e4; stroke-width: 2; }
+      .direct { fill: #e8f5ed; stroke: #87b99a; stroke-width: 2; }
+      .ink { fill: #183044; font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+      .muted { fill: #5f7180; font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+      .line { stroke: #55728d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 8 6; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="630"/>
+  <text class="ink" x="54" y="65" font-size="31" font-weight="700">Personal Edge Proxy：接入与出口分离</text>
+  <text class="muted" x="54" y="98" font-size="17">上游方案的结构示意 · 虚线表示可选组件 · 不是部署或性能测试结果</text>
+
+  <rect class="panel" x="45" y="150" width="242" height="380" rx="20"/>
+  <text class="ink" x="72" y="193" font-size="22" font-weight="700">客户端</text>
+  <text class="muted" x="72" y="223" font-size="17">v2rayN · TUN / Rule</text>
+  <rect class="direct" x="72" y="265" width="185" height="70" rx="12"/>
+  <text class="ink" x="97" y="293" font-size="18" font-weight="700">本地直连</text>
+  <text class="muted" x="97" y="318" font-size="14">无需进入 VPS</text>
+  <rect class="main" x="72" y="364" width="185" height="91" rx="12"/>
+  <text class="ink" x="97" y="393" font-size="18" font-weight="700">需要代理</text>
+  <text class="muted" x="97" y="419" font-size="14">送入选定入口</text>
+
+  <rect class="panel" x="341" y="150" width="258" height="380" rx="20"/>
+  <text class="ink" x="368" y="193" font-size="22" font-weight="700">进入 VPS</text>
+  <text class="muted" x="368" y="223" font-size="17">两种独立接入路径</text>
+  <rect class="main" x="368" y="262" width="204" height="84" rx="12"/>
+  <text class="ink" x="389" y="294" font-size="18" font-weight="700">Hysteria2</text>
+  <text class="muted" x="389" y="321" font-size="14">UDP · QUIC · TLS</text>
+  <rect class="optional" x="368" y="378" width="204" height="84" rx="12"/>
+  <text class="ink" x="389" y="410" font-size="18" font-weight="700">REALITY + Vision</text>
+  <text class="muted" x="389" y="437" font-size="14">可选 TCP 备用入口</text>
+
+  <rect class="panel" x="653" y="150" width="206" height="380" rx="20"/>
+  <text class="ink" x="680" y="193" font-size="22" font-weight="700">VPS / Xray</text>
+  <text class="muted" x="680" y="223" font-size="16">服务端路由</text>
+  <rect class="main" x="680" y="282" width="152" height="134" rx="14"/>
+  <text class="ink" x="704" y="319" font-size="18" font-weight="700">按目标分流</text>
+  <text class="muted" x="704" y="348" font-size="14">域名规则</text>
+  <text class="muted" x="704" y="374" font-size="14">私网阻断</text>
+  <text class="muted" x="704" y="400" font-size="14">选择出站</text>
+
+  <rect class="panel" x="913" y="150" width="242" height="380" rx="20"/>
+  <text class="ink" x="940" y="193" font-size="22" font-weight="700">最终出口</text>
+  <text class="muted" x="940" y="223" font-size="16">目标看到的公网地址</text>
+  <rect class="direct" x="940" y="257" width="187" height="63" rx="12"/>
+  <text class="ink" x="963" y="295" font-size="17" font-weight="700">VPS Direct</text>
+  <rect class="main" x="940" y="341" width="187" height="63" rx="12"/>
+  <text class="ink" x="963" y="379" font-size="17" font-weight="700">Cloudflare WARP</text>
+  <rect class="optional" x="940" y="425" width="187" height="63" rx="12"/>
+  <text class="ink" x="963" y="463" font-size="17" font-weight="700">固定 SOCKS5</text>
+
+  <path class="line" d="M257 409 H327 V304 H368"/>
+  <path class="line dash" d="M327 409 H368"/>
+  <path class="line" d="M572 304 H625 V338 H680"/>
+  <path class="line dash" d="M572 420 H625 V366 H680"/>
+  <path class="line" d="M832 340 H886 V288 H940"/>
+  <path class="line" d="M886 340 H940 V372"/>
+  <path class="line dash" d="M886 372 H940 V456"/>
+
+  <text class="muted" x="56" y="579" font-size="16">核心区别：入口解决如何到达 VPS；出口决定目标服务从哪里看到连接。</text>
+  <text class="muted" x="56" y="605" font-size="13">本仓库独立绘制，依据 yding-git/personal-edge-proxy 固定研究提交 ff55bdf（MIT）。</text>
+</svg>

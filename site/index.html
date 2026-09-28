@@ -57,6 +57,16 @@
       <p>无需 Tailscale 控制平面的双端连接工具：公网 DERP 帮助会合或中转，magicsock 尝试 UDP 打洞，WireGuard 始终加密；已支持端口、SSH 与文件传输。研究页分析远程访问场景、对跨设备工具的价值，以及工作台、文件投递和 Agent 通道等尚未实现的产品方向。</p>
       <a href="./005-tailcat/">查看研究网页 →</a>
     </article>
+    <article>
+      <small>PROJECT 006</small>
+      <h2>Personal Edge Proxy · 个人代理如何工作</h2>
+      <a href="./006-personal-edge-proxy/"><img src="./006-personal-edge-proxy/assets/personal-edge-proxy-overview.png" width="1800" height="3600" style="display:block;width:100%;max-width:500px;height:auto;border-radius:10px" alt="Personal Edge Proxy 完整理解：能力、四方交互、加密、场景、个人价值与扩展方向" loading="lazy"></a>
+      <p><strong>能力：</strong>提供 HY2 主入口、VLESS/REALITY/Vision 备用入口及按目标选择 Direct、WARP、固定 SOCKS5 的配置参考。</p>
+      <p><strong>底层本质：</strong>用 VPS 作为中转与路由节点，组合现有组件搭建个人代理网关。</p>
+      <p><strong>原理：</strong>客户端接管请求，经代理通道送达 VPS；服务端认证分流，选出口连接目标，响应沿代理链返回。</p>
+      <p><strong>场景与价值：</strong>个人出网、开发和 AI 服务访问、出口管理与备用接入；为我们沉淀协议分层、配置选型和排障方法。交互仅解释原理，原代理方案未部署实测。</p>
+      <a href="./006-personal-edge-proxy/">查看完整研究 →</a>
+    </article>
   </main>
 </body>
 </html>
