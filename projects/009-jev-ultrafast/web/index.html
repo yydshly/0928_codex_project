@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jev Ultrafast 研究网页：用场景模拟看懂快速网页智能体的能力、原理、效果与边界。">
+  <meta name="theme-color" content="#0b1725">
+  <title>Jev Ultrafast · 网页智能体研究</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230b1725'/%3E%3Cpath d='M10 28h11l-4 11 21-20H26l4-10Z' fill='%23ffb44c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳转到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="返回页面顶部"><span class="bolt" aria-hidden="true">↗</span><span>JEV<span class="brand-thin"> / ULTRAFAST</span><small>OPEN SOURCE RESEARCH · 009</small></span></a>
+      <nav class="main-nav" aria-label="页面导航">
+        <a href="#overview">总览图</a><a href="#capabilities">能力</a><a href="#mechanism">原理</a><a href="#exchange">请求与返回</a><a href="#scenarios">场景</a><a href="#limits">边界</a>
+      </nav>
+      <a class="header-source" href="https://github.com/browser-use/jev-ultrafast/tree/1231850a0bf1a0c0341fe408ef1668dbbfdfac46" target="_blank" rel="noopener noreferrer">原仓库 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow light"><span class="eyebrow-line"></span> BROWSER AGENT / RESEARCH NOTE 009</p>
+          <h1 id="hero-title">让网页智能体<br><em>少等一步。</em></h1>
+          <p class="hero-lede">库把可见网页控件整理成编号选项，连同目标和页面状态交给 Jev。Jev 选择操作与目标编号，库把选择还原为真实网页操作；需要写字时，才调用文本模型。</p>
+          <div class="hero-actions"><a class="button warm" href="#overview">一图完整看懂 <span aria-hidden="true">↓</span></a><a class="button ghost" href="#exchange">看发送与返回 <span aria-hidden="true">↗</span></a></div>
+          <p class="hero-caveat">这里是独立研究与教学模拟。按钮不会运行上游 Agent。</p>
+        </div>
+        <div class="hero-visual" aria-label="页面控件编号与模型决策示意">
+          <div class="visual-top"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-url">google.com/travel/flights</span><span class="window-tag">OBSERVE</span></div>
+          <div class="visual-body">
+            <div class="visual-caption">VISIBLE CONTROLS <span>04 ITEMS</span></div>
+            <div class="control-line"><span>[01]</span><b>button</b><p>单程 / 往返</p><i>CLICK</i></div>
+            <div class="control-line selected"><span>[02]</span><b>combobox</b><p>出发地 · 空</p><i>TYPE</i></div>
+            <div class="control-line"><span>[03]</span><b>combobox</b><p>目的地 · 空</p><i>TYPE</i></div>
+            <div class="control-line"><span>[04]</span><b>textbox</b><p>出发日期 · 空</p><i>TYPE</i></div>
+            <div class="visual-decision"><span class="signal"><span class="pulse"></span> ONE DECISION REQUEST</span><strong>TYPE_TEXT <span>→</span> [02]</strong><small>文本模型：仅在输入动作时生成字段值</small></div>
+          </div>
+          <div class="visual-footer"><span>OBSERVE</span><span>DECIDE</span><span>GUARD</span><span>ACT</span></div>
+        </div>
+      </div>
+      <div class="shell hero-bottom"><span>研究来源：browser-use / jev-ultrafast</span><span>固定研究提交 · 1231850</span><span>2026.09.28</span></div>
+    </section>
+
+    <section class="section overview-section" id="overview" aria-labelledby="overview-title">
+      <div class="shell">
+        <div class="section-intro"><div><p class="eyebrow">THE COMPLETE PICTURE / 一张图串起来</p><h2 id="overview-title">从网页，到编号，再回到动作。</h2></div><p>这张图汇总职责分工、编号映射、模型输入与输出、执行分支、使用场景和证据边界。沿箭头看，就能理解整条链路。</p></div>
+        <div class="understanding-note"><b>先记住这三个角色</b><p><strong>库负责读页面、编号和执行；Jev 负责选择；文本模型按需写字段值。</strong>Jev 本身就是模型。它返回的选择通常直接交给执行器，文字输入才多一个生成步骤。</p></div>
+        <div class="diagram-actions"><span>自绘研究图 · 1600 × 2320 · 点击放大</span><div><a class="inline-link" href="./assets/overview.svg" target="_blank" rel="noopener">打开完整图 ↗</a><a class="inline-link" href="./assets/overview.png" download>下载 PNG ↓</a><a class="inline-link" href="./assets/overview.svg" download>下载 SVG ↓</a></div></div>
+        <figure class="overview-figure"><a href="./assets/overview.svg" target="_blank" rel="noopener"><img src="./assets/overview.svg" width="1600" height="2320" alt="Jev Ultrafast 完整理解图：网页能力、三种编号、发给 Jev 的目标和选择题、返回选择、文本模型分支、执行循环、场景与边界"></a><figcaption>依据固定研究版本独立绘制，示例编号和请求用于解释结构。图中性能为上游报告；本页未运行上游 Agent。</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section snapshot" id="capabilities" aria-labelledby="cap-title">
+      <div class="shell">
+        <div class="section-intro"><div><p class="eyebrow">01 / WHAT IT DOES</p><h2 id="cap-title">它能做什么？</h2></div><p>Jev Ultrafast 是一个 Python 浏览器智能体。目标适合拆成网页上可见、可执行、可检验的小步骤时，它能在普通 HTML / ARIA 控件间推进任务。</p></div>
+        <div class="cap-grid">
+          <article class="cap-card"><span class="card-index">01</span><div class="cap-icon" aria-hidden="true">⌖</div><h3>观察网页</h3><p>读取可见文字和控件的名称、角色、当前值，把实际 DOM 节点映射成编号表。</p><span class="cap-tag">结构化页面状态</span></article>
+          <article class="cap-card"><span class="card-index">02</span><div class="cap-icon" aria-hidden="true">◈</div><h3>选择下一步</h3><p>从点击、输入、下拉选择、滚动、等待中选操作，并选一个与操作匹配的目标。</p><span class="cap-tag">动态动作空间</span></article>
+          <article class="cap-card"><span class="card-index">03</span><div class="cap-icon" aria-hidden="true">↳</div><h3>执行与复核</h3><p>操作前重查页面和目标是否仍有效；任务结束仍需由独立条件核对真实结果。</p><span class="cap-tag">防止过期操作</span></article>
+        </div>
+        <div class="action-strip"><strong>支持的动作</strong><div><code>CLICK</code><code>TYPE_TEXT</code><code>SELECT</code><code>SCROLL</code><code>WAIT</code><code>DONE / BLOCKED</code></div></div>
+        <div class="scope-grid"><article><h3>当前能力：操作 Chrome 中的网页</h3><p>可以在网站和网页后台中搜索、填写普通表单、选择筛选项、点击链接。底层通过 Browser Harness 连接 Chrome，再用浏览器调试协议 CDP 操作所创建的标签页。</p></article><article><h3>能力边界：取决于可观察的网页控件</h3><p>默认不靠截图理解视觉，也未提供 Windows 桌面、手机 App、终端或文件管理的执行器。若把思路迁移到这些环境，需要另写观察器、动作集合与执行器。</p></article></div>
+        <div class="table-wrap"><table class="explain-table"><caption>谁负责哪一部分？</caption><thead><tr><th>角色</th><th>接收什么</th><th>输出什么</th></tr></thead><tbody><tr><td>库的页面适配层</td><td>真实网页 DOM、可见文字和状态</td><td>编号元素、可执行动作、内部节点映射</td></tr><tr><td>TypeSafe Jev 决策模型</td><td>用户目标、页面状态、历史和候选选择题</td><td>操作选择、对应目标编号，以及概率和置信度</td></tr><tr><td>可配置文本模型</td><td>目标、选中字段、页面文字和近期操作</td><td>要输入的文字；仅在 TYPE_TEXT 时调用</td></tr><tr><td>库的浏览器执行器</td><td>映射后的动作、真实节点、必要时的文字</td><td>点击、输入、选择等页面变化</td></tr><tr><td>独立结果检查器</td><td>操作后的实际页面或业务状态</td><td>成功或失败；具体任务需自行定义检查条件</td></tr></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section mechanics" id="mechanism" aria-labelledby="mechanism-title">
+      <div class="shell">
+        <div class="section-intro"><div><p class="eyebrow">02 / UNDER THE HOOD</p><h2 id="mechanism-title">编号怎样连回真实网页？</h2></div><p>页面处理和编号由这个库实现。它保留真实节点的引用，再把观察结果变成 Jev 可以回答的选择题；编号不是永久的网页地址。</p></div>
+        <ol class="numbering-steps"><li><b>读取并筛选</b><p><code>snapshot.js</code> 扫描常见标签与 ARIA 角色，提取名称、值和状态，筛出当前视口中的可操作控件。密码、文件、隐藏输入会被排除。</p></li><li><b>保留节点与动作</b><p>内部节点 ID 对应真实 DOM 对象；一次快照中，动作再获分配 <code>e1、e2…</code>。一个输入框可以同时有“填写”和“点击”两个动作。</p></li><li><b>合并成模型选项</b><p><code>action_space()</code> 按同一节点去重，生成 <code>[1]、[2]…</code> 元素序号。不同操作只列出兼容的目标；下拉选项可用 <code>2:1</code> 表示。</p></li><li><b>按操作查回节点</b><p>若 Jev 选 <code>TYPE_TEXT → [2]</code>，程序找到该操作下编号 2 的动作，再找到真实节点。每轮重建选项，不能跨轮复用旧编号。</p></li></ol>
+        <div class="mapping-example"><p class="eyebrow">ONE INPUT / 三种标识的关系（示意）</p><div class="mapping-path"><span>真实出发地输入框<small>内部 node = 42</small></span><i>→</i><span>这一轮动作<small>e2 = 填写 / e3 = 点击</small></span><i>→</i><span>模型元素序号<small>[2] 出发地 · 当前为空</small></span></div><p>回程：<code>TYPE_TEXT + "2" → e2 → node 42 → 实际输入框</code>。内部 node ID 和动作 ID 由程序维护，Jev 选择的是发给它的元素序号。</p></div>
+        <h3 class="subheading">每一轮是一个闭环</h3>
+        <div class="pipeline" aria-label="观察、选择、复核和执行流程">
+          <div class="pipe-stage"><span class="pipe-no">01 / OBSERVE</span><h3>一次读取页面</h3><p>把可见控件和文字做成快照，保留真实节点引用。</p></div>
+          <span class="pipe-arrow" aria-hidden="true">→</span>
+          <div class="pipe-stage key"><span class="pipe-no">02 / DECIDE</span><h3>一次请求，两类选择</h3><p>同时询问“做什么”和各类操作“点哪里”，只采用匹配的目标。</p></div>
+          <span class="pipe-arrow" aria-hidden="true">→</span>
+          <div class="pipe-stage"><span class="pipe-no">03 / ACT</span><h3>检查后执行</h3><p>复核状态、重新定位控件并排除遮挡，再通过 CDP 输入。</p></div>
+        </div>
+        <div class="mechanics-detail"><div class="detail-callout"><span class="callout-mark">↳</span><div><h3>输入文字是独立分支</h3><p>只有选中 <code>TYPE_TEXT</code> 后，文本模型才根据任务和字段含义生成一个值；输出必须符合受限 JSON 结构。</p></div></div><div class="detail-note"><b>安全边界</b><p>模型选择的是已观察到的编号。它的输出不会被当成任意坐标、CSS 选择器、Shell 命令或 JavaScript 直接执行。</p></div></div>
+        <div class="source-row"><span>源码依据</span><a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/jev_ultrafast/model.py" target="_blank" rel="noopener noreferrer">model.py ↗</a><a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/jev_ultrafast/snapshot.js" target="_blank" rel="noopener noreferrer">snapshot.js ↗</a><a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/jev_ultrafast/browser.py" target="_blank" rel="noopener noreferrer">browser.py ↗</a></div>
+      </div>
+    </section>
+
+    <section class="section exchange-section" id="exchange" aria-labelledby="exchange-title">
+      <div class="shell">
+        <div class="section-intro"><div><p class="eyebrow">INSIDE ONE REQUEST / 看一次交互</p><h2 id="exchange-title">发给 Jev 什么？<br>拿回什么？</h2></div><p>发送的是“任务 + 当前状态 + 候选选项 + 选择题”。这里的“答案”是候选答案，不是预先知道的正确答案。Jev 返回自己选中的操作和目标。</p></div>
+        <div class="exchange-tabs" role="group" aria-label="选择决策示例"><button type="button" data-exchange="type" aria-pressed="true">填写出发地</button><button type="button" data-exchange="click" aria-pressed="false">点击搜索</button><button type="button" data-exchange="done" aria-pressed="false">判断完成</button></div>
+        <div class="exchange-grid" aria-live="polite"><article class="message-panel"><div class="message-heading"><span>01 / REQUEST</span><b>库 → Jev</b></div><p id="exchange-state"></p><pre id="exchange-request"></pre></article><article class="message-panel reply"><div class="message-heading"><span>02 / RESPONSE</span><b>Jev → 库</b></div><p>下方保留所选操作与匹配目标的字段，省略其他答案、概率和置信度。</p><pre id="exchange-response"></pre><div class="answer-note" id="exchange-answer"></div></article></div>
+        <div class="dispatch-route" aria-live="polite"><div class="route-label">03 / WHAT HAPPENS NEXT</div><div class="dispatch-grid"><article id="helper-panel"><span id="helper-status"></span><h3>文本模型</h3><p id="helper-detail"></p></article><span class="dispatch-arrow" aria-hidden="true">→</span><article><span id="executor-status"></span><h3>库的执行与验收</h3><p id="executor-detail"></p></article></div></div>
+        <p class="example-note">固定教学数据，用于展示调用关系；没有发送在线请求，也没有生成真实模型答案。一次 Jev 请求可同时询问操作与多个目标问题，只有所选操作的目标答案会进入执行路径。</p>
+        <details class="technical-details"><summary>展开：请求接口、响应校验与真实字段</summary><div><p>库使用带 Bearer 密钥的 HTTP POST 请求 <code>https://api.typesafe.ai/v1/systemone</code>。请求主要字段如下；目标和规则放在每个问题的 <code>instructions</code> 中。</p><pre>model: "jev-latest"（可配置）
+state:
+  page: url / title / text
+  elements: index / label / role / value / operations ...
+  recent_actions: 最近最多 10 次操作
+questions:
+  operation: type="choice" / criteria / instructions
+  click_target: type="choice" / criteria / instructions
+  type_text_target: type="choice" / criteria / instructions
+  select_target: 仅有可用下拉选项时加入</pre><p>响应从 <code>answers.operation.choice</code> 读取操作；再读取例如 <code>answers.type_text_target.choice</code>。库检查选择是否属于候选项、概率是否合法等，然后用“操作 + 目标序号”查回动作。未选中的目标答案不会执行。</p><p>文本模型收到原目标、选中字段的含义与值、页面上下文和近期动作，不是只收到一个数字。其输出必须为只有 <code>text</code> 字段的 JSON，且内容通过字符串校验才可输入。</p></div></details>
+        <div class="scope-grid"><article><h3>为什么有助于加速？</h3><p>一次读取页面快照，减少浏览器通信；操作和目标共享一次 Jev 请求；默认不传截图；只在输入时生成文字；对页面变化采用有范围的复核和短等待。</p></article><article><h3>哪些内部原理无法从这里确认？</h3><p>本库公开了页面适配、请求构造和执行循环。Jev 的神经网络结构、训练数据和训练流程并未在这个库中实现，不能把客户端选择题接口等同于模型内部算法。</p></article></div>
+      </div>
+    </section>
+
+    <section class="section evidence" id="evidence" aria-labelledby="evidence-title">
+      <div class="shell">
+        <div class="section-intro"><div><p class="eyebrow">03 / MEASURED, WITH LIMITS</p><h2 id="evidence-title">效果有多少证据？</h2></div><p>这些是上游公开测量，不是本仓库复测。对照对象是该项目自己的旧版运行时。</p></div>
+        <div class="evidence-grid"><article class="metric feature"><div class="metric-top">GOOGLE FLIGHTS · 一次录制 <span>作者结果</span></div><strong>7.073<small>秒</small></strong><p>从首次预测到接受完成选择，包含模型调用、文本生成、浏览器动作和页面加载等待。</p><div class="metric-foot">启动、初次导航和最终独立验收不计时</div></article><article class="metric"><div class="metric-top">同任务三组配对 <span>小样本</span></div><strong>25<small>%</small></strong><p>新版中位耗时 7.092 秒；旧版 9.450 秒。两组各通过 3/3。</p><div class="metric-foot">仅说明这一个任务上的加速</div></article><article class="metric"><div class="metric-top">浏览器协议调用 <span>中位数</span></div><strong>1,092 <em>→</em> 101</strong><p>一次读取页面快照，减少反复取可访问性树和逐个解析 DOM 节点。</p><div class="metric-foot">不是其他网页的通用数字</div></article></div>
+        <div class="evidence-bottom"><p><b>另两项检查：</b>Wikipedia 指定文章 2.798 秒；本地酒店搜索与筛选 1.896 秒，均为单次烟雾检查。</p><p><b>成本尚无完整结论：</b>公布的约 $0.00006272 只包含两次文本模型调用，不含 TypeSafe 与浏览器成本。</p></div>
+        <a class="inline-link" href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/performance.md" target="_blank" rel="noopener noreferrer">查看上游计时口径与原始测量 ↗</a>
+      </div>
+    </section>
+
+    <section class="section scenario-section" id="scenarios" aria-labelledby="scenario-title">
+      <div class="shell">
+        <div class="section-intro"><div><p class="eyebrow">04 / SCENARIO WALKTHROUGH</p><h2 id="scenario-title">用场景看它如何工作</h2></div><p>选择任务，逐步查看“页面观察 → 操作决策 → 下一状态 → 验收条件”。这是依据上游披露任务编写的教学模拟。</p></div>
+        <div class="scenario-tabs" role="group" aria-label="选择演示场景"><button type="button" class="scenario-tab active" data-scenario="flights" aria-pressed="true"><span>01</span> 航班搜索</button><button type="button" class="scenario-tab" data-scenario="wiki" aria-pressed="false"><span>02</span> 百科导航</button><button type="button" class="scenario-tab" data-scenario="hotel" aria-pressed="false"><span>03</span> 酒店筛选</button></div>
+        <div class="scenario-lab"><div class="lab-top"><div><span class="lab-kicker">INTERACTIVE EXPLANATION / 本地模拟</span><h3 id="scenario-name"></h3><p id="scenario-goal"></p></div><div class="lab-status"><span class="status-dot"></span> 说明演示 · 未连接真实网站</div></div>
+          <div class="lab-content"><div class="browser-mock" aria-live="polite"><div class="mock-toolbar"><span class="mock-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="mock-url"></span><span>◌</span></div><div class="mock-screen"><div class="mock-title-row"><span id="mock-site"></span><span id="mock-view"></span></div><h4 id="mock-heading"></h4><p id="mock-help"></p><div id="mock-controls" class="mock-controls"></div><div class="mock-outcome" id="mock-outcome"></div></div></div>
+          <div class="step-panel"><div class="step-count"><span>当前步骤</span><strong id="step-counter"></strong></div><div class="step-progress" id="step-progress" aria-label="场景进度"></div><div class="decision-card"><span class="decision-label">AGENT DECISION</span><strong id="step-action"></strong><p id="step-reason"></p></div><div class="step-text"><b id="step-text-label"></b><p id="step-text"></p></div><div class="step-check"><span>验收视角</span><p id="step-check-content"></p></div><div class="step-buttons"><button type="button" id="prev-step" class="button outline">← 上一步</button><button type="button" id="next-step" class="button dark">下一步 →</button></div></div></div>
+          <p class="lab-disclaimer">示意控件与步骤由本研究重组，不是上游逐帧轨迹、实时浏览器画面或性能测试；真实完成状态必须由独立检查器判断。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fit-section" id="limits" aria-labelledby="fit-title"><div class="shell"><div class="section-intro"><div><p class="eyebrow">05 / WHERE IT FITS</p><h2 id="fit-title">什么时候值得用？</h2></div><p>先判断页面控件能否被它观察到，再判断结果能否被独立核验。复杂页面和敏感操作需要额外工程。</p></div><div class="fit-grid"><div class="fit-card yes"><span class="fit-label">适合先试</span><h3>明确、短程、可验收</h3><ul><li>搜索、筛选、打开指定结果</li><li>普通 HTML / ARIA 表单与按钮</li><li>可用 URL、字段值或结果列表核验</li></ul></div><div class="fit-card caution"><span class="fit-label">需要补能力</span><h3>复杂控件与跨页面流程</h3><ul><li>iframe、Shadow DOM、Canvas、上传</li><li>新标签页、嵌套滚动、复杂键盘控件</li><li>登录态、权限与完整费用管理</li></ul></div><div class="fit-card personal"><span class="fit-label">对我的意义</span><h3>把网页操作变成可复用能力</h3><p>结合后端开发经验与 AI 实践，可学习把自然语言目标连接到网页操作，复用页面快照、动作编号、模型路由和结果核验。先选一个真实重复任务，验证节省的时间、成功率和总费用，再判断是否值得做成工具或服务；目前没有收入验证。</p></div></div>
+      <div class="table-wrap"><table class="explain-table"><caption>从现有证据到实际应用</caption><thead><tr><th>场景</th><th>可交付的结果</th><th>证据或接入条件</th></tr></thead><tbody><tr><td>航班查询</td><td>设定城市、日期和单程，看到匹配航班</td><td><span class="evidence-label">上游实测</span> 一个任务的小样本；未订票</td></tr><tr><td>资料导航</td><td>从网站入口找到并打开指定文章</td><td><span class="evidence-label">上游实测</span> Wikipedia 单次检查；精确 URL 验收</td></tr><tr><td>多条件筛选</td><td>应用城市及筛选，再打开指定结果</td><td><span class="evidence-label">上游本地测试</span> 酒店测试页；不代表真实订房网站</td></tr><tr><td>内部网页后台</td><td>查找记录、填写普通表单、设置筛选</td><td><span class="evidence-label idea">扩展设想</span> 需测试控件覆盖、权限、登录态与业务验收</td></tr><tr><td>网页流程冒烟检查</td><td>按自然语言目标走通短流程并保存状态</td><td><span class="evidence-label idea">扩展设想</span> 需接入稳定断言、测试数据与失败记录</td></tr><tr><td>个人助手的网页执行环节</td><td>接收明确子任务，在网页中执行并返回状态</td><td><span class="evidence-label idea">扩展设想</span> 需补上层编排、结果结构化、错误恢复；桌面与文件执行另做</td></tr></tbody></table></div>
+      <div class="understanding-note"><b>采用前的判断</b><p>若目标系统有稳定 API，可优先比较直接调用的成本与可靠性；网页智能体适合需要通过界面完成、路径可能变化的任务。对固定高频流程，也应与确定性脚本比较。以上是本研究的选型建议，尚无这些场景的实测数据。</p></div>
+    </div></section>
+
+    <section class="section adoption-section" id="adoption" aria-labelledby="adoption-title"><div class="shell"><div class="section-intro"><div><p class="eyebrow">FROM UNDERSTANDING TO USE</p><h2 id="adoption-title">怎么接入自己的工作？</h2></div><p>运行这个库，需要网页环境、模型服务和业务验收共同配合。开源的客户端代码可以研究和改造，模型服务仍是外部依赖。</p></div>
+      <div class="scope-grid"><article><h3>运行前提</h3><ul><li>Python 3.12+，安装项目依赖。</li><li>Chrome 与 Browser Harness，允许所需远程调试连接。</li><li>TypeSafe API 密钥；涉及输入时配置文本模型 API。</li><li>目标网址、完整任务，以及可独立验证的完成条件。</li></ul><p>现有 Chrome 配置会被所创建的标签页共享。服务端密钥不应放进静态网页；本研究页没有密钥输入或真实调用。</p></article><article><h3>可以沉淀的工程能力</h3><ul><li>把环境整理成合法动作与目标。</li><li>通过同一请求完成多个相关选择。</li><li>用节点映射、状态校验防止过期操作。</li><li>将模型的完成判断与业务验收分开。</li></ul><p>接入后先用自己的真实任务记录成功率、完整耗时、总账单与失败原因，再决定是否承担生产流程。</p></article></div>
+      <details class="technical-details"><summary>回顾：这几轮讨论里容易混淆的地方</summary><div class="faq-grid"><article><h3>是不是 Jev 给 DOM 编号？</h3><p>编号由库的网页处理代码产生，Jev 收到的是已经整理好的候选项。</p></article><article><h3>是不是只发“问题与答案编号”？</h3><p>还要发目标、页面文字、控件名称和当前值、近期操作等上下文。编号承载引用关系，本身没有业务含义。</p></article><article><h3>是不是 Jev 返回后都交给大模型驱动？</h3><p>Jev 的选择由程序路由。点击等操作可直接执行；只有 TYPE_TEXT 才调用文本模型写内容，之后仍由程序输入。</p></article><article><h3>是不是所有网页元素都能处理？</h3><p>只提供实现所支持的可见控件。快照中控件动作最多保留 250 条，可见正文截取最多 6,000 字符；复杂结构仍有覆盖限制。</p></article></div></details>
+    </div></section>
+
+    <section class="section source-section" id="sources" aria-labelledby="source-title"><div class="shell"><p class="eyebrow">06 / PROVENANCE</p><h2 id="source-title">来源与说明</h2><div class="source-grid"><div><h3>上游研究版本</h3><p>browser-use/jev-ultrafast · 提交 <code>1231850</code> · 2026-09-28 查阅。上游代码采用 MIT 许可。TypeSafe、文本模型与 Browser Harness 是另行提供的依赖。</p><a href="https://github.com/browser-use/jev-ultrafast/tree/1231850a0bf1a0c0341fe408ef1668dbbfdfac46" target="_blank" rel="noopener noreferrer">查看固定版本 ↗</a> · <a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/LICENSE" target="_blank" rel="noopener noreferrer">MIT 许可 ↗</a></div><div><h3>本页的原创部分</h3><p>中文归纳、界面、请求样例、步骤模拟与总览图由本仓库独立制作。未运行上游 Agent。场景里标为“上游实测”的结果归属上游，“扩展设想”需要另外实现和验证。</p><a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/docs/performance.md" target="_blank" rel="noopener noreferrer">核对上游测量 ↗</a> · <a href="#overview">返回总览图 ↑</a></div></div><div class="source-row"><span>继续读源码</span><a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/jev_ultrafast/agent.py" target="_blank" rel="noopener noreferrer">Agent 循环 ↗</a><a href="https://github.com/browser-use/jev-ultrafast/blob/1231850a0bf1a0c0341fe408ef1668dbbfdfac46/.env.example" target="_blank" rel="noopener noreferrer">模型配置示例 ↗</a></div></div></section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>009 / JEV ULTRAFAST</span><span>独立研究网页 · 场景为教学模拟</span><a href="#top">返回顶部 ↑</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2320" viewBox="0 0 1600 2320" role="img" aria-labelledby="title desc">
+<title id="title">Jev Ultrafast 完整理解：网页、编号、模型选择与执行</title>
+<desc id="desc">库读取可见网页并建立节点、动作和模型序号的映射。任务、页面上下文和选择题发送给 Jev，返回操作和目标选择。点击直接交给程序执行；输入先请文本模型生成文字；完成选择需独立验收。附使用场景、上游证据和当前边界。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#8d603d"/></marker></defs>
+<style>text{font-family:"Segoe UI","Microsoft YaHei",sans-serif}.mono{font-family:Consolas,"Microsoft YaHei",monospace}</style>
+<rect width="1600" height="2320" fill="#edf2ee"/>
+<rect width="1600" height="185" fill="#102a3a"/>
+
+<text x="64" y="44" font-size="17" fill="#ffbd70" font-weight="800" class="mono">OPEN SOURCE RESEARCH / 009 · browser-use/jev-ultrafast</text>
+<text x="64" y="102" font-size="46" fill="#f5faf5" font-weight="800">把网页变成选择题，再把选择变回真实操作</text>
+<text x="64" y="149" font-size="25" fill="#c3dce2" font-weight="400">库负责观察、编号和执行；Jev 负责决策；文本模型仅在需要输入文字时参与。</text>
+<text x="64" y="225" font-size="19" fill="#a16b3c" font-weight="800" class="mono">01</text>
+<text x="111" y="225" font-size="29" fill="#153847" font-weight="800">这个库的能力与三个角色</text>
+<text x="900" y="225" font-size="18" fill="#617c82" font-weight="400">现有实现：Chrome 网页中的普通 DOM 控件</text>
+<rect x="64" y="246" width="476" height="146" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="86" y="279" font-size="26" fill="#173c4b" font-weight="800">网页适配与执行代码</text>
+<text x="86" y="314" font-size="22" fill="#55707a" font-weight="400">读可见文字和控件 → 编号选项</text>
+<text x="86" y="345" font-size="22" fill="#55707a" font-weight="400">保留真实节点 → 复核并操作网页</text>
+<text x="86" y="374" font-size="16" fill="#a06234" font-weight="400">本库实现 · snapshot / model / browser</text>
+<rect x="562" y="246" width="476" height="146" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="584" y="279" font-size="26" fill="#173c4b" font-weight="800">TypeSafe Jev 决策模型</text>
+<text x="584" y="314" font-size="22" fill="#55707a" font-weight="400">接收目标、状态和候选选择题</text>
+<text x="584" y="345" font-size="22" fill="#55707a" font-weight="400">返回操作选择与目标编号</text>
+<text x="584" y="374" font-size="16" fill="#a06234" font-weight="400">外部模型服务 · 已经在进行决策</text>
+<rect x="1060" y="246" width="476" height="146" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="1082" y="279" font-size="26" fill="#173c4b" font-weight="800">可配置文本模型</text>
+<text x="1082" y="314" font-size="22" fill="#55707a" font-weight="400">只在 TYPE_TEXT 时生成字段值</text>
+<text x="1082" y="345" font-size="22" fill="#55707a" font-weight="400">接收目标、字段和页面上下文</text>
+<text x="1082" y="374" font-size="16" fill="#a06234" font-weight="400">外部模型服务 · 输出 {"text":"…"}</text>
+<text x="64" y="447" font-size="19" fill="#a16b3c" font-weight="800" class="mono">02</text>
+<text x="111" y="447" font-size="29" fill="#153847" font-weight="800">编号由库生成，程序始终保留“编号 → 节点”的映射</text>
+<text x="900" y="447" font-size="18" fill="#617c82" font-weight="400">以下 ID 均为解释用示例</text>
+<rect x="64" y="471" width="476" height="201" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="86" y="507" font-size="26" fill="#173c4b" font-weight="800">真实 DOM 节点</text>
+<text x="86" y="538" font-size="17" fill="#a06234" font-weight="400" class="mono">snapshot.js / 节点身份</text>
+<text x="86" y="574" font-size="22" fill="#55707a" font-weight="400">出发地输入框</text>
+<text x="86" y="607" font-size="22" fill="#55707a" font-weight="400">内部 node = 42</text>
+<text x="86" y="640" font-size="22" fill="#55707a" font-weight="400">WeakMap + Map 保留节点引用</text>
+<rect x="562" y="471" width="476" height="201" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="584" y="507" font-size="26" fill="#173c4b" font-weight="800">快照中的具体动作</text>
+<text x="584" y="538" font-size="17" fill="#a06234" font-weight="400" class="mono">snapshot.js / 动作标识</text>
+<text x="584" y="574" font-size="22" fill="#55707a" font-weight="400">e2：填写 node 42</text>
+<text x="584" y="607" font-size="22" fill="#55707a" font-weight="400">e3：点击 node 42</text>
+<text x="584" y="640" font-size="22" fill="#55707a" font-weight="400">同一输入框可有多个操作</text>
+<rect x="1060" y="471" width="476" height="201" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="1082" y="507" font-size="26" fill="#173c4b" font-weight="800">发给模型的元素序号</text>
+<text x="1082" y="538" font-size="17" fill="#a06234" font-weight="400" class="mono">model.py / action_space()</text>
+<text x="1082" y="574" font-size="22" fill="#55707a" font-weight="400">[2] 出发地 · 值为空</text>
+<text x="1082" y="607" font-size="22" fill="#55707a" font-weight="400">操作：TYPE_TEXT / CLICK</text>
+<text x="1082" y="640" font-size="22" fill="#55707a" font-weight="400">同一节点合并成一个元素选项</text>
+<path d="M541 576 L558 576" stroke="#8d603d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M1039 576 L1056 576" stroke="#8d603d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="64" y="685" width="1472" height="62" rx="9" fill="#dce9e2" stroke="#dce9e2"/>
+<text x="88" y="724" font-size="23" fill="#214e56" font-weight="600">返回后的映射：TYPE_TEXT + "2" → 动作 e2 → node 42 → 出发地输入框。每轮重建选项，旧编号不可跨轮使用。</text>
+<text x="64" y="798" font-size="19" fill="#a16b3c" font-weight="800" class="mono">03</text>
+<text x="111" y="798" font-size="29" fill="#153847" font-weight="800">发给 Jev 的是问题与候选项，拿回的是它选中的答案</text>
+<text x="900" y="798" font-size="18" fill="#617c82" font-weight="400">一次请求，同时询问操作和各类目标</text>
+<rect x="64" y="821" width="711" height="282" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="90" y="858" font-size="27" fill="#173c4b" font-weight="800">库 → Jev：目标 + 页面状态 + 选择题</text>
+<text x="90" y="899" font-size="22" fill="#55707a" font-weight="400">目标：搜索从苏黎世到伦敦的航班</text>
+<text x="90" y="934" font-size="22" fill="#55707a" font-weight="400">状态：[1] 搜索按钮；[2] 出发地空；[3] 目的地空</text>
+<text x="90" y="969" font-size="22" fill="#55707a" font-weight="400">问题 A：做什么？CLICK / TYPE_TEXT / WAIT / …</text>
+<text x="90" y="1004" font-size="22" fill="#55707a" font-weight="400">问题 B：如果点击，选哪个？[1] / [2] / [3]</text>
+<text x="90" y="1039" font-size="22" fill="#55707a" font-weight="400">问题 C：如果输入，选哪个？[2] / [3]</text>
+<rect x="809" y="821" width="727" height="282" rx="14" fill="#153b4c" stroke="#153b4c"/>
+<text x="835" y="858" font-size="27" fill="#f5faf5" font-weight="800">Jev → 库：选择结果（简化）</text>
+<text x="835" y="904" font-size="23" fill="#ffc581" font-weight="400" class="mono">answers.operation.choice = "TYPE_TEXT"</text>
+<text x="835" y="942" font-size="23" fill="#ffc581" font-weight="400" class="mono">answers.type_text_target.choice = "2"</text>
+<text x="835" y="1000" font-size="22" fill="#c2dbe2" font-weight="400">真实响应还带概率、置信度等字段。</text>
+<text x="835" y="1034" font-size="22" fill="#c2dbe2" font-weight="400">程序只用所选操作对应的目标答案；</text>
+<text x="835" y="1068" font-size="22" fill="#c2dbe2" font-weight="400">其余目标答案不会触发动作。</text>
+<path d="M777 963 L805 963" stroke="#8d603d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+<text x="64" y="1140" font-size="20" fill="#5c7880" font-weight="400" class="mono">HTTP POST api.typesafe.ai/v1/systemone  ·  state = 页面 + 元素 + 近期操作  ·  questions = 操作题 + 目标题</text>
+<text x="64" y="1195" font-size="19" fill="#a16b3c" font-weight="800" class="mono">04</text>
+<text x="111" y="1195" font-size="29" fill="#153847" font-weight="800">拿到选择以后，程序分三条路径处理</text>
+<text x="900" y="1195" font-size="18" fill="#617c82" font-weight="400">只有输入文字这条路径才调用文本模型</text>
+<rect x="64" y="1218" width="476" height="245" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<rect x="562" y="1218" width="476" height="245" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<rect x="1060" y="1218" width="476" height="245" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="88" y="1256" font-size="21" fill="#a06234" font-weight="800" class="mono">CLICK / SELECT / SCROLL / WAIT</text>
+<text x="88" y="1294" font-size="29" fill="#183c4b" font-weight="800">直接交给库执行</text>
+<text x="88" y="1334" font-size="22" fill="#55707a" font-weight="400">点击与选择：查回对应目标节点</text>
+<text x="88" y="1368" font-size="22" fill="#55707a" font-weight="400">复核状态、重新定位、排除遮挡</text>
+<text x="88" y="1402" font-size="22" fill="#55707a" font-weight="400">滚动和等待使用预设的执行逻辑</text>
+<text x="88" y="1436" font-size="22" fill="#55707a" font-weight="400">本步无需文本生成</text>
+<text x="586" y="1256" font-size="21" fill="#a06234" font-weight="800" class="mono">TYPE_TEXT + "2"</text>
+<text x="586" y="1294" font-size="29" fill="#183c4b" font-weight="800">先生成文字，再由库输入</text>
+<text x="586" y="1334" font-size="22" fill="#55707a" font-weight="400">原目标 + 字段 + 页面 → 文本模型</text>
+<text x="586" y="1368" font-size="22" fill="#55707a" font-weight="400">返回 {"text":"Zurich"}</text>
+<text x="586" y="1402" font-size="22" fill="#55707a" font-weight="400">校验文字与页面 → 定位输入框</text>
+<text x="586" y="1436" font-size="22" fill="#55707a" font-weight="400">程序输入后重新观察</text>
+<text x="1084" y="1256" font-size="21" fill="#a06234" font-weight="800" class="mono">DONE / BLOCKED</text>
+<text x="1084" y="1294" font-size="29" fill="#183c4b" font-weight="800">完成或停止推进</text>
+<text x="1084" y="1334" font-size="22" fill="#55707a" font-weight="400">无需目标编号，也无需生成文字</text>
+<text x="1084" y="1368" font-size="22" fill="#55707a" font-weight="400">DONE：模型判断目标已满足</text>
+<text x="1084" y="1402" font-size="22" fill="#55707a" font-weight="400">BLOCKED：无支持的动作能推进</text>
+<text x="1084" y="1436" font-size="22" fill="#55707a" font-weight="400">实际成功仍由独立条件核验</text>
+<rect x="64" y="1494" width="1472" height="129" rx="14" fill="#153b4c" stroke="#153b4c"/>
+<text x="88" y="1530" font-size="23" fill="#ffbd70" font-weight="800">执行闭环</text>
+<text x="244" y="1530" font-size="27" fill="#f5faf5" font-weight="800">观察 → 选择 → 复核 → 执行 → 重新观察</text>
+<text x="88" y="1570" font-size="23" fill="#bfd9df" font-weight="400">页面变化或控件失效 → 重新观察再决定；结束后 → 独立检查 URL、字段值、筛选状态和结果。</text>
+<text x="88" y="1601" font-size="21" fill="#bfd9df" font-weight="400">提速手段：一次页面快照 · 合并决策请求 · 默认不传截图 · 按需生成文字 · 减少无效等待</text>
+<path d="M64 1555 H33 V570 H59" stroke="#8d603d" stroke-width="2.5" stroke-dasharray="7 6" fill="none" marker-end="url(#arrow)"/>
+<text x="64" y="1680" font-size="19" fill="#a16b3c" font-weight="800" class="mono">05</text>
+<text x="111" y="1680" font-size="29" fill="#153847" font-weight="800">使用场景：上游验证了什么，我们还能尝试什么？</text>
+<rect x="64" y="1703" width="476" height="142" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="86" y="1741" font-size="25" fill="#173c4b" font-weight="800">航班搜索 · 上游实测</text>
+<text x="86" y="1781" font-size="22" fill="#55707a" font-weight="400">单程、城市、日期 → 匹配航班可见</text>
+<text x="86" y="1815" font-size="22" fill="#55707a" font-weight="400">一次录制 7.073 秒；未订票</text>
+<rect x="562" y="1703" width="476" height="142" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="584" y="1741" font-size="25" fill="#173c4b" font-weight="800">百科导航 · 上游实测</text>
+<text x="584" y="1781" font-size="22" fill="#55707a" font-weight="400">搜索并打开指定文章 → 核对 URL</text>
+<text x="584" y="1815" font-size="22" fill="#55707a" font-weight="400">一次检查 2.798 秒</text>
+<rect x="1060" y="1703" width="476" height="142" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="1082" y="1741" font-size="25" fill="#173c4b" font-weight="800">酒店筛选 · 上游本地测试</text>
+<text x="1082" y="1781" font-size="22" fill="#55707a" font-weight="400">城市 + 两个筛选 → 指定酒店详情</text>
+<text x="1082" y="1815" font-size="22" fill="#55707a" font-weight="400">一次检查 1.896 秒</text>
+<rect x="64" y="1860" width="1472" height="60" rx="9" fill="#fff2dd" stroke="#e5d6bb"/>
+<text x="88" y="1898" font-size="22" fill="#875633" font-weight="400">可扩展：内部网页后台、表单与筛选、网页冒烟检查、个人助手的网页执行环节。均需接入业务验收，尚未实测。</text>
+<text x="64" y="1971" font-size="19" fill="#a16b3c" font-weight="800" class="mono">06</text>
+<text x="111" y="1971" font-size="29" fill="#153847" font-weight="800">采用前看边界，研究时看可复用的设计</text>
+<rect x="64" y="1994" width="711" height="206" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="88" y="2032" font-size="27" fill="#173c4b" font-weight="800">当前范围与依赖</text>
+<text x="88" y="2073" font-size="22" fill="#55707a" font-weight="400">覆盖普通可见 HTML / ARIA 控件；无桌面或手机执行器。</text>
+<text x="88" y="2107" font-size="22" fill="#55707a" font-weight="400">iframe、Shadow DOM、Canvas、上传、新标签页等未覆盖。</text>
+<text x="88" y="2141" font-size="22" fill="#55707a" font-weight="400">需 Chrome / Browser Harness、TypeSafe 与文本模型 API。</text>
+<text x="88" y="2175" font-size="22" fill="#55707a" font-weight="400">Jev 的网络架构和训练流程未在此仓库中实现。</text>
+<rect x="809" y="1994" width="727" height="206" rx="14" fill="#ffffff" stroke="#ccdcd5"/>
+<text x="833" y="2032" font-size="27" fill="#173c4b" font-weight="800">证据与个人价值</text>
+<text x="833" y="2073" font-size="22" fill="#55707a" font-weight="400">三对同任务比较中位耗时约降 25%；不是通用成功率。</text>
+<text x="833" y="2107" font-size="22" fill="#55707a" font-weight="400">7.073 秒不含启动、首次导航及最终独立核验。</text>
+<text x="833" y="2141" font-size="22" fill="#55707a" font-weight="400">两次文字调用费用不是总费用；完整成本尚不明确。</text>
+<text x="833" y="2175" font-size="22" fill="#55707a" font-weight="400">可借鉴：环境适配、动作选择、节点映射与独立验收。</text>
+<line x1="64" x2="1536" y1="2230" y2="2230" stroke="#bdcec6"/>
+<text x="64" y="2266" font-size="19" fill="#55717a" font-weight="400">固定研究提交 1231850a0bf1a0c0341fe408ef1668dbbfdfac46 · 2026-09-28 · 上游 MIT · 本仓库独立绘制</text>
+<text x="64" y="2297" font-size="18" fill="#55717a" font-weight="400">依据上游 README、model.py、snapshot.js、browser.py、agent.py 与 performance.md；示例为教学说明，未在本机运行上游 Agent。</text>
+</svg>
