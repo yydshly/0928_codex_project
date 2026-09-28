@@ -5,7 +5,7 @@ P=Path(__file__).resolve().parents[1]/"assets"/"idea-map.svg"
 W,H=1800,2800
 C={"ink":"#17243e","muted":"#62718a","blue":"#3153ed","navy":"#141f38","line":"#dce3ef","pale":"#edf2ff","orange":"#ff976e"}
 out=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc">',
-'<title id="title">AI Money Maker Handbook：案例收集、商业思考、方向扩展与持续产品化</title>',
+'<title id="title">AI Money Maker Handbook：AI 创业思路整理、案例收集与持续产品化</title>',
 '<desc id="desc">以痛点、人群、最小产品、获客、收费、留存为六要素，整理图片、文案、音频、直播、绘本、视频、工具自动化和知识数据咨询八类内容，并提出个人思路库持续迭代的产品方向。</desc>',
 '<style>text{font-family:"Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif} .body{font-weight:400} </style>']
 def rect(x,y,w,h,fill,stroke=None,r=0):
@@ -28,8 +28,8 @@ text(108,82,"OPENLAB / 008",25,"#a6b9ff",700)
 text(1710,82,"AI MONEY MAKER HANDBOOK",24,"#a6b9ff",600)
 # Right-aligned series label.
 out[-1]=out[-1].replace('x="1710"','x="1720" text-anchor="end"')
-text(80,151,"本质：案例收集与思考分析库",52,"white",700,1630)
-text(80,209,"用场景与方案学习生意思维，围绕实际问题和人的需求扩展可能性。",30,"#d6def0",400,1640)
+text(80,151,"本质：面向 AI 创业的思路整理与案例收集库",52,"white",700,1630)
+text(80,209,"整理 AI 创业方向与案例，围绕需求、产品与商业模式探索创业机会。",30,"#d6def0",400,1640)
 text(80,256,"444 篇副业章节  ·  70 篇创业问答  ·  31 条首页创业文章外链",25,"#a8b8d7",400,1640)
 
 section("01",351,"贯穿全库的六个商业问题","每个方向都可以按这六个要素继续追问，把模糊点子拆成可以讨论的方案。")

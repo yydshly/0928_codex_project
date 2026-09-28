@@ -15,7 +15,7 @@
 | 005 | [Tailcat 加密 P2P 连接能力研究](projects/005-tailcat/README.md) | 无需 Tailscale 控制平面的双端连接工具：DERP 会合与回退、UDP 打洞优先直连、WireGuard 始终加密；用于端口、SSH、文件等传输。 | [tailscale/tailcat](https://github.com/tailscale/tailcat) | [在线研究网页](https://yydshly.github.io/0928_codex_project/005-tailcat/) | 已发布；原版和性能未实测 |
 | 006 | [Personal Edge Proxy 个人代理架构研究](projects/006-personal-edge-proxy/README.md) | 个人代理的组件组合与配置参考：客户端经 HY2 或 VLESS/REALITY/Vision 接入 VPS，再按目标选 Direct、WARP 或固定 SOCKS5。用于个人出网、开发访问和出口管理，沉淀协议分层与排障方法。 | [yding-git/personal-edge-proxy](https://github.com/yding-git/personal-edge-proxy) | [在线研究网页](https://yydshly.github.io/0928_codex_project/006-personal-edge-proxy/) | 已发布并验证；原方案未实测 |
 | 007 | [OSINT 资源地图：个人研究入口](projects/007-osint-resource-map/README.md) | 两库提供公开来源与安全研究的候选资源；全景图和网页按 12 个任务主题引导选择。值得持续整理为个人入口，逐步加入操作卡、资源核验与结果记录。 | [jivoi/awesome-osint](https://github.com/jivoi/awesome-osint) · [rawfilejson/awesome-osint-arsenal](https://github.com/rawfilejson/awesome-osint-arsenal) | [在线研究网页](https://yydshly.github.io/0928_codex_project/007-osint-resource-map/) | 已发布并验证；外部工具与安装脚本未实测 |
-| 008 | [AI Money Maker Handbook 思路收集与个人探索](projects/008-ai-money-maker-handbook/README.md) | 案例收集与思考分析库，涵盖图片、文案、音频、直播、绘本、视频、工具与知识服务。围绕六个商业要素整理，值得产品化为个人入口，持续沉淀 AI 产品思路。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map) | 已发布并验证；产品化持续迭代，经营方向待实践 |
+| 008 | [AI Money Maker Handbook：AI 创业思路与案例](projects/008-ai-money-maker-handbook/README.md) | 面向 AI 创业的思路整理与案例收集库，涵盖 AI 图文、音频、直播、绘本、视频、工具和知识服务等创业方向，帮助探索需求、产品与商业模式；可持续整理为个人 AI 创业探索入口。 | [XiaomingX/ai-money-maker-handbook](https://github.com/XiaomingX/ai-money-maker-handbook) | [在线研究网页](https://yydshly.github.io/0928_codex_project/008-ai-money-maker-handbook/#map) | 已发布并验证；产品化持续迭代，经营方向待实践 |
 
 ### 001 · Storm-Breaker
 
@@ -167,7 +167,7 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 图由本仓库依据[上游固定研究提交](https://github.com/XiaomingX/ai-money-maker-handbook/tree/74100dd291cbcec4438e1ca3eb5219c47a92a7d3)与本次讨论独立绘制；汇总库的本质、六个商业要素、八类内容与我们的产品化设想，不是原项目截图或经营成果。
 
-**库的本质与价值：**案例收集与思考分析库，汇集方向清单、444 篇副业章节和 70 篇创业问答，围绕痛点、人群、最小产品、获客、收费与留存组织生意思考。收集内容涉及图片、文案、音频、直播、绘本、视频、工具自动化和知识数据咨询，帮助扩展可能性。
+**库的本质与价值：**面向 AI 创业的思路整理与案例收集库，目标是帮助探索 AI 创业方向、需求、产品与商业模式。汇集方向清单、444 篇副业章节和 70 篇创业问答，围绕痛点、人群、最小产品、获客、收费与留存组织生意思考。收集内容涉及图片、文案、音频、直播、绘本、视频、工具自动化和知识数据咨询，帮助扩展可能性。
 
 **网页整理：**提供七类能力归纳、完整 514 篇标题与固定原文索引、搜索筛选收藏、思路组合、个人需求与验收记录、成本估算、进度记录及 Markdown 导出。网页没有接入在线 AI，个人草稿只保存在当前浏览器，可导出后继续对话。
 

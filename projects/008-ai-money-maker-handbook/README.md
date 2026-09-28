@@ -1,6 +1,6 @@
-# 008 · AI Money Maker Handbook：思路收集与个人探索
+# 008 · AI Money Maker Handbook：AI 创业思路与案例
 
-[AI Money Maker Handbook](https://github.com/XiaomingX/ai-money-maker-handbook) 的本质是**案例收集与思考分析库**。它汇集方向、方案推演、模拟案例、资源和创业问答，帮助发现问题、扩展想法和理解生意。
+[AI Money Maker Handbook](https://github.com/XiaomingX/ai-money-maker-handbook) 的本质是**面向 AI 创业的思路整理与案例收集库**。它汇集方向、方案推演、模拟案例、资源和创业问答，帮助探索 AI 创业方向，发现需求、构思产品并分析商业模式。
 
 - **能力是什么：**用不同场景提供启发；我们将商业思考整理为痛点、人群、最小产品、获客、收费、留存六个要素。
 - **内容有哪些：**图片、文案、音频、直播、绘本、视频、工具自动化、知识数据咨询。固定版本整理了 444 篇副业章节、70 篇创业问答，首页另列 31 条创业文章外链。
@@ -8,7 +8,7 @@
 
 ## 引导图：一图完整理解
 
-[![案例收集与思考分析库：六个商业问题、八类内容、扩展方法与持续产品化](web/assets/idea-map.png)](web/assets/idea-map.svg)
+[![面向 AI 创业的思路整理与案例收集库：六个商业问题、八类内容、扩展方法与持续产品化](web/assets/idea-map.png)](web/assets/idea-map.svg)
 
 沿用本次讨论生成的完整总览图，由本仓库独立绘制并保留 SVG 与高清 PNG。图中注明原库收集内容、我们的扩展方向、现有网页功能与后续产品化设想。见[配套理解与演进路线](understanding.md)。
 
