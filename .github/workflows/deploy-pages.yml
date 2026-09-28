@@ -20,9 +20,10 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Assemble static site
         run: |
-          mkdir -p _site/001-storm-breaker
+          mkdir -p _site/001-storm-breaker _site/002-airi
           cp site/index.html _site/index.html
           cp -R projects/001-storm-breaker/web/. _site/001-storm-breaker/
+          cp -R projects/002-airi/web/. _site/002-airi/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

@@ -1,0 +1,70 @@
+Use case: infographic-diagram.
+Create ONE polished Chinese infographic summarizing the open source repository moeru-ai/airi. Portrait 2:3, high resolution, sharp legible Chinese typography. This is a factual software research poster, not a fake app screenshot. Editorial technical style matching a charcoal-purple website, ivory text, lavender and mint highlights, amber caveats. Generous spacing, precise grid, fine arrows, small simple line icons. No anime character, no decoration that consumes room, no fabricated metrics. All exact Chinese text below should be spelled correctly. Make main headings large. Do not add claims. Visually differentiate existing components from integrations and proposed products. Use 5 numbered sections, top intro, wide flow strip, capabilities grid, reusable technology band, product directions, bottom caveats. Text content:
+
+Top small label: OPENLAB / 002 · 项目研究
+Title: AIRI 能力总览
+Subtitle: 面向虚拟陪伴的 Agent 应用工程
+Intro in large readable text: 产品目标：能交流、能感知、能参与活动的虚拟角色
+
+01 / 技术本质
+Flow diagram 5 nodes with arrows:
+感知输入 → 模型决策 → 工具执行 → 结果反馈 → 角色表达
+Under flow: 文字 / 语音 / 画面 → LLM + 人设 + 上下文 → 外部接口 → 状态与结果 → 声音 / 表情 / 动作
+A thin return arrow from 结果反馈 to 模型决策, label: 继续决策
+Short note: 按需接入能力，组合成具体产品体验。
+
+02 / 支持哪些能力
+Six capability cards, each with explicit status and two lines:
+A. 聊天与语音 · 基础组件
+角色设定、多模型接入
+语音识别、语音合成
+B. 虚拟角色 · 基础组件
+Live2D / VRM、口型与表情
+眨眼、视线、动画播放
+C. 屏幕理解 · 需配置
+采集指定窗口或屏幕
+让对话关联当前画面
+D. 网页与桌面操作 · 实验服务
+定位目标、点击、输入
+电脑执行器主要面向 macOS
+E. 游戏参与 · 专用集成
+Minecraft：跟随、采集、合成
+Factorio：需外部服务
+F. 渠道与记忆 · 集成 / 探索
+Discord、Telegram 集成
+长期记忆成熟度需验证
+
+03 / 可沉淀的技术
+Five horizontally or neatly grid-arranged reusable blocks:
+模型与服务适配
+语音流水线
+角色动画与口型驱动
+工具调用与执行反馈
+游戏状态与技能调度
+Below small sentence: 可复用模块与工程经验；仍需按平台、模型和任务适配。
+
+04 / 可扩展的产品
+Label immediately beneath heading: 以下是可开发方向，并非全部现成产品
+Four cards, each title and small dependency:
+桌面陪伴助手
+补齐记忆与主动交互
+游戏陪伴角色
+逐款适配游戏接口
+角色化办公助手
+接入浏览器与桌面工具
+虚拟主播 / 社群角色
+接入直播、频道与内容流程
+
+05 / 对我们的价值
+One emphasized sentence: 优先研究：共同情境 + 共同活动
+Supporting sentence: 让桌面女友知道你在做什么，并能参与其中。
+Another smaller sentence: 已有聊天、语音和形象时，重点评估感知、执行与反馈链路。
+
+Bottom amber boundaries:
+能力边界：有客户端 ≠ 能接管 Windows；有游戏集成 ≠ 能玩任意游戏。
+工具数量不能保证陪伴质量；人物效果仍依赖模型素材与动作设计。
+Footer:
+来源：github.com/moeru-ai/airi
+研究快照：49c15a6 · 2026-09-28
+基于源码与文档整理，未运行 AIRI 原版。独立研究图，非官方宣传。
+Ensure no cramped text, no labels duplicated or omitted, no made-up URLs. Make the overall structure easy to understand at a glance.
