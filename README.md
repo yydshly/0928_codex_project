@@ -253,6 +253,10 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 ### 012 · Buzz
 
+[![Buzz 完整引导图：能力、实现效果、架构原理、使用场景、可呈现效果与参考价值](projects/012-buzz/web/assets/buzz-overview.png)](projects/012-buzz/web/assets/buzz-overview.png)
+
+**主要引导图 · 先看这张完整总览**：本仓库于 2026-09-29 根据固定版本 `ebe99a46` 的源码、本机实测与讨论生成，涵盖 Buzz 的能力、效果、原理、场景与对我们的价值；区分已验证结果和待接入模型、工具后验证的业务能力。点击图片可放大，[查看矢量原图](projects/012-buzz/web/assets/buzz-overview.svg) · [阅读完整说明](projects/012-buzz/understanding.md)。下方为补充的原版界面与实测截图。
+
 [![Buzz 原版界面：人类成员与 Agent 在同一个频道协作](projects/012-buzz/web/assets/channel-thread.png)](projects/012-buzz/web/assets/channel-thread.png)
 
 图：来自 [Block / Buzz 固定提交](https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/README.md) 的原版截图 `channel-thread.png`，未经修改；不是本机运行截图。上游采用 Apache-2.0，图片来源及许可见[子项目说明](projects/012-buzz/README.md#图片与许可)。
