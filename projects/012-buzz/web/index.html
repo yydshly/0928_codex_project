@@ -11,7 +11,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">跳转到正文</a>
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="返回页面顶部"><span class="brand-mark" aria-hidden="true">✳</span><span>BUZZ <small>PROJECT 012</small></span></a>
       <nav aria-label="页面导航"><a href="#overview">一图总览</a><a href="#understanding">理解汇总</a><a href="#product">产品方向</a><a href="#chinese">中文版</a><a href="#local-test">本机实测</a></nav>
@@ -20,24 +20,14 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line"></span> 开源研究 / 从协作平台到 Agent 交付</p>
-          <h1>定制 Agent，<br><em>以成员身份参与协作。</em></h1>
-          <p class="hero-lede">Buzz 提供自建频道、独立身份、成员权限和消息推送。Agent 接入进程按授权与规则调用模型和工具。基于这套机制，我们进一步探索：定制能办事的 Agent，并交付到客户已有的平台。</p>
-          <div class="hero-actions"><a class="button primary" href="#overview">一图完整理解 <span aria-hidden="true">↓</span></a><a class="button secondary" href="#product">看产品化方向 <span aria-hidden="true">↗</span></a></div>
-          <p class="truth-note"><span class="truth-dot" aria-hidden="true"></span> 本页分别标注上游截图、官方版实测与本地中文修改版截图；网页本身是研究说明，不是可操作的 Buzz 客户端。</p>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-visual-top"><span>能力 / 效果 / 原理 / 场景 / 价值</span><span>BLOCK · BUZZ</span></div>
-          <a href="#overview" aria-label="查看完整引导图"><img src="./assets/buzz-overview.svg" width="1920" height="2180" alt="本仓库生成的 Buzz 完整能力与价值总览引导图" fetchpriority="high"></a>
-          <div class="hero-visual-caption"><span class="live-mark" aria-hidden="true"></span><span>沿用我们生成的能力总览图</span><span>本仓库研究图</span></div>
-        </div>
+    <section class="section overview-section overview-primary" data-layout="guide-first" id="overview" aria-labelledby="overview-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">PROJECT 012 / 完整引导图</p><h1 id="overview-title">Buzz · 一图完整理解</h1></div><p>先看我们生成的完整引导图：能力、实现效果、底层原理、使用场景、可呈现的成果，以及对你的价值。详细摘要与产品方向在图后展开。</p></div>
+        <div class="overview-actions overview-tools"><a href="./assets/buzz-overview.png" target="_blank" rel="noopener">打开高清图片 ↗</a><a href="./assets/buzz-overview.svg" target="_blank" rel="noopener">打开矢量原图 ↗</a><a href="#understanding">展开阅读原理与控制细节 ↓</a></div>
+        <a class="local-test-image" href="./assets/buzz-overview.png" target="_blank" rel="noopener" aria-label="放大查看 Buzz 完整能力总览图"><img src="./assets/buzz-overview.svg" width="1920" height="2180" loading="eager" fetchpriority="high" alt="Buzz 六部分总览：房间与身份、实际验证效果、Relay 到 Agent 的消息路径、业务场景、可见产出、个人研究与开发价值。区分本机实测与待接入验证。"></a>
+        <p class="gallery-provenance">本仓库原创研究图 · 2026-09-29。根据固定版本 <code>ebe99a46</code> 的源码、本机实测与我们的讨论绘制；非上游宣传图或运行截图。图中业务示例与自动执行效果尚待模型、工具接入后验证。详细依据见子项目 <code>understanding.md</code>。</p>
       </div>
-      <div class="wrap hero-meta"><span>固定研究提交 · ebe99a46</span><span>原版 Windows 客户端 · 0.5.25</span><span>频道与身份已实测</span></div>
     </section>
-
     <section class="section brief-section" id="brief" aria-labelledby="brief-title"><div class="wrap">
       <div class="section-heading"><div><p class="eyebrow dark">摘要 / 先把结论说清楚</p><h2 id="brief-title">一个协作底座，一条产品扩展路线。</h2></div><p>当前能力、实际验证和后续设想分别说明。在线网页展示研究与截图，交互客户端和 relay 仍在本机运行。</p></div>
       <div class="detail-grid brief-grid">
@@ -48,15 +38,6 @@
         <article><span class="detail-index">05 / 身份定制</span><h3>可以让 Agent 作为群成员</h3><p>配置独立身份、名称头像、角色指令、模型、工具与响应权限，再加入 Buzz 频道。入群不等于自动分工，角色提示不等于实际权限。</p></article>
         <article><span class="detail-index">06 / 对我的价值</span><h3>积累 Agent 定制与交付架构</h3><p>参考身份、上下文、事件和执行接入；后续把定制 Agent 交付到外部群聊、会议或业务系统。跨平台能力需要继续开发验证。</p></article>
       </div></div></section>
-
-    <section class="section overview-section" id="overview" aria-labelledby="overview-title">
-      <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow dark">一图总览 / 能力到价值</p><h2 id="overview-title">用一张图，完整理解 Buzz。</h2></div><p>六个问题放在一起看：能力是什么、已实现什么、底层如何工作、适合什么场景、可以产出什么，以及对你研究和开发的价值。</p></div>
-        <a class="local-test-image" href="./assets/buzz-overview.png" target="_blank" rel="noopener" aria-label="放大查看 Buzz 完整能力总览图"><img src="./assets/buzz-overview.svg" width="1920" height="2180" loading="lazy" alt="Buzz 六部分总览：房间与身份、实际验证效果、Relay 到 Agent 的消息路径、业务场景、可见产出、个人研究与开发价值。区分本机实测与待接入验证。"></a>
-        <div class="overview-actions"><a href="./assets/buzz-overview.png" target="_blank" rel="noopener">打开高清图片 ↗</a><a href="./assets/buzz-overview.svg" target="_blank" rel="noopener">打开矢量原图 ↗</a><a href="#understanding">展开阅读原理与控制细节 ↓</a></div>
-        <p class="gallery-provenance">本仓库原创研究图 · 2026-09-29。根据固定版本 <code>ebe99a46</code> 的源码、本机实测与我们的讨论绘制；非上游宣传图或运行截图。图中业务示例与自动执行效果尚待模型、工具接入后验证。详细依据见子项目 <code>understanding.md</code>。</p>
-      </div>
-    </section>
 
     <section class="section plain-section" id="plain" aria-labelledby="plain-title">
       <div class="wrap">
