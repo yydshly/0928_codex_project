@@ -57,6 +57,9 @@ jobs:
           mkdir -p _site/010-antv-infographic
           cp -R projects/010-antv-infographic/web/dist/. _site/010-antv-infographic/
           cp projects/010-antv-infographic/assets/native-render.png _site/010-antv-infographic/assets/native-render.png
+          mkdir -p _site/012-buzz/assets
+          cp projects/012-buzz/web/index.html projects/012-buzz/web/styles.css projects/012-buzz/web/app.js projects/012-buzz/web/UPSTREAM-LICENSE.txt _site/012-buzz/
+          cp -R projects/012-buzz/web/assets/. _site/012-buzz/assets/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

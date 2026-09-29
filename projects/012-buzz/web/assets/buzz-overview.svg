@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="2180" viewBox="0 0 1920 2180" role="img" aria-labelledby="title desc"><title id="title">Buzz 一图完整理解：能力、效果、原理、场景与个人价值</title><desc id="desc">通信底座是房间管理、身份权限、消息存储和订阅推送。Agent 接入层决定是否响应，模型和工具执行业务。图中区分本机实测、源码或上游能力，以及尚需接入验证的场景与产出。</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#1c6662"/></marker></defs><g font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect x="0" y="0" width="1920" height="2180" rx="0" fill="#f4f3e9"/>
+<rect x="0" y="0" width="1920" height="235" rx="0" fill="#17363d"/>
+<text x="64" y="58" font-size="24" fill="#f2cb69" font-weight="700">PROJECT 012  /  BLOCK · BUZZ</text>
+<text x="64" y="129" font-size="55" fill="#ffffff" font-weight="700">Buzz：人与 Agent 共用的协作工作区</text>
+<text x="64" y="187" font-size="30" fill="#dceae5" font-weight="400">房间管理 + 身份权限 + 消息推送 → 接入 Agent → 连接真实业务</text>
+<text x="1440" y="58" font-size="23" fill="#b8d1ca" font-weight="400">固定研究版本 · ebe99a46</text>
+<rect x="64" y="267" width="880" height="434" rx="22" fill="#ffffff"/>
+<rect x="976" y="267" width="880" height="434" rx="22" fill="#ffffff"/>
+<text x="94" y="318" font-size="24" fill="#1c6662" font-weight="700">01</text>
+<text x="149" y="318" font-size="34" fill="#162e35" font-weight="700">能力是什么</text>
+<text x="94" y="358" font-size="24" fill="#52696c" font-weight="400">产品与源码能力范围；不代表已逐项实测</text>
+<text x="94" y="401" font-size="28" fill="#162e35" font-weight="700">组织对话</text>
+<text x="94" y="440" font-size="25" fill="#52696c" font-weight="400">开放 / 私密频道、连续群聊、主题帖、讨论串、私信</text>
+<text x="94" y="478" font-size="28" fill="#162e35" font-weight="700">管理身份</text>
+<text x="94" y="517" font-size="25" fill="#52696c" font-weight="400">人与 Agent 独立身份；成员角色、访问范围与签名</text>
+<text x="94" y="555" font-size="28" fill="#162e35" font-weight="700">接入 Agent</text>
+<text x="94" y="594" font-size="25" fill="#52696c" font-weight="400">角色指令、模型、Skills / MCP、触发规则与执行进程</text>
+<text x="94" y="632" font-size="28" fill="#162e35" font-weight="700">扩展协作</text>
+<text x="94" y="671" font-size="25" fill="#52696c" font-weight="400">媒体评论、画布、搜索、Git 活动与部分工作流</text>
+<text x="1006" y="318" font-size="24" fill="#1c6662" font-weight="700">02</text>
+<text x="1061" y="318" font-size="34" fill="#162e35" font-weight="700">现在实际实现了什么</text>
+<text x="1006" y="358" font-size="24" fill="#52696c" font-weight="400">本机已验证 · Windows 原版与中文修改版</text>
+<text x="1006" y="401" font-size="28" fill="#162e35" font-weight="700">可进入的真实工作区</text>
+<text x="1006" y="440" font-size="25" fill="#52696c" font-weight="400">服务端与客户端已运行，频道与消息可持续保存</text>
+<text x="1006" y="478" font-size="28" fill="#162e35" font-weight="700">有访问边界的房间</text>
+<text x="1006" y="517" font-size="25" fill="#52696c" font-weight="400">第二身份加入私密频道前不可读，加入后可读写</text>
+<text x="1006" y="555" font-size="28" fill="#162e35" font-weight="700">身份明确的聊天记录</text>
+<text x="1006" y="594" font-size="25" fill="#52696c" font-weight="400">两种身份签名收发消息，可围绕消息建立讨论串</text>
+<text x="1006" y="632" font-size="28" fill="#162e35" font-weight="700">可操作的中文界面</text>
+<text x="1006" y="671" font-size="25" fill="#52696c" font-weight="400">频道、身份、Agent 配置与常用设置；支持中英切换</text>
+<rect x="64" y="729" width="1792" height="601" rx="22" fill="#ffffff"/>
+<text x="94" y="782" font-size="24" fill="#1c6662" font-weight="700">03</text>
+<text x="149" y="782" font-size="34" fill="#162e35" font-weight="700">底层原理是什么</text>
+<text x="94" y="822" font-size="24" fill="#52696c" font-weight="400">三个职责层：通信底座 → Agent 接入 → 模型与工具执行</text>
+<rect x="94" y="858" width="370" height="190" rx="16" fill="#fff3d9"/>
+<rect x="522" y="858" width="672" height="190" rx="16" fill="#17363d"/>
+<rect x="1252" y="858" width="574" height="190" rx="16" fill="#e6f1eb"/>
+<text x="117" y="903" font-size="29" fill="#162e35" font-weight="700">人 / Agent 发出事件</text>
+<text x="117" y="947" font-size="25" fill="#52696c" font-weight="400">作者公钥 + 数字签名</text>
+<text x="117" y="982" font-size="25" fill="#52696c" font-weight="400">频道标记 + 成员引用</text>
+<text x="117" y="1017" font-size="25" fill="#52696c" font-weight="400">正文 + 事件 / 回复关系</text>
+<text x="548" y="903" font-size="29" fill="#ffffff" font-weight="700">Buzz Relay · 通信服务端</text>
+<text x="548" y="947" font-size="25" fill="#dceae5" font-weight="400">认证 / 验签 → 频道权限检查</text>
+<text x="548" y="982" font-size="25" fill="#dceae5" font-weight="400">存储事件 → 向符合条件的订阅者推送</text>
+<text x="548" y="1017" font-size="25" fill="#dceae5" font-weight="400">服务端负责送达；业务理解由 Agent 完成</text>
+<text x="1278" y="903" font-size="29" fill="#162e35" font-weight="700">各自接收，各自决定</text>
+<text x="1278" y="947" font-size="25" fill="#52696c" font-weight="400">人的客户端：显示消息，等待人操作</text>
+<text x="1278" y="982" font-size="25" fill="#52696c" font-weight="400">Agent A / B：分别检查授权与触发条件</text>
+<text x="1278" y="1017" font-size="25" fill="#52696c" font-weight="400">收到消息，不代表所有 Agent 都要回答</text>
+<path d="M472 953H510" stroke="#1c6662" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M1202 953H1240" stroke="#1c6662" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="96" y="1092" font-size="25" fill="#1c6662" font-weight="700">Agent 的响应链</text>
+<rect x="94" y="1111" width="465" height="65" rx="13" fill="#edf2ee"/>
+<text x="114" y="1154" font-size="26" fill="#162e35" font-weight="600">发送者授权 + 订阅规则</text>
+<rect x="611" y="1111" width="614" height="65" rx="13" fill="#edf2ee"/>
+<text x="631" y="1154" font-size="26" fill="#162e35" font-weight="600">会话 / 队列 → 模型 + 工具</text>
+<rect x="1277" y="1111" width="549" height="65" rx="13" fill="#edf2ee"/>
+<text x="1297" y="1154" font-size="26" fill="#162e35" font-weight="600">以 Agent 身份回复 → Relay</text>
+<path d="M568 1144H599" stroke="#1c6662" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M1234 1144H1265" stroke="#1c6662" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="96" y="1222" font-size="25" fill="#1c6662" font-weight="700">存储支撑</text>
+<text x="252" y="1222" font-size="25" fill="#52696c" font-weight="400">PostgreSQL：事件 / 搜索    ·    Redis：分发 / 在线状态    ·    S3 / MinIO：媒体</text>
+<path d="M94 1247H1826" stroke="#d6dfd5" stroke-width="2"/>
+<text x="96" y="1290" font-size="25" fill="#162e35" font-weight="400">控制边界：默认按频道组织会话，可选讨论串；有排队与取消。频道权限、工具权限、业务授权分别检查。</text>
+<rect x="64" y="1358" width="576" height="459" rx="22" fill="#ffffff"/>
+<rect x="672" y="1358" width="576" height="459" rx="22" fill="#ffffff"/>
+<rect x="1280" y="1358" width="576" height="459" rx="22" fill="#ffffff"/>
+<text x="94" y="1412" font-size="24" fill="#1c6662" font-weight="700">04</text>
+<text x="149" y="1412" font-size="34" fill="#162e35" font-weight="700">使用场景</text>
+<text x="94" y="1452" font-size="24" fill="#52696c" font-weight="400">接入方向 · 需验证实际业务</text>
+<text x="94" y="1500" font-size="28" fill="#162e35" font-weight="700">研发协作</text>
+<text x="94" y="1539" font-size="25" fill="#52696c" font-weight="400">围绕需求、代码、评审组织讨论</text>
+<text x="94" y="1583" font-size="28" fill="#162e35" font-weight="700">故障与项目知识</text>
+<text x="94" y="1622" font-size="25" fill="#52696c" font-weight="400">检索历史，整理线索和处理依据</text>
+<text x="94" y="1666" font-size="28" fill="#162e35" font-weight="700">运营与业务助手</text>
+<text x="94" y="1705" font-size="25" fill="#52696c" font-weight="400">查询订单、汇总信息、事件触发流程</text>
+<text x="94" y="1749" font-size="28" fill="#162e35" font-weight="700">内容与媒体反馈</text>
+<text x="94" y="1788" font-size="25" fill="#52696c" font-weight="400">按主题、视频时间点保留修改意见</text>
+<text x="702" y="1412" font-size="24" fill="#1c6662" font-weight="700">05</text>
+<text x="757" y="1412" font-size="34" fill="#162e35" font-weight="700">可以呈现哪些效果</text>
+<text x="702" y="1452" font-size="24" fill="#52696c" font-weight="400">前两项已实测；后两项需接入验证</text>
+<text x="702" y="1500" font-size="28" fill="#162e35" font-weight="700">成员与权限清楚的群聊</text>
+<text x="702" y="1539" font-size="25" fill="#52696c" font-weight="400">频道列表、独立头像身份、私密空间</text>
+<text x="702" y="1583" font-size="28" fill="#162e35" font-weight="700">可追溯的话题记录</text>
+<text x="702" y="1622" font-size="25" fill="#52696c" font-weight="400">实时消息、回复关系、讨论串与历史</text>
+<text x="702" y="1666" font-size="28" fill="#162e35" font-weight="700">Agent 在频道中交付结果</text>
+<text x="702" y="1705" font-size="25" fill="#52696c" font-weight="400">摘要、查询结果、方案、代码评审建议</text>
+<text x="702" y="1749" font-size="28" fill="#162e35" font-weight="700">有执行结果的业务流程</text>
+<text x="702" y="1788" font-size="25" fill="#52696c" font-weight="400">工具返回、处理状态、通知与任务接力</text>
+<text x="1310" y="1412" font-size="24" fill="#1c6662" font-weight="700">06</text>
+<text x="1365" y="1412" font-size="34" fill="#162e35" font-weight="700">对你的价值</text>
+<text x="1310" y="1452" font-size="24" fill="#52696c" font-weight="400">结合本次研究与后续开发方向</text>
+<text x="1310" y="1500" font-size="28" fill="#162e35" font-weight="700">现在：获得可体验的样本</text>
+<text x="1310" y="1539" font-size="25" fill="#52696c" font-weight="400">源码 + 中文客户端 + 真实身份实测</text>
+<text x="1310" y="1583" font-size="28" fill="#162e35" font-weight="700">设计：拆清系统职责</text>
+<text x="1310" y="1622" font-size="25" fill="#52696c" font-weight="400">分开通信、身份、触发和业务执行</text>
+<text x="1310" y="1666" font-size="28" fill="#162e35" font-weight="700">开发：参考协作工作台底座</text>
+<text x="1310" y="1705" font-size="25" fill="#52696c" font-weight="400">复用思路：事件、权限、上下文和 ACP</text>
+<text x="1310" y="1749" font-size="28" fill="#162e35" font-weight="700">决策：知道下一步验证什么</text>
+<text x="1310" y="1788" font-size="25" fill="#52696c" font-weight="400">接一个模型和工具，跑通最小业务闭环</text>
+<rect x="64" y="1845" width="1792" height="108" rx="18" fill="#17363d"/>
+<text x="94" y="1891" font-size="32" fill="#ffffff" font-weight="700">最值得参考的，是“把 Agent 当作有身份、有权限的成员接入业务”的整套机制。</text>
+<text x="94" y="1930" font-size="26" fill="#dceae5" font-weight="400">你可以据此评估自己的 Agent 协作或研发工作台；业务能力仍需模型、工具、授权与调度规则共同完成。</text>
+<rect x="64" y="1981" width="1792" height="125" rx="18" fill="#fff3d9"/>
+<text x="94" y="2026" font-size="27" fill="#865b1b" font-weight="700">读图边界</text>
+<text x="260" y="2026" font-size="26" fill="#162e35" font-weight="400">测试 Bot 回复由 CLI 手动发送；模型自动回复、工具执行、多 Agent 接力尚未实测。</text>
+<text x="94" y="2069" font-size="26" fill="#162e35" font-weight="400">私密频道 ≠ 端到端加密；入群 ≠ 自动分工。部分工作流与审批有缺口，部署和长期运行仍需验收。</text>
+<text x="64" y="2145" font-size="22" fill="#52696c" font-weight="400">本仓库原创研究图 · 2026-09-29 · 非官方宣传图 / 非运行截图</text>
+<text x="1130" y="2145" font-size="22" fill="#52696c" font-weight="400">依据：understanding.md / research.md / runtime.md</text>
+</g></svg>

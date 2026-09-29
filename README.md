@@ -4,11 +4,13 @@
 
 ## 值得继续沉淀的产品方向
 
-这轮研究中，以下三个方向值得自己持续投入，把资料、想法和技术理解逐步沉淀为可长期使用的产品。
+这轮研究中，以下四个方向值得自己持续投入，把资料、想法和技术理解逐步沉淀为可长期使用的产品。
 
 - **个人资源导航入口**：将 [007 · OSINT 资源地图](projects/007-osint-resource-map/README.md) 中的 `awesome-osint` 与 `awesome-osint-arsenal` 两个资源库继续整理，开发类似 hao123 的个人研究与开发入口。按主题和任务组织资源，逐步加入搜索、收藏、中文使用说明、链接核验与个人使用记录，让收集到的资源成为日常可用的工具入口。
 - **AI 创业思路产品**：继续扩展 [008 · AI 创业思路与案例](projects/008-ai-money-maker-handbook/README.md)，把案例、自己的想法、需求观察、产品小样和实践反馈持续沉淀，形成个人 AI 创业思路工作台，支持从发现方向到验证产品方案的过程。
 - **可插拔框架与产品化生图**：以 [010 · AntV Infographic](projects/010-antv-infographic/README.md) 为研究起点，理解按类型选模板、组件注册与组合、布局和插件生命周期。当前按需把结构化内容转换为图表或信息图；后期亲手研究并实现可插拔框架，探索模板化报告、批量配图和可扩展编辑器等产品方案。
+
+- **定制 Agent 与跨平台能力交付**：从 [012 · Buzz](projects/012-buzz/README.md) 的身份、频道、事件与执行接入机制出发，探索定制 Agent 的职责、知识、模型和工具，再通过连接器接入客户已有的群聊、客服或业务平台；视频会议交互与 API / SDK 能力服务是后续方向，需补齐平台接入、授权、隔离和运营能力。
 
 目前已有资源整理与研究演示，后续继续围绕自己的真实使用需求开发、验证和迭代；上述完整产品能力仍待逐步实现。
 
@@ -29,6 +31,7 @@
 | 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) | 已发布并验证；上游未本机运行；性能未独立复测 |
 | 010 | [AntV Infographic 能力与可扩展架构研究](projects/010-antv-infographic/README.md) | 把结构化内容转换为图表或信息图：按表达类型选择模板，填入数据后由组件与布局程序绘制。用于研究配图、流程说明、方案对比和报告，减少重复排版；作为个人按需绘图工具，后期研究其架构，用于可插拔产品设计及相关产品方案。 | [antvis/Infographic](https://github.com/antvis/Infographic) | [在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) | 已发布；线上七类渲染已核验；本机交互与导出已验证；架构实验与产品方案待探索 |
 | 011 | [vphone-aio：Mac 虚拟 iPhone 启动整合包](projects/011-vphone-aio/README.md) | 面向 Apple 芯片 Mac 的虚拟 iPhone 整合包；脚本下载缺失分片、解压预制环境、启动上游 vphone-cli，并提供 VNC/SSH 连接。作为脚本化交付案例简要收录。 | [34306/vphone-aio](https://github.com/34306/vphone-aio) | 暂无 | 已完成简要整理；原版未运行；暂不深入 |
+| 012 | [Buzz：Agent 身份与协作接入研究](projects/012-buzz/README.md) | 自建协作平台：定制 Agent 身份与职责加入频道，relay 验签、鉴权、存储并推送消息，接入进程按规则调用模型与工具。适用于项目、研发和业务协作；已实测频道与身份，后续探索把定制 Agent 接入外部群聊、会议或作为 API 能力交付。 | [block/buzz](https://github.com/block/buzz) | [本地研究页](projects/012-buzz/web/index.html)；待发布验证 | 原版与中文修改版已运行；模型和跨平台执行待验证 |
 
 ### 001 · Storm-Breaker
 
@@ -248,6 +251,34 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 
 [原仓库](https://github.com/34306/vphone-aio) · [子项目概览](projects/011-vphone-aio/README.md) · [简要研究记录](projects/011-vphone-aio/research.md) · [上游项目](https://github.com/Lakr233/vphone-cli)
 
+### 012 · Buzz
+
+[![Buzz 原版界面：人类成员与 Agent 在同一个频道协作](projects/012-buzz/web/assets/channel-thread.png)](projects/012-buzz/web/assets/channel-thread.png)
+
+图：来自 [Block / Buzz 固定提交](https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/README.md) 的原版截图 `channel-thread.png`，未经修改；不是本机运行截图。上游采用 Apache-2.0，图片来源及许可见[子项目说明](projects/012-buzz/README.md#图片与许可)。
+
+[![Buzz 本机私密频道实测：两个测试身份交换消息](projects/012-buzz/web/assets/local-private-channel.png)](projects/012-buzz/web/assets/local-private-channel.png)
+
+图：2026-09-29 本仓库运行 Buzz 官方 Windows 客户端的真实截图。第二个 Bot 测试身份的回复由 CLI 手动发送，尚未接入 AI 模型；操作记录见[本机实测](projects/012-buzz/runtime.md)。
+
+**新增中文版本**：已从源码编译可独立运行的中文桌面版，提供中英文切换，覆盖频道、身份、智能体配置与常用设置。启动入口和真实截图见[中文版说明](projects/012-buzz/localization/README.md)。这是本仓库的本地修改版，部分高级文案仍为英文。
+
+**能力与原理**：Buzz 是供人和 Agent 共同使用的自建工作区。频道、私信、媒体、Git 事件和工作流以签名事件进入 relay；relay 负责身份与成员权限验证、存储、订阅推送、搜索及审计。Agent 通过自己的身份参与频道工作。
+
+**理解汇总**：通信底座是房间管理、身份权限、消息存储与服务端订阅推送；Agent 接入层判断是否响应并调度执行，模型和工具承担业务。多个 Agent 入群后，任务分工仍需配置。详见[我们的理解与源码依据](projects/012-buzz/understanding.md)。
+
+**后期产品方向**：产品负责定制 Agent 身份、职责、知识、模型和工具，通过统一运行服务与平台连接器接入外部群聊或客服；也可探索会议中的语音视频交互，或以 API / SDK 向其他系统提供能力。它们需要额外的平台授权、身份映射、客户隔离、音视频和运营能力，当前未实测。对我们的价值是沉淀可复用的 Agent 定制与交付架构。
+
+**直白理解**：一个工作区里可建开放或私密频道；频道可以像群聊一样连续交谈，也可以按主题发帖、评论。邀请同事与已配置的 Agent 后，可在话题中 `@Agent` 提问或交任务。私密频道依靠成员权限隔离，不能直接等同于端到端加密。
+
+**效果与场景**：本地展示页汇集上游 README 中的四张界面截图，另展示官方版本机私密频道截图与中文修改版操作截图。已用两个测试身份验证频道加入前后的可见范围、签名消息收发和讨论串；Bot 回复由 CLI 手动发送，尚未验证 AI 自动回复。适合研究开发团队如何把讨论、任务、代码与自动化记录放进同一个上下文。
+
+**可参考价值**：重点借鉴统一签名事件、Agent 独立身份与频道权限、ACP 适配层，以及以频道保存讨论和执行证据的方式。若用于自己的研发或 Agent 协作工作台，应先验证真实任务闭环和运维成本；当前版本的审批续跑、部分工作流动作与限流仍有缺口。
+
+已获取固定版本 `ebe99a46` 的完整源码归档，并在本机启动从源码编译的 relay 与官方 `0.5.25` Windows 桌面版；完整第三方源码和运行数据只保留在被忽略的本地目录。实测证据与限制见[运行记录](projects/012-buzz/runtime.md)。移动客户端和工作流审批关卡在上游仍属进行中。
+
+[原仓库](https://github.com/block/buzz) · [子项目概览](projects/012-buzz/README.md) · [研究记录](projects/012-buzz/research.md) · [本地效果展示](projects/012-buzz/web/index.html)
+
 ## 仓库结构
 
 ```text
@@ -267,6 +298,7 @@ projects/
   009-jev-ultrafast/ # 快速网页智能体研究与场景教学模拟
   010-antv-infographic/ # 直接调用原库的信息图能力展示与研究
   011-vphone-aio/ # Mac 虚拟 iPhone 启动整合包的简要研究
+  012-buzz/ # Buzz 固定版本源码研究与原版截图展示
 templates/project/     # 新子项目模板
 docs/                  # 索引与网页发布约定
 ```

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b24">
+  <meta name="description" content="Buzz 开源协作平台研究：定制 Agent 身份与职责接入频道，以签名事件、权限和消息推送组织人机协作。汇总实测效果、架构、使用场景与把定制 Agent 交付到群聊、会议和其他平台的产品方向。">
+  <title>Buzz · Agent 身份、协作原理与跨平台产品方向</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="返回页面顶部"><span class="brand-mark" aria-hidden="true">✳</span><span>BUZZ <small>PROJECT 012</small></span></a>
+      <nav aria-label="页面导航"><a href="#overview">一图总览</a><a href="#understanding">理解汇总</a><a href="#product">产品方向</a><a href="#chinese">中文版</a><a href="#local-test">本机实测</a></nav>
+      <a class="header-link" href="https://github.com/block/buzz/tree/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43" target="_blank" rel="noopener noreferrer">查看原仓库 ↗</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> 开源研究 / 从协作平台到 Agent 交付</p>
+          <h1>定制 Agent，<br><em>以成员身份参与协作。</em></h1>
+          <p class="hero-lede">Buzz 提供自建频道、独立身份、成员权限和消息推送。Agent 接入进程按授权与规则调用模型和工具。基于这套机制，我们进一步探索：定制能办事的 Agent，并交付到客户已有的平台。</p>
+          <div class="hero-actions"><a class="button primary" href="#overview">一图完整理解 <span aria-hidden="true">↓</span></a><a class="button secondary" href="#product">看产品化方向 <span aria-hidden="true">↗</span></a></div>
+          <p class="truth-note"><span class="truth-dot" aria-hidden="true"></span> 本页分别标注上游截图、官方版实测与本地中文修改版截图；网页本身是研究说明，不是可操作的 Buzz 客户端。</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-visual-top"><span>能力 / 效果 / 原理 / 场景 / 价值</span><span>BLOCK · BUZZ</span></div>
+          <a href="#overview" aria-label="查看完整引导图"><img src="./assets/buzz-overview.svg" width="1920" height="2180" alt="本仓库生成的 Buzz 完整能力与价值总览引导图" fetchpriority="high"></a>
+          <div class="hero-visual-caption"><span class="live-mark" aria-hidden="true"></span><span>沿用我们生成的能力总览图</span><span>本仓库研究图</span></div>
+        </div>
+      </div>
+      <div class="wrap hero-meta"><span>固定研究提交 · ebe99a46</span><span>原版 Windows 客户端 · 0.5.25</span><span>频道与身份已实测</span></div>
+    </section>
+
+    <section class="section brief-section" id="brief" aria-labelledby="brief-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow dark">摘要 / 先把结论说清楚</p><h2 id="brief-title">一个协作底座，一条产品扩展路线。</h2></div><p>当前能力、实际验证和后续设想分别说明。在线网页展示研究与截图，交互客户端和 relay 仍在本机运行。</p></div>
+      <div class="detail-grid brief-grid">
+        <article><span class="detail-index">01 / 库的能力</span><h3>房间、身份与消息</h3><p>创建开放或私密频道，让人和 Agent 作为独立成员交流；提供历史、讨论串、检索及 Git、媒体和部分工作流能力。</p></article>
+        <article><span class="detail-index">02 / 实现效果</span><h3>已跑通通信和身份</h3><p>本机已验证私密频道加入前后的可见范围、两种身份收发消息、讨论串和中文界面；测试 Bot 回复由 CLI 手动发送。</p></article>
+        <article><span class="detail-index">03 / 架构原理</span><h3>Relay 推送，Agent 执行</h3><p>消息是签名事件；Relay 验签、鉴权、存储并推送。Agent 接入层检查发送者和触发规则，再把请求交给模型与工具。</p></article>
+        <article><span class="detail-index">04 / 使用场景</span><h3>围绕任务持续协作</h3><p>项目研究、研发与故障处理、内部业务查询、客服和媒体反馈。查订单、自动任务和多 Agent 接力需要工具与业务规则。</p></article>
+        <article><span class="detail-index">05 / 身份定制</span><h3>可以让 Agent 作为群成员</h3><p>配置独立身份、名称头像、角色指令、模型、工具与响应权限，再加入 Buzz 频道。入群不等于自动分工，角色提示不等于实际权限。</p></article>
+        <article><span class="detail-index">06 / 对我的价值</span><h3>积累 Agent 定制与交付架构</h3><p>参考身份、上下文、事件和执行接入；后续把定制 Agent 交付到外部群聊、会议或业务系统。跨平台能力需要继续开发验证。</p></article>
+      </div></div></section>
+
+    <section class="section overview-section" id="overview" aria-labelledby="overview-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">一图总览 / 能力到价值</p><h2 id="overview-title">用一张图，完整理解 Buzz。</h2></div><p>六个问题放在一起看：能力是什么、已实现什么、底层如何工作、适合什么场景、可以产出什么，以及对你研究和开发的价值。</p></div>
+        <a class="local-test-image" href="./assets/buzz-overview.png" target="_blank" rel="noopener" aria-label="放大查看 Buzz 完整能力总览图"><img src="./assets/buzz-overview.svg" width="1920" height="2180" loading="lazy" alt="Buzz 六部分总览：房间与身份、实际验证效果、Relay 到 Agent 的消息路径、业务场景、可见产出、个人研究与开发价值。区分本机实测与待接入验证。"></a>
+        <div class="overview-actions"><a href="./assets/buzz-overview.png" target="_blank" rel="noopener">打开高清图片 ↗</a><a href="./assets/buzz-overview.svg" target="_blank" rel="noopener">打开矢量原图 ↗</a><a href="#understanding">展开阅读原理与控制细节 ↓</a></div>
+        <p class="gallery-provenance">本仓库原创研究图 · 2026-09-29。根据固定版本 <code>ebe99a46</code> 的源码、本机实测与我们的讨论绘制；非上游宣传图或运行截图。图中业务示例与自动执行效果尚待模型、工具接入后验证。详细依据见子项目 <code>understanding.md</code>。</p>
+      </div>
+    </section>
+
+    <section class="section plain-section" id="plain" aria-labelledby="plain-title">
+      <div class="wrap">
+        <div class="plain-top"><div><p class="eyebrow dark">FIRST, THE SIMPLE VERSION</p><h2 id="plain-title">对，可以把它理解成<br>“带 Agent 的自建群聊”。</h2></div><p>一个 relay 地址对应一个工作区。你可以在里面建开放或私密频道，邀请人和 Agent；大家聊天、发起话题、回复、检索历史，相关活动都留在工作区。</p></div>
+        <div class="plain-layout"><div class="plain-map" aria-label="Buzz 工作区结构"><div class="plain-map-head">你的 Buzz 工作区 <small>一个 relay 地址</small></div><div class="plain-map-row"><span>开放频道</span><p>可搜索，成员可以自行加入</p></div><div class="plain-map-row"><span>私密频道</span><p>隐藏，需邀请加入</p></div><div class="plain-map-row"><span>两种讨论方式</span><p>Stream 连续群聊；Forum 按主题发帖和评论</p></div><div class="plain-map-row"><span>私信</span><p>成员之间单独交流</p></div></div><div class="plain-example"><span>一个具体例子</span><h3>“产品改版”私密频道</h3><ol><li>邀请两位同事和一个已配置的 Agent。</li><li>发一条话题：“首页转化下降，最近改了什么？”</li><li>同事回复；你 <strong>@Agent</strong>，让它检索有权访问的讨论或代码并整理线索。</li><li>结论、依据和后续处理留在频道，之后可以搜索。</li></ol><p>Agent 的执行能力取决于你接入的 Agent、工具和权限配置。</p></div></div>
+        <p class="plain-boundary"><strong>“隔离”指权限：</strong>私密频道由 relay 检查成员访问资格；事件签名可核验作者与内容完整性。私密频道本身不等于端到端加密。</p>
+        <div class="agent-config" aria-labelledby="agent-config-title">
+          <div><p class="eyebrow dark">AGENT CONFIGURATION</p><h3 id="agent-config-title">一个 Agent，要配置四层。</h3><p>以“产品分析助手”为例：先让它有自己的身份，再决定它加入哪里、如何回应、能调用什么。</p></div>
+          <ol>
+            <li><strong>身份 · 它是谁</strong><span>独立密钥与公钥标识消息作者；人设文件可设置名称、头像和简介。</span></li>
+            <li><strong>权限 · 它在哪里</strong><span>作为 Bot 成员加入指定频道；频道成员关系和明确授权限定访问范围。</span></li>
+            <li><strong>行为 · 它怎么回应</strong><span>Persona 中可写系统提示词、订阅频道、@提及或关键词等触发规则。</span></li>
+            <li><strong>能力 · 它能做什么</strong><span>配置模型、Skills、MCP 工具和 Agent 运行进程，才能实际检索或执行任务。</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section understanding-section" id="understanding" aria-labelledby="understanding-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">我们的理解 / 从通信到业务</p><h2 id="understanding-title">底座是房间和消息，<br>业务由 Agent 接着完成。</h2></div><p>频道管理成员，Relay 验证、保存并推送消息。人通过客户端参与；Agent 通过接入进程检查触发条件，再调用模型与工具。这里归纳的是固定源码的架构，业务示例尚未实测。</p></div>
+        <div class="understanding-layers">
+          <article><span>01 / 通信底座</span><h3>消息如何送达</h3><p>房间管理、独立身份、成员权限、消息存储与订阅推送。</p><strong>谁能看？谁能发？发到哪里？</strong></article>
+          <article><span>02 / Agent 接入</span><h3>是否需要响应</h3><p>检查发送者授权、订阅与 @提及，管理会话、队列和执行进程。</p><strong>回应谁？用什么上下文？何时执行？</strong></article>
+          <article><span>03 / 业务执行</span><h3>实际完成任务</h3><p>模型理解请求，结合角色指令调用工具，访问获授权的业务系统。</p><strong>查什么数据？执行什么操作？</strong></article>
+        </div>
+        <div class="message-route" aria-labelledby="message-route-title">
+          <h3 id="message-route-title">同一条消息，如何到达不同参与者？</h3>
+          <div class="message-route-grid">
+            <div class="route-sender"><span>发送方</span><strong>人或 Agent</strong><p>用自己的身份签名<br>指定频道与成员引用</p></div>
+            <span class="route-arrow" aria-hidden="true">→</span>
+            <div class="route-relay"><span>服务端</span><strong>Buzz Relay</strong><p>验签与权限检查<br>存储 → 向符合条件的订阅者推送</p></div>
+            <span class="route-arrow" aria-hidden="true">→</span>
+            <ul class="route-receivers"><li><strong>人的客户端</strong><span>显示消息，等待人操作</span></li><li><strong>Agent A 接入进程</strong><span>自己的授权与规则 → A 的执行器</span></li><li><strong>Agent B 接入进程</strong><span>自己的授权与规则 → B 的执行器</span></li></ul>
+          </div>
+          <p class="route-return">回复也走同一条消息通路：Agent 用自己的身份发回 Relay，再由 Relay 保存、推送到频道。</p>
+        </div>
+        <p class="understanding-key"><strong>能看到消息 ≠ 允许驱动 Agent ≠ 必须响应。</strong> 名称和头像帮助人识别；底层用公钥、签名、频道标记及成员引用确认身份与消息关系。</p>
+        <div class="understanding-example"><div><span>业务示例 · 未在本机执行</span><h3>“@订单助手，为什么还没发货？”</h3><p>假设已经配置模型、订单查询工具和必要授权：</p></div><ol><li><strong>发出消息</strong><span>客户端携带频道、目标身份引用和签名。</span></li><li><strong>验证并推送</strong><span>Relay 检查身份与频道权限。</span></li><li><strong>判断是否响应</strong><span>Agent 检查发送者、提及和订阅条件。</span></li><li><strong>查询并回复</strong><span>模型调用订单工具，以助手身份发回结果。</span></li></ol></div>
+        <div class="understanding-details">
+          <details><summary>底层如何识别“谁对谁说话”？</summary><dl><div><dt>作者公钥 + 签名</dt><dd>标识发送者，并验证事件完整性；同名成员仍是不同身份。</dd></div><div><dt>频道与成员引用</dt><dd><code>h</code> 标记频道，<code>p</code> 引用成员公钥，可用于提及与响应匹配；不是每个 <code>p</code> 都代表手动 @。</dd></div><div><dt>事件与讨论串</dt><dd>事件 ID 标识消息，回复标签关联上下文与话题根消息。</dd></div></dl></details>
+          <details><summary>谁能驱动 Agent？上下文和执行如何受控？</summary><dl><div><dt>发送者授权</dt><dd>固定版本默认采用 owner-only，也认可经过验证的同所有者 Agent；还支持允许名单等策略。私信另有更严格的检查。</dd></div><div><dt>触发规则</dt><dd>按频道、事件类型、是否提及自己及内容条件匹配；可以要求 @，也可以配置其他触发。Relay 推送后仍需经过这些检查。</dd></div><div><dt>会话与队列</dt><dd>默认按频道组织会话，可选讨论串范围；默认排队，提供批处理、执行中状态、超时与取消机制。</dd></div><div><dt>真实权限</dt><dd>频道权限、执行器工具权限和业务接口授权分别生效。写“你是管理员”的提示词不会自动获得权限；会话划分也不等于系统隔离。</dd></div></dl></details>
+          <details><summary>多个 Agent 在同一房间，会自动协作吗？</summary><p>可以通过消息与提及接力，但需要接收方允许发送者、触发规则匹配，并安排工具、任务转交和停止条件。入群本身不会自动形成分工或轮流发言。</p><p>默认忽略自身消息能减少自回复，不能据此保证多个 Agent 不会互相循环触发。消息事件、定时或 Webhook 也可驱动已配置的工作流，能力取决于具体实现。</p></details>
+        </div>
+        <div class="understanding-evidence"><p><strong>已实测</strong>频道、身份权限、签名消息、讨论串与中文操作界面。</p><p><strong>源码已核对</strong>消息校验、作者授权、触发过滤、会话和执行调度。</p><p><strong>尚未实测</strong>模型自动回复、工具执行、多 Agent 接力和真实业务闭环。</p></div>
+        <p class="gallery-provenance">本仓库根据讨论与固定源码整理 · 2026-09-29。源码依据：<a href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/crates/buzz-relay/src/handlers/ingest.rs" target="_blank" rel="noopener noreferrer">消息校验</a>、<a href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/crates/buzz-acp/src/lib.rs" target="_blank" rel="noopener noreferrer">作者授权</a>、<a href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/crates/buzz-acp/src/filter.rs" target="_blank" rel="noopener noreferrer">触发规则</a>、<a href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/crates/buzz-acp/src/scope.rs" target="_blank" rel="noopener noreferrer">会话范围</a>。完整笔记位于子项目 <code>understanding.md</code>。</p>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">01 / THE PRODUCT</p><h2 id="gallery-title">原版界面，看到什么？</h2></div><p>以下四张图直接来自 Buzz 固定版本的 README。选择场景可放大查看；说明只解释截图可见的内容，不把展示数据当成实测结果。</p></div>
+        <div class="gallery-layout">
+          <div class="gallery-main">
+            <a id="full-image-link" class="image-link" href="./assets/channel-thread.png" target="_blank" rel="noopener" aria-label="在新窗口打开当前截图原图"><img id="main-shot" src="./assets/channel-thread.png" width="2000" height="1564" alt="Buzz 官方截图：人类成员与 Agent 在频道中讨论移动端交接计划"></a>
+            <div class="gallery-caption"><div><span id="shot-number">01 / 04</span><h3 id="shot-title">在同一个频道里协作</h3><p id="shot-description">成员提出问题，Agent 在对话中回复具体计划。频道、私信和 Agent 入口同时出现在侧栏。</p></div><a id="source-link" href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/docs/assets/screenshots/channel-thread.png" target="_blank" rel="noopener noreferrer">查看上游原图 ↗</a></div>
+          </div>
+          <div class="shot-list" role="group" aria-label="选择原版截图">
+            <button type="button" class="shot-card is-active" aria-pressed="true" data-src="./assets/channel-thread.png" data-source="channel-thread.png" data-number="01 / 04" data-title="在同一个频道里协作" data-description="成员提出问题，Agent 在对话中回复具体计划。频道、私信和 Agent 入口同时出现在侧栏。" data-alt="Buzz 官方截图：人类成员与 Agent 在频道中讨论移动端交接计划"><img src="./assets/channel-thread.png" width="2000" height="1564" alt="" loading="lazy"><span><small>01 · 频道讨论</small><strong>人 + Agent</strong></span><span class="card-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="shot-card" aria-pressed="false" data-src="./assets/channel-agents.png" data-source="channel-agents.png" data-number="02 / 04" data-title="Agent 参与工程讨论" data-description="工程频道中，多位 Agent 接力回应任务，并附有代码评审入口；人类成员仍参与判断。" data-alt="Buzz 官方截图：工程频道中多位 Agent 与成员讨论 Flutter 改造和代码评审"><img src="./assets/channel-agents.png" width="2000" height="1299" alt="" loading="lazy"><span><small>02 · 工程协作</small><strong>任务接力</strong></span><span class="card-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="shot-card" aria-pressed="false" data-src="./assets/create-channel.png" data-source="create-channel.png" data-number="03 / 04" data-title="查找或创建频道" data-description="添加频道的弹窗展示搜索、已加入和已归档筛选，以及创建新频道的入口。" data-alt="Buzz 官方截图：添加频道弹窗中可搜索、筛选或创建频道"><img src="./assets/create-channel.png" width="2000" height="1299" alt="" loading="lazy"><span><small>03 · 频道管理</small><strong>创建空间</strong></span><span class="card-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="shot-card" aria-pressed="false" data-src="./assets/media-comments.png" data-source="media-comments.png" data-number="04 / 04" data-title="对视频画面留下评论" data-description="媒体预览旁显示评论列表，评论可关联播放时间点。截图体现界面形态，不代表本页能播放原视频。" data-alt="Buzz 官方截图：视频预览旁展示带时间点的评论侧栏"><img src="./assets/media-comments.png" width="2000" height="1299" alt="" loading="lazy"><span><small>04 · 媒体协作</small><strong>逐帧评论</strong></span><span class="card-arrow" aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+        <p class="gallery-provenance">图片来源：<a href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/README.md" target="_blank" rel="noopener noreferrer">Block / Buzz README</a>，固定提交 <code>ebe99a46</code>；原项目采用 <a href="./UPSTREAM-LICENSE.txt">Apache License 2.0</a>。本研究网页的排版和中文说明由本仓库编写。</p>
+      </div>
+    </section>
+
+    <section class="section chinese-section" id="chinese" aria-labelledby="chinese-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">中文修改版 / 本机已运行</p><h2 id="chinese-title">现在，可以用中文操作 Buzz。</h2></div><p>基于固定源码编译的本地研究版本，已验证真实频道与消息。下方均为本机运行截图；这张网页用于说明，实际操作在桌面客户端中进行。</p></div>
+        <a class="local-test-image" href="./assets/zh-channel.png" target="_blank" rel="noopener" aria-label="打开中文频道截图"><img src="./assets/zh-channel.png" width="1440" height="960" loading="lazy" alt="Buzz 中文客户端：私密频道、添加成员与智能体、真实发送的中文消息"></a>
+        <div class="local-test-facts"><p><strong>启动中文版</strong><br>在子项目文件夹双击「启动 Buzz 中文版.cmd」，进入「中文界面体验」频道。</p><p><strong>切换中英文</strong><br>左下角头像 → 设置 → 外观 → 界面语言，选择后保存并重新载入。</p><p><strong>本次范围</strong><br>频道、身份、聊天、智能体配置与常用设置。部分高级操作仍有英文；尚未接入模型。</p></div>
+        <div class="chinese-details">
+          <figure><a class="local-test-image" href="./assets/zh-agent-setup.png" target="_blank" rel="noopener"><img src="./assets/zh-agent-setup.png" width="1440" height="960" loading="lazy" alt="中文版智能体新建表单：名称、简介、指令与 AI 配置"></a><figcaption>智能体：名称、简介、指令与能力配置。截图仅展示表单，未启动模型。</figcaption></figure>
+          <figure><a class="local-test-image" href="./assets/zh-language-settings.png" target="_blank" rel="noopener"><img src="./assets/zh-language-settings.png" width="1440" height="960" loading="lazy" alt="中文版外观设置中的界面语言选择卡片"></a><figcaption>语言设置：支持简体中文 / English，保留原有主题与外观选项。</figcaption></figure>
+        </div>
+        <p class="gallery-provenance">2026-09-29 本仓库从真实中文修改版截取；基于 Block / Buzz <code>ebe99a46</code>，不是官方中文发行版。界面设计沿用上游 Apache-2.0 项目。用户消息、姓名和频道名称按原文保留。修改与测试记录见子项目 <code>localization/README.md</code>。</p>
+      </div>
+    </section>
+
+    <section class="section local-test-section" id="local-test" aria-labelledby="local-test-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">LOCAL VERIFICATION / 2026.09.29</p><h2 id="local-test-title">本机运行后，实际看到了什么？</h2></div><p>Windows 上运行 Buzz relay 与官方桌面客户端，使用两个本地测试身份验证私密频道。这张图是本仓库的真实操作截图，不属于上方四张上游宣传截图。</p></div>
+        <a class="local-test-image" href="./assets/local-private-channel.png" target="_blank" rel="noopener" aria-label="打开本机私密频道实测截图原图"><img src="./assets/local-private-channel.png" width="2561" height="1494" loading="lazy" alt="本机 Buzz 私密频道：Research Demo 与 Demo Agent 两个测试身份交换消息"></a>
+        <div class="local-test-facts"><p><strong>加入前：</strong>第二身份查不到该私密频道；直接指定频道 ID，频道详情为空，消息列表为空。</p><p><strong>加入后：</strong>第二身份以 Bot 角色进入，能读到先前的消息、发送签名回复，并对消息建立讨论串。</p><p><strong>回复来源：</strong>截图中的 Demo Agent 回复由 CLI 手动发送；未配置模型，AI 自动回复尚未验证。</p></div>
+        <p class="gallery-provenance">截图来源：2026-09-29 本仓库在本机运行 Buzz 官方 Windows `0.5.25` 客户端时截取；测试身份和消息内容由本仓库创建。安装与验证步骤记录在子项目的 <code>runtime.md</code>。</p>
+      </div>
+    </section>
+
+    <section class="section effect-section" id="effects" aria-labelledby="effects-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">02 / CAPABILITY MAP</p><h2 id="effects-title">能力按用途分成五组。</h2></div><p>按固定版本 README 的“Works today”清单与源码归纳。频道、身份、消息和讨论串已完成有限本机实测；其他能力按各自证据标注。</p></div>
+        <div class="effect-grid">
+          <article><span class="effect-no">01 / 群聊与话题</span><h3>分频道讨论，逐条回复</h3><p>开放或私密频道、连续群聊、讨论串、Forum 帖子与评论、私信、表情回应和历史搜索。</p><span class="effect-evidence">频道与话题类型可核对</span></article>
+          <article><span class="effect-no">02 / Agent 互动</span><h3>邀请 Agent，直接 @它</h3><p>Agent 作为有身份的成员加入频道，接受提问或任务并回复。接入的 Agent 与工具决定它能做哪些实际工作。</p><span class="effect-evidence">需配置 Agent 进程与权限</span></article>
+          <article><span class="effect-no">03 / 内容协作</span><h3>媒体、画布与检索</h3><p>上传媒体、对视频时间点发表评论，使用画布整理信息，并搜索工作区历史。</p><span class="effect-evidence">媒体评论有官方截图</span></article>
+          <article><span class="effect-no">04 / 开发协作</span><h3>让代码活动留在讨论旁</h3><p>Git 补丁、仓库公告、状态事件和 Git 托管后端是上游列出的能力；完整 Git/CI 流程仍待本机验证。</p><span class="effect-evidence">上游声明与源码可核对</span></article>
+          <article><span class="effect-no">05 / 自动化</span><h3>消息触发流程</h3><p>消息、表情、定时和 Webhook 可以触发 YAML 工作流。审批续跑及两个工作流动作在固定版本还有缺口。</p><span class="effect-evidence">按具体动作判断可用性</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="eyebrow dark">03 / ARCHITECTURE</p><h2 id="how-title">一条事件主线，连接所有角色。</h2></div><p>桌面端、Web、CLI 和 Agent 都连接到 Rust 实现的 relay。Relay 是工作区的单一事实来源，不进行多个 relay 间的点对点复制。</p></div>
+        <div class="flow" aria-label="Buzz 事件流程"><div><span>01</span><strong>人或 Agent</strong><small>各自持有身份密钥</small></div><i aria-hidden="true">→</i><div><span>02</span><strong>签名事件</strong><small>消息、反应、Git、工作流</small></div><i aria-hidden="true">→</i><div><span>03</span><strong>Buzz relay</strong><small>鉴权、验签、频道权限</small></div><i aria-hidden="true">→</i><div><span>04</span><strong>存储与分发</strong><small>Postgres、Redis、媒体存储</small></div></div>
+        <div class="detail-grid"><article><span class="detail-index">01 / 协议层</span><h3>Nostr 签名事件</h3><p>事件带作者公钥、类型、内容、哈希 ID 与签名。不同类型共享同一身份与订阅方式。</p></article><article><span class="detail-index">02 / 服务层</span><h3>Relay 统一协调</h3><p>持久事件写入 PostgreSQL；Redis 处理跨实例推送与在线状态；搜索用 PostgreSQL 全文索引，媒体交给 S3 兼容存储。</p></article><article><span class="detail-index">03 / Agent 层</span><h3>ACP 适配与排队</h3><p>频道中的提及由 <code>buzz-acp</code> 交给 Agent 进程；每个频道的请求排队处理，Agent 以自己的身份回复。</p></article></div>
+        <p class="architecture-note">一条持久消息的关键路径：认证 → 验签与成员权限检查 → 数据库写入 → 订阅推送；审计与工作流触发随后异步执行。</p>
+        <a class="text-link" href="https://github.com/block/buzz/blob/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer">阅读上游架构文档 ↗</a>
+      </div>
+    </section>
+
+    <section class="section product-section" id="product" aria-labelledby="product-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow dark">后续产品方向 / 设计推演</p><h2 id="product-title">定制 Agent，把能力交付到已有平台。</h2></div><p>产品负责配置和运行能办事的 Agent，让客户在自己的群聊、客服、会议或业务系统里使用。Buzz 提供可参考的机制，跨平台交付仍需建设。</p></div>
+      <div class="product-contract"><strong>产品定位</strong><p>为客户定制 Agent 的身份、职责、知识与工具，再接入客户已有的工作场景。</p><span>与“群里加入 AI 客服”的交互形态接近；可复用的价值在于配置、运行、授权与交付管理。</span></div>
+      <div class="detail-grid product-layers">
+        <article><span class="detail-index">01 / 定制后台</span><h3>定义 Agent</h3><p>身份与头像、角色职责、知识来源、模型、工具、触发规则、权限和配置版本。</p></article>
+        <article><span class="detail-index">02 / 统一运行服务</span><h3>执行并管理任务</h3><p>会话上下文、执行队列、业务工具、任务状态、超时重试、审计日志和用量成本。</p></article>
+        <article><span class="detail-index">03 / 平台连接器</span><h3>接收请求，返回结果</h3><p>转换消息格式、识别提及、映射用户与群组、校验平台授权，将答案与状态送回原入口。</p></article>
+      </div>
+      <p class="architecture-note">请求路径：平台消息 / API 请求 → 连接器与授权 → Agent 运行服务 → 模型与业务工具 → 原平台结果。不同客户的身份、知识和上下文需要按授权范围隔离。</p>
+      <div class="product-paths">
+        <article><span class="product-stage">路径 A · 文字接入</span><h3>外部群聊 / 网站客服</h3><p><strong>呈现效果：</strong>客服、订单或项目助手作为机器人成员接收提及，查询业务系统并回复，必要时转人工。</p><p><strong>需要新增：</strong>平台接口、群与用户映射、消息适配、业务授权、人工接管。</p><p class="product-boundary">当前只实测 Buzz 自身频道与身份，外部平台未接入。</p></article>
+        <article><span class="product-stage">路径 B · 实时交互</span><h3>语音 / 视频会议成员</h3><p><strong>呈现效果：</strong>在获授权会议中听取讨论、回答问题、生成纪要和行动项，再跟进任务。</p><p><strong>需要新增：</strong>音视频接口、转写、说话人识别、语音合成、发言与打断控制、会议授权。</p><p class="product-boundary">这是后续设计方向，本次没有验证会议交互链路。</p></article>
+        <article><span class="product-stage">路径 C · 能力服务</span><h3>API / SDK / 嵌入组件</h3><p><strong>呈现效果：</strong>其他网页、App 或后台调用 Agent 的摘要、检索、查询和业务处理能力，不必先使用 Buzz 界面。</p><p><strong>需要新增：</strong>服务契约、鉴权、客户隔离、任务查询回调、配额计费和版本管理。</p><p class="product-boundary">服务接口需设计实现；不能把现有消息 API 当作完整 Agent 服务产品。</p></article>
+      </div>
+      <div class="product-next"><h3>对我的价值：从源码样本，走向可交付的 Agent 服务</h3><p>当前沉淀身份、权限、上下文与执行接入的实现方法；后续可形成行业角色、企业定制、平台接入和持续运营服务。真实需求、交付效果与收费方式仍需客户验证。</p><p><strong>最小验证：</strong>一个可授权接入的文字平台 + 一个具体任务 + 一个模型 + 一个工具，跑通“收到请求 → 执行 → 回传结果 → 人工确认与记录”，再扩展到更多平台或音视频。</p></div>
+      <p class="gallery-provenance">本节为本仓库结合讨论提出的产品设计方向，不是上游已完成能力清单。接入具体平台时需要核对其接口、权限和可用能力；完整整理见 <code>understanding.md</code>。</p>
+    </div></section>
+
+    <section class="section scenarios-section" id="scenarios" aria-labelledby="scenarios-title"><div class="wrap"><div class="section-heading"><div><p class="eyebrow dark">04 / USE CASES</p><h2 id="scenarios-title">适合在哪些工作里使用？</h2></div><p>这些是根据上游能力和使用故事归纳的适用方向。每个团队仍需验证自己的 Git、Agent 与通知系统接入。</p></div><div class="scenario-grid"><article><span>01</span><h3>开发协作</h3><p>把功能分支、补丁、评审和讨论放在同一频道，保留“为什么这样改”的上下文。</p></article><article><span>02</span><h3>故障排查</h3><p>检索历史讨论与事件，让 Agent 汇总相似故障、处理经过和证据链接。</p></article><article><span>03</span><h3>团队自动化</h3><p>由消息、表情、定时或 Webhook 触发通知与外部调用；需要审批续跑的流程暂不适用。</p></article><article><span>04</span><h3>媒体反馈</h3><p>在视频的具体时间点发表评论，让讨论指向同一画面和修改位置。</p></article></div></div></section>
+
+    <section class="section value-section" id="value" aria-labelledby="value-title"><div class="wrap value-grid"><div><p class="eyebrow">05 / REFERENCE VALUE</p><h2 id="value-title">值得借鉴的，是协作的底座。</h2><p class="value-lede">如果要做自己的 Agent 协作或研发工作台，Buzz 提供了一个具体案例：用身份、频道和事件记录把讨论、执行与证据连成一条线。</p></div><div class="value-list"><article><span>01 / 身份</span><h3>Agent 有独立身份和权限边界</h3><p>把 Agent 加入频道，像管理成员一样管理它能看到和参与的范围。</p></article><article><span>02 / 事件</span><h3>同一记录承载聊天、代码与流程</h3><p>不同事件类型共享签名、检索与追溯路径，减少跨工具拼接上下文的成本。</p></article><article><span>03 / 适配</span><h3>ACP 隔开工作区与 Agent 实现</h3><p>先定义频道里的任务入口，再按需要接不同 Agent 与外部工具。</p></article><div class="value-cost"><strong>采用时的现实成本</strong><p>需运维 relay、PostgreSQL、Redis 与媒体存储。固定版本的审批续跑、两个工作流动作及限流仍有缺口，生产使用需逐项验收。</p></div></div></div></section>
+
+    <section class="section status-section" id="status" aria-labelledby="status-title"><div class="wrap status-grid"><div><p class="eyebrow">06 / EVIDENCE & LIMITS</p><h2 id="status-title">这次展示验证到哪一步？</h2></div><div><p><strong>已完成：</strong>获取固定提交源码、运行原版 relay 与官方桌面客户端；实测私密频道的创建和可见范围、两种身份的签名消息及讨论串。</p><p><strong>尚未完成：</strong>没有配置模型或 ACP Agent，自动回复、工具执行未验证；Git、媒体、Forum 和工作流也未端到端测试。Relay 启动有数据库分区错误日志，长期运行仍需排查。</p><div class="status-actions"><a href="https://github.com/block/buzz/tree/ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43" target="_blank" rel="noopener noreferrer">固定版本源码 ↗</a><a href="#local-test">查看本机截图 ↑</a></div></div></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>BUZZ · PROJECT 012</span><span>上游截图与本机实测 · 2026.09.29</span><a href="#top">返回顶部 ↑</a></div></footer>
+</body>
+</html>

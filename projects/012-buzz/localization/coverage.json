@@ -1,0 +1,1394 @@
+{
+  "upstreamCommit": "ebe99a46e8802b9ff20fdf6a1028ce93bdefaa43",
+  "translatedStrings": 863,
+  "files": [
+    {
+      "file": "src/app/AppTopChrome.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/admin-console/AdminConsoleFeedbackTab.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/admin-console/AdminConsolePanelHelpers.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/admin-console/AdminConsoleReportsTab.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/admin-console/AdminConsoleSettingsCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/admin-console/AdminConsoleStaffingTab.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/agent-memory/ui/MemorySection.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AddAgentToChannelDialog.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/agents/ui/AddCustomHarnessDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/AddTeamToChannelDialog.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/agents/ui/AgentAiConfigurationMode.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/agents/ui/AgentAiDefaults.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/agents/ui/AgentCardMintDialog.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/agents/ui/AgentCardViewerDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/agentConfigControls.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AgentConfigFields.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/agents/ui/AgentConfigPanel.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/agents/ui/AgentCreationPreview.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/agents/ui/AgentDefaultsDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AgentDefaultsEditor.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AgentDefinitionDialog.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/agents/ui/AgentDefinitionDialogFooter.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AgentDefinitionMetadata.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/AgentDescriptionField.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/agents/ui/AgentInstanceEditDialog.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/agents/ui/AgentManagementDialogs.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/agentSessionToolCatalog.ts",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AgentSessionToolItem/SentMessageContextDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/AgentSessionToolItem/ToolDetailBlocks.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/agentSessionTranscriptHelpers.ts",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/agents/ui/AgentSnapshotExportDialog.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/agents/ui/AgentSnapshotImportDialog.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/agents/ui/AgentsView.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/agents/ui/CommunityCatalogDialog.tsx",
+      "replacements": 11
+    },
+    {
+      "file": "src/features/agents/ui/EditAgentAdvancedFields.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/EditAgentProviderModelFields.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/agents/ui/EffortPickerField.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/HarnessCatalogRetryNotice.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/ManagedAgentLogPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/ManagedAgentRow.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/ManagedAgentSessionPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/ModelPicker.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/agents/ui/PersonaActionsMenu.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/agents/ui/PersonaAdvancedFields.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/PersonaDeleteDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/personaDialogState.ts",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/agents/ui/PersonaModelField.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/agents/ui/PersonaShareDialog.tsx",
+      "replacements": 12
+    },
+    {
+      "file": "src/features/agents/ui/PersonaShareRecipients.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/RemoveMembersConfirmDialog.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/agents/ui/RespondToField.tsx",
+      "replacements": 20
+    },
+    {
+      "file": "src/features/agents/ui/RestartDiffBadge.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/RunOnSummarySection.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/TeamDeleteDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/TeamDialog.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/agents/ui/TeamSnapshotExportDialog.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/agents/ui/TeamSnapshotImportDialog.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/agents/ui/TeamsSection.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/agents/ui/useTeamActions.ts",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/WhereToRunSection.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/channels/ui/AddChannelBotDialog.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/channels/ui/AddChannelBotGenericSection.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/channels/ui/AddChannelBotPersonasSection.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/channels/ui/AddChannelBotReuseGuard.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/channels/ui/AddChannelBotTeamsSection.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/channels/ui/AddMemberSearchResultRow.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/channels/ui/AgentSessionThreadPanel.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/channels/ui/BotActivityBar.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/channels/ui/CanvasHistoryPanel.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/channels/ui/ChannelBrowserDialog.tsx",
+      "replacements": 22
+    },
+    {
+      "file": "src/features/channels/ui/ChannelCanvas.tsx",
+      "replacements": 11
+    },
+    {
+      "file": "src/features/channels/ui/ChannelManagementModerationActions.tsx",
+      "replacements": 16
+    },
+    {
+      "file": "src/features/channels/ui/ChannelManagementSheet.tsx",
+      "replacements": 30
+    },
+    {
+      "file": "src/features/channels/ui/ChannelManagementSheetRows.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/channels/ui/ChannelMemberAvatarStack.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/channels/ui/ChannelMemberInviteCard.tsx",
+      "replacements": 14
+    },
+    {
+      "file": "src/features/channels/ui/ChannelMembersBar.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/channels/ui/ChannelPane.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/channels/ui/ChannelPermissionsSettings.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/channels/ui/ChannelScreenEmptyState.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/channels/ui/ChannelScreenHeader.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/channels/ui/ChannelTypePicker.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/channels/ui/ChannelTypeSettings.tsx",
+      "replacements": 17
+    },
+    {
+      "file": "src/features/channels/ui/ChannelWorkflowsSection.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/channels/ui/EditRespondToDialog.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/channels/ui/FocusThreadDrawer.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/channels/ui/ForumChannelContent.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/channels/ui/MembersSidebar.tsx",
+      "replacements": 14
+    },
+    {
+      "file": "src/features/channels/ui/MembersSidebarAgentControls.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/channels/ui/MembersSidebarMemberCard.tsx",
+      "replacements": 11
+    },
+    {
+      "file": "src/features/channels/ui/QuickBotBar.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/channels/ui/RightAuxiliaryPane.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/channels/ui/ThreadViewModeToggle.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/channels/ui/useChannelIntro.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/channels/ui/useRoutedMessageEdit.ts",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/channels/ui/WelcomeAgentCreateDialog.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/channels/ui/WelcomeComposerBanner.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/chat/ui/ChatHeader.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/communities/ui/CommunityApplyErrorScreen.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/communities/ui/CommunityChangeOverlay.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/communities/ui/CommunityEditForm.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/communities/ui/CommunitySwitcher.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/communities/ui/EditCommunityDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/communities/ui/HostedCommunityCreateFlow.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/communities/ui/HostedCommunityOnboarding.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/communities/ui/WelcomeSetup.tsx",
+      "replacements": 20
+    },
+    {
+      "file": "src/features/community-members/ui/AddMemberDialog.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/community-members/ui/CommunityInviteDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/community-members/ui/CommunityMembersCard.tsx",
+      "replacements": 11
+    },
+    {
+      "file": "src/features/community-members/ui/CommunityMembersSettingsCard.tsx",
+      "replacements": 13
+    },
+    {
+      "file": "src/features/community-members/ui/ConfirmRemoveDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/community-members/ui/InviteLinkSection.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/custom-emoji/ui/CustomEmojiSettingsCard.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/forum/ui/DeleteActionMenu.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/forum/ui/DeleteConfirmDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/forum/ui/ForumComposer.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/gifs/ui/KlipyGifPicker.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/home/ui/FeedSection.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/home/ui/HomeView.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/home/ui/InboxDetailPane.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/home/ui/InboxFilterMenu.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/home/ui/InboxListPane.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/home/ui/ProjectInboxDetail.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/huddle/components/AddAgentDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/huddle/components/AgentVoiceMenu.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/huddle/components/HuddleAttachment.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/huddle/components/HuddleBar.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/huddle/components/HuddleIndicator.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/huddle/components/HuddleProfileControl.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/huddle/components/ParticipantList.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/local-archive/ui/LocalArchiveSettingsCard.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/mesh-compute/ui/MeshComputeSettingsCard.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/messages/lib/useLinkEditor.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/messages/ui/AudioMessageAttachment.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/ComposerAttachments.tsx",
+      "replacements": 12
+    },
+    {
+      "file": "src/features/messages/ui/ComposerEmojiPicker.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/messages/ui/ComposerImageEditor.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/messages/ui/DeleteMessageConfirmDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/messages/ui/DiffMessageExpanded.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/DraftDetailPane.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/messages/ui/DraftsPanel.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/messages/ui/MentionAutocomplete.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/messages/ui/MessageActionBar.tsx",
+      "replacements": 15
+    },
+    {
+      "file": "src/features/messages/ui/MessageComposerToolbar.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/messages/ui/MessageReactions.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/MessageRow.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/MessageThreadPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/MessageThreadPanelSkeleton.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/messages/ui/MessageThreadReplyState.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/MessageTimeline.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/MessageTimelineErrorCard.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/NewMessageResultRow.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/NewMessageScreen.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/messages/ui/NonMemberMentionDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/UnreadDivider.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/useComposerLinkPreviews.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/moderation/ui/MessageModerationMenuItems.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/moderation/ui/ReportMessageDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/onboarding/ui/AvatarStep.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/onboarding/ui/BackupStep.tsx",
+      "replacements": 17
+    },
+    {
+      "file": "src/features/onboarding/ui/BackupTestFlow.tsx",
+      "replacements": 12
+    },
+    {
+      "file": "src/features/onboarding/ui/CommunityOnboardingFlow.tsx",
+      "replacements": 21
+    },
+    {
+      "file": "src/features/onboarding/ui/ConnectionMethodSection.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/onboarding/ui/DefaultConfigStep.tsx",
+      "replacements": 13
+    },
+    {
+      "file": "src/features/onboarding/ui/DownloadKeyStep.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/onboarding/ui/EncryptedBackupCreator.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/onboarding/ui/IdentityKeyHelpDialog.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/onboarding/ui/IdentityKeyIntroduction.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/onboarding/ui/IdentityRecoveryPairing.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/onboarding/ui/InviteRedeemForm.tsx",
+      "replacements": 14
+    },
+    {
+      "file": "src/features/onboarding/ui/MachineOnboardingFlow.tsx",
+      "replacements": 19
+    },
+    {
+      "file": "src/features/onboarding/ui/MembershipDenied.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/onboarding/ui/NostrKeyImportForm.tsx",
+      "replacements": 22
+    },
+    {
+      "file": "src/features/onboarding/ui/NsecMaskedDisplay.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/onboarding/ui/OnboardingFlow.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/onboarding/ui/OnboardingFooter.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/onboarding/ui/PendingInviteGate.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/onboarding/ui/ProfileStep.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/onboarding/ui/SetupStep.tsx",
+      "replacements": 41
+    },
+    {
+      "file": "src/features/profile/ui/ArchiveConfirmDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/profile/ui/AvatarUpload.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/profile/ui/NostrBindConsentDialog.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/profile/ui/ProfileAvatarEditor.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/profile/ui/ProfileInstancesSection.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/profile/ui/ProfilePopover.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/profile/ui/SelectedRecipientChip.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/profile/ui/UserProfileAgentActions.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/profile/ui/UserProfileAgentManagementRows.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePanelAgentDetails.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePanelFields.tsx",
+      "replacements": 17
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePanelHeaderContent.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePanelSections.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePanelTabs.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePersonaDialogs.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePopover.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePrimaryActions.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/AddProjectRepositoryDialog.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/projects/ui/CreateProjectFormContent.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/projects/ui/CreateProjectFormSettings.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/projects/ui/CreateProjectWorkItemDialog.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/IssueAssigneesRow.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/MergePullRequestButton.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectAgentChatPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectBranchDialogs.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/projects/ui/ProjectCards.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/projects/ui/ProjectChannelRequestDialog.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/projects/ui/ProjectCommitDetailPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectConversationPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectDetailChrome.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/ProjectDetailUnavailableState.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectEntityListRow.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectHomeContextPanel.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/projects/ui/ProjectIssuesPanel.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/ProjectPullRequestsPanel.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/ProjectRepositoryActionsPanel.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/projects/ui/ProjectRepositoryManagement.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectRepositorySource.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/projects/ui/ProjectRepositoryUnavailableState.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsCategoryCreateDialogs.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsIssuesList.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsListHeaderBar.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/projectsOverviewContext.ts",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsPullRequestsList.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsToolbar.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsView.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsWorkItemsLoadNotice.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsWorkItemTable.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/projects/ui/ProjectWorkItemContextDetails.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/projects/ui/ProjectWorkItemRow.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectWorkspaceTabList.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/ProjectWorkspaceTabs.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/PullRequestMetaRail.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/PullRequestReviewCard.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/PullRequestReviewersRow.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/projects/ui/UnavailableProjectRepositories.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/pulse/ui/AgentActivityCard.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/pulse/ui/NoteCard.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/pulse/ui/PulseTabBar.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/reminders/ui/RemindersPanel.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/reminders/ui/RemindMeLaterDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/search/ui/SearchResultItem.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/search/ui/SearchScopeControls.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/search/ui/TopbarSearch.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/settings/EncryptedBackupProvider.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/settings/ui/AgentDefaultsSettingsCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/settings/ui/AgentsSettingsPanel.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/settings/ui/AppearanceSettingsControls.tsx",
+      "replacements": 35
+    },
+    {
+      "file": "src/features/settings/ui/BackupTestFlow.tsx",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/settings/ui/ChannelTemplatesSettingsCard.tsx",
+      "replacements": 25
+    },
+    {
+      "file": "src/features/settings/ui/CustomHarnessForm.tsx",
+      "replacements": 14
+    },
+    {
+      "file": "src/features/settings/ui/EncryptedBackupCreator.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/settings/ui/ExperimentalFeaturesCard.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/settings/ui/HarnessCatalogDialog.tsx",
+      "replacements": 20
+    },
+    {
+      "file": "src/features/settings/ui/harnessCatalogLogic.ts",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/settings/ui/HarnessesSettingsPanel.tsx",
+      "replacements": 12
+    },
+    {
+      "file": "src/features/settings/ui/HarnessRow.tsx",
+      "replacements": 13
+    },
+    {
+      "file": "src/features/settings/ui/HostedCommunitiesSettingsCard.tsx",
+      "replacements": 11
+    },
+    {
+      "file": "src/features/settings/ui/KeyboardShortcutsCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/settings/ui/MobilePairingCard.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/settings/ui/NotificationSettingsCard.tsx",
+      "replacements": 16
+    },
+    {
+      "file": "src/features/settings/ui/PreventSleepSettingsCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/settings/ui/PrivateKeyBackupRow.tsx",
+      "replacements": 9
+    },
+    {
+      "file": "src/features/settings/ui/ProfileSettingsCard.tsx",
+      "replacements": 30
+    },
+    {
+      "file": "src/features/settings/ui/SendFeedbackDialog.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/settings/ui/SettingsPanels.tsx",
+      "replacements": 30
+    },
+    {
+      "file": "src/features/settings/ui/SettingsView.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/settings/ui/SignOutSection.tsx",
+      "replacements": 17
+    },
+    {
+      "file": "src/features/settings/ui/VoiceSettingsCard.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/settings/UpdateChecker.tsx",
+      "replacements": 12
+    },
+    {
+      "file": "src/features/settings/UpdateIndicator.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/sidebar/ui/AppSidebar.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/sidebar/ui/AppSidebarPinnedHeader.tsx",
+      "replacements": 10
+    },
+    {
+      "file": "src/features/sidebar/ui/ChannelActivityPopover.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/sidebar/ui/ChannelContextMenu.tsx",
+      "replacements": 17
+    },
+    {
+      "file": "src/features/sidebar/ui/ChannelSectionDialogs.tsx",
+      "replacements": 17
+    },
+    {
+      "file": "src/features/sidebar/ui/CommunityRail.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/sidebar/ui/CreateChannelDialog.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/sidebar/ui/CreateChannelFormFields.tsx",
+      "replacements": 13
+    },
+    {
+      "file": "src/features/sidebar/ui/CustomChannelSection.tsx",
+      "replacements": 15
+    },
+    {
+      "file": "src/features/sidebar/ui/SidebarProfileCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/sidebar/ui/SidebarProjectsSection.tsx",
+      "replacements": 12
+    },
+    {
+      "file": "src/features/sidebar/ui/SidebarRelayConnectionCard.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/sidebar/ui/SidebarSection.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowActionsMenu.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/workflows/ui/workflowConditionExpression.ts",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowDeleteDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowDetailPanel.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowDialog.tsx",
+      "replacements": 5
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowFormBuilder.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowMessageTextConditionEditor.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowRunTrace.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowStepCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowsView.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowTriggerConditions.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowUnavailableDialog.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/workflows/ui/WorkflowWebhookSecretDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/protectedFeatures/bestie/BestiePopover.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/protectedFeatures/bestie/BestieProfileSection.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/shared/layout/AuxiliaryPanelShell.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/shared/ui/compact-link-preview-attachment.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/shared/ui/dialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/HoverCopyIndicator.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/link-preview-controls.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/shared/ui/link-preview-list.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/shared/ui/markdown/AgentSnapshotCard.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/shared/ui/markdown/BuzzLinkChip.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/markdown/ExternalLinkAnchor.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/markdown/imageActions.ts",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/PubKey.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/rich-link-preview-attachment.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/shared/ui/sheet.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/sidebar.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/shared/ui/useVideoContextMenu.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/VideoPlayer.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/agentConfigOptions.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/AgentStatusBadge.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/CopyButton.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/communities/ui/AddCommunityDialog.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/forum/ui/ForumComposerCompactLayout.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/forum/ui/ForumPostCard.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/forum/ui/ForumThreadPanel.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/messages/ui/ComposerAddressControls.tsx",
+      "replacements": 7
+    },
+    {
+      "file": "src/features/messages/ui/MessageAgentOwner.tsx",
+      "replacements": 3
+    },
+    {
+      "file": "src/features/messages/ui/MessageComposer.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/MessageThreadSummaryRow.tsx",
+      "replacements": 6
+    },
+    {
+      "file": "src/features/messages/ui/SystemMessageRow.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/messages/ui/WaveMessageAttachment.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/onboarding/ui/KeyringLockedScreen.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/onboarding/ui/RecoveryScreen.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/onboarding/ui/RelaunchRequiredScreen.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/profile/ui/AnimatedAvatarReviewNav.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectAuthorIdentity.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectChannelManagement.tsx",
+      "replacements": 4
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsChannelsList.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/markdown/InlineEmojiPopover.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/lib/keyboard-shortcuts.ts",
+      "replacements": 8
+    },
+    {
+      "file": "src/features/agents/ui/AcpCommandField.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/acpCommandPicker.ts",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/AgentHarnessField.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/AgentRuntimeAvatarControl.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/agents/ui/TeamIdentityCard.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/usePersonaModelDiscovery.ts",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/home/ui/RecentNotesSection.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/agents/ui/McpServersSection.tsx",
+      "replacements": 2
+    },
+    {
+      "file": "src/features/profile/ui/UserProfilePanelFocusedViews.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/features/projects/ui/ProjectsAgentPromptPage.tsx",
+      "replacements": 1
+    },
+    {
+      "file": "src/shared/ui/config-nudge-attachment.tsx",
+      "replacements": 1
+    }
+  ]
+}

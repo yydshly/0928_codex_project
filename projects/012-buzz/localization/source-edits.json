@@ -1,0 +1,78 @@
+[
+  {
+    "file": "src/features/agents/ui/PersonaShareDialog.tsx",
+    "edits": [["const itemLabelTitle = snapshotKind === \"team\" ? \"Team\" : uiText(\"Agent\");", "const itemLabelTitle = snapshotKind === \"team\" ? \"Team\" : \"Agent\";"]]
+  },
+  {
+    "file": "src/features/channels/lib/memberUtils.ts",
+    "edits": [["return \"You\";", "return uiText(\"You\");"]]
+  },
+  {
+    "file": "src/features/channels/ui/MembersSidebarMemberCard.tsx",
+    "edits": [["{roleLabel}", "{roleLabel ? uiText(roleLabel) : null}"]]
+  },
+  {
+    "file": "src/features/agents/ui/AgentRuntimeAvatarControl.tsx",
+    "edits": [["const actionText = isRestartAction ? \"Restart\" : \"Start\";", "const actionText = uiText(isRestartAction ? \"Restart\" : \"Start\");"]]
+  },
+  {
+    "file": "src/features/agents/lib/agentCardModelLabel.ts",
+    "edits": [["\"Default model\";", "uiText(\"Default model\");"], ["`Default model (${resolveModelLabel(model, undefined, provider)})`", "uiText(\"Default model ({0})\", [resolveModelLabel(model, undefined, provider)])"]]
+  },
+  {
+    "file": "src/features/agents/lib/formatAgentModelLabel.ts",
+    "edits": [["if (!trimmed) return \"Auto\";", "if (!trimmed) return uiText(\"Auto\");"]]
+  },
+  {
+    "file": "src/features/messages/ui/ChannelIntroBlock.tsx",
+    "edits": [["This is the beginning of the{\" \"}\n          <span className=\"font-medium text-foreground\">\n            {intro.channelKindLabel}\n          </span>\n          .", "{uiText(\"This is the beginning of the {0}.\", [uiText(intro.channelKindLabel)])}"]]
+  },
+  {
+    "file": "src/features/sidebar/lib/useCreateChannelForm.ts",
+    "edits": [["const kindLabel = channelKind === \"forum\" ? \"forum\" : \"channel\";", "const kindLabel = uiText(channelKind === \"forum\" ? \"forum\" : \"channel\");"]]
+  },
+  {
+    "file": "src/features/messages/ui/SystemMessageRow.tsx",
+    "edits": [
+      ["action: \"created this channel\",", "action: uiText(\"created this channel\"),"],
+      ["action: \"archived this channel\",", "action: uiText(\"archived this channel\"),"],
+      ["action: \"unarchived this channel\",", "action: uiText(\"unarchived this channel\"),"]
+    ]
+  },
+  {
+    "file": "src/features/messages/lib/systemEventCopy.ts",
+    "edits": [
+      ["return isCurrentUser ? \"were added by\" : \"added by\";", "return uiText(isCurrentUser ? \"were added by\" : \"added by\");"],
+      ["return isCurrentUser ? \"were added\" : \"was added\";", "return uiText(isCurrentUser ? \"were added\" : \"was added\");"],
+      ["return isSelf ? \"you\" : label;", "return isSelf ? uiText(\"you\") : label;"],
+      ["return `cleared the ${field}`;", "return uiText(\"cleared the {0}\", [uiText(field)]);"],
+      ["return `changed the ${field} to ${OPEN_QUOTE}${trimmed}${CLOSE_QUOTE}`;", "return uiText(\"changed the {0} to {1}{2}{3}\", [uiText(field), OPEN_QUOTE, trimmed, CLOSE_QUOTE]);"]
+    ]
+  },
+  {
+    "file": "src/features/profile/lib/identity.ts",
+    "edits": [["return \"You\";", "return uiText(\"You\");"], ["return \"you\";", "return uiText(\"you\");"]]
+  },
+  {
+    "file": "src/shared/lib/datetime.ts",
+    "imports": ["import { getUiLanguage } from \"@/shared/i18n/uiText\";"],
+    "edits": [
+      ["new Intl.DateTimeFormat(\"en-US\",", "new Intl.DateTimeFormat(getUiLanguage() === \"en\" ? \"en-US\" : \"zh-CN\","],
+      ["  \"en-US\",\n  {", "  getUiLanguage() === \"en\" ? \"en-US\" : \"zh-CN\",\n  {"],
+      ["return \"Today\";", "return uiText(\"Today\");"],
+      ["return \"Yesterday\";", "return uiText(\"Yesterday\");"],
+      ["dayLabel = \"Yesterday\";", "dayLabel = uiText(\"Yesterday\");"],
+      ["return withTime ? `${dayLabel} at ${time}` : dayLabel;", "return withTime ? uiText(\"{0} at {1}\", [dayLabel, time]) : dayLabel;"]
+    ]
+  },
+  {
+    "file": "src/features/messages/lib/dateFormatters.ts",
+    "imports": ["import { getUiLanguage } from \"@/shared/i18n/uiText\";"],
+    "edits": [
+      ["new Intl.DateTimeFormat(\"en-US\",", "new Intl.DateTimeFormat(getUiLanguage() === \"en\" ? \"en-US\" : \"zh-CN\","],
+      ["return \"just now\";", "return uiText(\"just now\");"],
+      ["return `on ${formatShortMonthDay(unixSeconds)}`;", "return uiText(\"on {0}\", [formatShortMonthDay(unixSeconds)]);"],
+      ["return `${value} ${unit}${value === 1 ? \"\" : \"s\"} ago`;", "return uiText(\"{0} {1}{2} ago\", [value, uiText(unit), value === 1 ? \"\" : \"s\"]);"]
+    ]
+  }
+]
