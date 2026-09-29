@@ -31,7 +31,7 @@
 | 009 | [Jev Ultrafast 快速网页智能体研究](projects/009-jev-ultrafast/README.md) | 网页操作智能体：库读取 DOM 并编号，Jev 选择操作与目标，程序复核执行，输入时另请文本模型写字段值。适合搜索、筛选和表单流程；价值在于缩短决策与页面读取路径，为自己的网页自动化工具积累实现方法。 | [browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast) | [在线研究网页](https://yydshly.github.io/0928_codex_project/009-jev-ultrafast/) | 已发布并验证；上游未本机运行；性能未独立复测 |
 | 010 | [AntV Infographic 能力与可扩展架构研究](projects/010-antv-infographic/README.md) | 把结构化内容转换为图表或信息图：按表达类型选择模板，填入数据后由组件与布局程序绘制。用于研究配图、流程说明、方案对比和报告，减少重复排版；作为个人按需绘图工具，后期研究其架构，用于可插拔产品设计及相关产品方案。 | [antvis/Infographic](https://github.com/antvis/Infographic) | [在线研究网页](https://yydshly.github.io/0928_codex_project/010-antv-infographic/) | 已发布；线上七类渲染已核验；本机交互与导出已验证；架构实验与产品方案待探索 |
 | 011 | [vphone-aio：Mac 虚拟 iPhone 启动整合包](projects/011-vphone-aio/README.md) | 面向 Apple 芯片 Mac 的虚拟 iPhone 整合包；脚本下载缺失分片、解压预制环境、启动上游 vphone-cli，并提供 VNC/SSH 连接。作为脚本化交付案例简要收录。 | [34306/vphone-aio](https://github.com/34306/vphone-aio) | 暂无 | 已完成简要整理；原版未运行；暂不深入 |
-| 012 | [Buzz：Agent 身份与协作接入研究](projects/012-buzz/README.md) | 自建协作平台：定制 Agent 身份与职责加入频道，relay 验签、鉴权、存储并推送消息，接入进程按规则调用模型与工具。适用于项目、研发和业务协作；已实测频道与身份，后续探索把定制 Agent 接入外部群聊、会议或作为 API 能力交付。 | [block/buzz](https://github.com/block/buzz) | [本地研究页](projects/012-buzz/web/index.html)；待发布验证 | 原版与中文修改版已运行；模型和跨平台执行待验证 |
+| 012 | [Buzz：Agent 身份与协作接入研究](projects/012-buzz/README.md) | 自建协作平台：定制 Agent 身份与职责加入频道，relay 验签、鉴权、存储并推送消息，接入进程按规则调用模型与工具。适用于项目、研发和业务协作；已实测频道与身份，后续探索把定制 Agent 接入外部群聊、会议或作为 API 能力交付。 | [block/buzz](https://github.com/block/buzz) | [在线研究网页](https://yydshly.github.io/0928_codex_project/012-buzz/) | 已发布并验证；原版与中文版已运行；模型和跨平台执行待验证 |
 
 ### 001 · Storm-Breaker
 
@@ -266,6 +266,8 @@ UI README 声称 MIT，但固定提交根目录未见独立 LICENSE；复用前�
 **能力与原理**：Buzz 是供人和 Agent 共同使用的自建工作区。频道、私信、媒体、Git 事件和工作流以签名事件进入 relay；relay 负责身份与成员权限验证、存储、订阅推送、搜索及审计。Agent 通过自己的身份参与频道工作。
 
 **理解汇总**：通信底座是房间管理、身份权限、消息存储与服务端订阅推送；Agent 接入层判断是否响应并调度执行，模型和工具承担业务。多个 Agent 入群后，任务分工仍需配置。详见[我们的理解与源码依据](projects/012-buzz/understanding.md)。
+
+**在线研究页**：[打开 Buzz 能力与产品方向](https://yydshly.github.io/0928_codex_project/012-buzz/)，部署在 `/0928_codex_project/012-buzz/`；已核验引导图、图片、交互和手机布局。此站点提供研究说明，本机 Buzz 服务未公开部署。
 
 **后期产品方向**：产品负责定制 Agent 身份、职责、知识、模型和工具，通过统一运行服务与平台连接器接入外部群聊或客服；也可探索会议中的语音视频交互，或以 API / SDK 向其他系统提供能力。它们需要额外的平台授权、身份映射、客户隔离、音视频和运营能力，当前未实测。对我们的价值是沉淀可复用的 Agent 定制与交付架构。
 

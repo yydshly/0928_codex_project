@@ -15,7 +15,7 @@
 | 原版运行 | 本机已启动从固定源码编译的 relay 与官方 `0.5.25` Windows 桌面版；[运行与实测记录](runtime.md) |
 | 中文版 | 已从源码编译本地中文修改版，支持中英文切换；[启动和使用说明](localization/README.md) |
 | 效果展示 | [打开本地展示页](web/index.html)；上游、原版实测与中文版截图分别标注 |
-| 在线研究页 | 正在准备发布；网页展示研究与真实截图，Buzz 运行服务仍在本机 |
+| 在线研究页 | [已发布并验证](https://yydshly.github.io/0928_codex_project/012-buzz/)；研究页与截图公开，Buzz 运行服务仍在本机 |
 | 研究记录 | [research.md](research.md) |
 
 ## 一张图完整理解
